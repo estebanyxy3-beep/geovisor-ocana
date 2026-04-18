@@ -26,11 +26,79 @@ window.addEventListener('load', function () {
   let riesgoLayer = null;
   let riesgoCargado = false;
 
+  function obtenerValorAmenaza(props) {
+    const posiblesCampos = [
+      'nivel', 'NIVEL',
+      'amenaza', 'AMENAZA',
+      'clase', 'CLASE',
+      'CLASIFICA', 'clasifica',
+      'tipo', 'TIPO',
+      'zona', 'ZONA',
+      'riesgo', 'RIESGO',
+      'gridcode', 'GRIDCODE',
+      'id', 'ID'
+    ];
+
+    for (const campo of posiblesCampos) {
+      if (props[campo] !== undefined && props[campo] !== null && props[campo] !== '') {
+        return props[campo];
+      }
+    }
+
+    return '';
+  }
+
+  function obtenerEstiloRiesgo(feature) {
+    const props = feature.properties || {};
+    const valorOriginal = obtenerValorAmenaza(props);
+    const valorTexto = String(valorOriginal).trim().toLowerCase();
+
+    let fillColor = '#d9d9d9';
+    let borderColor = '#666666';
+
+    if (valorTexto.includes('alta') || valorTexto === '3' || valorTexto === 'alto') {
+      fillColor = '#ff0000';
+      borderColor = '#990000';
+    } else if (valorTexto.includes('media') || valorTexto === '2' || valorTexto === 'medio') {
+      fillColor = '#ffff00';
+      borderColor = '#999900';
+    } else if (valorTexto.includes('baja') || valorTexto === '1' || valorTexto === 'bajo') {
+      fillColor = '#00aa00';
+      borderColor = '#006400';
+    }
+
+    return {
+      color: borderColor,
+      weight: 2,
+      fillColor: fillColor,
+      fillOpacity: 0.45
+    };
+  }
+
+  function construirPopup(props) {
+    const titulo =
+      props.titulo ||
+      props.nombre ||
+      props.NOMBRE ||
+      'Amenaza Avenida Torrencial Urbana';
+
+    let popupHTML = `<strong>${titulo}</strong>`;
+
+    Object.keys(props).forEach((key) => {
+      const value = props[key];
+      if (value !== null && value !== undefined && value !== '') {
+        popupHTML += `<br><strong>${key}:</strong> ${value}`;
+      }
+    });
+
+    return popupHTML;
+  }
+
   async function cargarRiesgo() {
     if (riesgoCargado && riesgoLayer) return;
 
     try {
-      const response = await fetch('https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/refs/heads/main/Amenaza_Avenida_Torrencial_Urbano.json');
+      const response = await fetch('https://cdn.jsdelivr.net/gh/estebanyxy3-beep/geovisor-ocana@main/Amenaza_Avenida_Torrencial_Urbano.json');
 
       if (!response.ok) {
         throw new Error('No se pudo cargar el archivo GeoJSON');
@@ -39,66 +107,14 @@ window.addEventListener('load', function () {
       const riesgoData = await response.json();
 
       riesgoLayer = L.geoJSON(riesgoData, {
-        style: function (feature) {
-          const props = feature.properties || {};
-
-          const nivel = (
-            props.nivel ||
-            props.NIVEL ||
-            props.amenaza ||
-            props.AMENAZA ||
-            props.clase ||
-            props.CLASIFICA ||
-            props.tipo ||
-            props.TIPO ||
-            ''
-          ).toString().trim().toLowerCase();
-
-          let fillColor = '#d9d9d9';
-          let borderColor = '#666666';
-
-          if (nivel.includes('alta')) {
-            fillColor = '#ff0000';
-            borderColor = '#990000';
-          } else if (nivel.includes('media')) {
-            fillColor = '#ffff00';
-            borderColor = '#999900';
-          } else if (nivel.includes('baja')) {
-            fillColor = '#00aa00';
-            borderColor = '#006400';
-          }
-
-          return {
-            color: borderColor,
-            weight: 2,
-            fillColor: fillColor,
-            fillOpacity: 0.45
-          };
-        },
+        style: obtenerEstiloRiesgo,
         onEachFeature: function (feature, layer) {
           const props = feature.properties || {};
-
-          const titulo =
-            props.titulo ||
-            props.nombre ||
-            props.NOMBRE ||
-            'Amenaza Avenida Torrencial Urbana';
-
-          let popupHTML = `<strong>${titulo}</strong>`;
-
-          Object.keys(props).forEach((key) => {
-            const value = props[key];
-            if (value !== null && value !== undefined && value !== '') {
-              popupHTML += `<br><strong>${key}:</strong> ${value}`;
-            }
-          });
-
-          layer.bindPopup(popupHTML);
+          layer.bindPopup(construirPopup(props));
         }
       });
 
       riesgoCargado = true;
-      console.log('Capa de riesgo cargada correctamente');
     } catch (error) {
       console.error('Error cargando la capa de riesgo:', error);
       alert('No se pudo cargar la capa de riesgo. Revisa la URL del archivo.');
@@ -124,31 +140,6 @@ window.addEventListener('load', function () {
         <div class="legend-item"><span class="swatch" style="background:#ff0000;"></span><span>Amenaza alta</span></div>
         <div class="legend-item"><span class="swatch" style="background:#ffff00;"></span><span>Amenaza media</span></div>
         <div class="legend-item"><span class="swatch" style="background:#00aa00;"></span><span>Amenaza baja</span></div>
-      `,
-      pot: `
-        <div class="legend-item"><span class="swatch" style="background:#facc15;"></span><span>Suelo urbano</span></div>
-        <div class="legend-item"><span class="swatch" style="background:#86efac;"></span><span>Suelo rural</span></div>
-        <div class="legend-item"><span class="swatch" style="background:#fdba74;"></span><span>Expansión urbana</span></div>
-        <div class="legend-item"><span class="swatch" style="background:#166534;"></span><span>Protección</span></div>
-      `,
-      pomca: `
-        <div class="legend-item"><span class="swatch" style="background:#166534;"></span><span>Preservación</span></div>
-        <div class="legend-item"><span class="swatch" style="background:#22c55e;"></span><span>Restauración</span></div>
-        <div class="legend-item"><span class="swatch" style="background:#86efac;"></span><span>Uso sostenible</span></div>
-        <div class="legend-item"><span class="swatch" style="background:#a3e635;"></span><span>Uso múltiple</span></div>
-      `,
-      participacion: `
-        <div class="legend-item"><span class="swatch" style="background:#2563eb;"></span><span>JAC</span></div>
-        <div class="legend-item"><span class="swatch" style="background:#7c3aed;"></span><span>Mesa ambiental</span></div>
-        <div class="legend-item"><span class="swatch" style="background:#0f766e;"></span><span>Entidad pública</span></div>
-      `,
-      vial: `
-        <div class="legend-item"><span class="swatch" style="background:#ef4444;"></span><span>Punto crítico</span></div>
-        <div class="legend-item"><span class="swatch" style="background:#fb7185;"></span><span>Densidad media</span></div>
-      `,
-      educativo: `
-        <div class="legend-item"><span class="swatch" style="background:#14b8a6;"></span><span>Ficha didáctica</span></div>
-        <div class="legend-item"><span class="swatch" style="background:#0ea5e9;"></span><span>Glosario</span></div>
       `
     };
 
@@ -164,23 +155,9 @@ window.addEventListener('load', function () {
 
   function showModuleMessage(moduleName, isActive) {
     const zoneInfo = document.getElementById('zoneInfo');
-
-    const moduleNames = {
-      riesgo: 'Riesgo',
-      pot: 'POT y ordenamiento',
-      pomca: 'POMCA',
-      participacion: 'Participación ciudadana',
-      vial: 'Accidentalidad vial',
-      educativo: 'Módulo educativo'
-    };
-
-    const niceName = moduleNames[moduleName] || moduleName;
-
-    if (isActive) {
-      zoneInfo.innerHTML = `Módulo <strong>${niceName}</strong> activado.`;
-    } else {
-      zoneInfo.innerHTML = `Módulo <strong>${niceName}</strong> desactivado.`;
-    }
+    zoneInfo.innerHTML = isActive
+      ? `Módulo <strong>${moduleName}</strong> activado.`
+      : `Módulo <strong>${moduleName}</strong> desactivado.`;
   }
 
   document.querySelectorAll('input[name="baseLayer"]').forEach((radio) => {
@@ -206,24 +183,14 @@ window.addEventListener('load', function () {
             }
           }
 
-          showModuleMessage(moduleName, true);
+          showModuleMessage('Riesgo', true);
         } else {
           if (riesgoLayer && map.hasLayer(riesgoLayer)) {
             map.removeLayer(riesgoLayer);
           }
-
           updateLegend();
-          showModuleMessage(moduleName, false);
+          showModuleMessage('Riesgo', false);
         }
-        return;
-      }
-
-      if (e.target.checked) {
-        updateLegend(moduleName);
-        showModuleMessage(moduleName, true);
-      } else {
-        updateLegend();
-        showModuleMessage(moduleName, false);
       }
     });
   });

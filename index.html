@@ -1,74 +1,90 @@
-<header class="topbar">
-  <div class="brand">
-    <div class="brand-logo">UF</div>
-    <div class="brand-text">
-      <h1>GeoVisor Ocaña</h1>
-      <p>Visor geográfico interactivo para la comunidad de Ocaña</p>
-    </div>
-  </div>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GeoVisor Ocaña</title>
 
-  <div class="search-box">
-    <input type="text" placeholder="Buscar dirección, barrio o punto de interés..." />
-    <button type="button">Buscar</button>
-  </div>
-</header>
-
-<main class="app">
-  <aside class="sidebar">
-    <h2 class="panel-title">Panel de capas</h2>
-    <p class="panel-subtitle">
-      Activa o desactiva módulos temáticos del geovisor.
-    </p>
-
-    <section class="base-group">
-      <h3>Mapas base</h3>
-      <label class="control-item">
-        <input type="radio" name="baseLayer" value="osm" checked />
-        OpenStreetMap
-      </label>
-      <label class="control-item">
-        <input type="radio" name="baseLayer" value="satellite" />
-        Esri Satellite
-      </label>
-    </section>
-
-    <section class="module-group">
-      <h3>Módulos temáticos</h3>
-      <label class="control-item"><input type="checkbox" class="module-toggle" data-module="riesgo" /> Riesgo</label>
-      <label class="control-item"><input type="checkbox" class="module-toggle" data-module="pot" /> POT y ordenamiento</label>
-      <label class="control-item"><input type="checkbox" class="module-toggle" data-module="pomca" /> POMCA</label>
-      <label class="control-item"><input type="checkbox" class="module-toggle" data-module="participacion" /> Participación ciudadana</label>
-      <label class="control-item"><input type="checkbox" class="module-toggle" data-module="vial" /> Accidentalidad vial</label>
-      <label class="control-item"><input type="checkbox" class="module-toggle" data-module="educativo" /> Módulo educativo</label>
-    </section>
-  </aside>
-
-  <section class="map-area">
-    <div id="map"></div>
-
-    <div class="legend-floating" id="legendBox">
-      <h4>Leyenda</h4>
-      <div id="legendContent">
-        <div class="legend-item">
-          <span class="swatch" style="background:#2f8f5b;"></span>
-          <span>Mapa base de Ocaña activo</span>
-        </div>
-        <div class="legend-item">
-          <span class="swatch" style="background:#f59e0b;"></span>
-          <span>Activa un módulo para ver su leyenda</span>
-        </div>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-logo">UF</div>
+      <div class="brand-text">
+        <h1>GeoVisor Ocaña</h1>
+        <p>Visor geográfico interactivo para la comunidad de Ocaña</p>
       </div>
     </div>
 
-    <button class="floating-chat" title="Chatbot">💬</button>
-  </section>
-
-  <aside class="info-panel">
-    <div class="info-card">
-      <h3>Zona seleccionada</h3>
-      <p id="zoneInfo">
-        Haz clic sobre el mapa para ver coordenadas.
-      </p>
+    <div class="search-box">
+      <input type="text" placeholder="Buscar dirección, barrio o punto de interés..." />
+      <button type="button">Buscar</button>
     </div>
-  </aside>
-</main>
+  </header>
+
+  <main class="app">
+    <aside class="sidebar">
+      <h2 class="panel-title">Panel de capas</h2>
+      <p class="panel-subtitle">
+        Activa o desactiva módulos temáticos del geovisor.
+      </p>
+
+      <section class="base-group">
+        <h3>Mapas base</h3>
+        <label class="control-item">
+          <input type="radio" name="baseLayer" value="osm" checked />
+          OpenStreetMap
+        </label>
+        <label class="control-item">
+          <input type="radio" name="baseLayer" value="satellite" />
+          Esri Satellite
+        </label>
+      </section>
+
+      <section class="module-group">
+        <h3>Módulos temáticos</h3>
+        <label class="control-item"><input type="checkbox" class="module-toggle" data-module="riesgo" /> Riesgo</label>
+        <label class="control-item"><input type="checkbox" class="module-toggle" data-module="pot" /> POT y ordenamiento</label>
+        <label class="control-item"><input type="checkbox" class="module-toggle" data-module="pomca" /> POMCA</label>
+        <label class="control-item"><input type="checkbox" class="module-toggle" data-module="participacion" /> Participación ciudadana</label>
+        <label class="control-item"><input type="checkbox" class="module-toggle" data-module="vial" /> Accidentalidad vial</label>
+        <label class="control-item"><input type="checkbox" class="module-toggle" data-module="educativo" /> Módulo educativo</label>
+      </section>
+    </aside>
+
+    <section class="map-area">
+      <div id="map"></div>
+
+      <div class="legend-floating" id="legendBox">
+        <h4>Leyenda</h4>
+        <div id="legendContent">
+          <div class="legend-item">
+            <span class="swatch" style="background:#2f8f5b;"></span>
+            <span>Mapa base de Ocaña activo</span>
+          </div>
+          <div class="legend-item">
+            <span class="swatch" style="background:#f59e0b;"></span>
+            <span>Activa un módulo para ver su leyenda</span>
+          </div>
+        </div>
+      </div>
+
+      <button class="floating-chat" title="Chatbot">💬</button>
+    </section>
+
+    <aside class="info-panel">
+      <div class="info-card">
+        <h3>Zona seleccionada</h3>
+        <p id="zoneInfo">
+          Haz clic sobre el mapa para ver coordenadas.
+        </p>
+      </div>
+    </aside>
+  </main>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

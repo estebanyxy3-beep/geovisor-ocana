@@ -1,215 +1,392 @@
-window.addEventListener('load', function () {
-  const ocanaCoords = [8.236372, -73.353228];
+html, body {
+  height: 100%;
+  margin: 0;
+}
 
-  const map = L.map('map').setView(ocanaCoords, 15);
+* {
+  box-sizing: border-box;
+}
 
-  const osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '&copy; OpenStreetMap contributors'
-  });
+:root {
+  --verde-ufpso: #1f6b45;
+  --verde-ufpso-oscuro: #184f35;
+  --gris-borde: #dbe3dd;
+  --gris-suave: #f4f7f5;
+  --texto: #1f2937;
+  --texto-suave: #5b6470;
+  --blanco: #ffffff;
+  --sombra: 0 10px 30px rgba(0, 0, 0, 0.08);
+  --radio: 18px;
+}
 
-  const satellite = L.tileLayer(
-    'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{x}/{y}',
-    {
-      maxZoom: 19,
-      attribution: 'Tiles &copy; Esri'
-    }
-  );
+body {
+  font-family: Arial, sans-serif;
+  background: var(--gris-suave);
+  color: var(--texto);
+}
 
-  osm.addTo(map);
+.topbar {
+  height: 72px;
+  background: var(--blanco);
+  border-bottom: 1px solid var(--gris-borde);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 18px;
+  gap: 16px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
 
-  L.marker(ocanaCoords)
-    .addTo(map)
-    .bindPopup('<b>GeoVisor Ocaña</b><br>Punto base del proyecto.')
-    .openPopup();
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
 
-  let riesgoLayer = null;
-  let riesgoCargado = false;
+.brand-logo {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--verde-ufpso);
+  color: white;
+  display: grid;
+  place-items: center;
+  font-weight: bold;
+  box-shadow: var(--sombra);
+}
 
-  function obtenerValorAmenaza(props) {
-    const posiblesCampos = [
-      'nivel', 'NIVEL',
-      'amenaza', 'AMENAZA',
-      'clase', 'CLASE',
-      'CLASIFICA', 'clasifica',
-      'tipo', 'TIPO',
-      'zona', 'ZONA',
-      'riesgo', 'RIESGO',
-      'gridcode', 'GRIDCODE',
-      'id', 'ID'
-    ];
+.brand-text h1 {
+  font-size: 1.2rem;
+  margin: 0 0 2px 0;
+}
 
-    for (const campo of posiblesCampos) {
-      if (props[campo] !== undefined && props[campo] !== null && props[campo] !== '') {
-        return props[campo];
-      }
-    }
+.brand-text p {
+  font-size: 0.9rem;
+  color: var(--texto-suave);
+  margin: 0;
+}
 
-    return '';
+.nav-toggle {
+  display: none;
+  border: none;
+  background: var(--verde-ufpso);
+  color: white;
+  border-radius: 12px;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  min-height: calc(100vh - 72px);
+}
+
+.sidebar {
+  background: var(--blanco);
+  border-right: 1px solid var(--gris-borde);
+  padding: 18px;
+}
+
+.sidebar-inner {
+  position: sticky;
+  top: 90px;
+}
+
+.panel-title {
+  font-size: 1rem;
+  margin: 0 0 12px 0;
+}
+
+.panel-subtitle {
+  color: var(--texto-suave);
+  font-size: 0.92rem;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.nav-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.nav-item {
+  border: 1px solid var(--gris-borde);
+  background: #f9fbf9;
+  color: var(--texto);
+  border-radius: 14px;
+  padding: 13px 14px;
+  text-align: left;
+  cursor: pointer;
+  font-size: 0.96rem;
+  transition: 0.2s ease;
+}
+
+.nav-item:hover,
+.nav-item.active {
+  background: var(--verde-ufpso);
+  color: white;
+  border-color: var(--verde-ufpso);
+}
+
+.content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.view {
+  display: none;
+}
+
+.view.active {
+  display: block;
+}
+
+.hero-card,
+.content-card,
+.chatbot-card {
+  background: var(--blanco);
+  border: 1px solid var(--gris-borde);
+  border-radius: 22px;
+  box-shadow: var(--sombra);
+  padding: 24px;
+}
+
+.hero-card {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 20px;
+}
+
+.eyebrow {
+  display: inline-block;
+  background: #e8f3ec;
+  color: var(--verde-ufpso);
+  padding: 7px 12px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  margin-bottom: 12px;
+}
+
+.hero-text h2,
+.content-card h2,
+.chatbot-card h2 {
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.hero-text p,
+.content-card p,
+.chatbot-card p {
+  color: var(--texto-suave);
+  line-height: 1.7;
+}
+
+.hero-boxes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.mini-card {
+  background: #f9fbf9;
+  border: 1px solid var(--gris-borde);
+  border-radius: 18px;
+  padding: 16px;
+}
+
+.mini-card h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.mini-card p {
+  margin: 0;
+  color: var(--texto-suave);
+  line-height: 1.5;
+}
+
+.risk-layout {
+  display: grid;
+  grid-template-columns: 290px 1fr 320px;
+  gap: 18px;
+  align-items: stretch;
+}
+
+.risk-sidebar,
+.risk-info {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.risk-card,
+.info-card {
+  background: var(--blanco);
+  border: 1px solid var(--gris-borde);
+  border-radius: var(--radio);
+  padding: 16px;
+  box-shadow: var(--sombra);
+}
+
+.risk-card h3,
+.info-card h3 {
+  margin-top: 0;
+}
+
+.control-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  font-size: 0.94rem;
+  border-bottom: 1px dashed #e5ebe6;
+}
+
+.control-item:last-child {
+  border-bottom: none;
+}
+
+details {
+  border: 1px solid var(--gris-borde);
+  border-radius: 14px;
+  padding: 10px 12px;
+  margin-bottom: 12px;
+  background: #f9fbf9;
+}
+
+details summary {
+  cursor: pointer;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.clear-btn,
+.chatbot-btn {
+  width: 100%;
+  border: none;
+  border-radius: 14px;
+  padding: 12px 14px;
+  background: var(--verde-ufpso);
+  color: white;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.clear-btn:hover,
+.chatbot-btn:hover {
+  background: var(--verde-ufpso-oscuro);
+}
+
+.risk-map-panel {
+  position: relative;
+  min-height: 640px;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+  min-height: 640px;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: var(--sombra);
+}
+
+.legend-floating {
+  position: absolute;
+  left: 18px;
+  bottom: 18px;
+  z-index: 900;
+  background: rgba(255, 255, 255, 0.97);
+  border: 1px solid var(--gris-borde);
+  border-radius: 14px;
+  padding: 12px 14px;
+  min-width: 220px;
+  box-shadow: var(--sombra);
+}
+
+.legend-floating h4 {
+  margin: 0 0 8px 0;
+  font-size: 0.92rem;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 7px 0;
+  font-size: 0.9rem;
+}
+
+.swatch {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  flex-shrink: 0;
+}
+
+.chatbot-section {
+  margin-top: 6px;
+}
+
+@media (max-width: 1200px) {
+  .risk-layout {
+    grid-template-columns: 280px 1fr;
   }
 
-  function obtenerEstiloRiesgo(feature) {
-    const props = feature.properties || {};
-    const valorOriginal = obtenerValorAmenaza(props);
-    const valorTexto = String(valorOriginal).trim().toLowerCase();
-
-    let fillColor = '#d9d9d9';
-    let borderColor = '#666666';
-
-    if (valorTexto.includes('alta') || valorTexto === '3' || valorTexto === 'alto') {
-      fillColor = '#ff0000';
-      borderColor = '#990000';
-    } else if (valorTexto.includes('media') || valorTexto === '2' || valorTexto === 'medio') {
-      fillColor = '#ffff00';
-      borderColor = '#999900';
-    } else if (valorTexto.includes('baja') || valorTexto === '1' || valorTexto === 'bajo') {
-      fillColor = '#00aa00';
-      borderColor = '#006400';
-    }
-
-    return {
-      color: borderColor,
-      weight: 2,
-      fillColor: fillColor,
-      fillOpacity: 0.45
-    };
+  .risk-info {
+    grid-column: 1 / -1;
   }
 
-  function construirPopup(props) {
-    const titulo =
-      props.titulo ||
-      props.nombre ||
-      props.NOMBRE ||
-      'Amenaza Avenida Torrencial Urbana';
+  .hero-card {
+    grid-template-columns: 1fr;
+  }
+}
 
-    let popupHTML = `<strong>${titulo}</strong>`;
-
-    Object.keys(props).forEach((key) => {
-      const value = props[key];
-      if (value !== null && value !== undefined && value !== '') {
-        popupHTML += `<br><strong>${key}:</strong> ${value}`;
-      }
-    });
-
-    return popupHTML;
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
   }
 
-  async function cargarRiesgo() {
-    if (riesgoCargado && riesgoLayer) return;
-
-    try {
-      const response = await fetch('https://cdn.jsdelivr.net/gh/estebanyxy3-beep/geovisor-ocana@main/Amenaza_Avenida_Torrencial_Urbano.json');
-
-      if (!response.ok) {
-        throw new Error('No se pudo cargar el archivo GeoJSON');
-      }
-
-      const riesgoData = await response.json();
-
-      riesgoLayer = L.geoJSON(riesgoData, {
-        style: obtenerEstiloRiesgo,
-        onEachFeature: function (feature, layer) {
-          const props = feature.properties || {};
-          layer.bindPopup(construirPopup(props));
-        }
-      });
-
-      riesgoCargado = true;
-    } catch (error) {
-      console.error('Error cargando la capa de riesgo:', error);
-      alert('No se pudo cargar la capa de riesgo. Revisa la URL del archivo.');
-    }
+  .nav-toggle {
+    display: inline-block;
   }
 
-  function setBaseLayer(layerName) {
-    if (map.hasLayer(osm)) map.removeLayer(osm);
-    if (map.hasLayer(satellite)) map.removeLayer(satellite);
-
-    if (layerName === 'satellite') {
-      satellite.addTo(map);
-    } else {
-      osm.addTo(map);
-    }
+  .sidebar {
+    display: none;
+    border-right: none;
+    border-bottom: 1px solid var(--gris-borde);
   }
 
-  function updateLegend(activeModule = null) {
-    const legendContent = document.getElementById('legendContent');
-
-    const legends = {
-      riesgo: `
-        <div class="legend-item"><span class="swatch" style="background:#ff0000;"></span><span>Amenaza alta</span></div>
-        <div class="legend-item"><span class="swatch" style="background:#ffff00;"></span><span>Amenaza media</span></div>
-        <div class="legend-item"><span class="swatch" style="background:#00aa00;"></span><span>Amenaza baja</span></div>
-      `
-    };
-
-    if (activeModule && legends[activeModule]) {
-      legendContent.innerHTML = legends[activeModule];
-    } else {
-      legendContent.innerHTML = `
-        <div class="legend-item"><span class="swatch" style="background:#2f8f5b;"></span><span>Mapa base de Ocaña activo</span></div>
-        <div class="legend-item"><span class="swatch" style="background:#f59e0b;"></span><span>Activa un módulo para ver su leyenda</span></div>
-      `;
-    }
+  .sidebar.open {
+    display: block;
   }
 
-  function showModuleMessage(moduleName, isActive) {
-    const zoneInfo = document.getElementById('zoneInfo');
-    zoneInfo.innerHTML = isActive
-      ? `Módulo <strong>${moduleName}</strong> activado.`
-      : `Módulo <strong>${moduleName}</strong> desactivado.`;
+  .risk-layout {
+    grid-template-columns: 1fr;
   }
 
-  document.querySelectorAll('input[name="baseLayer"]').forEach((radio) => {
-    radio.addEventListener('change', (e) => {
-      setBaseLayer(e.target.value);
-    });
-  });
+  .risk-map-panel {
+    min-height: 480px;
+  }
 
-  document.querySelectorAll('.module-toggle').forEach((toggle) => {
-    toggle.addEventListener('change', async (e) => {
-      const moduleName = e.target.dataset.module;
+  #map {
+    min-height: 480px;
+  }
 
-      if (moduleName === 'riesgo') {
-        if (e.target.checked) {
-          await cargarRiesgo();
+  .hero-boxes {
+    grid-template-columns: 1fr;
+  }
 
-          if (riesgoLayer) {
-            map.addLayer(riesgoLayer);
-            updateLegend('riesgo');
-
-            if (riesgoLayer.getBounds && riesgoLayer.getBounds().isValid()) {
-              map.fitBounds(riesgoLayer.getBounds());
-            }
-          }
-
-          showModuleMessage('Riesgo', true);
-        } else {
-          if (riesgoLayer && map.hasLayer(riesgoLayer)) {
-            map.removeLayer(riesgoLayer);
-          }
-          updateLegend();
-          showModuleMessage('Riesgo', false);
-        }
-      }
-    });
-  });
-
-  map.on('click', function (e) {
-    const { lat, lng } = e.latlng;
-
-    document.getElementById('zoneInfo').innerHTML = `
-      Coordenadas seleccionadas:<br>
-      <strong>${lat.toFixed(6)}, ${lng.toFixed(6)}</strong>
-    `;
-
-    L.popup()
-      .setLatLng(e.latlng)
-      .setContent(`Coordenadas:<br><strong>${lat.toFixed(6)}, ${lng.toFixed(6)}</strong>`)
-      .openOn(map);
-  });
-
-  setTimeout(() => {
-    map.invalidateSize();
-  }, 300);
-});
+  .legend-floating {
+    left: 16px;
+    right: 16px;
+    min-width: auto;
+  }
+}

@@ -14,7 +14,10 @@ function normalizeText(text) {
 }
 
 function saveHistory() {
-  sessionStorage.setItem("geovisor_chat_history", JSON.stringify(chatbotState.chatHistory));
+  sessionStorage.setItem(
+    "geovisor_chat_history",
+    JSON.stringify(chatbotState.chatHistory)
+  );
 }
 
 function loadHistory() {
@@ -47,11 +50,20 @@ function getFeatureSummary(feature) {
 function answerWithRules(userMessage) {
   const msg = normalizeText(userMessage);
 
-  if (msg.includes("hola")) {
+  if (msg === "hola" || msg.includes("hola")) {
     return "Hola. Soy GeoBot, el asistente del GeoVisor Ocaña. Puedo ayudarte con riesgo, POT, POMCA y participación ciudadana.";
   }
 
-  if (msg.includes("que es el geovisor") || msg.includes("que es geovisor ocana")) {
+  if (
+    msg.includes("que es el geovisor") ||
+    msg.includes("que es geovisor ocana") ||
+    msg.includes("que es un pot") ||
+    msg.includes("que es el pot")
+  ) {
+    if (msg.includes("pot")) {
+      return "El POT es el Plan de Ordenamiento Territorial. Sirve para definir cómo se organiza el suelo del municipio, qué usos se permiten y qué zonas deben protegerse.";
+    }
+
     return "El GeoVisor Ocaña es una herramienta web para consultar información territorial y ambiental del municipio.";
   }
 
@@ -131,7 +143,8 @@ async function processUserMessage(text) {
     return reply;
   } catch (error) {
     console.error(error);
-    const fallback = "No pude conectarme con el servicio del chatbot en este momento.";
+    const fallback =
+      "No pude conectarme con el servicio del chatbot en este momento.";
     addToHistory("assistant", fallback);
     return fallback;
   }
@@ -139,11 +152,35 @@ async function processUserMessage(text) {
 
 function appendMessage(text, className) {
   const messages = document.getElementById("chatMessages");
+  if (!messages) return;
+
   const div = document.createElement("div");
   div.className = className;
   div.textContent = text;
   messages.appendChild(div);
   messages.scrollTop = messages.scrollHeight;
+}
+
+function renderSavedHistory() {
+  const messages = document.getElementById("chatMessages");
+  if (!messages) return;
+
+  messages.innerHTML = "";
+
+  if (!chatbotState.chatHistory.length) {
+    appendMessage(
+      "Hola. Soy GeoBot, el asistente del GeoVisor Ocaña. ¿En qué puedo ayudarte?",
+      "bot-message"
+    );
+    return;
+  }
+
+  chatbotState.chatHistory.forEach((item) => {
+    appendMessage(
+      item.content,
+      item.role === "user" ? "user-message" : "bot-message"
+    );
+  });
 }
 
 async function sendMessage() {
@@ -167,6 +204,7 @@ async function sendMessage() {
 
 function initChatbot() {
   loadHistory();
+  renderSavedHistory();
 
   const openBtn = document.getElementById("openChatbotBtn");
   const closeBtn = document.getElementById("closeChatbotBtn");

@@ -234,18 +234,41 @@
         </div>
       </section>
 
-      <section class="chatbot-section">
-        <div class="chatbot-card">
-          <h2>Asistente virtual</h2>
-          <p>
-            Este espacio quedará reservado para el chatbot del geovisor. Aquí los
-            usuarios podrán realizar preguntas sobre riesgo, POT, POMCA, conceptos,
-            normativas y uso del visor.
-          </p>
-          <button class="chatbot-btn" type="button">Abrir chatbot</button>
+<section class="chatbot-section">
+  <div class="chatbot-card">
+    <h2>Asistente virtual</h2>
+    <p>
+      Consulta el geovisor, las capas de riesgo, conceptos del POT, POMCA y
+      participación ciudadana.
+    </p>
+
+    <button class="chatbot-btn" id="openChatbotBtn" type="button">
+      Abrir chatbot
+    </button>
+
+    <div class="chat-window hidden" id="chatWindow">
+      <div class="chat-header">
+        <h3>GeoBot</h3>
+        <button type="button" id="closeChatbotBtn">×</button>
+      </div>
+
+      <div class="chat-messages" id="chatMessages">
+        <div class="bot-message">
+          Hola. Soy GeoBot, el asistente del GeoVisor Ocaña. ¿En qué puedo ayudarte?
         </div>
-      </section>
-    </section>
+      </div>
+
+      <div class="chat-input-area">
+        <input
+          type="text"
+          id="chatInput"
+          placeholder="Escribe tu pregunta..."
+        />
+        <button type="button" id="sendChatBtn">Enviar</button>
+      </div>
+    </div>
+  </div>
+</section>
   </main>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>

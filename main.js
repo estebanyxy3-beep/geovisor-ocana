@@ -29,6 +29,12 @@ window.addEventListener('load', function () {
     .addTo(map)
     .bindPopup('<b>GeoVisor Ocaña</b><br>Punto base del proyecto.');
 
+  function syncChatbotContext(data) {
+    if (window.updateChatbotContext) {
+      window.updateChatbotContext(data);
+    }
+  }
+
   function showView(viewName) {
     views.forEach((view) => {
       view.classList.remove('active');
@@ -47,6 +53,18 @@ window.addEventListener('load', function () {
     if (window.innerWidth <= 900) {
       sidebar.classList.remove('open');
     }
+
+    const moduleNames = {
+      inicio: 'Inicio',
+      riesgo: 'Riesgo',
+      pot: 'POT',
+      pomca: 'POMCA',
+      participacion: 'Participación'
+    };
+
+    syncChatbotContext({
+      activeModule: moduleNames[viewName] || 'Inicio'
+    });
 
     if (viewName === 'riesgo') {
       setTimeout(() => {
@@ -242,6 +260,12 @@ window.addEventListener('load', function () {
     const config = riskLayersConfig[layerKey];
     if (!config) return;
 
+    syncChatbotContext({
+      activeLayer: config.label,
+      activeModule: 'Riesgo',
+      selectedFeature: null
+    });
+
     if (currentRiskLayer && map.hasLayer(currentRiskLayer)) {
       map.removeLayer(currentRiskLayer);
       currentRiskLayer = null;
@@ -288,6 +312,14 @@ window.addEventListener('load', function () {
           });
 
           layer.bindPopup(popupHTML);
+
+          layer.on('click', function () {
+            syncChatbotContext({
+              activeLayer: config.label,
+              activeModule: 'Riesgo',
+              selectedFeature: feature
+            });
+          });
         }
       });
 
@@ -328,9 +360,19 @@ window.addEventListener('load', function () {
       currentRiskLayer = null;
     }
 
+    syncChatbotContext({
+      activeLayer: null,
+      activeModule: 'Riesgo',
+      selectedFeature: null
+    });
+
     updateLegend();
     updateRiskInfo('<p>Selecciona una capa para ver su significado, interpretación y referencia normativa.</p>');
     map.setView(ocanaCoords, 15);
+  });
+
+  syncChatbotContext({
+    activeModule: 'Inicio'
   });
 
   setTimeout(() => {

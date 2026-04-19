@@ -1,349 +1,392 @@
-window.addEventListener('load', function () {
-  const ocanaCoords = [8.236372, -73.353228];
+html, body {
+  height: 100%;
+  margin: 0;
+}
 
-  // ---------- NAVEGACION ----------
-  const navButtons = document.querySelectorAll('.nav-item');
-  const views = document.querySelectorAll('.view');
-  const sidebar = document.getElementById('sidebar');
-  const navToggle = document.getElementById('navToggle');
+* {
+  box-sizing: border-box;
+}
 
-  function showView(viewName) {
-    views.forEach((view) => {
-      view.classList.remove('active');
-    });
+:root {
+  --verde-ufpso: #1f6b45;
+  --verde-ufpso-oscuro: #184f35;
+  --gris-borde: #dbe3dd;
+  --gris-suave: #f4f7f5;
+  --texto: #1f2937;
+  --texto-suave: #5b6470;
+  --blanco: #ffffff;
+  --sombra: 0 10px 30px rgba(0, 0, 0, 0.08);
+  --radio: 18px;
+}
 
-    navButtons.forEach((btn) => {
-      btn.classList.remove('active');
-    });
+body {
+  font-family: Arial, sans-serif;
+  background: var(--gris-suave);
+  color: var(--texto);
+}
 
-    const targetView = document.getElementById(`view-${viewName}`);
-    const activeButton = document.querySelector(`.nav-item[data-view="${viewName}"]`);
+.topbar {
+  height: 72px;
+  background: var(--blanco);
+  border-bottom: 1px solid var(--gris-borde);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 18px;
+  gap: 16px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
 
-    if (targetView) targetView.classList.add('active');
-    if (activeButton) activeButton.classList.add('active');
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
 
-    if (window.innerWidth <= 900) {
-      sidebar.classList.remove('open');
-    }
+.brand-logo {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--verde-ufpso);
+  color: white;
+  display: grid;
+  place-items: center;
+  font-weight: bold;
+  box-shadow: var(--sombra);
+}
 
-    if (viewName === 'riesgo') {
-      setTimeout(() => {
-        map.invalidateSize();
-      }, 250);
-    }
+.brand-text h1 {
+  font-size: 1.2rem;
+  margin: 0 0 2px 0;
+}
+
+.brand-text p {
+  font-size: 0.9rem;
+  color: var(--texto-suave);
+  margin: 0;
+}
+
+.nav-toggle {
+  display: none;
+  border: none;
+  background: var(--verde-ufpso);
+  color: white;
+  border-radius: 12px;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  min-height: calc(100vh - 72px);
+}
+
+.sidebar {
+  background: var(--blanco);
+  border-right: 1px solid var(--gris-borde);
+  padding: 18px;
+}
+
+.sidebar-inner {
+  position: sticky;
+  top: 90px;
+}
+
+.panel-title {
+  font-size: 1rem;
+  margin: 0 0 12px 0;
+}
+
+.panel-subtitle {
+  color: var(--texto-suave);
+  font-size: 0.92rem;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.nav-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.nav-item {
+  border: 1px solid var(--gris-borde);
+  background: #f9fbf9;
+  color: var(--texto);
+  border-radius: 14px;
+  padding: 13px 14px;
+  text-align: left;
+  cursor: pointer;
+  font-size: 0.96rem;
+  transition: 0.2s ease;
+}
+
+.nav-item:hover,
+.nav-item.active {
+  background: var(--verde-ufpso);
+  color: white;
+  border-color: var(--verde-ufpso);
+}
+
+.content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.view {
+  display: none;
+}
+
+.view.active {
+  display: block;
+}
+
+.hero-card,
+.content-card,
+.chatbot-card {
+  background: var(--blanco);
+  border: 1px solid var(--gris-borde);
+  border-radius: 22px;
+  box-shadow: var(--sombra);
+  padding: 24px;
+}
+
+.hero-card {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 20px;
+}
+
+.eyebrow {
+  display: inline-block;
+  background: #e8f3ec;
+  color: var(--verde-ufpso);
+  padding: 7px 12px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  margin-bottom: 12px;
+}
+
+.hero-text h2,
+.content-card h2,
+.chatbot-card h2 {
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.hero-text p,
+.content-card p,
+.chatbot-card p {
+  color: var(--texto-suave);
+  line-height: 1.7;
+}
+
+.hero-boxes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.mini-card {
+  background: #f9fbf9;
+  border: 1px solid var(--gris-borde);
+  border-radius: 18px;
+  padding: 16px;
+}
+
+.mini-card h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.mini-card p {
+  margin: 0;
+  color: var(--texto-suave);
+  line-height: 1.5;
+}
+
+.risk-layout {
+  display: grid;
+  grid-template-columns: 290px 1fr 320px;
+  gap: 18px;
+  align-items: stretch;
+}
+
+.risk-sidebar,
+.risk-info {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.risk-card,
+.info-card {
+  background: var(--blanco);
+  border: 1px solid var(--gris-borde);
+  border-radius: var(--radio);
+  padding: 16px;
+  box-shadow: var(--sombra);
+}
+
+.risk-card h3,
+.info-card h3 {
+  margin-top: 0;
+}
+
+.control-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  font-size: 0.94rem;
+  border-bottom: 1px dashed #e5ebe6;
+}
+
+.control-item:last-child {
+  border-bottom: none;
+}
+
+details {
+  border: 1px solid var(--gris-borde);
+  border-radius: 14px;
+  padding: 10px 12px;
+  margin-bottom: 12px;
+  background: #f9fbf9;
+}
+
+details summary {
+  cursor: pointer;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.clear-btn,
+.chatbot-btn {
+  width: 100%;
+  border: none;
+  border-radius: 14px;
+  padding: 12px 14px;
+  background: var(--verde-ufpso);
+  color: white;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.clear-btn:hover,
+.chatbot-btn:hover {
+  background: var(--verde-ufpso-oscuro);
+}
+
+.risk-map-panel {
+  position: relative;
+  min-height: 640px;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+  min-height: 640px;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: var(--sombra);
+}
+
+.legend-floating {
+  position: absolute;
+  left: 18px;
+  bottom: 18px;
+  z-index: 900;
+  background: rgba(255, 255, 255, 0.97);
+  border: 1px solid var(--gris-borde);
+  border-radius: 14px;
+  padding: 12px 14px;
+  min-width: 220px;
+  box-shadow: var(--sombra);
+}
+
+.legend-floating h4 {
+  margin: 0 0 8px 0;
+  font-size: 0.92rem;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 7px 0;
+  font-size: 0.9rem;
+}
+
+.swatch {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  flex-shrink: 0;
+}
+
+.chatbot-section {
+  margin-top: 6px;
+}
+
+@media (max-width: 1200px) {
+  .risk-layout {
+    grid-template-columns: 280px 1fr;
   }
 
-  navButtons.forEach((button) => {
-    button.addEventListener('click', function () {
-      showView(this.dataset.view);
-    });
-  });
-
-  navToggle.addEventListener('click', function () {
-    sidebar.classList.toggle('open');
-  });
-
-  // ---------- MAPA ----------
-  const map = L.map('map').setView(ocanaCoords, 15);
-
-  const osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '&copy; OpenStreetMap contributors'
-  });
-
-  const satellite = L.tileLayer(
-    'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
-    {
-      maxZoom: 19,
-      attribution: 'Tiles &copy; Esri'
-    }
-  );
-
-  osm.addTo(map);
-
-  L.marker(ocanaCoords)
-    .addTo(map)
-    .bindPopup('<b>GeoVisor Ocaña</b><br>Punto base del proyecto.');
-
-  // ---------- CAPAS DE RIESGO ----------
-  let currentRiskLayer = null;
-
-  const riskLayersConfig = {
-    amenaza_at: {
-      label: 'Amenaza por avenida torrencial',
-      url: 'https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/refs/heads/main/Amenaza_Avenida_Torrencial_Urbano.json',
-      type: 'amenaza',
-      info: `
-        <p><strong>Amenaza:</strong> posibilidad de ocurrencia de un fenómeno físico potencialmente dañino.</p>
-        <p>Esta capa representa zonas asociadas a amenaza por avenida torrencial.</p>
-        <p><strong>Normativa base:</strong> Ley 1523 de 2012.</p>
-      `,
-      legend: `
-        <div class="legend-item"><span class="swatch" style="background:#ff0000;"></span><span>Amenaza alta</span></div>
-        <div class="legend-item"><span class="swatch" style="background:#ffff00;"></span><span>Amenaza media</span></div>
-        <div class="legend-item"><span class="swatch" style="background:#00aa00;"></span><span>Amenaza baja</span></div>
-      `
-    },
-    exposicion_at: {
-      label: 'Exposición por avenida torrencial',
-      url: '',
-      type: 'exposicion',
-      info: `
-        <p><strong>Exposición:</strong> presencia de personas, viviendas, vías, predios o infraestructura en zonas que pueden verse afectadas por una amenaza.</p>
-        <p>Aquí podrás cargar las capas de construcciones, predios o vías expuestas por avenida torrencial.</p>
-        <p><strong>Normativa base:</strong> Ley 1523 de 2012.</p>
-      `,
-      legend: `
-        <div class="legend-item"><span class="swatch" style="background:#f59e0b;"></span><span>Elemento expuesto</span></div>
-      `
-    },
-    riesgo_at: {
-      label: 'Riesgo por avenida torrencial',
-      url: '',
-      type: 'riesgo',
-      info: `
-        <p><strong>Riesgo:</strong> resultado de la interacción entre amenaza, exposición y vulnerabilidad.</p>
-        <p>Esta capa mostrará los elementos o áreas en riesgo por avenida torrencial.</p>
-        <p><strong>Normativa base:</strong> Ley 1523 de 2012.</p>
-      `,
-      legend: `
-        <div class="legend-item"><span class="swatch" style="background:#dc2626;"></span><span>Riesgo alto</span></div>
-        <div class="legend-item"><span class="swatch" style="background:#f59e0b;"></span><span>Riesgo medio</span></div>
-        <div class="legend-item"><span class="swatch" style="background:#22c55e;"></span><span>Riesgo bajo</span></div>
-      `
-    },
-    amenaza_inundacion: {
-      label: 'Amenaza por inundación',
-      url: '',
-      type: 'amenaza',
-      info: `
-        <p>Esta sección permitirá visualizar la amenaza por inundación.</p>
-        <p>Aquí integrarás la capa correspondiente una vez subas el GeoJSON.</p>
-      `,
-      legend: `
-        <div class="legend-item"><span class="swatch" style="background:#3b82f6;"></span><span>Zona de amenaza</span></div>
-      `
-    },
-    exposicion_inundacion: {
-      label: 'Exposición por inundación',
-      url: '',
-      type: 'exposicion',
-      info: `
-        <p>Mostrará construcciones, predios u otros elementos ubicados en zonas expuestas a inundación.</p>
-      `,
-      legend: `
-        <div class="legend-item"><span class="swatch" style="background:#60a5fa;"></span><span>Elemento expuesto</span></div>
-      `
-    },
-    riesgo_inundacion: {
-      label: 'Riesgo por inundación',
-      url: '',
-      type: 'riesgo',
-      info: `
-        <p>Mostrará el análisis de riesgo asociado a inundación.</p>
-      `,
-      legend: `
-        <div class="legend-item"><span class="swatch" style="background:#1d4ed8;"></span><span>Riesgo por inundación</span></div>
-      `
-    },
-    amenaza_mm: {
-      label: 'Amenaza por movimiento en masa',
-      url: '',
-      type: 'amenaza',
-      info: `
-        <p>Esta capa mostrará la amenaza por movimiento en masa.</p>
-      `,
-      legend: `
-        <div class="legend-item"><span class="swatch" style="background:#8b5cf6;"></span><span>Zona de amenaza</span></div>
-      `
-    },
-    exposicion_mm: {
-      label: 'Exposición por movimiento en masa',
-      url: '',
-      type: 'exposicion',
-      info: `
-        <p>Mostrará elementos expuestos frente a procesos de movimiento en masa.</p>
-      `,
-      legend: `
-        <div class="legend-item"><span class="swatch" style="background:#a78bfa;"></span><span>Elemento expuesto</span></div>
-      `
-    },
-    riesgo_mm: {
-      label: 'Riesgo por movimiento en masa',
-      url: '',
-      type: 'riesgo',
-      info: `
-        <p>Mostrará las áreas o elementos en riesgo por movimiento en masa.</p>
-      `,
-      legend: `
-        <div class="legend-item"><span class="swatch" style="background:#7c3aed;"></span><span>Riesgo por movimiento en masa</span></div>
-      `
-    }
-  };
-
-  function setBaseLayer(layerName) {
-    if (map.hasLayer(osm)) map.removeLayer(osm);
-    if (map.hasLayer(satellite)) map.removeLayer(satellite);
-
-    if (layerName === 'satellite') {
-      satellite.addTo(map);
-    } else {
-      osm.addTo(map);
-    }
+  .risk-info {
+    grid-column: 1 / -1;
   }
 
-  function updateLegend(html = null) {
-    const legendContent = document.getElementById('legendContent');
+  .hero-card {
+    grid-template-columns: 1fr;
+  }
+}
 
-    if (html) {
-      legendContent.innerHTML = html;
-      return;
-    }
-
-    legendContent.innerHTML = `
-      <div class="legend-item">
-        <span class="swatch" style="background:#2f8f5b;"></span>
-        <span>Selecciona una capa de riesgo</span>
-      </div>
-    `;
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
   }
 
-  function updateRiskInfo(html = '') {
-    const riskInfoContent = document.getElementById('riskInfoContent');
-    riskInfoContent.innerHTML = html || '<p>Selecciona una capa para ver su contenido.</p>';
+  .nav-toggle {
+    display: inline-block;
   }
 
-  function getFeatureStyle(props = {}) {
-    const nivel = (
-      props.nivel ||
-      props.NIVEL ||
-      props.amenaza ||
-      props.AMENAZA ||
-      props.clase ||
-      props.CLASIFICA ||
-      props.tipo ||
-      props.TIPO ||
-      ''
-    ).toString().trim().toLowerCase();
-
-    let fillColor = '#d9d9d9';
-    let borderColor = '#666666';
-
-    if (nivel.includes('alta')) {
-      fillColor = '#ff0000';
-      borderColor = '#990000';
-    } else if (nivel.includes('media')) {
-      fillColor = '#ffff00';
-      borderColor = '#999900';
-    } else if (nivel.includes('baja')) {
-      fillColor = '#00aa00';
-      borderColor = '#006400';
-    }
-
-    return {
-      color: borderColor,
-      weight: 2,
-      fillColor: fillColor,
-      fillOpacity: 0.45
-    };
+  .sidebar {
+    display: none;
+    border-right: none;
+    border-bottom: 1px solid var(--gris-borde);
   }
 
-  async function loadRiskLayer(layerKey) {
-    const config = riskLayersConfig[layerKey];
-    if (!config) return;
-
-    if (currentRiskLayer && map.hasLayer(currentRiskLayer)) {
-      map.removeLayer(currentRiskLayer);
-      currentRiskLayer = null;
-    }
-
-    updateLegend(config.legend);
-    updateRiskInfo(`
-      <h4>${config.label}</h4>
-      ${config.info}
-    `);
-
-    if (!config.url) {
-      return;
-    }
-
-    try {
-      const response = await fetch(config.url);
-
-      if (!response.ok) {
-        throw new Error('No se pudo cargar el archivo GeoJSON');
-      }
-
-      const data = await response.json();
-
-      currentRiskLayer = L.geoJSON(data, {
-        style: function (feature) {
-          return getFeatureStyle(feature.properties || {});
-        },
-        onEachFeature: function (feature, layer) {
-          const props = feature.properties || {};
-          const title =
-            props.titulo ||
-            props.nombre ||
-            props.NOMBRE ||
-            config.label;
-
-          let popupHTML = `<strong>${title}</strong>`;
-
-          Object.keys(props).forEach((key) => {
-            const value = props[key];
-            if (value !== null && value !== undefined && value !== '') {
-              popupHTML += `<br><strong>${key}:</strong> ${value}`;
-            }
-          });
-
-          layer.bindPopup(popupHTML);
-        }
-      });
-
-      currentRiskLayer.addTo(map);
-
-      if (currentRiskLayer.getBounds && currentRiskLayer.getBounds().isValid()) {
-        map.fitBounds(currentRiskLayer.getBounds());
-      }
-    } catch (error) {
-      console.error('Error cargando capa:', error);
-      updateRiskInfo(`
-        <h4>${config.label}</h4>
-        ${config.info}
-        <p><strong>Error:</strong> no se pudo cargar el archivo GeoJSON.</p>
-      `);
-    }
+  .sidebar.open {
+    display: block;
   }
 
-  document.querySelectorAll('input[name="baseLayer"]').forEach((radio) => {
-    radio.addEventListener('change', (e) => {
-      setBaseLayer(e.target.value);
-    });
-  });
+  .risk-layout {
+    grid-template-columns: 1fr;
+  }
 
-  document.querySelectorAll('input[name="riesgoLayer"]').forEach((radio) => {
-    radio.addEventListener('change', (e) => {
-      loadRiskLayer(e.target.value);
-    });
-  });
+  .risk-map-panel {
+    min-height: 480px;
+  }
 
-  document.getElementById('clearRiskLayer').addEventListener('click', function () {
-    document.querySelectorAll('input[name="riesgoLayer"]').forEach((radio) => {
-      radio.checked = false;
-    });
+  #map {
+    min-height: 480px;
+  }
 
-    if (currentRiskLayer && map.hasLayer(currentRiskLayer)) {
-      map.removeLayer(currentRiskLayer);
-      currentRiskLayer = null;
-    }
+  .hero-boxes {
+    grid-template-columns: 1fr;
+  }
 
-    updateLegend();
-    updateRiskInfo('<p>Selecciona una capa para ver su significado, interpretación y referencia normativa.</p>');
-    map.setView(ocanaCoords, 15);
-  });
-
-  setTimeout(() => {
-    map.invalidateSize();
-  }, 300);
-});
+  .legend-floating {
+    left: 16px;
+    right: 16px;
+    min-width: auto;
+  }
+}

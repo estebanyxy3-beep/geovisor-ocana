@@ -5,8 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GeoVisor Ocaña</title>
 
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <link rel="stylesheet" href="styles.css" />
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  />
+
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header class="topbar">
@@ -18,70 +22,214 @@
       </div>
     </div>
 
-    <div class="search-box">
-      <input type="text" placeholder="Buscar dirección, barrio o punto de interés..." />
-      <button type="button">Buscar</button>
+    <div class="topbar-actions">
+      <button class="nav-toggle" id="navToggle" type="button">☰</button>
     </div>
   </header>
 
-  <main class="app">
-    <aside class="sidebar">
-      <h2 class="panel-title">Panel de capas</h2>
-      <p class="panel-subtitle">
-        Activa o desactiva módulos temáticos del geovisor.
-      </p>
+  <main class="layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-inner">
+        <h2 class="panel-title">Navegación</h2>
+        <p class="panel-subtitle">
+          Explora las secciones temáticas del geovisor.
+        </p>
 
-      <section class="base-group">
-        <h3>Mapas base</h3>
-        <label class="control-item">
-          <input type="radio" name="baseLayer" value="osm" checked />
-          OpenStreetMap
-        </label>
-        <label class="control-item">
-          <input type="radio" name="baseLayer" value="satellite" />
-          Esri Satellite
-        </label>
-      </section>
-
-      <section class="module-group">
-        <h3>Módulos temáticos</h3>
-        <label class="control-item"><input type="checkbox" class="module-toggle" data-module="riesgo" /> Riesgo</label>
-        <label class="control-item"><input type="checkbox" class="module-toggle" data-module="pot" /> POT y ordenamiento</label>
-        <label class="control-item"><input type="checkbox" class="module-toggle" data-module="pomca" /> POMCA</label>
-        <label class="control-item"><input type="checkbox" class="module-toggle" data-module="participacion" /> Participación ciudadana</label>
-        <label class="control-item"><input type="checkbox" class="module-toggle" data-module="vial" /> Accidentalidad vial</label>
-        <label class="control-item"><input type="checkbox" class="module-toggle" data-module="educativo" /> Módulo educativo</label>
-      </section>
+        <nav class="nav-menu">
+          <button class="nav-item active" data-view="inicio">Inicio</button>
+          <button class="nav-item" data-view="riesgo">Riesgo</button>
+          <button class="nav-item" data-view="pot">POT</button>
+          <button class="nav-item" data-view="pomca">POMCA</button>
+          <button class="nav-item" data-view="participacion">Participación</button>
+        </nav>
+      </div>
     </aside>
 
-    <section class="map-area">
-      <div id="map"></div>
-
-      <div class="legend-floating" id="legendBox">
-        <h4>Leyenda</h4>
-        <div id="legendContent">
-          <div class="legend-item">
-            <span class="swatch" style="background:#2f8f5b;"></span>
-            <span>Mapa base de Ocaña activo</span>
+    <section class="content">
+      <section class="view active" id="view-inicio">
+        <div class="hero-card">
+          <div class="hero-text">
+            <span class="eyebrow">Bienvenido</span>
+            <h2>GeoVisor Ocaña</h2>
+            <p>
+              Este geovisor es una herramienta de consulta y apoyo para la comprensión
+              del territorio en Ocaña. Permite acceder a información temática sobre
+              riesgo, ordenamiento territorial, POMCA, participación ciudadana y otros
+              contenidos de apoyo para la comunidad.
+            </p>
+            <p>
+              Desde el menú lateral puedes ingresar a cada sección. El módulo de
+              <strong>Riesgo</strong> incluye mapa interactivo en Leaflet y panel
+              explicativo. Las demás secciones funcionan como páginas informativas
+              donde podrás integrar glosarios, normativas, documentos y material
+              elaborado por el equipo.
+            </p>
           </div>
-          <div class="legend-item">
-            <span class="swatch" style="background:#f59e0b;"></span>
-            <span>Activa un módulo para ver su leyenda</span>
+
+          <div class="hero-boxes">
+            <div class="mini-card">
+              <h3>Riesgo</h3>
+              <p>Mapas, conceptos, normativas y capas temáticas.</p>
+            </div>
+            <div class="mini-card">
+              <h3>POT</h3>
+              <p>Glosario, leyes y contenido de ordenamiento territorial.</p>
+            </div>
+            <div class="mini-card">
+              <h3>POMCA</h3>
+              <p>Información ambiental y de planificación de cuencas.</p>
+            </div>
+            <div class="mini-card">
+              <h3>Participación</h3>
+              <p>Espacios comunitarios, material pedagógico y aportes ciudadanos.</p>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <button class="floating-chat" title="Chatbot">💬</button>
+      <section class="view" id="view-riesgo">
+        <div class="risk-layout">
+          <aside class="risk-sidebar">
+            <div class="risk-card">
+              <h3>Mapas base</h3>
+              <label class="control-item">
+                <input type="radio" name="baseLayer" value="osm" checked />
+                OpenStreetMap
+              </label>
+              <label class="control-item">
+                <input type="radio" name="baseLayer" value="satellite" />
+                Esri Satellite
+              </label>
+            </div>
+
+            <div class="risk-card">
+              <h3>Capas de riesgo</h3>
+
+              <details open>
+                <summary>Avenida torrencial</summary>
+                <label class="control-item">
+                  <input type="radio" name="riesgoLayer" value="amenaza_at" />
+                  Amenaza
+                </label>
+                <label class="control-item">
+                  <input type="radio" name="riesgoLayer" value="exposicion_at" />
+                  Exposición
+                </label>
+                <label class="control-item">
+                  <input type="radio" name="riesgoLayer" value="riesgo_at" />
+                  Riesgo
+                </label>
+              </details>
+
+              <details>
+                <summary>Inundación</summary>
+                <label class="control-item">
+                  <input type="radio" name="riesgoLayer" value="amenaza_inundacion" />
+                  Amenaza
+                </label>
+                <label class="control-item">
+                  <input type="radio" name="riesgoLayer" value="exposicion_inundacion" />
+                  Exposición
+                </label>
+                <label class="control-item">
+                  <input type="radio" name="riesgoLayer" value="riesgo_inundacion" />
+                  Riesgo
+                </label>
+              </details>
+
+              <details>
+                <summary>Movimiento en masa</summary>
+                <label class="control-item">
+                  <input type="radio" name="riesgoLayer" value="amenaza_mm" />
+                  Amenaza
+                </label>
+                <label class="control-item">
+                  <input type="radio" name="riesgoLayer" value="exposicion_mm" />
+                  Exposición
+                </label>
+                <label class="control-item">
+                  <input type="radio" name="riesgoLayer" value="riesgo_mm" />
+                  Riesgo
+                </label>
+              </details>
+
+              <button class="clear-btn" id="clearRiskLayer" type="button">
+                Quitar capa activa
+              </button>
+            </div>
+          </aside>
+
+          <div class="risk-map-panel">
+            <div id="map"></div>
+
+            <div class="legend-floating" id="legendBox">
+              <h4>Leyenda</h4>
+              <div id="legendContent">
+                <div class="legend-item">
+                  <span class="swatch" style="background:#2f8f5b;"></span>
+                  <span>Selecciona una capa de riesgo</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <aside class="risk-info">
+            <div class="info-card">
+              <h3>Información temática</h3>
+              <div id="riskInfoContent">
+                <p>
+                  Selecciona una capa para ver su significado, interpretación y
+                  referencia normativa.
+                </p>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="view" id="view-pot">
+        <div class="content-card">
+          <h2>POT</h2>
+          <p>
+            En esta sección se mostrará el contenido relacionado con el Plan de
+            Ordenamiento Territorial: glosario, objetivos, componentes, cartillas,
+            normativa y material enviado por el equipo.
+          </p>
+        </div>
+      </section>
+
+      <section class="view" id="view-pomca">
+        <div class="content-card">
+          <h2>POMCA</h2>
+          <p>
+            Esta sección funcionará como página informativa para integrar conceptos,
+            glosario, normativas, documentos y aportes del equipo relacionados con
+            el Plan de Ordenación y Manejo de Cuencas.
+          </p>
+        </div>
+      </section>
+
+      <section class="view" id="view-participacion">
+        <div class="content-card">
+          <h2>Participación ciudadana</h2>
+          <p>
+            Aquí se podrá mostrar información sobre procesos participativos,
+            espacios comunitarios, materiales pedagógicos, rutas de participación
+            y resultados del trabajo con la comunidad.
+          </p>
+        </div>
+      </section>
+
+      <section class="chatbot-section">
+        <div class="chatbot-card">
+          <h2>Asistente virtual</h2>
+          <p>
+            Este espacio quedará reservado para el chatbot del geovisor.
+          </p>
+          <button class="chatbot-btn" type="button">Abrir chatbot</button>
+        </div>
+      </section>
     </section>
-
-    <aside class="info-panel">
-      <div class="info-card">
-        <h3>Zona seleccionada</h3>
-        <p id="zoneInfo">
-          Haz clic sobre el mapa para ver coordenadas.
-        </p>
-      </div>
-    </aside>
   </main>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>

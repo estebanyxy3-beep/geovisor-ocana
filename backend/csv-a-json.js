@@ -1,6 +1,6 @@
 import fs from "fs";
 
-const csvPath = "./Construccion_expuesta_avenida_torrencial.csv";
+const csvPath = "./Contruccion_Expuesta_avenida_torrencial.csv";
 const outputPath = "./construccion_expuesta_avenida_torrencial.json";
 
 function parseCSVLine(line) {

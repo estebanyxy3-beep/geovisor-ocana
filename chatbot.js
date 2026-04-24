@@ -36,6 +36,17 @@ function addToHistory(role, content) {
   saveHistory();
 }
 
+function getFeatureSummary(feature) {
+  if (!feature || !feature.properties) return null;
+
+  const props = feature.properties;
+  const entries = Object.entries(props).slice(0, 8);
+
+  if (!entries.length) return null;
+
+  return entries.map(([k, v]) => `${k}: ${v}`).join(", ");
+}
+
 function answerWithRules(userMessage) {
   const msg = normalizeText(userMessage);
 
@@ -43,12 +54,19 @@ function answerWithRules(userMessage) {
     return "Hola. Soy GeoBot, el asistente del GeoVisor Ocaña. Puedo ayudarte con riesgo, POT, POMCA y participación ciudadana.";
   }
 
-  if (msg.includes("que es el geovisor") || msg.includes("que es geovisor ocana")) {
+  if (
+    msg.includes("que es el geovisor") ||
+    msg.includes("que es geovisor ocana")
+  ) {
     return "El GeoVisor Ocaña es una herramienta web para consultar información territorial y temática del municipio.";
   }
 
   if (msg.includes("que es el pot") || msg.includes("que es un pot")) {
-    return "El POT es el Plan de Ordenamiento Territorial. Sirve para definir cómo se organiza el suelo del municipio.";
+    return "El POT es el Plan de Ordenamiento Territorial. Sirve para definir cómo se organiza el suelo del municipio, qué usos se permiten y qué zonas deben protegerse.";
+  }
+
+  if (msg.includes("que es el pomca")) {
+    return "El POMCA es el Plan de Ordenación y Manejo de Cuencas. Sirve para orientar la planificación ambiental del territorio y el manejo del agua.";
   }
 
   if (msg.includes("como uso el mapa") || msg.includes("como funciona el mapa")) {
@@ -59,16 +77,35 @@ function answerWithRules(userMessage) {
     return "Este geovisor fue desarrollado como proyecto académico para apoyar la comprensión del territorio en Ocaña.";
   }
 
+  if (msg.includes("capa activa") || msg.includes("que capa estoy viendo")) {
+    return chatbotState.activeLayer
+      ? `La capa activa actual es: ${chatbotState.activeLayer}.`
+      : "En este momento no detecto una capa activa.";
+  }
+
   if (msg.includes("modulo activo")) {
     return chatbotState.activeModule
       ? `El módulo activo es: ${chatbotState.activeModule}.`
       : "No detecto un módulo activo.";
   }
 
-  if (msg.includes("capa activa")) {
-    return chatbotState.activeLayer
-      ? `La capa activa actual es: ${chatbotState.activeLayer}.`
-      : "En este momento no detecto una capa activa.";
+  if (
+    msg.includes("que significa esta zona") ||
+    msg.includes("que significa este poligono") ||
+    msg.includes("que estoy seleccionando")
+  ) {
+    const summary = getFeatureSummary(chatbotState.selectedFeature);
+    return summary
+      ? `La entidad seleccionada contiene esta información: ${summary}.`
+      : "No detecto una entidad seleccionada en el mapa.";
+  }
+
+  if (msg.includes("riesgo")) {
+    return "En el módulo de Riesgo puedes consultar amenazas, exposición y riesgo para distintos fenómenos del territorio.";
+  }
+
+  if (msg.includes("participacion")) {
+    return "En participación ciudadana podrás consultar procesos comunitarios, espacios de diálogo y mecanismos de intervención ciudadana.";
   }
 
   return null;
@@ -150,7 +187,7 @@ async function processUserMessage(text) {
   } catch (error) {
     console.error(error);
     const fallback =
-      "No pude conectarme con el servicio del chatbot en este momento.";
+      "No pude conectarme con el servicio avanzado del chatbot, pero sigo disponible para responder preguntas básicas del geovisor.";
     addToHistory("assistant", fallback);
     return fallback;
   }
@@ -158,8 +195,9 @@ async function processUserMessage(text) {
 
 async function sendMessage() {
   const input = document.getElementById("chatInput");
-  const text = input?.value.trim();
+  if (!input) return;
 
+  const text = input.value.trim();
   if (!text) return;
 
   appendMessage(text, "user-message");
@@ -188,14 +226,16 @@ function initChatbot() {
 
   openBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
-      chatWindow?.classList.remove("hidden");
+      if (chatWindow) {
+        chatWindow.classList.remove("hidden");
+      }
       renderSavedHistory();
     });
   });
 
-  if (closeBtn) {
+  if (closeBtn && chatWindow) {
     closeBtn.addEventListener("click", () => {
-      chatWindow?.classList.add("hidden");
+      chatWindow.classList.add("hidden");
     });
   }
 

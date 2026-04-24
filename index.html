@@ -9,7 +9,7 @@
     rel="stylesheet"
     href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
   />
-  <link rel="stylesheet" href="styles.css?v=4" />
+  <link rel="stylesheet" href="styles.css?v=5" />
 </head>
 <body>
   <header class="topbar">
@@ -22,7 +22,6 @@
     </div>
 
     <div class="topbar-actions">
-      <img src="assets/Logo_UFPSO.png" alt="Logo UFPSO" class="topbar-ufpso" />
       <button class="nav-toggle" id="navToggle" type="button">☰</button>
     </div>
   </header>
@@ -48,7 +47,8 @@
     <section class="content">
 
       <section class="view active" id="view-inicio">
-        <div class="home-hero">
+        <!-- HERO DESKTOP / TABLET -->
+        <div class="home-hero desktop-home-hero">
           <div class="home-left">
             <p class="welcome-kicker">Bienvenido al</p>
 
@@ -103,8 +103,6 @@
           </div>
 
           <div class="home-right">
-            <img src="assets/Logo_UFPSO.png" alt="Logo UFPSO" class="hero-ufpso-logo" />
-
             <div class="assistant-float">
               <div class="assistant-card">
                 <img src="assets/Geo_Bot.png" alt="Geo Bot" class="assistant-img" />
@@ -138,11 +136,63 @@
               </div>
             </div>
 
-            <div class="territory-visual">
+            <div class="territory-visual territory-visual-desktop">
               <img
                 src="assets/Imagen_satelital_difuminada.png"
                 alt="Visual satelital del territorio de Ocaña"
               />
+            </div>
+          </div>
+        </div>
+
+        <!-- HERO SOLO MÓVIL -->
+        <div class="mobile-home-hero">
+          <div class="mobile-home-overlay"></div>
+
+          <div class="mobile-home-inner">
+            <div class="mobile-home-top">
+              <img src="assets/Logo_Geovisor.png" alt="Logo GeoVisor Ocaña" class="mobile-home-logo" />
+              <div class="mobile-home-brand">
+                <h2>GeoVisor Ocaña</h2>
+                <p>Información territorial para planificación, gestión y participación</p>
+              </div>
+            </div>
+
+            <div class="mobile-home-content">
+              <p class="mobile-home-kicker">Bienvenido al</p>
+              <h1 class="mobile-home-title">GeoVisor de Ocaña</h1>
+              <p class="mobile-home-text">
+                Explora información geográfica y temática del territorio para la planificación,
+                gestión y participación ciudadana.
+              </p>
+
+              <button type="button" id="openChatbotBtnMobile" class="mobile-hero-chat-btn">
+                Chatear con GEO
+              </button>
+            </div>
+          </div>
+
+          <div class="mobile-chat-wrapper">
+            <div class="chat-window hidden" id="chatWindowMobile">
+              <div class="chat-header">
+                <h3>GeoBot</h3>
+                <button type="button" id="closeChatbotBtnMobile">×</button>
+              </div>
+
+              <div class="chat-messages" id="chatMessagesMobile">
+                <div class="bot-message">
+                  Hola. Soy GeoBot, el asistente del GeoVisor Ocaña. ¿En qué puedo ayudarte?
+                </div>
+              </div>
+
+              <div class="chat-input-area">
+                <input
+                  type="text"
+                  id="chatInputMobile"
+                  placeholder="Escribe tu pregunta..."
+                />
+                <button type="button" id="sendChatBtnMobile">Enviar</button>
+              </div>
             </div>
           </div>
         </div>
@@ -360,7 +410,7 @@
   </main>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="main.js?v=4"></script>
+  <script src="main.js?v=5"></script>
   <script src="chatbot.js?v=1"></script>
 </body>
 </html>

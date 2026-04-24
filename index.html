@@ -5,11 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GeoVisor Ocaña</title>
 
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-  />
-  <link rel="stylesheet" href="styles.css?v=5" />
+  <link rel="stylesheet" href="styles.css?v=6" />
 </head>
 <body>
   <header class="topbar">
@@ -30,11 +26,11 @@
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-inner">
         <nav class="nav-menu">
-          <button class="nav-item active" data-view="inicio">Inicio</button>
-          <button class="nav-item" data-view="riesgo">Mapas de Riesgo</button>
-          <button class="nav-item" data-view="participacion">Mecanismo de Participación</button>
-          <button class="nav-item" data-view="pot">POT</button>
-          <button class="nav-item" data-view="pomca">POMCA</button>
+          <a class="nav-item active" href="index.html">Inicio</a>
+          <a class="nav-item" href="riesgo.html">Mapas de Riesgo</a>
+          <a class="nav-item" href="participacion.html">Mecanismo de Participación</a>
+          <a class="nav-item" href="pot.html">POT</a>
+          <a class="nav-item" href="pomca.html">POMCA</a>
         </nav>
 
         <div class="sidebar-ally-card">
@@ -45,65 +41,65 @@
     </aside>
 
     <section class="content">
+      <section id="home-page" class="home-page">
+        <div class="home-overlay"></div>
 
-      <section class="view active" id="view-inicio">
-        <!-- HERO DESKTOP / TABLET -->
-        <div class="home-hero desktop-home-hero">
-          <div class="home-left">
-            <p class="welcome-kicker">Bienvenido al</p>
+        <div class="home-inner">
+          <section class="home-hero">
+            <div class="home-copy">
+              <p class="welcome-kicker">Bienvenido al</p>
 
-            <div class="home-title-brand">
-              <img src="assets/Logo_Geovisor.png" alt="Logo GeoVisor Ocaña" class="home-main-logo" />
-              <div>
-                <h2 class="welcome-title">
-                  <span class="geo-blue">Geo</span><span class="geo-green">Visor</span>
-                </h2>
-                <h3 class="welcome-script">de Ocaña</h3>
+              <div class="home-title-brand">
+                <img src="assets/Logo_Geovisor.png" alt="Logo GeoVisor Ocaña" class="home-main-logo" />
+                <div>
+                  <h2 class="welcome-title">
+                    <span class="geo-blue">Geo</span><span class="geo-green">Visor</span>
+                  </h2>
+                  <h3 class="welcome-script">de Ocaña</h3>
+                </div>
+              </div>
+
+              <div class="welcome-line"></div>
+
+              <p class="welcome-description">
+                Explora información geográfica y temática del territorio para la planificación,
+                gestión y participación ciudadana.
+              </p>
+
+              <div class="home-search">
+                <input type="text" placeholder="Buscar mapas, capas o lugares..." />
+                <button type="button">🔍</button>
+              </div>
+
+              <div class="home-benefits">
+                <div class="benefit-item">
+                  <span class="benefit-dot green"></span>
+                  <strong>Información confiable</strong>
+                </div>
+
+                <div class="benefit-item">
+                  <span class="benefit-dot blue"></span>
+                  <strong>Visualiza tu territorio</strong>
+                </div>
+
+                <div class="benefit-item">
+                  <span class="benefit-dot purple"></span>
+                  <strong>Participa y construye tu comunidad</strong>
+                </div>
+
+                <div class="benefit-item">
+                  <span class="benefit-dot yellow"></span>
+                  <strong>Planeación sostenible</strong>
+                </div>
+              </div>
+
+              <div class="home-section-title">
+                <span></span>
+                <h3>Accede a la información temática</h3>
               </div>
             </div>
 
-            <div class="welcome-line"></div>
-
-            <p class="welcome-description">
-              Explora información geográfica y temática del territorio para la planificación,
-              gestión y participación ciudadana.
-            </p>
-
-            <div class="home-search">
-              <input type="text" placeholder="Buscar mapas, capas o lugares..." />
-              <button type="button">🔍</button>
-            </div>
-
-            <div class="home-benefits">
-              <div class="benefit-item">
-                <span class="benefit-dot green"></span>
-                <strong>Información confiable</strong>
-              </div>
-
-              <div class="benefit-item">
-                <span class="benefit-dot blue"></span>
-                <strong>Visualiza tu territorio</strong>
-              </div>
-
-              <div class="benefit-item">
-                <span class="benefit-dot purple"></span>
-                <strong>Participa y construye tu comunidad</strong>
-              </div>
-
-              <div class="benefit-item">
-                <span class="benefit-dot yellow"></span>
-                <strong>Planeación sostenible</strong>
-              </div>
-            </div>
-
-            <div class="home-section-title">
-              <span></span>
-              <h3>Accede a la información temática</h3>
-            </div>
-          </div>
-
-          <div class="home-right">
-            <div class="assistant-float">
+            <div class="home-chat-column">
               <div class="assistant-card">
                 <img src="assets/Geo_Bot.png" alt="Geo Bot" class="assistant-img" />
                 <div class="assistant-text">
@@ -135,282 +131,64 @@
                 </div>
               </div>
             </div>
+          </section>
 
-            <div class="territory-visual territory-visual-desktop">
-              <img
-                src="assets/Imagen_satelital_difuminada.png"
-                alt="Visual satelital del territorio de Ocaña"
-              />
-            </div>
-          </div>
-        </div>
-
-        <!-- HERO SOLO MÓVIL -->
-        <div class="mobile-home-hero">
-          <div class="mobile-home-overlay"></div>
-
-          <div class="mobile-home-inner">
-            <div class="mobile-home-top">
-              <img src="assets/Logo_Geovisor.png" alt="Logo GeoVisor Ocaña" class="mobile-home-logo" />
-              <div class="mobile-home-brand">
-                <h2>GeoVisor Ocaña</h2>
-                <p>Información territorial para planificación, gestión y participación</p>
-              </div>
-            </div>
-
-            <div class="mobile-home-content">
-              <p class="mobile-home-kicker">Bienvenido al</p>
-              <h1 class="mobile-home-title">GeoVisor de Ocaña</h1>
-              <p class="mobile-home-text">
-                Explora información geográfica y temática del territorio para la planificación,
-                gestión y participación ciudadana.
+          <section class="home-cards">
+            <article class="topic-card green-card">
+              <img src="assets/UNGRD.png" alt="UNGRD" class="topic-image" />
+              <h3>Gestión del riesgo</h3>
+              <p>
+                Consulta mapas de amenazas, vulnerabilidad y riesgo para apoyar la toma de decisiones.
               </p>
+              <a class="topic-btn green-btn" href="riesgo.html">Explorar mapas</a>
+            </article>
 
-              <button type="button" id="openChatbotBtnMobile" class="mobile-hero-chat-btn">
-                Chatear con GEO
-              </button>
-            </div>
+            <article class="topic-card purple-card">
+              <img src="assets/Participacion_Ciudadana.png" alt="Participación ciudadana" class="topic-image" />
+              <h3>Mecanismo de Participación</h3>
+              <p>
+                Infórmate y participa en los espacios de diálogo y construcción colectiva del territorio.
+              </p>
+              <a class="topic-btn purple-btn" href="participacion.html">Participar</a>
+            </article>
+
+            <article class="topic-card blue-card">
+              <img src="assets/POT.png" alt="POT" class="topic-image" />
+              <h3>POT</h3>
+              <p>
+                Consulta los planes de ordenamiento territorial y contenidos clave del municipio.
+              </p>
+              <a class="topic-btn blue-btn" href="pot.html">Explorar POT</a>
+            </article>
+
+            <article class="topic-card teal-card">
+              <img src="assets/POMCA.png" alt="POMCA" class="topic-image" />
+              <h3>POMCA</h3>
+              <p>
+                Accede a información sobre cuencas hidrográficas, planificación y manejo ambiental.
+              </p>
+              <a class="topic-btn teal-btn" href="pomca.html">Explorar POMCA</a>
+            </article>
+
+            <article class="topic-card yellow-card">
+              <img src="assets/Codigo_Transito.png" alt="Código Nacional de Tránsito" class="topic-image" />
+              <h3>Accidentalidad</h3>
+              <p>
+                Integra aquí información vial, indicadores, reportes y análisis temáticos del territorio.
+              </p>
+              <a class="topic-btn yellow-btn" href="accidentalidad.html">Explorar módulo</a>
+            </article>
+          </section>
+
+          <div class="home-footer-banner">
+            En GeoVisor Ocaña promovemos la gestión responsable del territorio para construir juntos un futuro sostenible.
           </div>
-
-          <div class="mobile-chat-wrapper">
-            <div class="chat-window hidden" id="chatWindowMobile">
-              <div class="chat-header">
-                <h3>GeoBot</h3>
-                <button type="button" id="closeChatbotBtnMobile">×</button>
-              </div>
-
-              <div class="chat-messages" id="chatMessagesMobile">
-                <div class="bot-message">
-                  Hola. Soy GeoBot, el asistente del GeoVisor Ocaña. ¿En qué puedo ayudarte?
-                </div>
-              </div>
-
-              <div class="chat-input-area">
-                <input
-                  type="text"
-                  id="chatInputMobile"
-                  placeholder="Escribe tu pregunta..."
-                />
-                <button type="button" id="sendChatBtnMobile">Enviar</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="home-cards">
-          <article class="topic-card green-card">
-            <img src="assets/UNGRD.png" alt="UNGRD" class="topic-image" />
-            <h3>Gestión del riesgo</h3>
-            <p>
-              Consulta mapas de amenazas, vulnerabilidad y riesgo para apoyar la toma de decisiones.
-            </p>
-            <button class="topic-btn green-btn" type="button" data-view-target="riesgo">
-              Explorar mapas
-            </button>
-          </article>
-
-          <article class="topic-card purple-card">
-            <img src="assets/Participacion_Ciudadana.png" alt="Participación ciudadana" class="topic-image" />
-            <h3>Mecanismo de Participación</h3>
-            <p>
-              Infórmate y participa en los espacios de diálogo y construcción colectiva del territorio.
-            </p>
-            <button class="topic-btn purple-btn" type="button" data-view-target="participacion">
-              Participar
-            </button>
-          </article>
-
-          <article class="topic-card blue-card">
-            <img src="assets/POT.png" alt="POT" class="topic-image" />
-            <h3>POT</h3>
-            <p>
-              Consulta los planes de ordenamiento territorial y contenidos clave del municipio.
-            </p>
-            <button class="topic-btn blue-btn" type="button" data-view-target="pot">
-              Explorar POT
-            </button>
-          </article>
-
-          <article class="topic-card teal-card">
-            <img src="assets/POMCA.png" alt="POMCA" class="topic-image" />
-            <h3>POMCA</h3>
-            <p>
-              Accede a información sobre cuencas hidrográficas, planificación y manejo ambiental.
-            </p>
-            <button class="topic-btn teal-btn" type="button" data-view-target="pomca">
-              Explorar POMCA
-            </button>
-          </article>
-
-          <article class="topic-card yellow-card">
-            <img src="assets/Codigo_Transito.png" alt="Código Nacional de Tránsito" class="topic-image" />
-            <h3>Accidentalidad</h3>
-            <p>
-              Integra aquí información vial, indicadores, reportes y análisis temáticos del territorio.
-            </p>
-            <button class="topic-btn yellow-btn" type="button">
-              Explorar módulo
-            </button>
-          </article>
-        </div>
-
-        <div class="home-footer-banner">
-          En GeoVisor Ocaña promovemos la gestión responsable del territorio para construir juntos un futuro sostenible.
         </div>
       </section>
-
-      <section class="view" id="view-riesgo">
-        <div class="risk-layout">
-          <aside class="risk-sidebar">
-            <div class="risk-card">
-              <h3>Mapas base</h3>
-              <label class="control-item">
-                <input type="radio" name="baseLayer" value="osm" checked />
-                OpenStreetMap
-              </label>
-              <label class="control-item">
-                <input type="radio" name="baseLayer" value="satellite" />
-                Esri Satellite
-              </label>
-            </div>
-
-            <div class="risk-card">
-              <h3>Capas de riesgo</h3>
-
-              <details open>
-                <summary>Avenida torrencial</summary>
-                <label class="control-item">
-                  <input type="radio" name="riesgoLayer" value="amenaza_at" />
-                  Amenaza
-                </label>
-                <label class="control-item">
-                  <input type="radio" name="riesgoLayer" value="exposicion_at" />
-                  Exposición
-                </label>
-                <label class="control-item">
-                  <input type="radio" name="riesgoLayer" value="riesgo_at" />
-                  Riesgo
-                </label>
-              </details>
-
-              <details>
-                <summary>Inundación</summary>
-                <label class="control-item">
-                  <input type="radio" name="riesgoLayer" value="amenaza_inundacion" />
-                  Amenaza
-                </label>
-                <label class="control-item">
-                  <input type="radio" name="riesgoLayer" value="exposicion_inundacion" />
-                  Exposición
-                </label>
-                <label class="control-item">
-                  <input type="radio" name="riesgoLayer" value="riesgo_inundacion" />
-                  Riesgo
-                </label>
-              </details>
-
-              <details>
-                <summary>Movimiento en masa</summary>
-                <label class="control-item">
-                  <input type="radio" name="riesgoLayer" value="amenaza_mm" />
-                  Amenaza
-                </label>
-                <label class="control-item">
-                  <input type="radio" name="riesgoLayer" value="exposicion_mm" />
-                  Exposición
-                </label>
-                <label class="control-item">
-                  <input type="radio" name="riesgoLayer" value="riesgo_mm" />
-                  Riesgo
-                </label>
-              </details>
-
-              <button class="clear-btn" id="clearRiskLayer" type="button">
-                Quitar capa activa
-              </button>
-            </div>
-          </aside>
-
-          <div class="risk-map-panel">
-            <div id="map"></div>
-
-            <div class="legend-floating" id="legendBox">
-              <h4>Leyenda</h4>
-              <div id="legendContent">
-                <div class="legend-item">
-                  <span class="swatch" style="background:#2f8f5b;"></span>
-                  <span>Selecciona una capa de riesgo</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <aside class="risk-info">
-            <div class="info-card">
-              <h3>Información temática</h3>
-              <div id="riskInfoContent">
-                <p>
-                  Selecciona una capa para ver su significado, interpretación y
-                  referencia normativa.
-                </p>
-              </div>
-            </div>
-          </aside>
-        </div>
-      </section>
-
-      <section class="view" id="view-pot">
-        <div class="content-card">
-          <h2>POT</h2>
-          <p>
-            En esta sección se mostrará el contenido relacionado con el Plan de
-            Ordenamiento Territorial: glosario, objetivos, componentes, cartillas,
-            normativa y material enviado por el equipo.
-          </p>
-
-          <h3>Glosario base</h3>
-          <ul>
-            <li>Ordenamiento territorial</li>
-            <li>Clasificación del suelo</li>
-            <li>Uso del suelo</li>
-            <li>Tratamientos urbanísticos</li>
-          </ul>
-
-          <h3>Normativa</h3>
-          <p>
-            Aquí puedes incorporar la ley, decretos y acuerdos municipales que rijan
-            el POT en Colombia y en Ocaña.
-          </p>
-        </div>
-      </section>
-
-      <section class="view" id="view-pomca">
-        <div class="content-card">
-          <h2>POMCA</h2>
-          <p>
-            Esta sección funcionará como página informativa para integrar conceptos,
-            glosario, normativas, documentos y aportes del equipo relacionados con
-            el Plan de Ordenación y Manejo de Cuencas.
-          </p>
-        </div>
-      </section>
-
-      <section class="view" id="view-participacion">
-        <div class="content-card">
-          <h2>Participación ciudadana</h2>
-          <p>
-            Aquí se podrá mostrar información sobre procesos participativos,
-            espacios comunitarios, materiales pedagógicos, rutas de participación
-            y resultados del trabajo con la comunidad.
-          </p>
-        </div>
-      </section>
-
     </section>
   </main>
 
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="main.js?v=5"></script>
-  <script src="chatbot.js?v=1"></script>
+  <script src="main.js?v=6"></script>
+  <script src="chatbot.js?v=2"></script>
 </body>
 </html>

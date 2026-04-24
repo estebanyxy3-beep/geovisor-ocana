@@ -69,12 +69,6 @@ body {
   gap: 14px;
 }
 
-.topbar-ufpso {
-  width: 190px;
-  max-width: 100%;
-  object-fit: contain;
-}
-
 .nav-toggle {
   display: none;
   border: none;
@@ -150,6 +144,7 @@ body {
 
 .sidebar-ally-card {
   margin-top: auto;
+  margin-bottom: 12px;
   background: rgba(52, 72, 175, 0.92);
   color: white;
   border-radius: 24px;
@@ -190,7 +185,8 @@ body {
   display: block;
 }
 
-.home-hero {
+/* DESKTOP/TABLET */
+.desktop-home-hero {
   display: grid;
   grid-template-columns: 0.95fr 1.05fr;
   gap: 28px;
@@ -356,16 +352,6 @@ body {
   min-height: 660px;
 }
 
-.hero-ufpso-logo {
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 3;
-  width: 220px;
-  max-width: 100%;
-  object-fit: contain;
-}
-
 .assistant-float {
   position: absolute;
   top: 12px;
@@ -376,7 +362,6 @@ body {
 }
 
 .assistant-card {
-  position: static !important;
   display: flex;
   align-items: center;
   gap: 16px;
@@ -447,6 +432,126 @@ body {
   object-fit: cover;
   display: block;
   opacity: 0.96;
+}
+
+/* HERO MOVIL */
+.mobile-home-hero {
+  display: none;
+  position: relative;
+  min-height: calc(100vh - 110px);
+  border-radius: 28px;
+  overflow: hidden;
+  background-image:
+    linear-gradient(
+      180deg,
+      rgba(8, 18, 22, 0.20) 0%,
+      rgba(8, 18, 22, 0.38) 45%,
+      rgba(8, 18, 22, 0.55) 100%
+    ),
+    url("assets/Ocaña.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: var(--sombra);
+}
+
+.mobile-home-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(7, 18, 31, 0.18) 0%,
+    rgba(7, 18, 31, 0.18) 45%,
+    rgba(7, 18, 31, 0.48) 100%
+  );
+}
+
+.mobile-home-inner {
+  position: relative;
+  z-index: 2;
+  min-height: calc(100vh - 110px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 22px 18px 26px 18px;
+  color: white;
+}
+
+.mobile-home-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.mobile-home-logo {
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.mobile-home-brand h2 {
+  margin: 0 0 4px 0;
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.mobile-home-brand p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: rgba(255,255,255,0.92);
+}
+
+.mobile-home-content {
+  margin-top: auto;
+  padding-top: 40px;
+}
+
+.mobile-home-kicker {
+  margin: 0 0 8px 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.95);
+}
+
+.mobile-home-title {
+  margin: 0 0 14px 0;
+  font-size: 2.6rem;
+  line-height: 1;
+  font-weight: 800;
+  color: white;
+}
+
+.mobile-home-text {
+  margin: 0 0 22px 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.94);
+  max-width: 95%;
+}
+
+.mobile-hero-chat-btn {
+  border: none;
+  border-radius: 16px;
+  background: #1f8f3d;
+  color: white;
+  padding: 14px 18px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  width: 100%;
+  max-width: 260px;
+}
+
+.mobile-chat-wrapper {
+  position: relative;
+  z-index: 3;
+  padding: 0 16px 16px 16px;
+}
+
+#chatWindowMobile {
+  margin-top: 0;
 }
 
 .home-cards {
@@ -664,7 +769,8 @@ details summary {
   font-size: 1rem;
 }
 
-#closeChatbotBtn {
+#closeChatbotBtn,
+#closeChatbotBtnMobile {
   width: 34px;
   height: 34px;
   border: none;
@@ -676,7 +782,8 @@ details summary {
   cursor: pointer;
 }
 
-#closeChatbotBtn:hover {
+#closeChatbotBtn:hover,
+#closeChatbotBtnMobile:hover {
   background: rgba(255, 255, 255, 0.24);
 }
 
@@ -729,7 +836,8 @@ details summary {
   background: var(--blanco);
 }
 
-#chatInput {
+#chatInput,
+#chatInputMobile {
   flex: 1;
   min-width: 0;
   border: 1px solid var(--gris-borde);
@@ -739,12 +847,14 @@ details summary {
   outline: none;
 }
 
-#chatInput:focus {
+#chatInput:focus,
+#chatInputMobile:focus {
   border-color: var(--verde-ufpso);
   box-shadow: 0 0 0 3px rgba(31, 107, 69, 0.12);
 }
 
-#sendChatBtn {
+#sendChatBtn,
+#sendChatBtnMobile {
   border: none;
   border-radius: 12px;
   padding: 12px 18px;
@@ -755,7 +865,8 @@ details summary {
   flex-shrink: 0;
 }
 
-#sendChatBtn:hover {
+#sendChatBtn:hover,
+#sendChatBtnMobile:hover {
   background: var(--verde-ufpso-oscuro);
 }
 
@@ -777,10 +888,8 @@ details summary {
   .risk-info {
     grid-column: 1 / -1;
   }
-}
 
-@media (max-width: 1150px) {
-  .home-hero {
+  .desktop-home-hero {
     grid-template-columns: 1fr;
   }
 
@@ -794,15 +903,8 @@ details summary {
     margin-bottom: 18px;
   }
 
-  .hero-ufpso-logo {
-    position: static;
-    display: block;
-    margin-left: auto;
-    margin-bottom: 18px;
-  }
-
   .territory-visual {
-    min-height: 450px;
+    min-height: 420px;
   }
 
   .home-cards {
@@ -819,10 +921,6 @@ details summary {
     display: inline-block;
   }
 
-  .topbar-ufpso {
-    display: none;
-  }
-
   .sidebar {
     display: none;
     border-right: none;
@@ -837,6 +935,18 @@ details summary {
   .sidebar-inner {
     position: static;
     min-height: auto;
+  }
+
+  .desktop-home-hero {
+    display: none;
+  }
+
+  .mobile-home-hero {
+    display: block;
+  }
+
+  .home-cards {
+    grid-template-columns: 1fr;
   }
 
   .risk-layout {
@@ -856,44 +966,13 @@ details summary {
     right: 16px;
     min-width: auto;
   }
-}
-
-@media (max-width: 700px) {
-  .welcome-kicker {
-    font-size: 1.4rem;
-  }
-
-  .welcome-title {
-    font-size: 3rem;
-  }
-
-  .welcome-script {
-    font-size: 2.1rem;
-  }
-
-  .home-title-brand {
-    align-items: flex-start;
-  }
-
-  .home-main-logo {
-    width: 72px;
-    height: 72px;
-  }
-
-  .home-cards {
-    grid-template-columns: 1fr;
-  }
-
-  .benefit-item {
-    width: 100%;
-    border-radius: 16px;
-  }
 
   .chat-input-area {
     flex-direction: column;
   }
 
-  #sendChatBtn {
+  #sendChatBtn,
+  #sendChatBtnMobile {
     width: 100%;
   }
 
@@ -902,3 +981,60 @@ details summary {
     max-width: 100%;
   }
 }
+
+@media (max-width: 600px) {
+  .topbar {
+    padding: 0 12px;
+  }
+
+  .brand-logo-img {
+    width: 46px;
+    height: 46px;
+  }
+
+  .brand-text h1 {
+    font-size: 1rem;
+  }
+
+  .brand-text p {
+    font-size: 0.8rem;
+    line-height: 1.25;
+  }
+
+  .content {
+    padding: 12px;
+    gap: 16px;
+  }
+
+  .mobile-home-hero {
+    min-height: calc(100vh - 102px);
+    border-radius: 22px;
+  }
+
+  .mobile-home-inner {
+    min-height: calc(100vh - 102px);
+    padding: 18px 14px 22px 14px;
+  }
+
+  .mobile-home-brand h2 {
+    font-size: 1.6rem;
+  }
+
+  .mobile-home-brand p {
+    font-size: 0.86rem;
+  }
+
+  .mobile-home-title {
+    font-size: 2.1rem;
+  }
+
+  .mobile-home-text {
+    font-size: 0.95rem;
+  }
+
+  .mobile-home-logo {
+    width: 52px;
+    height: 52px;
+  }
+}
+

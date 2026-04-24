@@ -37,13 +37,8 @@ window.addEventListener('load', function () {
   }
 
   function showView(viewName) {
-    views.forEach((view) => {
-      view.classList.remove('active');
-    });
-
-    navButtons.forEach((btn) => {
-      btn.classList.remove('active');
-    });
+    views.forEach((view) => view.classList.remove('active'));
+    navButtons.forEach((btn) => btn.classList.remove('active'));
 
     const targetView = document.getElementById(`view-${viewName}`);
     const activeButton = document.querySelector(`.nav-item[data-view="${viewName}"]`);
@@ -99,7 +94,7 @@ window.addEventListener('load', function () {
   const riskLayersConfig = {
     amenaza_at: {
       label: 'Amenaza por avenida torrencial',
-      url: 'https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/refs/heads/main/Amenaza_Avenida_Torrencial_Urbano.json',
+      url: 'https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/Amenaza_Avenida_Torrencial_Urbano.json',
       info: `
         <p><strong>Amenaza:</strong> posibilidad de ocurrencia de un fenómeno físico potencialmente dañino.</p>
         <p>Esta capa representa zonas asociadas a amenaza por avenida torrencial.</p>
@@ -140,63 +135,38 @@ window.addEventListener('load', function () {
     amenaza_inundacion: {
       label: 'Amenaza por inundación',
       url: '',
-      info: `
-        <p>Esta sección permitirá visualizar la amenaza por inundación.</p>
-        <p>Aquí integrarás la capa correspondiente una vez subas el GeoJSON.</p>
-      `,
-      legend: `
-        <div class="legend-item"><span class="swatch" style="background:#3b82f6;"></span><span>Zona de amenaza</span></div>
-      `
+      info: `<p>Esta sección permitirá visualizar la amenaza por inundación.</p>`,
+      legend: `<div class="legend-item"><span class="swatch" style="background:#3b82f6;"></span><span>Zona de amenaza</span></div>`
     },
     exposicion_inundacion: {
       label: 'Exposición por inundación',
       url: '',
-      info: `
-        <p>Mostrará construcciones, predios u otros elementos ubicados en zonas expuestas a inundación.</p>
-      `,
-      legend: `
-        <div class="legend-item"><span class="swatch" style="background:#60a5fa;"></span><span>Elemento expuesto</span></div>
-      `
+      info: `<p>Mostrará construcciones, predios u otros elementos ubicados en zonas expuestas a inundación.</p>`,
+      legend: `<div class="legend-item"><span class="swatch" style="background:#60a5fa;"></span><span>Elemento expuesto</span></div>`
     },
     riesgo_inundacion: {
       label: 'Riesgo por inundación',
       url: '',
-      info: `
-        <p>Mostrará el análisis de riesgo asociado a inundación.</p>
-      `,
-      legend: `
-        <div class="legend-item"><span class="swatch" style="background:#1d4ed8;"></span><span>Riesgo por inundación</span></div>
-      `
+      info: `<p>Mostrará el análisis de riesgo asociado a inundación.</p>`,
+      legend: `<div class="legend-item"><span class="swatch" style="background:#1d4ed8;"></span><span>Riesgo por inundación</span></div>`
     },
     amenaza_mm: {
       label: 'Amenaza por movimiento en masa',
       url: '',
-      info: `
-        <p>Esta capa mostrará la amenaza por movimiento en masa.</p>
-      `,
-      legend: `
-        <div class="legend-item"><span class="swatch" style="background:#8b5cf6;"></span><span>Zona de amenaza</span></div>
-      `
+      info: `<p>Esta capa mostrará la amenaza por movimiento en masa.</p>`,
+      legend: `<div class="legend-item"><span class="swatch" style="background:#8b5cf6;"></span><span>Zona de amenaza</span></div>`
     },
     exposicion_mm: {
       label: 'Exposición por movimiento en masa',
       url: '',
-      info: `
-        <p>Mostrará elementos expuestos frente a procesos de movimiento en masa.</p>
-      `,
-      legend: `
-        <div class="legend-item"><span class="swatch" style="background:#a78bfa;"></span><span>Elemento expuesto</span></div>
-      `
+      info: `<p>Mostrará elementos expuestos frente a procesos de movimiento en masa.</p>`,
+      legend: `<div class="legend-item"><span class="swatch" style="background:#a78bfa;"></span><span>Elemento expuesto</span></div>`
     },
     riesgo_mm: {
       label: 'Riesgo por movimiento en masa',
       url: '',
-      info: `
-        <p>Mostrará las áreas o elementos en riesgo por movimiento en masa.</p>
-      `,
-      legend: `
-        <div class="legend-item"><span class="swatch" style="background:#7c3aed;"></span><span>Riesgo por movimiento en masa</span></div>
-      `
+      info: `<p>Mostrará las áreas o elementos en riesgo por movimiento en masa.</p>`,
+      legend: `<div class="legend-item"><span class="swatch" style="background:#7c3aed;"></span><span>Riesgo por movimiento en masa</span></div>`
     }
   };
 
@@ -285,21 +255,13 @@ window.addEventListener('load', function () {
     }
 
     updateLegend(config.legend);
-    updateRiskInfo(`
-      <h4>${config.label}</h4>
-      ${config.info}
-    `);
+    updateRiskInfo(`<h4>${config.label}</h4>${config.info}`);
 
-    if (!config.url) {
-      return;
-    }
+    if (!config.url) return;
 
     try {
       const response = await fetch(config.url);
-
-      if (!response.ok) {
-        throw new Error('No se pudo cargar el archivo GeoJSON');
-      }
+      if (!response.ok) throw new Error('No se pudo cargar el archivo GeoJSON');
 
       const data = await response.json();
 
@@ -309,14 +271,9 @@ window.addEventListener('load', function () {
         },
         onEachFeature: function (feature, layer) {
           const props = feature.properties || {};
-          const title =
-            props.titulo ||
-            props.nombre ||
-            props.NOMBRE ||
-            config.label;
+          const title = props.titulo || props.nombre || props.NOMBRE || config.label;
 
           let popupHTML = `<strong>${title}</strong>`;
-
           Object.keys(props).forEach((key) => {
             const value = props[key];
             if (value !== null && value !== undefined && value !== '') {

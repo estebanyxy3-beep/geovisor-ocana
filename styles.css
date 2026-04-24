@@ -998,3 +998,11 @@ details summary {
     font-size: 1.6rem;
   }
 }
+/* asegura que solo la vista activa se vea */
+.view {
+  display: none !important;
+}
+
+.view.active {
+  display: block !important;
+}

@@ -378,15 +378,6 @@ window.addEventListener('load', function () {
     });
   });
 
-  const openChatbotBtnHero = document.getElementById('openChatbotBtnHero');
-  const openChatbotBtn = document.getElementById('openChatbotBtn');
-
-  if (openChatbotBtnHero && openChatbotBtn) {
-    openChatbotBtnHero.addEventListener('click', function () {
-      openChatbotBtn.click();
-    });
-  }
-
   syncChatbotContext({
     activeModule: 'Inicio'
   });

@@ -50,7 +50,7 @@ window.addEventListener('load', function () {
     if (targetView) targetView.classList.add('active');
     if (activeButton) activeButton.classList.add('active');
 
-    if (window.innerWidth <= 900) {
+    if (window.innerWidth <= 900 && sidebar) {
       sidebar.classList.remove('open');
     }
 
@@ -79,9 +79,11 @@ window.addEventListener('load', function () {
     });
   });
 
-  navToggle.addEventListener('click', function () {
-    sidebar.classList.toggle('open');
-  });
+  if (navToggle && sidebar) {
+    navToggle.addEventListener('click', function () {
+      sidebar.classList.toggle('open');
+    });
+  }
 
   let currentRiskLayer = null;
 
@@ -218,7 +220,9 @@ window.addEventListener('load', function () {
 
   function updateRiskInfo(html = '') {
     const riskInfoContent = document.getElementById('riskInfoContent');
-    riskInfoContent.innerHTML = html || '<p>Selecciona una capa para ver su contenido.</p>';
+    if (riskInfoContent) {
+      riskInfoContent.innerHTML = html || '<p>Selecciona una capa para ver su contenido.</p>';
+    }
   }
 
   function getFeatureStyle(props = {}) {
@@ -350,26 +354,29 @@ window.addEventListener('load', function () {
     });
   });
 
-  document.getElementById('clearRiskLayer').addEventListener('click', function () {
-    document.querySelectorAll('input[name="riesgoLayer"]').forEach((radio) => {
-      radio.checked = false;
+  const clearRiskLayerBtn = document.getElementById('clearRiskLayer');
+  if (clearRiskLayerBtn) {
+    clearRiskLayerBtn.addEventListener('click', function () {
+      document.querySelectorAll('input[name="riesgoLayer"]').forEach((radio) => {
+        radio.checked = false;
+      });
+
+      if (currentRiskLayer && map.hasLayer(currentRiskLayer)) {
+        map.removeLayer(currentRiskLayer);
+        currentRiskLayer = null;
+      }
+
+      syncChatbotContext({
+        activeLayer: null,
+        activeModule: 'Riesgo',
+        selectedFeature: null
+      });
+
+      updateLegend();
+      updateRiskInfo('<p>Selecciona una capa para ver su significado, interpretación y referencia normativa.</p>');
+      map.setView(ocanaCoords, 15);
     });
-
-    if (currentRiskLayer && map.hasLayer(currentRiskLayer)) {
-      map.removeLayer(currentRiskLayer);
-      currentRiskLayer = null;
-    }
-
-    syncChatbotContext({
-      activeLayer: null,
-      activeModule: 'Riesgo',
-      selectedFeature: null
-    });
-
-    updateLegend();
-    updateRiskInfo('<p>Selecciona una capa para ver su significado, interpretación y referencia normativa.</p>');
-    map.setView(ocanaCoords, 15);
-  });
+  }
 
   document.querySelectorAll('[data-view-target]').forEach((button) => {
     button.addEventListener('click', function () {

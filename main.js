@@ -1,225 +1,384 @@
-const chatbotState = {
-  activeLayer: null,
-  activeModule: "Inicio",
-  selectedFeature: null,
-  chatHistory: []
-};
+document.addEventListener("DOMContentLoaded", function () {
+  const ocanaCoords = [8.236372, -73.353228];
 
-function normalizeText(text) {
-  return text
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .trim();
-}
+  const sidebar = document.getElementById("sidebar");
+  const navToggle = document.getElementById("navToggle");
+  const views = document.querySelectorAll(".view");
+  const navButtons = document.querySelectorAll(".nav-item");
+  const viewButtons = document.querySelectorAll("[data-view-target]");
 
-function saveHistory() {
-  sessionStorage.setItem(
-    "geovisor_chat_history",
-    JSON.stringify(chatbotState.chatHistory)
-  );
-}
-
-function loadHistory() {
-  const saved = sessionStorage.getItem("geovisor_chat_history");
-  if (saved) {
-    try {
-      chatbotState.chatHistory = JSON.parse(saved);
-    } catch (e) {
-      chatbotState.chatHistory = [];
+  function syncChatbotContext(data) {
+    if (window.updateChatbotContext) {
+      window.updateChatbotContext(data);
     }
   }
-}
 
-function addToHistory(role, content) {
-  chatbotState.chatHistory.push({
-    role,
-    content,
-    date: new Date().toISOString()
+  function setActiveNav(viewName) {
+    navButtons.forEach((btn) => btn.classList.remove("active"));
+    const activeButton = document.querySelector(`.nav-item[data-view="${viewName}"]`);
+    if (activeButton) activeButton.classList.add("active");
+  }
+
+  function showView(viewName) {
+    views.forEach((view) => view.classList.remove("active"));
+
+    const targetView = document.getElementById(`view-${viewName}`);
+    if (targetView) {
+      targetView.classList.add("active");
+    }
+
+    setActiveNav(viewName);
+
+    if (window.innerWidth <= 900 && sidebar) {
+      sidebar.classList.remove("open");
+    }
+
+    const moduleNames = {
+      inicio: "Inicio",
+      riesgo: "Riesgo",
+      pot: "POT",
+      pomca: "POMCA",
+      participacion: "Participación"
+    };
+
+    syncChatbotContext({
+      activeModule: moduleNames[viewName] || "Inicio"
+    });
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
+    if (viewName === "riesgo" && window.__geovisorMap) {
+      setTimeout(() => {
+        window.__geovisorMap.invalidateSize(true);
+      }, 300);
+    }
+  }
+
+  navButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+      const viewName = this.dataset.view;
+      if (viewName) showView(viewName);
+    });
   });
-  saveHistory();
-}
 
-function getFeatureSummary(feature) {
-  if (!feature || !feature.properties) return null;
-  const props = feature.properties;
-  const entries = Object.entries(props).slice(0, 8);
-  if (!entries.length) return null;
-  return entries.map(([k, v]) => `${k}: ${v}`).join(", ");
-}
-
-function answerWithRules(userMessage) {
-  const msg = normalizeText(userMessage);
-
-  if (msg.includes("hola")) {
-    return "Hola. Soy GeoBot, el asistente del GeoVisor Ocaña. Puedo ayudarte con riesgo, POT, POMCA y participación ciudadana.";
-  }
-
-  if (msg.includes("que es el geovisor") || msg.includes("que es geovisor ocana")) {
-    return "El GeoVisor Ocaña es una herramienta web para consultar información territorial y temática del municipio.";
-  }
-
-  if (msg.includes("que es el pot") || msg.includes("que es un pot")) {
-    return "El POT es el Plan de Ordenamiento Territorial. Sirve para definir cómo se organiza el suelo del municipio, qué usos se permiten y qué zonas deben protegerse.";
-  }
-
-  if (msg.includes("que es el pomca")) {
-    return "El POMCA es el Plan de Ordenación y Manejo de Cuencas. Sirve para orientar la planificación ambiental del territorio y el manejo del agua.";
-  }
-
-  if (msg.includes("como uso el mapa") || msg.includes("como funciona el mapa")) {
-    return "Puedes entrar al módulo de Riesgo, activar capas, cambiar el mapa base y hacer clic en las zonas para consultar información.";
-  }
-
-  if (msg.includes("quien hizo esto") || msg.includes("quien hizo el geovisor")) {
-    return "Este geovisor fue desarrollado como proyecto académico para apoyar la comprensión del territorio en Ocaña.";
-  }
-
-  if (msg.includes("capa activa") || msg.includes("que capa estoy viendo")) {
-    return chatbotState.activeLayer
-      ? `La capa activa actual es: ${chatbotState.activeLayer}.`
-      : "En este momento no detecto una capa activa.";
-  }
-
-  if (msg.includes("modulo activo")) {
-    return chatbotState.activeModule
-      ? `El módulo activo es: ${chatbotState.activeModule}.`
-      : "No detecto un módulo activo.";
-  }
-
-  if (
-    msg.includes("que significa esta zona") ||
-    msg.includes("que significa este poligono") ||
-    msg.includes("que estoy seleccionando")
-  ) {
-    const summary = getFeatureSummary(chatbotState.selectedFeature);
-    return summary
-      ? `La entidad seleccionada contiene esta información: ${summary}.`
-      : "No detecto una entidad seleccionada en el mapa.";
-  }
-
-  if (msg.includes("riesgo")) {
-    return "En el módulo de Riesgo puedes consultar amenazas, exposición y riesgo para distintos fenómenos del territorio.";
-  }
-
-  if (msg.includes("participacion")) {
-    return "En participación ciudadana podrás consultar procesos comunitarios, espacios de diálogo y mecanismos de intervención ciudadana.";
-  }
-
-  if (msg.includes("buenas") || msg.includes("buen dia") || msg.includes("buenos dias")) {
-    return "¡Hola! Estoy listo para ayudarte con información del GeoVisor Ocaña.";
-  }
-
-  return "Puedo ayudarte con preguntas sobre el GeoVisor, el módulo de Riesgo, el POT, el POMCA o la participación ciudadana. También puedes preguntarme cuál es el módulo o la capa activa.";
-}
-
-function appendMessage(text, className) {
-  const messages = document.getElementById("chatMessages");
-  if (!messages) return;
-
-  const div = document.createElement("div");
-  div.className = className;
-  div.textContent = text;
-  messages.appendChild(div);
-  messages.scrollTop = messages.scrollHeight;
-}
-
-function renderSavedHistory() {
-  const messages = document.getElementById("chatMessages");
-  if (!messages) return;
-
-  messages.innerHTML = "";
-
-  if (!chatbotState.chatHistory.length) {
-    appendMessage(
-      "Hola. Soy GeoBot, el asistente del GeoVisor Ocaña. ¿En qué puedo ayudarte?",
-      "bot-message"
-    );
-    return;
-  }
-
-  chatbotState.chatHistory.forEach((item) => {
-    appendMessage(
-      item.content,
-      item.role === "user" ? "user-message" : "bot-message"
-    );
+  viewButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+      const viewName = this.dataset.viewTarget;
+      if (viewName) showView(viewName);
+    });
   });
-}
 
-async function processUserMessage(text) {
-  addToHistory("user", text);
-  const reply = answerWithRules(text);
-  addToHistory("assistant", reply);
-  return reply;
-}
+  if (navToggle && sidebar) {
+    navToggle.addEventListener("click", function () {
+      sidebar.classList.toggle("open");
+    });
+  }
 
-async function sendMessage() {
-  const input = document.getElementById("chatInput");
-  if (!input) return;
+  /* =========================
+     MAPA Y RIESGO
+  ========================= */
 
-  const text = input.value.trim();
-  if (!text) return;
+  let map = null;
+  let osm = null;
+  let satellite = null;
+  let currentRiskLayer = null;
 
-  appendMessage(text, "user-message");
-  input.value = "";
+  const riskLayersConfig = {
+    amenaza_at: {
+      label: "Amenaza por avenida torrencial",
+      url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/Amenaza_Avenida_Torrencial_Urbano.json",
+      info: `
+        <p><strong>Amenaza:</strong> posibilidad de ocurrencia de un fenómeno físico potencialmente dañino.</p>
+        <p>Esta capa representa zonas asociadas a amenaza por avenida torrencial.</p>
+        <p><strong>Normativa base:</strong> Ley 1523 de 2012.</p>
+      `,
+      legend: `
+        <div class="legend-item"><span class="swatch" style="background:#ff0000;"></span><span>Amenaza alta</span></div>
+        <div class="legend-item"><span class="swatch" style="background:#ffff00;"></span><span>Amenaza media</span></div>
+        <div class="legend-item"><span class="swatch" style="background:#00aa00;"></span><span>Amenaza baja</span></div>
+      `
+    },
+    exposicion_at: {
+      label: "Exposición por avenida torrencial",
+      url: "",
+      info: `
+        <p><strong>Exposición:</strong> presencia de personas, viviendas, vías, predios o infraestructura en zonas que pueden verse afectadas por una amenaza.</p>
+        <p>Aquí podrás cargar las capas de construcciones, predios o vías expuestas por avenida torrencial.</p>
+        <p><strong>Normativa base:</strong> Ley 1523 de 2012.</p>
+      `,
+      legend: `
+        <div class="legend-item"><span class="swatch" style="background:#f59e0b;"></span><span>Elemento expuesto</span></div>
+      `
+    },
+    riesgo_at: {
+      label: "Riesgo por avenida torrencial",
+      url: "",
+      info: `
+        <p><strong>Riesgo:</strong> resultado de la interacción entre amenaza, exposición y vulnerabilidad.</p>
+        <p>Esta capa mostrará los elementos o áreas en riesgo por avenida torrencial.</p>
+        <p><strong>Normativa base:</strong> Ley 1523 de 2012.</p>
+      `,
+      legend: `
+        <div class="legend-item"><span class="swatch" style="background:#dc2626;"></span><span>Riesgo alto</span></div>
+        <div class="legend-item"><span class="swatch" style="background:#f59e0b;"></span><span>Riesgo medio</span></div>
+        <div class="legend-item"><span class="swatch" style="background:#22c55e;"></span><span>Riesgo bajo</span></div>
+      `
+    },
+    amenaza_inundacion: {
+      label: "Amenaza por inundación",
+      url: "",
+      info: `<p>Esta sección permitirá visualizar la amenaza por inundación.</p>`,
+      legend: `<div class="legend-item"><span class="swatch" style="background:#3b82f6;"></span><span>Zona de amenaza</span></div>`
+    },
+    exposicion_inundacion: {
+      label: "Exposición por inundación",
+      url: "",
+      info: `<p>Mostrará construcciones, predios u otros elementos ubicados en zonas expuestas a inundación.</p>`,
+      legend: `<div class="legend-item"><span class="swatch" style="background:#60a5fa;"></span><span>Elemento expuesto</span></div>`
+    },
+    riesgo_inundacion: {
+      label: "Riesgo por inundación",
+      url: "",
+      info: `<p>Mostrará el análisis de riesgo asociado a inundación.</p>`,
+      legend: `<div class="legend-item"><span class="swatch" style="background:#1d4ed8;"></span><span>Riesgo por inundación</span></div>`
+    },
+    amenaza_mm: {
+      label: "Amenaza por movimiento en masa",
+      url: "",
+      info: `<p>Esta capa mostrará la amenaza por movimiento en masa.</p>`,
+      legend: `<div class="legend-item"><span class="swatch" style="background:#8b5cf6;"></span><span>Zona de amenaza</span></div>`
+    },
+    exposicion_mm: {
+      label: "Exposición por movimiento en masa",
+      url: "",
+      info: `<p>Mostrará elementos expuestos frente a procesos de movimiento en masa.</p>`,
+      legend: `<div class="legend-item"><span class="swatch" style="background:#a78bfa;"></span><span>Elemento expuesto</span></div>`
+    },
+    riesgo_mm: {
+      label: "Riesgo por movimiento en masa",
+      url: "",
+      info: `<p>Mostrará las áreas o elementos en riesgo por movimiento en masa.</p>`,
+      legend: `<div class="legend-item"><span class="swatch" style="background:#7c3aed;"></span><span>Riesgo por movimiento en masa</span></div>`
+    }
+  };
 
-  appendMessage("Escribiendo...", "bot-message typing-message");
+  function updateLegend(html = null) {
+    const legendContent = document.getElementById("legendContent");
+    if (!legendContent) return;
 
-  const reply = await processUserMessage(text);
+    if (html) {
+      legendContent.innerHTML = html;
+      return;
+    }
 
-  const messages = document.getElementById("chatMessages");
-  const typing = messages ? messages.querySelector(".typing-message") : null;
-  if (typing) typing.remove();
+    legendContent.innerHTML = `
+      <div class="legend-item">
+        <span class="swatch" style="background:#2f8f5b;"></span>
+        <span>Selecciona una capa de riesgo</span>
+      </div>
+    `;
+  }
 
-  appendMessage(reply, "bot-message");
-}
+  function updateRiskInfo(html = "") {
+    const riskInfoContent = document.getElementById("riskInfoContent");
+    if (!riskInfoContent) return;
 
-function initChatbot() {
-  loadHistory();
-  renderSavedHistory();
+    riskInfoContent.innerHTML =
+      html || "<p>Selecciona una capa para ver su contenido.</p>";
+  }
 
-  const openBtns = document.querySelectorAll(".open-chatbot-btn");
-  const closeBtn = document.getElementById("closeChatbotBtn");
-  const chatWindow = document.getElementById("chatWindow");
-  const sendBtn = document.getElementById("sendChatBtn");
-  const input = document.getElementById("chatInput");
+  function getFeatureStyle(props = {}) {
+    const nivel = (
+      props.nivel ||
+      props.NIVEL ||
+      props.amenaza ||
+      props.AMENAZA ||
+      props.clase ||
+      props.CLASIFICA ||
+      props.tipo ||
+      props.TIPO ||
+      ""
+    ).toString().trim().toLowerCase();
 
-  openBtns.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      if (chatWindow) {
-        chatWindow.classList.remove("hidden");
+    let fillColor = "#d9d9d9";
+    let borderColor = "#666666";
+
+    if (nivel.includes("alta")) {
+      fillColor = "#ff0000";
+      borderColor = "#990000";
+    } else if (nivel.includes("media")) {
+      fillColor = "#ffff00";
+      borderColor = "#999900";
+    } else if (nivel.includes("baja")) {
+      fillColor = "#00aa00";
+      borderColor = "#006400";
+    }
+
+    return {
+      color: borderColor,
+      weight: 2,
+      fillColor: fillColor,
+      fillOpacity: 0.45
+    };
+  }
+
+  function setBaseLayer(layerName) {
+    if (!map || !osm || !satellite) return;
+
+    if (map.hasLayer(osm)) map.removeLayer(osm);
+    if (map.hasLayer(satellite)) map.removeLayer(satellite);
+
+    if (layerName === "satellite") {
+      satellite.addTo(map);
+    } else {
+      osm.addTo(map);
+    }
+  }
+
+  async function loadRiskLayer(layerKey) {
+    if (!map) return;
+
+    const config = riskLayersConfig[layerKey];
+    if (!config) return;
+
+    syncChatbotContext({
+      activeLayer: config.label,
+      activeModule: "Riesgo",
+      selectedFeature: null
+    });
+
+    if (currentRiskLayer && map.hasLayer(currentRiskLayer)) {
+      map.removeLayer(currentRiskLayer);
+      currentRiskLayer = null;
+    }
+
+    updateLegend(config.legend);
+    updateRiskInfo(`<h4>${config.label}</h4>${config.info}`);
+
+    if (!config.url) return;
+
+    try {
+      const response = await fetch(config.url);
+      if (!response.ok) throw new Error("No se pudo cargar el archivo GeoJSON");
+
+      const data = await response.json();
+
+      currentRiskLayer = L.geoJSON(data, {
+        style: function (feature) {
+          return getFeatureStyle(feature.properties || {});
+        },
+        onEachFeature: function (feature, layer) {
+          const props = feature.properties || {};
+          const title = props.titulo || props.nombre || props.NOMBRE || config.label;
+
+          let popupHTML = `<strong>${title}</strong>`;
+          Object.keys(props).forEach((key) => {
+            const value = props[key];
+            if (value !== null && value !== undefined && value !== "") {
+              popupHTML += `<br><strong>${key}:</strong> ${value}`;
+            }
+          });
+
+          layer.bindPopup(popupHTML);
+
+          layer.on("click", function () {
+            syncChatbotContext({
+              activeLayer: config.label,
+              activeModule: "Riesgo",
+              selectedFeature: feature
+            });
+          });
+        }
+      });
+
+      currentRiskLayer.addTo(map);
+
+      if (currentRiskLayer.getBounds && currentRiskLayer.getBounds().isValid()) {
+        map.fitBounds(currentRiskLayer.getBounds());
       }
-      renderSavedHistory();
-    });
-  });
-
-  if (closeBtn && chatWindow) {
-    closeBtn.addEventListener("click", () => {
-      chatWindow.classList.add("hidden");
-    });
+    } catch (error) {
+      console.error("Error cargando capa:", error);
+      updateRiskInfo(`
+        <h4>${config.label}</h4>
+        ${config.info}
+        <p><strong>Error:</strong> no se pudo cargar el archivo GeoJSON.</p>
+      `);
+    }
   }
 
-  if (sendBtn) {
-    sendBtn.addEventListener("click", sendMessage);
-  }
+  try {
+    const mapElement = document.getElementById("map");
+    if (mapElement && window.L) {
+      map = L.map("map", {
+        preferCanvas: true
+      }).setView(ocanaCoords, 15);
 
-  if (input) {
-    input.addEventListener("keydown", (e) => {
-      if (e.key === "Enter") {
-        sendMessage();
+      window.__geovisorMap = map;
+
+      osm = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        maxZoom: 19,
+        attribution: "&copy; OpenStreetMap contributors"
+      });
+
+      satellite = L.tileLayer(
+        "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+        {
+          maxZoom: 19,
+          attribution: "Tiles &copy; Esri"
+        }
+      );
+
+      osm.addTo(map);
+
+      L.marker(ocanaCoords)
+        .addTo(map)
+        .bindPopup("<b>GeoVisor Ocaña</b><br>Punto base del proyecto.");
+
+      document.querySelectorAll('input[name="baseLayer"]').forEach((radio) => {
+        radio.addEventListener("change", (e) => {
+          setBaseLayer(e.target.value);
+        });
+      });
+
+      document.querySelectorAll('input[name="riesgoLayer"]').forEach((radio) => {
+        radio.addEventListener("change", (e) => {
+          loadRiskLayer(e.target.value);
+        });
+      });
+
+      const clearRiskLayerBtn = document.getElementById("clearRiskLayer");
+      if (clearRiskLayerBtn) {
+        clearRiskLayerBtn.addEventListener("click", function () {
+          document.querySelectorAll('input[name="riesgoLayer"]').forEach((radio) => {
+            radio.checked = false;
+          });
+
+          if (currentRiskLayer && map.hasLayer(currentRiskLayer)) {
+            map.removeLayer(currentRiskLayer);
+            currentRiskLayer = null;
+          }
+
+          syncChatbotContext({
+            activeLayer: null,
+            activeModule: "Riesgo",
+            selectedFeature: null
+          });
+
+          updateLegend();
+          updateRiskInfo("<p>Selecciona una capa para ver su significado, interpretación y referencia normativa.</p>");
+          map.setView(ocanaCoords, 15);
+        });
       }
-    });
+
+      setTimeout(() => {
+        map.invalidateSize(true);
+      }, 500);
+    }
+  } catch (error) {
+    console.error("Error inicializando mapa:", error);
   }
-}
 
-window.updateChatbotContext = function ({ activeLayer, activeModule, selectedFeature }) {
-  if (activeLayer !== undefined) chatbotState.activeLayer = activeLayer;
-  if (activeModule !== undefined) chatbotState.activeModule = activeModule;
-  if (selectedFeature !== undefined) chatbotState.selectedFeature = selectedFeature;
-};
-
-if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", initChatbot);
-} else {
-  initChatbot();
-}
+  syncChatbotContext({
+    activeModule: "Inicio"
+  });
+});

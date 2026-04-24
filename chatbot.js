@@ -23,7 +23,11 @@ function saveHistory() {
 function loadHistory() {
   const saved = sessionStorage.getItem("geovisor_chat_history");
   if (saved) {
-    chatbotState.chatHistory = JSON.parse(saved);
+    try {
+      chatbotState.chatHistory = JSON.parse(saved);
+    } catch (e) {
+      chatbotState.chatHistory = [];
+    }
   }
 }
 
@@ -38,26 +42,20 @@ function addToHistory(role, content) {
 
 function getFeatureSummary(feature) {
   if (!feature || !feature.properties) return null;
-
   const props = feature.properties;
   const entries = Object.entries(props).slice(0, 8);
-
   if (!entries.length) return null;
-
   return entries.map(([k, v]) => `${k}: ${v}`).join(", ");
 }
 
 function answerWithRules(userMessage) {
   const msg = normalizeText(userMessage);
 
-  if (msg === "hola" || msg.includes("hola")) {
+  if (msg.includes("hola")) {
     return "Hola. Soy GeoBot, el asistente del GeoVisor Ocaña. Puedo ayudarte con riesgo, POT, POMCA y participación ciudadana.";
   }
 
-  if (
-    msg.includes("que es el geovisor") ||
-    msg.includes("que es geovisor ocana")
-  ) {
+  if (msg.includes("que es el geovisor") || msg.includes("que es geovisor ocana")) {
     return "El GeoVisor Ocaña es una herramienta web para consultar información territorial y temática del municipio.";
   }
 
@@ -108,34 +106,11 @@ function answerWithRules(userMessage) {
     return "En participación ciudadana podrás consultar procesos comunitarios, espacios de diálogo y mecanismos de intervención ciudadana.";
   }
 
-  return null;
-}
-
-async function askBackend(userMessage) {
-  const payload = {
-    message: userMessage,
-    context: {
-      activeLayer: chatbotState.activeLayer,
-      activeModule: chatbotState.activeModule,
-      selectedFeature: chatbotState.selectedFeature,
-      chatHistory: chatbotState.chatHistory.slice(-8)
-    }
-  };
-
-  const response = await fetch("http://localhost:3000/chat", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(payload)
-  });
-
-  if (!response.ok) {
-    throw new Error("Error consultando el backend");
+  if (msg.includes("buenas") || msg.includes("buen dia") || msg.includes("buenos dias")) {
+    return "¡Hola! Estoy listo para ayudarte con información del GeoVisor Ocaña.";
   }
 
-  const data = await response.json();
-  return data.reply || "No pude responder en este momento.";
+  return "Puedo ayudarte con preguntas sobre el GeoVisor, el módulo de Riesgo, el POT, el POMCA o la participación ciudadana. También puedes preguntarme cuál es el módulo o la capa activa.";
 }
 
 function appendMessage(text, className) {
@@ -173,24 +148,9 @@ function renderSavedHistory() {
 
 async function processUserMessage(text) {
   addToHistory("user", text);
-
-  const localAnswer = answerWithRules(text);
-  if (localAnswer) {
-    addToHistory("assistant", localAnswer);
-    return localAnswer;
-  }
-
-  try {
-    const reply = await askBackend(text);
-    addToHistory("assistant", reply);
-    return reply;
-  } catch (error) {
-    console.error(error);
-    const fallback =
-      "No pude conectarme con el servicio avanzado del chatbot, pero sigo disponible para responder preguntas básicas del geovisor.";
-    addToHistory("assistant", fallback);
-    return fallback;
-  }
+  const reply = answerWithRules(text);
+  addToHistory("assistant", reply);
+  return reply;
 }
 
 async function sendMessage() {
@@ -208,7 +168,7 @@ async function sendMessage() {
   const reply = await processUserMessage(text);
 
   const messages = document.getElementById("chatMessages");
-  const typing = messages?.querySelector(".typing-message");
+  const typing = messages ? messages.querySelector(".typing-message") : null;
   if (typing) typing.remove();
 
   appendMessage(reply, "bot-message");
@@ -258,4 +218,8 @@ window.updateChatbotContext = function ({ activeLayer, activeModule, selectedFea
   if (selectedFeature !== undefined) chatbotState.selectedFeature = selectedFeature;
 };
 
-document.addEventListener("DOMContentLoaded", initChatbot);
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initChatbot);
+} else {
+  initChatbot();
+}

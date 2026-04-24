@@ -15,6 +15,7 @@ html, body {
   --texto: #1f2937;
   --texto-suave: #5b6470;
   --blanco: #ffffff;
+  --azul: #29367a;
   --sombra: 0 10px 30px rgba(0, 0, 0, 0.10);
 }
 
@@ -85,18 +86,7 @@ body {
 }
 
 .sidebar {
-  background-image:
-    linear-gradient(
-      180deg,
-      rgba(255,255,255,0.96) 0%,
-      rgba(255,255,255,0.82) 18%,
-      rgba(255,255,255,0.18) 52%,
-      rgba(18, 70, 40, 0.60) 100%
-    ),
-    url("assets/Ocaña.jpeg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: linear-gradient(180deg, #ffffff 0%, #f4f8f5 100%);
   border-right: 1px solid var(--gris-borde);
   padding: 18px;
   position: relative;
@@ -120,9 +110,8 @@ body {
 }
 
 .nav-item {
-  text-decoration: none;
-  border: 1px solid rgba(255,255,255,0.55);
-  background: rgba(255,255,255,0.78);
+  border: 1px solid #dce4df;
+  background: rgba(255,255,255,0.92);
   color: #1b2d3d;
   border-radius: 16px;
   padding: 14px 16px;
@@ -130,7 +119,6 @@ body {
   font-weight: 600;
   text-align: left;
   cursor: pointer;
-  backdrop-filter: blur(4px);
   transition: all 0.2s ease;
 }
 
@@ -145,7 +133,7 @@ body {
 .sidebar-ally-card {
   margin-top: auto;
   margin-bottom: 12px;
-  background: rgba(52, 72, 175, 0.92);
+  background: rgba(52, 72, 175, 0.96);
   color: white;
   border-radius: 24px;
   padding: 18px;
@@ -170,6 +158,15 @@ body {
   padding: 20px;
 }
 
+/* VISTAS */
+.view {
+  display: none;
+}
+
+.view.active {
+  display: block;
+}
+
 /* HOME */
 .home-page {
   position: relative;
@@ -179,9 +176,9 @@ body {
   background-image:
     linear-gradient(
       180deg,
-      rgba(255,255,255,0.82) 0%,
-      rgba(255,255,255,0.72) 25%,
-      rgba(255,255,255,0.78) 100%
+      rgba(255,255,255,0.48) 0%,
+      rgba(255,255,255,0.38) 28%,
+      rgba(255,255,255,0.46) 100%
     ),
     url("assets/Ocaña.jpeg");
   background-size: cover;
@@ -195,8 +192,8 @@ body {
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(255,255,255,0.12) 0%,
-    rgba(255,255,255,0.22) 100%
+    rgba(255,255,255,0.04) 0%,
+    rgba(255,255,255,0.10) 100%
   );
 }
 
@@ -215,7 +212,7 @@ body {
 }
 
 .home-copy {
-  background: rgba(255,255,255,0.82);
+  background: rgba(255,255,255,0.84);
   border: 1px solid rgba(219, 227, 221, 0.95);
   border-radius: 28px;
   padding: 28px;
@@ -226,7 +223,7 @@ body {
 .welcome-kicker {
   font-size: 2rem;
   font-weight: 700;
-  color: #2a3573;
+  color: var(--azul);
   margin: 0 0 14px 0;
 }
 
@@ -251,7 +248,7 @@ body {
 }
 
 .geo-blue {
-  color: #29367a;
+  color: var(--azul);
 }
 
 .geo-green {
@@ -469,7 +466,6 @@ body {
 .topic-btn {
   display: inline-block;
   text-align: center;
-  text-decoration: none;
   border: none;
   border-radius: 14px;
   color: white;
@@ -493,6 +489,180 @@ body {
   padding: 16px 20px;
   text-align: center;
   font-size: 0.96rem;
+}
+
+/* MODULOS */
+.module-page,
+#view-riesgo {
+  animation: fadeIn 0.2s ease;
+}
+
+.module-header {
+  background: white;
+  border: 1px solid #dce4df;
+  border-radius: 24px;
+  box-shadow: var(--sombra);
+  padding: 24px;
+  margin-bottom: 20px;
+}
+
+.module-kicker {
+  margin: 0 0 8px 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #2c8b4b;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.module-header h2 {
+  margin: 0 0 10px 0;
+  font-size: 2rem;
+  color: #17325d;
+}
+
+.module-description {
+  margin: 0;
+  color: #5b6470;
+  line-height: 1.7;
+}
+
+.content-card {
+  background: white;
+  border: 1px solid #dce4df;
+  border-radius: 24px;
+  box-shadow: var(--sombra);
+  padding: 28px;
+}
+
+.content-card h3,
+.content-card h4 {
+  margin-top: 0;
+}
+
+.content-card p,
+.content-card li {
+  color: var(--texto-suave);
+  line-height: 1.7;
+}
+
+/* RIESGO */
+.risk-layout {
+  display: grid;
+  grid-template-columns: 290px 1fr 320px;
+  gap: 18px;
+  align-items: stretch;
+}
+
+.risk-sidebar,
+.risk-info {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.risk-card,
+.info-card {
+  background: white;
+  border: 1px solid #dce4df;
+  border-radius: 20px;
+  padding: 16px;
+  box-shadow: var(--sombra);
+}
+
+.risk-card h3,
+.info-card h3 {
+  margin-top: 0;
+}
+
+.control-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  font-size: 0.94rem;
+  border-bottom: 1px dashed #e5ebe6;
+}
+
+.control-item:last-child {
+  border-bottom: none;
+}
+
+details {
+  border: 1px solid #dce4df;
+  border-radius: 14px;
+  padding: 10px 12px;
+  margin-bottom: 12px;
+  background: #f9fbf9;
+}
+
+details summary {
+  cursor: pointer;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.clear-btn {
+  width: 100%;
+  border: none;
+  border-radius: 14px;
+  padding: 12px 14px;
+  background: var(--verde-ufpso);
+  color: white;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.clear-btn:hover {
+  background: var(--verde-ufpso-oscuro);
+}
+
+.risk-map-panel {
+  position: relative;
+  min-height: 640px;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+  min-height: 640px;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: var(--sombra);
+}
+
+.legend-floating {
+  position: absolute;
+  left: 18px;
+  bottom: 18px;
+  z-index: 900;
+  background: rgba(255, 255, 255, 0.97);
+  border: 1px solid #dce4df;
+  border-radius: 14px;
+  padding: 12px 14px;
+  min-width: 220px;
+  box-shadow: var(--sombra);
+}
+
+.legend-floating h4 {
+  margin: 0 0 8px 0;
+  font-size: 0.92rem;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 7px 0;
+  font-size: 0.9rem;
+}
+
+.swatch {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  flex-shrink: 0;
 }
 
 /* CHAT */
@@ -572,14 +742,14 @@ body {
   display: flex;
   gap: 10px;
   padding: 14px;
-  border-top: 1px solid var(--gris-borde);
-  background: var(--blanco);
+  border-top: 1px solid #dce4df;
+  background: white;
 }
 
 #chatInput {
   flex: 1;
   min-width: 0;
-  border: 1px solid var(--gris-borde);
+  border: 1px solid #dce4df;
   border-radius: 12px;
   padding: 12px 14px;
   font-size: 0.95rem;
@@ -606,23 +776,15 @@ body {
   background: var(--verde-ufpso-oscuro);
 }
 
-/* SUBPAGINAS */
-.content-card {
-  background: white;
-  border: 1px solid #dce4df;
-  border-radius: 24px;
-  box-shadow: var(--sombra);
-  padding: 28px;
-}
-
-.content-card h1,
-.content-card h2 {
-  margin-top: 0;
-}
-
-.content-card p {
-  color: var(--texto-suave);
-  line-height: 1.7;
+@keyframes fadeIn {
+  from {
+    opacity: 0.65;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* RESPONSIVE */
@@ -639,6 +801,14 @@ body {
 @media (max-width: 1200px) {
   .home-hero {
     grid-template-columns: 1fr;
+  }
+
+  .risk-layout {
+    grid-template-columns: 280px 1fr;
+  }
+
+  .risk-info {
+    grid-column: 1 / -1;
   }
 
   .home-cards {
@@ -658,7 +828,7 @@ body {
   .sidebar {
     display: none;
     border-right: none;
-    border-bottom: 1px solid var(--gris-borde);
+    border-bottom: 1px solid #dce4df;
     min-height: auto;
   }
 
@@ -681,9 +851,9 @@ body {
     background-image:
       linear-gradient(
         180deg,
-        rgba(8, 18, 22, 0.20) 0%,
-        rgba(8, 18, 22, 0.38) 45%,
-        rgba(8, 18, 22, 0.55) 100%
+        rgba(8, 18, 22, 0.10) 0%,
+        rgba(8, 18, 22, 0.22) 45%,
+        rgba(8, 18, 22, 0.34) 100%
       ),
       url("assets/Ocaña.jpeg");
   }
@@ -698,27 +868,24 @@ body {
   }
 
   .home-copy {
-    background: none;
-    border: none;
+    background: rgba(255,255,255,0.14);
+    border: 1px solid rgba(255,255,255,0.22);
     box-shadow: none;
-    backdrop-filter: none;
-    padding: 0;
-    color: white;
+    backdrop-filter: blur(4px);
+    padding: 18px;
   }
 
   .welcome-kicker,
   .welcome-title,
   .welcome-script,
   .home-section-title h3,
-  .benefit-item,
   .welcome-description {
     color: white;
   }
 
   .geo-blue,
   .geo-green,
-  .welcome-script,
-  .home-section-title h3 {
+  .welcome-script {
     color: white;
   }
 
@@ -759,16 +926,26 @@ body {
     background: rgba(255,255,255,0.92);
   }
 
-  .home-chat-column {
-    margin-top: auto;
-  }
-
-  .assistant-card {
-    background: rgba(255,255,255,0.95);
-  }
-
   .home-cards {
     grid-template-columns: 1fr;
+  }
+
+  .risk-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .risk-map-panel {
+    min-height: 480px;
+  }
+
+  #map {
+    min-height: 480px;
+  }
+
+  .legend-floating {
+    left: 16px;
+    right: 16px;
+    min-width: auto;
   }
 
   .chat-input-area {
@@ -782,5 +959,37 @@ body {
   .bot-message,
   .user-message {
     max-width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .topbar {
+    padding: 0 12px;
+  }
+
+  .brand-logo-img {
+    width: 46px;
+    height: 46px;
+  }
+
+  .brand-text h1 {
+    font-size: 1rem;
+  }
+
+  .brand-text p {
+    font-size: 0.8rem;
+    line-height: 1.25;
+  }
+
+  .welcome-title {
+    font-size: 2.35rem;
+  }
+
+  .welcome-script {
+    font-size: 1.7rem;
+  }
+
+  .module-header h2 {
+    font-size: 1.6rem;
   }
 }

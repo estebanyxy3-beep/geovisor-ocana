@@ -371,6 +371,22 @@ window.addEventListener('load', function () {
     map.setView(ocanaCoords, 15);
   });
 
+  document.querySelectorAll('[data-view-target]').forEach((button) => {
+    button.addEventListener('click', function () {
+      const target = this.dataset.viewTarget;
+      if (target) showView(target);
+    });
+  });
+
+  const openChatbotBtnHero = document.getElementById('openChatbotBtnHero');
+  const openChatbotBtn = document.getElementById('openChatbotBtn');
+
+  if (openChatbotBtnHero && openChatbotBtn) {
+    openChatbotBtnHero.addEventListener('click', function () {
+      openChatbotBtn.click();
+    });
+  }
+
   syncChatbotContext({
     activeModule: 'Inicio'
   });

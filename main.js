@@ -2,6 +2,7 @@ window.addEventListener('load', function () {
   const ocanaCoords = [8.236372, -73.353228];
 
   const navButtons = document.querySelectorAll('.nav-item');
+  const viewButtons = document.querySelectorAll('[data-view-target]');
   const views = document.querySelectorAll('.view');
   const sidebar = document.getElementById('sidebar');
   const navToggle = document.getElementById('navToggle');
@@ -69,13 +70,21 @@ window.addEventListener('load', function () {
     if (viewName === 'riesgo') {
       setTimeout(() => {
         map.invalidateSize(true);
-      }, 400);
+      }, 350);
     }
   }
 
   navButtons.forEach((button) => {
     button.addEventListener('click', function () {
-      showView(this.dataset.view);
+      const viewName = this.dataset.view;
+      if (viewName) showView(viewName);
+    });
+  });
+
+  viewButtons.forEach((button) => {
+    button.addEventListener('click', function () {
+      const viewName = this.dataset.viewTarget;
+      if (viewName) showView(viewName);
     });
   });
 
@@ -204,6 +213,7 @@ window.addEventListener('load', function () {
 
   function updateLegend(html = null) {
     const legendContent = document.getElementById('legendContent');
+    if (!legendContent) return;
 
     if (html) {
       legendContent.innerHTML = html;
@@ -220,9 +230,8 @@ window.addEventListener('load', function () {
 
   function updateRiskInfo(html = '') {
     const riskInfoContent = document.getElementById('riskInfoContent');
-    if (riskInfoContent) {
-      riskInfoContent.innerHTML = html || '<p>Selecciona una capa para ver su contenido.</p>';
-    }
+    if (!riskInfoContent) return;
+    riskInfoContent.innerHTML = html || '<p>Selecciona una capa para ver su contenido.</p>';
   }
 
   function getFeatureStyle(props = {}) {
@@ -377,13 +386,6 @@ window.addEventListener('load', function () {
       map.setView(ocanaCoords, 15);
     });
   }
-
-  document.querySelectorAll('[data-view-target]').forEach((button) => {
-    button.addEventListener('click', function () {
-      const target = this.dataset.viewTarget;
-      if (target) showView(target);
-    });
-  });
 
   syncChatbotContext({
     activeModule: 'Inicio'

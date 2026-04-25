@@ -8,14 +8,14 @@ html, body {
 }
 
 :root {
-  --verde-ufpso: #1f6b45;
-  --verde-ufpso-oscuro: #184f35;
-  --gris-borde: #dbe3dd;
-  --gris-suave: #f4f7f5;
+  --verde-principal: #1f8f3d;
+  --verde-oscuro: #186e30;
+  --azul-principal: #203b7a;
+  --gris-borde: #dce5de;
+  --gris-suave: #f3f7f3;
   --texto: #1f2937;
   --texto-suave: #5b6470;
   --blanco: #ffffff;
-  --azul: #29367a;
   --sombra: 0 10px 30px rgba(0, 0, 0, 0.10);
 }
 
@@ -27,7 +27,7 @@ body {
 
 .topbar {
   height: 78px;
-  background: rgba(255,255,255,0.95);
+  background: rgba(255,255,255,0.96);
   border-bottom: 1px solid var(--gris-borde);
   display: flex;
   align-items: center;
@@ -36,7 +36,7 @@ body {
   gap: 16px;
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 1100;
   backdrop-filter: blur(6px);
 }
 
@@ -47,8 +47,8 @@ body {
 }
 
 .brand-logo-img {
-  width: 52px;
-  height: 52px;
+  width: 54px;
+  height: 54px;
   object-fit: contain;
   border-radius: 12px;
 }
@@ -56,10 +56,11 @@ body {
 .brand-text h1 {
   font-size: 1.2rem;
   margin: 0 0 2px 0;
+  color: var(--azul-principal);
 }
 
 .brand-text p {
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   color: var(--texto-suave);
   margin: 0;
 }
@@ -72,11 +73,12 @@ body {
 .nav-toggle {
   display: none;
   border: none;
-  background: var(--verde-ufpso);
+  background: var(--verde-principal);
   color: white;
-  border-radius: 12px;
+  border-radius: 14px;
   padding: 10px 14px;
   cursor: pointer;
+  font-size: 1.05rem;
 }
 
 .layout {
@@ -85,7 +87,7 @@ body {
   min-height: calc(100vh - 78px);
 }
 
-/* SIDEBAR CON FOTO DE OCAÑA ORIGINAL */
+/* SIDEBAR */
 .sidebar {
   background-image: url("assets/Ocaña.jpeg");
   background-size: cover;
@@ -103,10 +105,10 @@ body {
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(255,255,255,0.75) 0%,
-    rgba(255,255,255,0.35) 35%,
+    rgba(255,255,255,0.72) 0%,
+    rgba(255,255,255,0.34) 35%,
     rgba(255,255,255,0.08) 60%,
-    rgba(12, 38, 24, 0.50) 100%
+    rgba(18, 35, 64, 0.25) 100%
   );
   z-index: 1;
 }
@@ -114,11 +116,10 @@ body {
 .sidebar-inner {
   position: sticky;
   top: 96px;
-  min-height: calc(100vh - 120px);
+  z-index: 2;
+  min-height: calc(100vh - 125px);
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  z-index: 2;
 }
 
 .nav-menu {
@@ -129,12 +130,12 @@ body {
 
 .nav-item {
   border: 1px solid rgba(220, 228, 223, 0.95);
-  background: rgba(255,255,255,0.92);
+  background: rgba(255,255,255,0.93);
   color: #1b2d3d;
   border-radius: 16px;
   padding: 14px 16px;
   font-size: 0.96rem;
-  font-weight: 600;
+  font-weight: 700;
   text-align: left;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -142,34 +143,38 @@ body {
 
 .nav-item:hover,
 .nav-item.active {
-  background: #1f8f3d;
+  background: var(--verde-principal);
   color: white;
-  border-color: #1f8f3d;
+  border-color: var(--verde-principal);
   box-shadow: 0 8px 18px rgba(31, 143, 61, 0.20);
 }
 
+/* cuadro azul más abajo */
 .sidebar-ally-card {
   margin-top: auto;
-  margin-bottom: 12px;
-  background: rgba(52, 72, 175, 0.95);
+  margin-bottom: 24px;
+  background: linear-gradient(135deg, rgba(49, 78, 210, 0.95), rgba(61, 84, 191, 0.94));
   color: white;
-  border-radius: 24px;
-  padding: 18px;
+  border-radius: 28px;
+  padding: 22px 18px;
   box-shadow: 0 10px 24px rgba(0,0,0,0.18);
   backdrop-filter: blur(3px);
 }
 
 .sidebar-ally-card img {
-  width: 54px;
-  height: 54px;
+  width: 56px;
+  height: 56px;
   object-fit: contain;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.14);
+  padding: 4px;
 }
 
 .sidebar-ally-card p {
   margin: 0;
   line-height: 1.5;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 0.95rem;
 }
 
@@ -177,13 +182,12 @@ body {
   padding: 20px;
 }
 
-/* VISTAS */
 .view {
-  display: none;
+  display: none !important;
 }
 
 .view.active {
-  display: block;
+  display: block !important;
 }
 
 /* HOME */
@@ -195,8 +199,8 @@ body {
   background-image:
     linear-gradient(
       180deg,
-      rgba(255,255,255,0.20) 0%,
-      rgba(255,255,255,0.12) 28%,
+      rgba(255,255,255,0.18) 0%,
+      rgba(255,255,255,0.12) 45%,
       rgba(255,255,255,0.18) 100%
     ),
     url("assets/Ocaña.jpeg");
@@ -211,8 +215,8 @@ body {
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(255,255,255,0.03) 0%,
-    rgba(255,255,255,0.08) 100%
+    rgba(255,255,255,0.05) 0%,
+    rgba(255,255,255,0.10) 100%
   );
 }
 
@@ -225,14 +229,13 @@ body {
 .home-hero {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
-  gap: 28px;
+  gap: 26px;
   align-items: start;
-  min-height: 420px;
 }
 
 .home-copy {
-  background: rgba(255,255,255,0.74);
-  border: 1px solid rgba(219, 227, 221, 0.95);
+  background: rgba(255,255,255,0.78);
+  border: 1px solid rgba(220, 229, 222, 0.96);
   border-radius: 28px;
   padding: 28px;
   backdrop-filter: blur(4px);
@@ -242,7 +245,7 @@ body {
 .welcome-kicker {
   font-size: 2rem;
   font-weight: 700;
-  color: var(--azul);
+  color: var(--azul-principal);
   margin: 0 0 14px 0;
 }
 
@@ -253,58 +256,59 @@ body {
 }
 
 .home-main-logo {
-  width: 90px;
-  height: 90px;
+  width: 92px;
+  height: 92px;
   object-fit: contain;
   flex-shrink: 0;
 }
 
 .welcome-title {
-  font-size: 4.8rem;
-  line-height: 0.95;
+  font-size: 3.9rem;
+  line-height: 1;
   margin: 0;
   font-weight: 800;
+  color: var(--azul-principal);
 }
 
-.geo-blue {
-  color: var(--azul);
-}
-
-.geo-green {
-  color: #1f8f3d;
-}
-
-.welcome-script {
-  font-size: 3rem;
+.welcome-subtitle {
+  font-size: 2.6rem;
   font-family: Georgia, "Times New Roman", serif;
   font-style: italic;
   font-weight: 500;
-  color: #2c8b4b;
+  color: #228948;
   margin: 6px 0 0 0;
 }
 
+.welcome-acronym {
+  margin: 8px 0 0 0;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #3c4fc9;
+  letter-spacing: 0.08em;
+}
+
 .welcome-line {
-  width: 330px;
+  width: 320px;
   height: 4px;
   border-radius: 999px;
-  background: #2c8b4b;
+  background: #2b9348;
   margin: 20px 0;
 }
 
 .welcome-description {
   margin: 0 0 22px 0;
-  color: #59616e;
+  color: #586270;
   line-height: 1.8;
   font-size: 1.05rem;
-  max-width: 620px;
+  max-width: 680px;
 }
 
 .home-search {
   display: flex;
   align-items: center;
   gap: 10px;
-  max-width: 620px;
-  background: rgba(255,255,255,0.96);
+  max-width: 650px;
+  background: rgba(255,255,255,0.97);
   border: 1px solid #d7e1da;
   border-radius: 18px;
   padding: 10px 12px;
@@ -326,10 +330,18 @@ body {
   height: 48px;
   border: none;
   border-radius: 14px;
-  background: #1f7d49;
+  background: var(--verde-principal);
   color: white;
   cursor: pointer;
   font-size: 1rem;
+}
+
+.search-status {
+  margin: 10px 0 0 0;
+  min-height: 18px;
+  color: #365b98;
+  font-size: 0.92rem;
+  font-weight: 600;
 }
 
 .home-benefits {
@@ -393,7 +405,7 @@ body {
   display: flex;
   align-items: center;
   gap: 16px;
-  background: rgba(255,255,255,0.92);
+  background: rgba(255,255,255,0.94);
   border: 1px solid #b7dbbe;
   border-radius: 22px;
   padding: 14px 16px;
@@ -422,7 +434,7 @@ body {
 .assistant-text button {
   border: none;
   border-radius: 14px;
-  background: #1f8f3d;
+  background: var(--verde-principal);
   color: white;
   padding: 11px 18px;
   font-weight: 700;
@@ -451,7 +463,7 @@ body {
 }
 
 .topic-card {
-  background: rgba(255,255,255,0.90);
+  background: rgba(255,255,255,0.92);
   border: 1px solid #dce4df;
   border-radius: 24px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.06);
@@ -501,7 +513,7 @@ body {
 
 .home-footer-banner {
   margin-top: 18px;
-  background: rgba(243,250,244,0.90);
+  background: rgba(243,250,244,0.92);
   color: #2b8b49;
   border: 1px solid #d8e8d9;
   border-radius: 18px;
@@ -626,14 +638,14 @@ details summary {
   border: none;
   border-radius: 14px;
   padding: 12px 14px;
-  background: var(--verde-ufpso);
+  background: var(--verde-principal);
   color: white;
   cursor: pointer;
   font-size: 0.95rem;
 }
 
 .clear-btn:hover {
-  background: var(--verde-ufpso-oscuro);
+  background: var(--verde-oscuro);
 }
 
 .risk-map-panel {
@@ -691,7 +703,7 @@ details summary {
   justify-content: space-between;
   gap: 12px;
   padding: 14px 16px;
-  background: var(--verde-ufpso);
+  background: var(--verde-principal);
   color: white;
 }
 
@@ -705,15 +717,11 @@ details summary {
   height: 34px;
   border: none;
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.14);
+  background: rgba(255,255,255,0.14);
   color: white;
   font-size: 1.2rem;
   line-height: 1;
   cursor: pointer;
-}
-
-#closeChatbotBtn:hover {
-  background: rgba(255, 255, 255, 0.24);
 }
 
 .chat-messages {
@@ -776,23 +784,19 @@ details summary {
 }
 
 #chatInput:focus {
-  border-color: var(--verde-ufpso);
-  box-shadow: 0 0 0 3px rgba(31, 107, 69, 0.12);
+  border-color: var(--verde-principal);
+  box-shadow: 0 0 0 3px rgba(31, 143, 61, 0.12);
 }
 
 #sendChatBtn {
   border: none;
   border-radius: 12px;
   padding: 12px 18px;
-  background: var(--verde-ufpso);
+  background: var(--verde-principal);
   color: white;
   font-size: 0.95rem;
   cursor: pointer;
   flex-shrink: 0;
-}
-
-#sendChatBtn:hover {
-  background: var(--verde-ufpso-oscuro);
 }
 
 @keyframes fadeIn {
@@ -813,7 +817,11 @@ details summary {
   }
 
   .welcome-title {
-    font-size: 4.2rem;
+    font-size: 3.4rem;
+  }
+
+  .welcome-subtitle {
+    font-size: 2.2rem;
   }
 }
 
@@ -849,7 +857,6 @@ details summary {
     border-right: none;
     border-bottom: 1px solid #dce4df;
     min-height: auto;
-    background-position: center;
   }
 
   .sidebar.open {
@@ -859,6 +866,11 @@ details summary {
   .sidebar-inner {
     position: static;
     min-height: auto;
+  }
+
+  .sidebar-ally-card {
+    margin-top: 28px;
+    margin-bottom: 10px;
   }
 
   .content {
@@ -871,9 +883,9 @@ details summary {
     background-image:
       linear-gradient(
         180deg,
-        rgba(8, 18, 22, 0.05) 0%,
-        rgba(8, 18, 22, 0.12) 45%,
-        rgba(8, 18, 22, 0.20) 100%
+        rgba(8, 18, 22, 0.08) 0%,
+        rgba(8, 18, 22, 0.14) 45%,
+        rgba(8, 18, 22, 0.22) 100%
       ),
       url("assets/Ocaña.jpeg");
   }
@@ -884,14 +896,11 @@ details summary {
 
   .home-hero {
     grid-template-columns: 1fr;
-    min-height: calc(100vh - 160px);
   }
 
   .home-copy {
-    background: rgba(255,255,255,0.68);
+    background: rgba(255,255,255,0.72);
     border: 1px solid rgba(255,255,255,0.36);
-    box-shadow: none;
-    backdrop-filter: blur(4px);
     padding: 18px;
   }
 
@@ -899,12 +908,20 @@ details summary {
     font-size: 1.2rem;
   }
 
-  .welcome-title {
-    font-size: 2.8rem;
+  .home-title-brand {
+    align-items: flex-start;
   }
 
-  .welcome-script {
-    font-size: 2rem;
+  .welcome-title {
+    font-size: 2.35rem;
+  }
+
+  .welcome-subtitle {
+    font-size: 1.7rem;
+  }
+
+  .welcome-acronym {
+    font-size: 1rem;
   }
 
   .home-main-logo {
@@ -921,13 +938,8 @@ details summary {
     max-width: 100%;
   }
 
-  .home-search {
-    background: rgba(255,255,255,0.95);
-  }
-
   .benefit-item {
     width: 100%;
-    color: #1f2937;
     background: rgba(255,255,255,0.92);
   }
 
@@ -986,23 +998,7 @@ details summary {
     line-height: 1.25;
   }
 
-  .welcome-title {
-    font-size: 2.35rem;
-  }
-
-  .welcome-script {
-    font-size: 1.7rem;
-  }
-
   .module-header h2 {
     font-size: 1.6rem;
   }
-}
-/* asegura que solo la vista activa se vea */
-.view {
-  display: none !important;
-}
-
-.view.active {
-  display: block !important;
 }

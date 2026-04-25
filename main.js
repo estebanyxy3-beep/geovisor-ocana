@@ -188,7 +188,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const riskLayersConfig = {
     amenaza_at: {
       label: "Amenaza por avenida torrencial",
-      url: "https://raw.githubusercontent.com/estebanyxy3-beep/Vision_Ambiental_Ocana_Interactiva/main/Amenaza_Avenida_Torrencial_Urbano.json",
+      url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/Amenaza_Avenida_Torrencial_Urbano.json",
       info: `
         <p><strong>Amenaza:</strong> posibilidad de ocurrencia de un fenómeno físico potencialmente dañino.</p>
         <p>Esta capa representa zonas asociadas a amenaza por avenida torrencial.</p>

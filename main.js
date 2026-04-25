@@ -58,34 +58,12 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  navButtons.forEach((button) => {
-    button.addEventListener("click", function () {
-      const viewName = this.dataset.view;
-      if (viewName) showView(viewName);
-    });
-  });
-
-  viewButtons.forEach((button) => {
-    button.addEventListener("click", function () {
-      const viewName = this.dataset.viewTarget;
-      if (viewName) showView(viewName);
-    });
-  });
-
-  if (navToggle && sidebar) {
-    navToggle.addEventListener("click", function () {
-      sidebar.classList.toggle("open");
-    });
-  }
-
   function runHomeSearch() {
     if (!searchInput) return;
 
     const raw = searchInput.value.trim().toLowerCase();
     if (!raw) {
-      if (searchStatus) {
-        searchStatus.textContent = "Escribe un término para buscar.";
-      }
+      if (searchStatus) searchStatus.textContent = "Escribe un término para buscar.";
       return;
     }
 
@@ -138,17 +116,60 @@ document.addEventListener("DOMContentLoaded", function () {
     if (targetView) {
       showView(targetView);
       if (searchStatus) {
-        searchStatus.textContent = `Resultado encontrado: ${targetView.charAt(0).toUpperCase() + targetView.slice(1)}.`;
+        searchStatus.textContent = `Resultado encontrado: ${targetView}.`;
       }
     } else {
       if (searchStatus) {
-        searchStatus.textContent = "No encontré ese término. Prueba con: riesgo, participación, POT, POMCA o accidentabilidad.";
+        searchStatus.textContent = "No encontré ese término.";
       }
     }
   }
 
+  navButtons.forEach((button) => {
+    button.addEventListener("click", function (e) {
+      e.preventDefault();
+      const viewName = this.dataset.view;
+      if (viewName) showView(viewName);
+    });
+
+    button.addEventListener("touchend", function (e) {
+      e.preventDefault();
+      const viewName = this.dataset.view;
+      if (viewName) showView(viewName);
+    }, { passive: false });
+  });
+
+  viewButtons.forEach((button) => {
+    button.addEventListener("click", function (e) {
+      e.preventDefault();
+      const viewName = this.dataset.viewTarget;
+      if (viewName) showView(viewName);
+    });
+
+    button.addEventListener("touchend", function (e) {
+      e.preventDefault();
+      const viewName = this.dataset.viewTarget;
+      if (viewName) showView(viewName);
+    }, { passive: false });
+  });
+
+  if (navToggle && sidebar) {
+    navToggle.addEventListener("click", function () {
+      sidebar.classList.toggle("open");
+    });
+
+    navToggle.addEventListener("touchend", function (e) {
+      e.preventDefault();
+      sidebar.classList.toggle("open");
+    }, { passive: false });
+  }
+
   if (searchBtn) {
     searchBtn.addEventListener("click", runHomeSearch);
+    searchBtn.addEventListener("touchend", function (e) {
+      e.preventDefault();
+      runHomeSearch();
+    }, { passive: false });
   }
 
   if (searchInput) {
@@ -159,10 +180,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  /* =========================
-     MAPA Y RIESGO
-  ========================= */
-
   let map = null;
   let osm = null;
   let satellite = null;
@@ -171,11 +188,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const riskLayersConfig = {
     amenaza_at: {
       label: "Amenaza por avenida torrencial",
-      url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/Amenaza_Avenida_Torrencial_Urbano.json",
+      url: "https://raw.githubusercontent.com/estebanyxy3-beep/Vision_Ambiental_Ocana_Interactiva/main/Amenaza_Avenida_Torrencial_Urbano.json",
       info: `
         <p><strong>Amenaza:</strong> posibilidad de ocurrencia de un fenómeno físico potencialmente dañino.</p>
         <p>Esta capa representa zonas asociadas a amenaza por avenida torrencial.</p>
-        <p><strong>Normativa base:</strong> Ley 1523 de 2012.</p>
       `,
       legend: `
         <div class="legend-item"><span class="swatch" style="background:#ff0000;"></span><span>Amenaza alta</span></div>
@@ -186,21 +202,13 @@ document.addEventListener("DOMContentLoaded", function () {
     exposicion_at: {
       label: "Exposición por avenida torrencial",
       url: "",
-      info: `
-        <p><strong>Exposición:</strong> presencia de personas, viviendas, vías, predios o infraestructura en zonas que pueden verse afectadas por una amenaza.</p>
-        <p>Aquí podrás cargar las capas de construcciones, predios o vías expuestas por avenida torrencial.</p>
-      `,
-      legend: `
-        <div class="legend-item"><span class="swatch" style="background:#f59e0b;"></span><span>Elemento expuesto</span></div>
-      `
+      info: `<p>Elementos expuestos frente a avenida torrencial.</p>`,
+      legend: `<div class="legend-item"><span class="swatch" style="background:#f59e0b;"></span><span>Elemento expuesto</span></div>`
     },
     riesgo_at: {
       label: "Riesgo por avenida torrencial",
       url: "",
-      info: `
-        <p><strong>Riesgo:</strong> resultado de la interacción entre amenaza, exposición y vulnerabilidad.</p>
-        <p>Esta capa mostrará los elementos o áreas en riesgo por avenida torrencial.</p>
-      `,
+      info: `<p>Riesgo por avenida torrencial.</p>`,
       legend: `
         <div class="legend-item"><span class="swatch" style="background:#dc2626;"></span><span>Riesgo alto</span></div>
         <div class="legend-item"><span class="swatch" style="background:#f59e0b;"></span><span>Riesgo medio</span></div>
@@ -216,31 +224,31 @@ document.addEventListener("DOMContentLoaded", function () {
     exposicion_inundacion: {
       label: "Exposición por inundación",
       url: "",
-      info: `<p>Mostrará construcciones, predios u otros elementos ubicados en zonas expuestas a inundación.</p>`,
+      info: `<p>Elementos expuestos a inundación.</p>`,
       legend: `<div class="legend-item"><span class="swatch" style="background:#60a5fa;"></span><span>Elemento expuesto</span></div>`
     },
     riesgo_inundacion: {
       label: "Riesgo por inundación",
       url: "",
-      info: `<p>Mostrará el análisis de riesgo asociado a inundación.</p>`,
+      info: `<p>Análisis de riesgo por inundación.</p>`,
       legend: `<div class="legend-item"><span class="swatch" style="background:#1d4ed8;"></span><span>Riesgo por inundación</span></div>`
     },
     amenaza_mm: {
       label: "Amenaza por movimiento en masa",
       url: "",
-      info: `<p>Esta capa mostrará la amenaza por movimiento en masa.</p>`,
+      info: `<p>Amenaza por movimiento en masa.</p>`,
       legend: `<div class="legend-item"><span class="swatch" style="background:#8b5cf6;"></span><span>Zona de amenaza</span></div>`
     },
     exposicion_mm: {
       label: "Exposición por movimiento en masa",
       url: "",
-      info: `<p>Mostrará elementos expuestos frente a procesos de movimiento en masa.</p>`,
+      info: `<p>Elementos expuestos por movimiento en masa.</p>`,
       legend: `<div class="legend-item"><span class="swatch" style="background:#a78bfa;"></span><span>Elemento expuesto</span></div>`
     },
     riesgo_mm: {
       label: "Riesgo por movimiento en masa",
       url: "",
-      info: `<p>Mostrará las áreas o elementos en riesgo por movimiento en masa.</p>`,
+      info: `<p>Áreas o elementos en riesgo por movimiento en masa.</p>`,
       legend: `<div class="legend-item"><span class="swatch" style="background:#7c3aed;"></span><span>Riesgo por movimiento en masa</span></div>`
     }
   };
@@ -379,11 +387,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     } catch (error) {
       console.error("Error cargando capa:", error);
-      updateRiskInfo(`
-        <h4>${config.label}</h4>
-        ${config.info}
-        <p><strong>Error:</strong> no se pudo cargar el archivo GeoJSON.</p>
-      `);
+      updateRiskInfo(`<h4>${config.label}</h4>${config.info}<p><strong>Error:</strong> no se pudo cargar el archivo GeoJSON.</p>`);
     }
   }
 

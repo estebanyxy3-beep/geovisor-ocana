@@ -1002,3 +1002,36 @@ details summary {
     font-size: 1.6rem;
   }
 }
+.home-overlay {
+  pointer-events: none;
+}
+
+.sidebar::before {
+  pointer-events: none;
+}
+
+.home-page,
+.home-inner,
+.home-hero,
+.home-copy,
+.home-chat-column,
+.home-cards,
+.topic-card,
+.nav-item,
+.topic-btn,
+.assistant-card,
+.chat-window {
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 900px) {
+  .sidebar {
+    z-index: 1200;
+  }
+
+  .content {
+    position: relative;
+    z-index: 1;
+  }
+}

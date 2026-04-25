@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GeoVisor Ocaña</title>
+  <title>VAOI - Visión Ambiental, Ocaña Interactiva</title>
 
   <link
     rel="stylesheet"
     href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
   />
-  <link rel="stylesheet" href="styles.css?v=10" />
+  <link rel="stylesheet" href="styles.css?v=20" />
 </head>
 <body>
   <header class="topbar">
     <div class="brand">
-      <img src="assets/Logo_Geovisor.png" alt="Logo GeoVisor Ocaña" class="brand-logo-img" />
+      <img src="assets/Logo_Geovisor.png" alt="Logo VAOI" class="brand-logo-img" />
       <div class="brand-text">
-        <h1>GeoVisor Ocaña</h1>
-        <p>Información territorial para planificación, gestión y participación</p>
+        <h1>VAOI</h1>
+        <p>Visión Ambiental, Ocaña Interactiva</p>
       </div>
     </div>
 
@@ -35,10 +35,11 @@
           <button class="nav-item" data-view="participacion">Mecanismo de Participación</button>
           <button class="nav-item" data-view="pot">POT</button>
           <button class="nav-item" data-view="pomca">POMCA</button>
+          <button class="nav-item" data-view="accidentabilidad">Accidentabilidad</button>
         </nav>
 
         <div class="sidebar-ally-card">
-          <img src="assets/Logo_Geovisor.png" alt="GeoVisor Ocaña" />
+          <img src="assets/Logo_Geovisor.png" alt="VAOI" />
           <p>Aliado estratégico para el desarrollo y la gestión sostenible del territorio</p>
         </div>
       </div>
@@ -54,15 +55,14 @@
           <div class="home-inner">
             <section class="home-hero">
               <div class="home-copy">
-                <p class="welcome-kicker">Bienvenido al</p>
+                <p class="welcome-kicker">Bienvenido a</p>
 
                 <div class="home-title-brand">
-                  <img src="assets/Logo_Geovisor.png" alt="Logo GeoVisor Ocaña" class="home-main-logo" />
+                  <img src="assets/Logo_Geovisor.png" alt="Logo VAOI" class="home-main-logo" />
                   <div>
-                    <h2 class="welcome-title">
-                      <span class="geo-blue">Geo</span><span class="geo-green">Visor</span>
-                    </h2>
-                    <h3 class="welcome-script">de Ocaña</h3>
+                    <h2 class="welcome-title">Visión Ambiental</h2>
+                    <h3 class="welcome-subtitle">Ocaña Interactiva</h3>
+                    <p class="welcome-acronym">(VAOI)</p>
                   </div>
                 </div>
 
@@ -70,13 +70,19 @@
 
                 <p class="welcome-description">
                   Explora información geográfica y temática del territorio para la planificación,
-                  gestión y participación ciudadana.
+                  gestión, participación y toma de decisiones en Ocaña.
                 </p>
 
                 <div class="home-search">
-                  <input type="text" placeholder="Buscar mapas, capas o lugares..." />
-                  <button type="button" aria-label="Buscar">🔍</button>
+                  <input
+                    type="text"
+                    id="homeSearchInput"
+                    placeholder="Buscar mapas, módulos o temas..."
+                  />
+                  <button type="button" id="homeSearchBtn" aria-label="Buscar">🔍</button>
                 </div>
+
+                <p class="search-status" id="searchStatus"></p>
 
                 <div class="home-benefits">
                   <div class="benefit-item">
@@ -111,7 +117,7 @@
                   <img src="assets/Geo_Bot.png" alt="Geo Bot" class="assistant-img" />
                   <div class="assistant-text">
                     <h3>¡Hola! soy Geo</h3>
-                    <p>Tu asistente del GeoVisor. ¿En qué puedo ayudarte hoy?</p>
+                    <p>Tu asistente de VAOI. ¿En qué puedo ayudarte hoy?</p>
                     <button type="button" class="open-chatbot-btn">Chatear con GEO</button>
                   </div>
                 </div>
@@ -124,7 +130,7 @@
 
                   <div class="chat-messages" id="chatMessages">
                     <div class="bot-message">
-                      Hola. Soy GeoBot, el asistente del GeoVisor Ocaña. ¿En qué puedo ayudarte?
+                      Hola. Soy GeoBot, el asistente de VAOI. ¿En qué puedo ayudarte?
                     </div>
                   </div>
 
@@ -187,18 +193,18 @@
 
               <article class="topic-card yellow-card">
                 <img src="assets/Codigo_Transito.png" alt="Código Nacional de Tránsito" class="topic-image" />
-                <h3>Accidentalidad</h3>
+                <h3>Accidentabilidad</h3>
                 <p>
-                  Integra aquí información vial, indicadores, reportes y análisis temáticos del territorio.
+                  Integra información vial, indicadores, reportes y análisis temáticos sobre tránsito y seguridad vial.
                 </p>
-                <button class="topic-btn yellow-btn" type="button">
+                <button class="topic-btn yellow-btn" type="button" data-view-target="accidentabilidad">
                   Explorar módulo
                 </button>
               </article>
             </section>
 
             <div class="home-footer-banner">
-              En GeoVisor Ocaña promovemos la gestión responsable del territorio para construir juntos un futuro sostenible.
+              En VAOI promovemos la gestión responsable del territorio para construir juntos un futuro sostenible.
             </div>
           </div>
         </section>
@@ -314,6 +320,29 @@
         </div>
       </section>
 
+      <!-- PARTICIPACION -->
+      <section class="view" id="view-participacion">
+        <div class="module-page">
+          <div class="module-header">
+            <div>
+              <p class="module-kicker">Módulo</p>
+              <h2>Mecanismo de Participación</h2>
+              <p class="module-description">
+                Espacios comunitarios, rutas de participación, materiales pedagógicos y procesos colectivos.
+              </p>
+            </div>
+          </div>
+
+          <div class="content-card">
+            <h3>Participación ciudadana</h3>
+            <p>
+              Aquí podrás mostrar procesos participativos, espacios comunitarios,
+              mecanismos de intervención ciudadana y resultados de trabajo con la comunidad.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <!-- POT -->
       <section class="view" id="view-pot">
         <div class="module-page">
@@ -322,7 +351,7 @@
               <p class="module-kicker">Módulo</p>
               <h2>POT</h2>
               <p class="module-description">
-                Plan de Ordenamiento Territorial, conceptos base, normativa y contenidos municipales.
+                Plan de Ordenamiento Territorial, normativa, conceptos base y contenidos municipales.
               </p>
             </div>
           </div>
@@ -330,21 +359,8 @@
           <div class="content-card">
             <h3>Contenido POT</h3>
             <p>
-              Aquí se mostrará el contenido relacionado con el Plan de Ordenamiento Territorial:
-              glosario, objetivos, componentes, cartillas, normativa y material enviado por el equipo.
-            </p>
-
-            <h4>Glosario base</h4>
-            <ul>
-              <li>Ordenamiento territorial</li>
-              <li>Clasificación del suelo</li>
-              <li>Uso del suelo</li>
-              <li>Tratamientos urbanísticos</li>
-            </ul>
-
-            <h4>Normativa</h4>
-            <p>
-              Aquí puedes incorporar la ley, decretos y acuerdos municipales que rijan el POT en Colombia y en Ocaña.
+              Aquí podrás mostrar el contenido del Plan de Ordenamiento Territorial:
+              glosario, normativa, clasificación del suelo, uso del suelo y documentos asociados.
             </p>
           </div>
         </div>
@@ -366,34 +382,40 @@
           <div class="content-card">
             <h3>Contenido POMCA</h3>
             <p>
-              Esta sección funcionará como página informativa para integrar conceptos,
-              glosario, normativas, documentos y aportes del equipo relacionados con
-              el Plan de Ordenación y Manejo de Cuencas.
+              Esta sección servirá para integrar conceptos, documentos, normativas,
+              cartografía y demás información sobre ordenación y manejo de cuencas.
             </p>
           </div>
         </div>
       </section>
 
-      <!-- PARTICIPACION -->
-      <section class="view" id="view-participacion">
+      <!-- ACCIDENTABILIDAD -->
+      <section class="view" id="view-accidentabilidad">
         <div class="module-page">
           <div class="module-header">
             <div>
               <p class="module-kicker">Módulo</p>
-              <h2>Mecanismo de Participación</h2>
+              <h2>Accidentabilidad</h2>
               <p class="module-description">
-                Espacios comunitarios, rutas de participación, materiales pedagógicos y procesos colectivos.
+                Consulta información vial, siniestros, seguridad vial, análisis temáticos e indicadores.
               </p>
             </div>
           </div>
 
           <div class="content-card">
-            <h3>Participación ciudadana</h3>
+            <h3>Módulo de accidentabilidad</h3>
             <p>
-              Aquí se podrá mostrar información sobre procesos participativos,
-              espacios comunitarios, materiales pedagógicos, rutas de participación
-              y resultados del trabajo con la comunidad.
+              Aquí podrás integrar información de accidentalidad, mapas viales, reportes,
+              puntos críticos, indicadores y análisis de seguridad vial.
             </p>
+
+            <h4>Contenido sugerido</h4>
+            <ul>
+              <li>Puntos críticos de siniestralidad</li>
+              <li>Estadísticas por tipo de accidente</li>
+              <li>Indicadores por zona</li>
+              <li>Mapas de apoyo para movilidad y tránsito</li>
+            </ul>
           </div>
         </div>
       </section>
@@ -402,7 +424,7 @@
   </main>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="main.js?v=10"></script>
-  <script src="chatbot.js?v=10"></script>
+  <script src="main.js?v=20"></script>
+  <script src="chatbot.js?v=20"></script>
 </body>
 </html>

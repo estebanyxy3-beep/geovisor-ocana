@@ -6,6 +6,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const views = document.querySelectorAll(".view");
   const navButtons = document.querySelectorAll(".nav-item");
   const viewButtons = document.querySelectorAll("[data-view-target]");
+  const searchInput = document.getElementById("homeSearchInput");
+  const searchBtn = document.getElementById("homeSearchBtn");
+  const searchStatus = document.getElementById("searchStatus");
 
   function syncChatbotContext(data) {
     if (window.updateChatbotContext) {
@@ -35,10 +38,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const moduleNames = {
       inicio: "Inicio",
-      riesgo: "Riesgo",
+      riesgo: "Mapas de Riesgo",
       pot: "POT",
       pomca: "POMCA",
-      participacion: "Participación"
+      participacion: "Participación",
+      accidentabilidad: "Accidentabilidad"
     };
 
     syncChatbotContext({
@@ -74,6 +78,87 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  function runHomeSearch() {
+    if (!searchInput) return;
+
+    const raw = searchInput.value.trim().toLowerCase();
+    if (!raw) {
+      if (searchStatus) {
+        searchStatus.textContent = "Escribe un término para buscar.";
+      }
+      return;
+    }
+
+    const q = raw.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+
+    let targetView = null;
+
+    if (
+      q.includes("inicio") ||
+      q.includes("vaoi") ||
+      q.includes("vision ambiental") ||
+      q.includes("ocana interactiva")
+    ) {
+      targetView = "inicio";
+    } else if (
+      q.includes("riesgo") ||
+      q.includes("amenaza") ||
+      q.includes("avenida torrencial") ||
+      q.includes("inundacion") ||
+      q.includes("movimiento en masa")
+    ) {
+      targetView = "riesgo";
+    } else if (
+      q.includes("participacion") ||
+      q.includes("ciudadana") ||
+      q.includes("comunidad")
+    ) {
+      targetView = "participacion";
+    } else if (
+      q.includes("pot") ||
+      q.includes("ordenamiento territorial")
+    ) {
+      targetView = "pot";
+    } else if (
+      q.includes("pomca") ||
+      q.includes("cuenca") ||
+      q.includes("ambiental")
+    ) {
+      targetView = "pomca";
+    } else if (
+      q.includes("accidentabilidad") ||
+      q.includes("accidente") ||
+      q.includes("transito") ||
+      q.includes("movilidad") ||
+      q.includes("vial")
+    ) {
+      targetView = "accidentabilidad";
+    }
+
+    if (targetView) {
+      showView(targetView);
+      if (searchStatus) {
+        searchStatus.textContent = `Resultado encontrado: ${targetView.charAt(0).toUpperCase() + targetView.slice(1)}.`;
+      }
+    } else {
+      if (searchStatus) {
+        searchStatus.textContent = "No encontré ese término. Prueba con: riesgo, participación, POT, POMCA o accidentabilidad.";
+      }
+    }
+  }
+
+  if (searchBtn) {
+    searchBtn.addEventListener("click", runHomeSearch);
+  }
+
+  if (searchInput) {
+    searchInput.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") {
+        runHomeSearch();
+      }
+    });
+  }
+
   /* =========================
      MAPA Y RIESGO
   ========================= */
@@ -104,7 +189,6 @@ document.addEventListener("DOMContentLoaded", function () {
       info: `
         <p><strong>Exposición:</strong> presencia de personas, viviendas, vías, predios o infraestructura en zonas que pueden verse afectadas por una amenaza.</p>
         <p>Aquí podrás cargar las capas de construcciones, predios o vías expuestas por avenida torrencial.</p>
-        <p><strong>Normativa base:</strong> Ley 1523 de 2012.</p>
       `,
       legend: `
         <div class="legend-item"><span class="swatch" style="background:#f59e0b;"></span><span>Elemento expuesto</span></div>
@@ -116,7 +200,6 @@ document.addEventListener("DOMContentLoaded", function () {
       info: `
         <p><strong>Riesgo:</strong> resultado de la interacción entre amenaza, exposición y vulnerabilidad.</p>
         <p>Esta capa mostrará los elementos o áreas en riesgo por avenida torrencial.</p>
-        <p><strong>Normativa base:</strong> Ley 1523 de 2012.</p>
       `,
       legend: `
         <div class="legend-item"><span class="swatch" style="background:#dc2626;"></span><span>Riesgo alto</span></div>
@@ -182,9 +265,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function updateRiskInfo(html = "") {
     const riskInfoContent = document.getElementById("riskInfoContent");
     if (!riskInfoContent) return;
-
-    riskInfoContent.innerHTML =
-      html || "<p>Selecciona una capa para ver su contenido.</p>";
+    riskInfoContent.innerHTML = html || "<p>Selecciona una capa para ver su contenido.</p>";
   }
 
   function getFeatureStyle(props = {}) {
@@ -243,7 +324,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     syncChatbotContext({
       activeLayer: config.label,
-      activeModule: "Riesgo",
+      activeModule: "Mapas de Riesgo",
       selectedFeature: null
     });
 
@@ -284,7 +365,7 @@ document.addEventListener("DOMContentLoaded", function () {
           layer.on("click", function () {
             syncChatbotContext({
               activeLayer: config.label,
-              activeModule: "Riesgo",
+              activeModule: "Mapas de Riesgo",
               selectedFeature: feature
             });
           });
@@ -332,7 +413,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       L.marker(ocanaCoords)
         .addTo(map)
-        .bindPopup("<b>GeoVisor Ocaña</b><br>Punto base del proyecto.");
+        .bindPopup("<b>VAOI</b><br>Visión Ambiental, Ocaña Interactiva.");
 
       document.querySelectorAll('input[name="baseLayer"]').forEach((radio) => {
         radio.addEventListener("change", (e) => {
@@ -360,7 +441,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
           syncChatbotContext({
             activeLayer: null,
-            activeModule: "Riesgo",
+            activeModule: "Mapas de Riesgo",
             selectedFeature: null
           });
 

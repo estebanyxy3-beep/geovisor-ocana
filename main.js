@@ -126,50 +126,27 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   navButtons.forEach((button) => {
-    button.addEventListener("click", function (e) {
-      e.preventDefault();
+    button.addEventListener("click", function () {
       const viewName = this.dataset.view;
       if (viewName) showView(viewName);
     });
-
-    button.addEventListener("touchend", function (e) {
-      e.preventDefault();
-      const viewName = this.dataset.view;
-      if (viewName) showView(viewName);
-    }, { passive: false });
   });
 
   viewButtons.forEach((button) => {
-    button.addEventListener("click", function (e) {
-      e.preventDefault();
+    button.addEventListener("click", function () {
       const viewName = this.dataset.viewTarget;
       if (viewName) showView(viewName);
     });
-
-    button.addEventListener("touchend", function (e) {
-      e.preventDefault();
-      const viewName = this.dataset.viewTarget;
-      if (viewName) showView(viewName);
-    }, { passive: false });
   });
 
   if (navToggle && sidebar) {
     navToggle.addEventListener("click", function () {
       sidebar.classList.toggle("open");
     });
-
-    navToggle.addEventListener("touchend", function (e) {
-      e.preventDefault();
-      sidebar.classList.toggle("open");
-    }, { passive: false });
   }
 
   if (searchBtn) {
     searchBtn.addEventListener("click", runHomeSearch);
-    searchBtn.addEventListener("touchend", function (e) {
-      e.preventDefault();
-      runHomeSearch();
-    }, { passive: false });
   }
 
   if (searchInput) {
@@ -355,28 +332,6 @@ document.addEventListener("DOMContentLoaded", function () {
       currentRiskLayer = L.geoJSON(data, {
         style: function (feature) {
           return getFeatureStyle(feature.properties || {});
-        },
-        onEachFeature: function (feature, layer) {
-          const props = feature.properties || {};
-          const title = props.titulo || props.nombre || props.NOMBRE || config.label;
-
-          let popupHTML = `<strong>${title}</strong>`;
-          Object.keys(props).forEach((key) => {
-            const value = props[key];
-            if (value !== null && value !== undefined && value !== "") {
-              popupHTML += `<br><strong>${key}:</strong> ${value}`;
-            }
-          });
-
-          layer.bindPopup(popupHTML);
-
-          layer.on("click", function () {
-            syncChatbotContext({
-              activeLayer: config.label,
-              activeModule: "Mapas de Riesgo",
-              selectedFeature: feature
-            });
-          });
         }
       });
 
@@ -414,10 +369,6 @@ document.addEventListener("DOMContentLoaded", function () {
       );
 
       osm.addTo(map);
-
-      L.marker(ocanaCoords)
-        .addTo(map)
-        .bindPopup("<b>VAOI</b><br>Visión Ambiental, Ocaña Interactiva.");
 
       document.querySelectorAll('input[name="baseLayer"]').forEach((radio) => {
         radio.addEventListener("change", (e) => {

@@ -15,13 +15,13 @@ function normalizeText(text) {
 
 function saveHistory() {
   sessionStorage.setItem(
-    "geovisor_chat_history",
+    "vaoi_chat_history",
     JSON.stringify(chatbotState.chatHistory)
   );
 }
 
 function loadHistory() {
-  const saved = sessionStorage.getItem("geovisor_chat_history");
+  const saved = sessionStorage.getItem("vaoi_chat_history");
   if (saved) {
     try {
       chatbotState.chatHistory = JSON.parse(saved);
@@ -52,27 +52,27 @@ function answerWithRules(userMessage) {
   const msg = normalizeText(userMessage);
 
   if (msg.includes("hola")) {
-    return "Hola. Soy GeoBot, el asistente del GeoVisor Ocaña. Puedo ayudarte con riesgo, POT, POMCA y participación ciudadana.";
+    return "Hola. Soy GeoBot, el asistente de VAOI, Visión Ambiental, Ocaña Interactiva. Puedo ayudarte con riesgo, POT, POMCA, participación y accidentabilidad.";
   }
 
-  if (msg.includes("que es el geovisor") || msg.includes("que es geovisor ocana")) {
-    return "El GeoVisor Ocaña es una herramienta web para consultar información territorial y temática del municipio.";
+  if (msg.includes("que es vaoi") || msg.includes("que significa vaoi")) {
+    return "VAOI significa Visión Ambiental, Ocaña Interactiva. Es una plataforma para consultar información territorial y temática del municipio.";
   }
 
   if (msg.includes("que es el pot") || msg.includes("que es un pot")) {
-    return "El POT es el Plan de Ordenamiento Territorial. Sirve para definir cómo se organiza el suelo del municipio, qué usos se permiten y qué zonas deben protegerse.";
+    return "El POT es el Plan de Ordenamiento Territorial. Sirve para organizar el suelo del municipio, definir usos y orientar el desarrollo territorial.";
   }
 
   if (msg.includes("que es el pomca")) {
-    return "El POMCA es el Plan de Ordenación y Manejo de Cuencas. Sirve para orientar la planificación ambiental del territorio y el manejo del agua.";
+    return "El POMCA es el Plan de Ordenación y Manejo de Cuencas. Sirve para orientar la planificación ambiental y el manejo de los recursos hídricos.";
+  }
+
+  if (msg.includes("accidentabilidad") || msg.includes("transito") || msg.includes("vial")) {
+    return "El módulo de Accidentabilidad permitirá consultar información sobre siniestros viales, movilidad, indicadores y seguridad vial.";
   }
 
   if (msg.includes("como uso el mapa") || msg.includes("como funciona el mapa")) {
-    return "Puedes entrar al módulo de Riesgo, activar capas, cambiar el mapa base y hacer clic en las zonas para consultar información.";
-  }
-
-  if (msg.includes("quien hizo esto") || msg.includes("quien hizo el geovisor")) {
-    return "Este geovisor fue desarrollado como proyecto académico para apoyar la comprensión del territorio en Ocaña.";
+    return "En el módulo de Riesgo puedes activar capas, cambiar el mapa base y hacer clic sobre los polígonos para consultar información.";
   }
 
   if (msg.includes("capa activa") || msg.includes("que capa estoy viendo")) {
@@ -99,18 +99,18 @@ function answerWithRules(userMessage) {
   }
 
   if (msg.includes("riesgo")) {
-    return "En el módulo de Riesgo puedes consultar amenazas, exposición y riesgo para distintos fenómenos del territorio.";
+    return "En Mapas de Riesgo puedes consultar amenazas, exposición y riesgo para distintos fenómenos del territorio.";
   }
 
   if (msg.includes("participacion")) {
-    return "En participación ciudadana podrás consultar procesos comunitarios, espacios de diálogo y mecanismos de intervención ciudadana.";
+    return "En el módulo de Participación podrás consultar procesos comunitarios, espacios de diálogo y mecanismos de intervención ciudadana.";
   }
 
   if (msg.includes("buenas") || msg.includes("buen dia") || msg.includes("buenos dias")) {
-    return "¡Hola! Estoy listo para ayudarte con información del GeoVisor Ocaña.";
+    return "¡Hola! Estoy listo para ayudarte con información de VAOI.";
   }
 
-  return "Puedo ayudarte con preguntas sobre el GeoVisor, el módulo de Riesgo, el POT, el POMCA o la participación ciudadana. También puedes preguntarme cuál es el módulo o la capa activa.";
+  return "Puedo ayudarte con preguntas sobre VAOI, el módulo de Riesgo, POT, POMCA, Participación o Accidentabilidad. También puedes preguntarme cuál es el módulo o la capa activa.";
 }
 
 function appendMessage(text, className) {
@@ -132,7 +132,7 @@ function renderSavedHistory() {
 
   if (!chatbotState.chatHistory.length) {
     appendMessage(
-      "Hola. Soy GeoBot, el asistente del GeoVisor Ocaña. ¿En qué puedo ayudarte?",
+      "Hola. Soy GeoBot, el asistente de VAOI. ¿En qué puedo ayudarte?",
       "bot-message"
     );
     return;

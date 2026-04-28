@@ -9,7 +9,7 @@
     rel="stylesheet"
     href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
   />
-  <link rel="stylesheet" href="styles.css?v=20" />
+  <link rel="stylesheet" href="styles.css?v=31" />
 </head>
 <body>
   <header class="topbar">
@@ -226,13 +226,15 @@
           <aside class="risk-sidebar">
             <div class="risk-card">
               <h3>Mapas base</h3>
+
               <label class="control-item">
                 <input type="radio" name="baseLayer" value="osm" checked />
                 OpenStreetMap
               </label>
+
               <label class="control-item">
                 <input type="radio" name="baseLayer" value="satellite" />
-                Esri Satellite
+                Satelital
               </label>
             </div>
 
@@ -241,14 +243,17 @@
 
               <details open>
                 <summary>Avenida torrencial</summary>
+
                 <label class="control-item">
                   <input type="radio" name="riesgoLayer" value="amenaza_at" />
                   Amenaza
                 </label>
+
                 <label class="control-item">
                   <input type="radio" name="riesgoLayer" value="exposicion_at" />
                   Exposición
                 </label>
+
                 <label class="control-item">
                   <input type="radio" name="riesgoLayer" value="riesgo_at" />
                   Riesgo
@@ -257,14 +262,17 @@
 
               <details>
                 <summary>Inundación</summary>
+
                 <label class="control-item">
                   <input type="radio" name="riesgoLayer" value="amenaza_inundacion" />
                   Amenaza
                 </label>
+
                 <label class="control-item">
                   <input type="radio" name="riesgoLayer" value="exposicion_inundacion" />
                   Exposición
                 </label>
+
                 <label class="control-item">
                   <input type="radio" name="riesgoLayer" value="riesgo_inundacion" />
                   Riesgo
@@ -273,50 +281,46 @@
 
               <details>
                 <summary>Movimiento en masa</summary>
+
                 <label class="control-item">
                   <input type="radio" name="riesgoLayer" value="amenaza_mm" />
                   Amenaza
                 </label>
+
                 <label class="control-item">
                   <input type="radio" name="riesgoLayer" value="exposicion_mm" />
                   Exposición
                 </label>
+
                 <label class="control-item">
                   <input type="radio" name="riesgoLayer" value="riesgo_mm" />
                   Riesgo
                 </label>
               </details>
 
-              <button class="clear-btn" id="clearRiskLayer" type="button">
+              <button id="clearRiskLayer" class="clear-btn" type="button">
                 Quitar capa activa
               </button>
+            </div>
+
+            <div class="risk-card">
+              <h3>Leyenda de la capa activa</h3>
+              <div id="legendContent">
+                <p>Selecciona una capa para ver su leyenda.</p>
+              </div>
+            </div>
+
+            <div class="risk-card">
+              <h3>Interpretación</h3>
+              <div id="riskInfoContent">
+                <p>Selecciona una capa para ver la descripción y el significado de sus colores.</p>
+              </div>
             </div>
           </aside>
 
           <div class="risk-map-panel">
             <div id="map"></div>
-
-            <div class="legend-floating" id="legendBox">
-              <h4>Leyenda</h4>
-              <div id="legendContent">
-                <div class="legend-item">
-                  <span class="swatch" style="background:#2f8f5b;"></span>
-                  <span>Selecciona una capa de riesgo</span>
-                </div>
-              </div>
-            </div>
           </div>
-
-          <aside class="risk-info">
-            <div class="info-card">
-              <h3>Información temática</h3>
-              <div id="riskInfoContent">
-                <p>
-                  Selecciona una capa para ver su significado, interpretación y referencia normativa.
-                </p>
-              </div>
-            </div>
-          </aside>
         </div>
       </section>
 
@@ -424,7 +428,7 @@
   </main>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="main.js?v=20"></script>
+  <script src="main.js?v=31"></script>
   <script src="chatbot.js?v=20"></script>
 </body>
 </html>

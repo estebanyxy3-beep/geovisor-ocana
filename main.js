@@ -116,7 +116,15 @@ document.addEventListener("DOMContentLoaded", function () {
     if (targetView) {
       showView(targetView);
       if (searchStatus) {
-        searchStatus.textContent = `Resultado encontrado: ${targetView}.`;
+        const nombres = {
+          inicio: "Inicio",
+          riesgo: "Mapas de Riesgo",
+          participacion: "Mecanismo de Participación",
+          pot: "POT",
+          pomca: "POMCA",
+          accidentabilidad: "Accidentabilidad"
+        };
+        searchStatus.textContent = `Resultado encontrado: ${nombres[targetView]}.`;
       }
     } else {
       if (searchStatus) {
@@ -165,7 +173,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const riskLayersConfig = {
     amenaza_at: {
       label: "Amenaza por avenida torrencial",
-      url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/Amenaza_Avenida_Torrencial_Urbano.json",
+      url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/amenaza/Zonificacion_Amenaza_Avenida.json",
       info: `
         <p><strong>Amenaza:</strong> posibilidad de ocurrencia de un fenómeno físico potencialmente dañino.</p>
         <p>Esta capa representa zonas asociadas a amenaza por avenida torrencial.</p>
@@ -176,57 +184,95 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="legend-item"><span class="swatch" style="background:#00aa00;"></span><span>Amenaza baja</span></div>
       `
     },
+
     exposicion_at: {
       label: "Exposición por avenida torrencial",
-      url: "",
-      info: `<p>Elementos expuestos frente a avenida torrencial.</p>`,
-      legend: `<div class="legend-item"><span class="swatch" style="background:#f59e0b;"></span><span>Elemento expuesto</span></div>`
+      url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/exposicion/Construccion_Expuesta_avenid1.json",
+      info: `
+        <p><strong>Exposición:</strong> muestra construcciones ubicadas en zonas potencialmente afectadas por avenida torrencial.</p>
+      `,
+      legend: `
+        <div class="legend-item"><span class="swatch" style="background:#f59e0b;"></span><span>Construcción expuesta</span></div>
+      `
     },
+
     riesgo_at: {
       label: "Riesgo por avenida torrencial",
-      url: "",
-      info: `<p>Riesgo por avenida torrencial.</p>`,
+      url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/riesgo/Construccion_Riesgo_avenida_json",
+      info: `
+        <p><strong>Riesgo:</strong> resultado de la interacción entre amenaza, exposición y vulnerabilidad para avenida torrencial.</p>
+      `,
       legend: `
         <div class="legend-item"><span class="swatch" style="background:#dc2626;"></span><span>Riesgo alto</span></div>
         <div class="legend-item"><span class="swatch" style="background:#f59e0b;"></span><span>Riesgo medio</span></div>
         <div class="legend-item"><span class="swatch" style="background:#22c55e;"></span><span>Riesgo bajo</span></div>
       `
     },
+
     amenaza_inundacion: {
       label: "Amenaza por inundación",
-      url: "",
-      info: `<p>Esta sección permitirá visualizar la amenaza por inundación.</p>`,
-      legend: `<div class="legend-item"><span class="swatch" style="background:#3b82f6;"></span><span>Zona de amenaza</span></div>`
+      url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/amenaza/Zonificacion_Amenaza_InundacUrban.json",
+      info: `
+        <p>Esta capa representa la zonificación de amenaza por inundación.</p>
+      `,
+      legend: `
+        <div class="legend-item"><span class="swatch" style="background:#2563eb;"></span><span>Amenaza por inundación</span></div>
+      `
     },
+
     exposicion_inundacion: {
       label: "Exposición por inundación",
-      url: "",
-      info: `<p>Elementos expuestos a inundación.</p>`,
-      legend: `<div class="legend-item"><span class="swatch" style="background:#60a5fa;"></span><span>Elemento expuesto</span></div>`
+      url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/exposicion/Construccion_Expuesta_inunda1.json",
+      info: `
+        <p>Esta capa muestra construcciones expuestas a inundación.</p>
+      `,
+      legend: `
+        <div class="legend-item"><span class="swatch" style="background:#60a5fa;"></span><span>Construcción expuesta</span></div>
+      `
     },
+
     riesgo_inundacion: {
       label: "Riesgo por inundación",
-      url: "",
-      info: `<p>Análisis de riesgo por inundación.</p>`,
-      legend: `<div class="legend-item"><span class="swatch" style="background:#1d4ed8;"></span><span>Riesgo por inundación</span></div>`
+      url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/riesgo/Construccion_Riesgo_inundaci.json",
+      info: `
+        <p>Esta capa muestra construcciones en riesgo por inundación.</p>
+      `,
+      legend: `
+        <div class="legend-item"><span class="swatch" style="background:#1d4ed8;"></span><span>Riesgo por inundación</span></div>
+      `
     },
+
     amenaza_mm: {
       label: "Amenaza por movimiento en masa",
-      url: "",
-      info: `<p>Amenaza por movimiento en masa.</p>`,
-      legend: `<div class="legend-item"><span class="swatch" style="background:#8b5cf6;"></span><span>Zona de amenaza</span></div>`
+      url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/amenaza/Zonificacion_Amenaza_Movimie_Mas.json",
+      info: `
+        <p>Esta capa representa la zonificación de amenaza por movimiento en masa.</p>
+      `,
+      legend: `
+        <div class="legend-item"><span class="swatch" style="background:#7c3aed;"></span><span>Amenaza por movimiento en masa</span></div>
+      `
     },
+
     exposicion_mm: {
       label: "Exposición por movimiento en masa",
-      url: "",
-      info: `<p>Elementos expuestos por movimiento en masa.</p>`,
-      legend: `<div class="legend-item"><span class="swatch" style="background:#a78bfa;"></span><span>Elemento expuesto</span></div>`
+      url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/exposicion/Construccion_Expuesta_Movimi1.json",
+      info: `
+        <p>Esta capa muestra construcciones expuestas por movimiento en masa.</p>
+      `,
+      legend: `
+        <div class="legend-item"><span class="swatch" style="background:#a78bfa;"></span><span>Construcción expuesta</span></div>
+      `
     },
+
     riesgo_mm: {
       label: "Riesgo por movimiento en masa",
-      url: "",
-      info: `<p>Áreas o elementos en riesgo por movimiento en masa.</p>`,
-      legend: `<div class="legend-item"><span class="swatch" style="background:#7c3aed;"></span><span>Riesgo por movimiento en masa</span></div>`
+      url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/riesgo/Construccion_Riesgo_Movimien.json",
+      info: `
+        <p>Esta capa muestra construcciones en riesgo por movimiento en masa.</p>
+      `,
+      legend: `
+        <div class="legend-item"><span class="swatch" style="background:#6d28d9;"></span><span>Riesgo por movimiento en masa</span></div>
+      `
     }
   };
 
@@ -325,13 +371,42 @@ document.addEventListener("DOMContentLoaded", function () {
 
     try {
       const response = await fetch(config.url);
-      if (!response.ok) throw new Error("No se pudo cargar el archivo GeoJSON");
+      if (!response.ok) {
+        throw new Error("No se pudo cargar el archivo GeoJSON");
+      }
 
       const data = await response.json();
 
       currentRiskLayer = L.geoJSON(data, {
         style: function (feature) {
           return getFeatureStyle(feature.properties || {});
+        },
+        onEachFeature: function (feature, layer) {
+          const props = feature.properties || {};
+          const title =
+            props.titulo ||
+            props.nombre ||
+            props.NOMBRE ||
+            config.label;
+
+          let popupHTML = `<strong>${title}</strong>`;
+
+          Object.keys(props).forEach((key) => {
+            const value = props[key];
+            if (value !== null && value !== undefined && value !== "") {
+              popupHTML += `<br><strong>${key}:</strong> ${value}`;
+            }
+          });
+
+          layer.bindPopup(popupHTML);
+
+          layer.on("click", function () {
+            syncChatbotContext({
+              activeLayer: config.label,
+              activeModule: "Mapas de Riesgo",
+              selectedFeature: feature
+            });
+          });
         }
       });
 
@@ -342,7 +417,11 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     } catch (error) {
       console.error("Error cargando capa:", error);
-      updateRiskInfo(`<h4>${config.label}</h4>${config.info}<p><strong>Error:</strong> no se pudo cargar el archivo GeoJSON.</p>`);
+      updateRiskInfo(`
+        <h4>${config.label}</h4>
+        ${config.info}
+        <p><strong>Error:</strong> no se pudo cargar el archivo GeoJSON.</p>
+      `);
     }
   }
 

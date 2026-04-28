@@ -111,6 +111,7 @@ body {
     rgba(18, 35, 64, 0.25) 100%
   );
   z-index: 1;
+  pointer-events: none;
 }
 
 .sidebar-inner {
@@ -149,7 +150,6 @@ body {
   box-shadow: 0 8px 18px rgba(31, 143, 61, 0.20);
 }
 
-/* cuadro azul más abajo */
 .sidebar-ally-card {
   margin-top: auto;
   margin-bottom: 24px;
@@ -218,6 +218,7 @@ body {
     rgba(255,255,255,0.05) 0%,
     rgba(255,255,255,0.10) 100%
   );
+  pointer-events: none;
 }
 
 .home-inner {
@@ -580,20 +581,18 @@ body {
 /* RIESGO */
 .risk-layout {
   display: grid;
-  grid-template-columns: 290px 1fr 320px;
+  grid-template-columns: 340px 1fr;
   gap: 18px;
-  align-items: stretch;
+  align-items: start;
 }
 
-.risk-sidebar,
-.risk-info {
+.risk-sidebar {
   display: flex;
   flex-direction: column;
   gap: 14px;
 }
 
-.risk-card,
-.info-card {
+.risk-card {
   background: white;
   border: 1px solid #dce4df;
   border-radius: 20px;
@@ -601,16 +600,16 @@ body {
   box-shadow: var(--sombra);
 }
 
-.risk-card h3,
-.info-card h3 {
+.risk-card h3 {
   margin-top: 0;
+  margin-bottom: 14px;
 }
 
 .control-item {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 8px 0;
+  padding: 10px 0;
   font-size: 0.94rem;
   border-bottom: 1px dashed #e5ebe6;
 }
@@ -650,34 +649,22 @@ details summary {
 
 .risk-map-panel {
   position: relative;
-  min-height: 640px;
+  min-height: 740px;
 }
 
 #map {
   width: 100%;
   height: 100%;
-  min-height: 640px;
+  min-height: 740px;
   border-radius: 22px;
   overflow: hidden;
   box-shadow: var(--sombra);
 }
 
-.legend-floating {
-  position: absolute;
-  left: 18px;
-  bottom: 18px;
-  z-index: 900;
-  background: rgba(255, 255, 255, 0.97);
-  border: 1px solid #dce4df;
-  border-radius: 14px;
-  padding: 12px 14px;
-  min-width: 220px;
-  box-shadow: var(--sombra);
-}
-
-.legend-floating h4 {
-  margin: 0 0 8px 0;
-  font-size: 0.92rem;
+.legend-block {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .legend-item {
@@ -685,15 +672,30 @@ details summary {
   align-items: center;
   gap: 10px;
   margin: 7px 0;
-  font-size: 0.9rem;
+  font-size: 0.92rem;
 }
 
 .swatch {
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   border-radius: 4px;
   border: 1px solid rgba(0, 0, 0, 0.12);
   flex-shrink: 0;
+}
+
+.info-list {
+  margin: 10px 0 0 18px;
+  padding: 0;
+}
+
+.info-list li {
+  margin-bottom: 6px;
+}
+
+#legendContent p,
+#riskInfoContent p {
+  margin: 0;
+  color: #475569;
 }
 
 /* CHAT */
@@ -810,7 +812,6 @@ details summary {
   }
 }
 
-/* RESPONSIVE */
 @media (max-width: 1450px) {
   .home-cards {
     grid-template-columns: repeat(3, 1fr);
@@ -831,15 +832,16 @@ details summary {
   }
 
   .risk-layout {
-    grid-template-columns: 280px 1fr;
-  }
-
-  .risk-info {
-    grid-column: 1 / -1;
+    grid-template-columns: 1fr;
   }
 
   .home-cards {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .risk-map-panel,
+  #map {
+    min-height: 560px;
   }
 }
 
@@ -857,6 +859,7 @@ details summary {
     border-right: none;
     border-bottom: 1px solid #dce4df;
     min-height: auto;
+    z-index: 1200;
   }
 
   .sidebar.open {
@@ -875,6 +878,8 @@ details summary {
 
   .content {
     padding: 12px;
+    position: relative;
+    z-index: 1;
   }
 
   .home-page {
@@ -947,22 +952,9 @@ details summary {
     grid-template-columns: 1fr;
   }
 
-  .risk-layout {
-    grid-template-columns: 1fr;
-  }
-
-  .risk-map-panel {
-    min-height: 480px;
-  }
-
+  .risk-map-panel,
   #map {
     min-height: 480px;
-  }
-
-  .legend-floating {
-    left: 16px;
-    right: 16px;
-    min-width: auto;
   }
 
   .chat-input-area {
@@ -1001,73 +993,4 @@ details summary {
   .module-header h2 {
     font-size: 1.6rem;
   }
-}
-.home-overlay {
-  pointer-events: none;
-}
-
-.sidebar::before {
-  pointer-events: none;
-}
-
-.home-page,
-.home-inner,
-.home-hero,
-.home-copy,
-.home-chat-column,
-.home-cards,
-.topic-card,
-.nav-item,
-.topic-btn,
-.assistant-card,
-.chat-window {
-  position: relative;
-  z-index: 2;
-}
-
-@media (max-width: 900px) {
-  .sidebar {
-    z-index: 1200;
-  }
-
-  .content {
-    position: relative;
-    z-index: 1;
-  }
-}
-.legend-block {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.legend-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 6px;
-}
-
-.swatch {
-  width: 18px;
-  height: 18px;
-  border-radius: 4px;
-  border: 1px solid #d1d5db;
-  display: inline-block;
-  flex-shrink: 0;
-}
-
-.info-list {
-  margin: 10px 0 0 18px;
-  padding: 0;
-}
-
-.info-list li {
-  margin-bottom: 6px;
-}
-
-#legendContent p,
-#riskInfoContent p {
-  margin: 0;
-  color: #475569;
 }

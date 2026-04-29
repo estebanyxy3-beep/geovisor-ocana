@@ -9,9 +9,9 @@
     rel="stylesheet"
     href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
   />
-  <link rel="stylesheet" href="styles.css?v=40" />
+  <link rel="stylesheet" href="styles.css?v=50" />
 </head>
-<body>
+<body class="sidebar-home">
   <header class="topbar">
     <div class="brand">
       <img src="assets/Logo_Geovisor.png" alt="Logo VAOI" class="brand-logo-img" />
@@ -217,7 +217,7 @@
             <p class="module-kicker">Módulo</p>
             <h2>Mapas de Riesgo</h2>
             <p class="module-description">
-              Selecciona subcapas por fenómeno: amenaza, exposición o riesgo, y visualiza la información sobre el mapa.
+              Selecciona una capa temática y visualiza la información sobre el territorio.
             </p>
           </div>
         </div>
@@ -240,7 +240,120 @@
 
             <div class="risk-card">
               <h3>Subcapas temáticas</h3>
-              <div id="riskLayerTree"></div>
+
+              <details class="risk-group" open>
+                <summary>Avenida torrencial</summary>
+                <div class="risk-group-content">
+                  <div class="layer-section">
+                    <h4 class="layer-section-title">Amenaza</h4>
+                    <label class="layer-option">
+                      <input type="radio" name="riesgoLayer" value="amenaza_at" />
+                      <span class="layer-option-text">
+                        <strong>Zonificación de amenaza</strong>
+                        <small>Clasificación espacial de la amenaza por avenida torrencial.</small>
+                      </span>
+                    </label>
+                  </div>
+
+                  <div class="layer-section">
+                    <h4 class="layer-section-title">Exposición</h4>
+                    <label class="layer-option">
+                      <input type="radio" name="riesgoLayer" value="exposicion_at" />
+                      <span class="layer-option-text">
+                        <strong>Construcción expuesta</strong>
+                        <small>Construcciones expuestas por avenida torrencial.</small>
+                      </span>
+                    </label>
+                  </div>
+
+                  <div class="layer-section">
+                    <h4 class="layer-section-title">Riesgo</h4>
+                    <label class="layer-option">
+                      <input type="radio" name="riesgoLayer" value="riesgo_at" />
+                      <span class="layer-option-text">
+                        <strong>Construcción en riesgo</strong>
+                        <small>Construcciones en riesgo por avenida torrencial.</small>
+                      </span>
+                    </label>
+                  </div>
+                </div>
+              </details>
+
+              <details class="risk-group">
+                <summary>Inundación</summary>
+                <div class="risk-group-content">
+                  <div class="layer-section">
+                    <h4 class="layer-section-title">Amenaza</h4>
+                    <label class="layer-option">
+                      <input type="radio" name="riesgoLayer" value="amenaza_inundacion" />
+                      <span class="layer-option-text">
+                        <strong>Zonificación de amenaza</strong>
+                        <small>Clasificación espacial de la amenaza por inundación.</small>
+                      </span>
+                    </label>
+                  </div>
+
+                  <div class="layer-section">
+                    <h4 class="layer-section-title">Exposición</h4>
+                    <label class="layer-option">
+                      <input type="radio" name="riesgoLayer" value="exposicion_inundacion" />
+                      <span class="layer-option-text">
+                        <strong>Construcción expuesta</strong>
+                        <small>Construcciones expuestas por inundación.</small>
+                      </span>
+                    </label>
+                  </div>
+
+                  <div class="layer-section">
+                    <h4 class="layer-section-title">Riesgo</h4>
+                    <label class="layer-option">
+                      <input type="radio" name="riesgoLayer" value="riesgo_inundacion" />
+                      <span class="layer-option-text">
+                        <strong>Construcción en riesgo</strong>
+                        <small>Construcciones en riesgo por inundación.</small>
+                      </span>
+                    </label>
+                  </div>
+                </div>
+              </details>
+
+              <details class="risk-group">
+                <summary>Movimiento en masa</summary>
+                <div class="risk-group-content">
+                  <div class="layer-section">
+                    <h4 class="layer-section-title">Amenaza</h4>
+                    <label class="layer-option">
+                      <input type="radio" name="riesgoLayer" value="amenaza_mm" />
+                      <span class="layer-option-text">
+                        <strong>Zonificación de amenaza</strong>
+                        <small>Clasificación espacial de la amenaza por movimiento en masa.</small>
+                      </span>
+                    </label>
+                  </div>
+
+                  <div class="layer-section">
+                    <h4 class="layer-section-title">Exposición</h4>
+                    <label class="layer-option">
+                      <input type="radio" name="riesgoLayer" value="exposicion_mm" />
+                      <span class="layer-option-text">
+                        <strong>Construcción expuesta</strong>
+                        <small>Construcciones expuestas por movimiento en masa.</small>
+                      </span>
+                    </label>
+                  </div>
+
+                  <div class="layer-section">
+                    <h4 class="layer-section-title">Riesgo</h4>
+                    <label class="layer-option">
+                      <input type="radio" name="riesgoLayer" value="riesgo_mm" />
+                      <span class="layer-option-text">
+                        <strong>Construcción en riesgo</strong>
+                        <small>Construcciones en riesgo por movimiento en masa.</small>
+                      </span>
+                    </label>
+                  </div>
+                </div>
+              </details>
 
               <button id="clearRiskLayer" class="clear-btn" type="button">
                 Quitar capa activa
@@ -248,22 +361,25 @@
             </div>
 
             <div class="risk-card">
-              <h3>Leyenda de la capa activa</h3>
-              <div id="legendContent">
-                <p>Selecciona una subcapa para ver su leyenda.</p>
-              </div>
-            </div>
-
-            <div class="risk-card">
-              <h3>Interpretación</h3>
+              <h3>Información temática</h3>
               <div id="riskInfoContent">
-                <p>Selecciona una subcapa para ver su descripción y colores.</p>
+                <p>Selecciona una capa para ver su descripción.</p>
               </div>
             </div>
           </aside>
 
           <div class="risk-map-panel">
             <div id="map"></div>
+
+            <div class="legend-floating" id="legendBox">
+              <h4>Leyenda</h4>
+              <div id="legendContent">
+                <div class="legend-item">
+                  <span class="swatch" style="background:#2f8f5b;"></span>
+                  <span>Selecciona una capa</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -307,8 +423,7 @@
           <div class="content-card">
             <h3>Contenido POT</h3>
             <p>
-              Aquí podrás mostrar el contenido del Plan de Ordenamiento Territorial:
-              glosario, normativa, clasificación del suelo, uso del suelo y documentos asociados.
+              Aquí podrás mostrar el contenido del Plan de Ordenamiento Territorial.
             </p>
           </div>
         </div>
@@ -330,8 +445,7 @@
           <div class="content-card">
             <h3>Contenido POMCA</h3>
             <p>
-              Esta sección servirá para integrar conceptos, documentos, normativas,
-              cartografía y demás información sobre ordenación y manejo de cuencas.
+              Esta sección servirá para integrar conceptos, documentos, normativas y cartografía.
             </p>
           </div>
         </div>
@@ -353,8 +467,7 @@
           <div class="content-card">
             <h3>Módulo de accidentabilidad</h3>
             <p>
-              Aquí podrás integrar información de accidentalidad, mapas viales, reportes,
-              puntos críticos, indicadores y análisis de seguridad vial.
+              Aquí podrás integrar información de accidentalidad, mapas viales, reportes y análisis.
             </p>
           </div>
         </div>
@@ -364,7 +477,7 @@
   </main>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="main.js?v=40"></script>
+  <script src="main.js?v=50"></script>
   <script src="chatbot.js?v=20"></script>
 </body>
 </html>

@@ -9,6 +9,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const searchInput = document.getElementById("homeSearchInput");
   const searchBtn = document.getElementById("homeSearchBtn");
   const searchStatus = document.getElementById("searchStatus");
+  const riskLayerTree = document.getElementById("riskLayerTree");
+  const legendContent = document.getElementById("legendContent");
+  const riskInfoContent = document.getElementById("riskInfoContent");
 
   function syncChatbotContext(data) {
     if (window.updateChatbotContext) {
@@ -39,9 +42,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const moduleNames = {
       inicio: "Inicio",
       riesgo: "Mapas de Riesgo",
+      participacion: "Participación",
       pot: "POT",
       pomca: "POMCA",
-      participacion: "Participación",
       accidentabilidad: "Accidentabilidad"
     };
 
@@ -54,20 +57,27 @@ document.addEventListener("DOMContentLoaded", function () {
     if (viewName === "riesgo" && window.__geovisorMap) {
       setTimeout(() => {
         window.__geovisorMap.invalidateSize(true);
-      }, 300);
+      }, 250);
     }
+  }
+
+  function normalizeText(text) {
+    return String(text || "")
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "");
   }
 
   function runHomeSearch() {
     if (!searchInput) return;
 
-    const raw = searchInput.value.trim().toLowerCase();
+    const raw = searchInput.value.trim();
     if (!raw) {
       if (searchStatus) searchStatus.textContent = "Escribe un término para buscar.";
       return;
     }
 
-    const q = raw.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    const q = normalizeText(raw);
 
     let targetView = null;
 
@@ -83,7 +93,8 @@ document.addEventListener("DOMContentLoaded", function () {
       q.includes("amenaza") ||
       q.includes("avenida torrencial") ||
       q.includes("inundacion") ||
-      q.includes("movimiento en masa")
+      q.includes("movimiento en masa") ||
+      q.includes("exposicion")
     ) {
       targetView = "riesgo";
     } else if (
@@ -99,8 +110,7 @@ document.addEventListener("DOMContentLoaded", function () {
       targetView = "pot";
     } else if (
       q.includes("pomca") ||
-      q.includes("cuenca") ||
-      q.includes("ambiental")
+      q.includes("cuenca")
     ) {
       targetView = "pomca";
     } else if (
@@ -116,7 +126,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (targetView) {
       showView(targetView);
       if (searchStatus) {
-        const nombres = {
+        const names = {
           inicio: "Inicio",
           riesgo: "Mapas de Riesgo",
           participacion: "Mecanismo de Participación",
@@ -124,7 +134,7 @@ document.addEventListener("DOMContentLoaded", function () {
           pomca: "POMCA",
           accidentabilidad: "Accidentabilidad"
         };
-        searchStatus.textContent = `Resultado encontrado: ${nombres[targetView]}.`;
+        searchStatus.textContent = `Resultado encontrado: ${names[targetView]}.`;
       }
     } else {
       if (searchStatus) {
@@ -165,174 +175,342 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  /* =========================
+     CATALOGO DE SUBCAPAS
+  ========================= */
+
+  const LAYER_CATALOG = [
+    {
+      phenomenon: "Avenida torrencial",
+      sections: [
+        {
+          title: "Amenaza",
+          items: [
+            {
+              id: "amenaza_at_zonificacion",
+              title: "Zonificación de amenaza",
+              description: "Clasificación espacial de la amenaza por avenida torrencial.",
+              kind: "amenaza",
+              subtype: "zonificacion",
+              phenomenon: "Avenida torrencial",
+              url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/amenaza/Zonificacion_Amenaza_Avenida.json"
+            }
+          ]
+        },
+        {
+          title: "Exposición",
+          items: [
+            {
+              id: "exp_at_construccion",
+              title: "Construcción expuesta",
+              description: "Construcciones expuestas por avenida torrencial.",
+              kind: "exposicion",
+              subtype: "construccion",
+              phenomenon: "Avenida torrencial",
+              url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/exposicion/Construccion_Expuesta_avenid1.json"
+            },
+            {
+              id: "exp_at_predio",
+              title: "Predio expuesto",
+              description: "Predios expuestos por avenida torrencial.",
+              kind: "exposicion",
+              subtype: "predio",
+              phenomenon: "Avenida torrencial",
+              url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/exposicion/Predio_Expuesto_avenida_torr.json"
+            },
+            {
+              id: "exp_at_via",
+              title: "Vía expuesta",
+              description: "Vías expuestas por avenida torrencial.",
+              kind: "exposicion",
+              subtype: "via",
+              phenomenon: "Avenida torrencial",
+              url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/exposicion/Via_Expuesta_avenida_torrenc.json"
+            }
+          ]
+        },
+        {
+          title: "Riesgo",
+          items: [
+            {
+              id: "riesgo_at_construccion",
+              title: "Construcción en riesgo",
+              description: "Construcciones en riesgo por avenida torrencial.",
+              kind: "riesgo",
+              subtype: "construccion",
+              phenomenon: "Avenida torrencial",
+              url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/riesgo/Construccion_Riesgo_avenida_json"
+            },
+            {
+              id: "riesgo_at_predio",
+              title: "Predio en riesgo",
+              description: "Predios en riesgo por avenida torrencial.",
+              kind: "riesgo",
+              subtype: "predio",
+              phenomenon: "Avenida torrencial",
+              url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/riesgo/Predio_Riesgo_avenida_torren.json"
+            },
+            {
+              id: "riesgo_at_via",
+              title: "Vía en riesgo",
+              description: "Vías en riesgo por avenida torrencial.",
+              kind: "riesgo",
+              subtype: "via",
+              phenomenon: "Avenida torrencial",
+              url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/riesgo/Via_Riesgo_avenida_torrencia.json"
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      phenomenon: "Inundación",
+      sections: [
+        {
+          title: "Amenaza",
+          items: [
+            {
+              id: "amenaza_inundacion_urbana",
+              title: "Zonificación de amenaza urbana",
+              description: "Zonificación de amenaza por inundación urbana.",
+              kind: "amenaza",
+              subtype: "zonificacion",
+              phenomenon: "Inundación",
+              url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/amenaza/Zonificacion_Amenaza_InundacUrban.json"
+            },
+            {
+              id: "amenaza_inundacion_ermita",
+              title: "Zonificación de amenaza sector Ermita",
+              description: "Zonificación de amenaza por inundación en el sector Ermita.",
+              kind: "amenaza",
+              subtype: "zonificacion",
+              phenomenon: "Inundación",
+              url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/amenaza/Zonificacion_Amenaza_Inundac_Ermi.json"
+            }
+          ]
+        },
+        {
+          title: "Exposición",
+          items: [
+            {
+              id: "exp_inundacion_construccion",
+              title: "Construcción expuesta",
+              description: "Construcciones expuestas por inundación.",
+              kind: "exposicion",
+              subtype: "construccion",
+              phenomenon: "Inundación",
+              url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/exposicion/Construccion_Expuesta_inunda1.json"
+            }
+          ]
+        },
+        {
+          title: "Riesgo",
+          items: [
+            {
+              id: "riesgo_inundacion_construccion",
+              title: "Construcción en riesgo",
+              description: "Construcciones en riesgo por inundación.",
+              kind: "riesgo",
+              subtype: "construccion",
+              phenomenon: "Inundación",
+              url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/riesgo/Construccion_Riesgo_inundaci.json"
+            },
+            {
+              id: "riesgo_inundacion_predio",
+              title: "Predio en riesgo",
+              description: "Predios en riesgo por inundación.",
+              kind: "riesgo",
+              subtype: "predio",
+              phenomenon: "Inundación",
+              url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/riesgo/Predio_Riesgo_inundacion_Pro.json"
+            },
+            {
+              id: "riesgo_inundacion_via",
+              title: "Vía en riesgo",
+              description: "Vías en riesgo por inundación.",
+              kind: "riesgo",
+              subtype: "via",
+              phenomenon: "Inundación",
+              url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/riesgo/Via_Riesgo_inundacion_Projec.json"
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      phenomenon: "Movimiento en masa",
+      sections: [
+        {
+          title: "Amenaza",
+          items: [
+            {
+              id: "amenaza_mm_general",
+              title: "Zonificación general",
+              description: "Zonificación general de amenaza por movimiento en masa.",
+              kind: "amenaza",
+              subtype: "zonificacion",
+              phenomenon: "Movimiento en masa",
+              url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/amenaza/Zonificacion_Amenaza_Movimie_Mas.json"
+            },
+            {
+              id: "amenaza_mm_pueblo",
+              title: "Sector MM Pueb",
+              description: "Zonificación de amenaza para sector MM Pueb.",
+              kind: "amenaza",
+              subtype: "zonificacion",
+              phenomenon: "Movimiento en masa",
+              url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/amenaza/Zonificacion_Amenaza_MM_Pueb.json"
+            },
+            {
+              id: "amenaza_mm_otar",
+              title: "Sector MM Otar",
+              description: "Zonificación de amenaza para sector MM Otar.",
+              kind: "amenaza",
+              subtype: "zonificacion",
+              phenomenon: "Movimiento en masa",
+              url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/amenaza/Zonificacion_Amenaza_MM_Otar.json"
+            },
+            {
+              id: "amenaza_mm_erm",
+              title: "Sector MM La Erm",
+              description: "Zonificación de amenaza para sector MM La Erm.",
+              kind: "amenaza",
+              subtype: "zonificacion",
+              phenomenon: "Movimiento en masa",
+              url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/amenaza/Zonificacion_Amenaza_MM_La_Erm.json"
+            },
+            {
+              id: "amenaza_mm_buen",
+              title: "Sector MM Buen",
+              description: "Zonificación de amenaza para sector MM Buen.",
+              kind: "amenaza",
+              subtype: "zonificacion",
+              phenomenon: "Movimiento en masa",
+              url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/amenaza/Zonificacion_Amenaza_MM_Buen1.json"
+            },
+            {
+              id: "amenaza_mm_agua",
+              title: "Sector MM Agua",
+              description: "Zonificación de amenaza para sector MM Agua.",
+              kind: "amenaza",
+              subtype: "zonificacion",
+              phenomenon: "Movimiento en masa",
+              url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/amenaza/Zonificacion_Amenaza_MM_Agua1.json"
+            }
+          ]
+        },
+        {
+          title: "Exposición",
+          items: [
+            {
+              id: "exp_mm_construccion",
+              title: "Construcción expuesta",
+              description: "Construcciones expuestas por movimiento en masa.",
+              kind: "exposicion",
+              subtype: "construccion",
+              phenomenon: "Movimiento en masa",
+              url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/exposicion/Construccion_Expuesta_Movimi1.json"
+            },
+            {
+              id: "exp_mm_predio",
+              title: "Predio expuesto",
+              description: "Predios expuestos por movimiento en masa.",
+              kind: "exposicion",
+              subtype: "predio",
+              phenomenon: "Movimiento en masa",
+              url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/exposicion/Predio_Expuesto_Movimiento_e.json"
+            },
+            {
+              id: "exp_mm_via",
+              title: "Vía expuesta",
+              description: "Vías expuestas por movimiento en masa.",
+              kind: "exposicion",
+              subtype: "via",
+              phenomenon: "Movimiento en masa",
+              url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/exposicion/Via_Expuesta_Movimiento_en_M.json"
+            }
+          ]
+        },
+        {
+          title: "Riesgo",
+          items: [
+            {
+              id: "riesgo_mm_construccion",
+              title: "Construcción en riesgo",
+              description: "Construcciones en riesgo por movimiento en masa.",
+              kind: "riesgo",
+              subtype: "construccion",
+              phenomenon: "Movimiento en masa",
+              url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/riesgo/Construccion_Riesgo_Movimien.json"
+            },
+            {
+              id: "riesgo_mm_predio",
+              title: "Predio en riesgo",
+              description: "Predios en riesgo por movimiento en masa.",
+              kind: "riesgo",
+              subtype: "predio",
+              phenomenon: "Movimiento en masa",
+              url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/riesgo/Predio_Riesgo_Movimiento_en_.json"
+            },
+            {
+              id: "riesgo_mm_via",
+              title: "Vía en riesgo",
+              description: "Vías en riesgo por movimiento en masa.",
+              kind: "riesgo",
+              subtype: "via",
+              phenomenon: "Movimiento en masa",
+              url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/riesgo/Via_Riesgo_Movimiento_en_Mas.json"
+            }
+          ]
+        }
+      ]
+    }
+  ];
+
+  const FLAT_LAYERS = LAYER_CATALOG.flatMap(group =>
+    group.sections.flatMap(section => section.items)
+  );
+
+  function renderRiskLayerTree() {
+    if (!riskLayerTree) return;
+
+    riskLayerTree.innerHTML = LAYER_CATALOG.map((group, groupIndex) => {
+      return `
+        <details class="risk-group" ${groupIndex === 0 ? "open" : ""}>
+          <summary>${group.phenomenon}</summary>
+          <div class="risk-group-content">
+            ${group.sections.map((section) => `
+              <div class="layer-section">
+                <h4 class="layer-section-title">${section.title}</h4>
+                ${section.items.map((item) => `
+                  <label class="layer-option">
+                    <input type="radio" name="riskLayer" value="${item.id}" />
+                    <span class="layer-option-text">
+                      <strong>${item.title}</strong>
+                      <small>${item.description}</small>
+                    </span>
+                  </label>
+                `).join("")}
+              </div>
+            `).join("")}
+          </div>
+        </details>
+      `;
+    }).join("");
+  }
+
+  renderRiskLayerTree();
+
+  /* =========================
+     MAPA
+  ========================= */
+
   let map = null;
   let osm = null;
   let satellite = null;
   let currentRiskLayer = null;
-
-  const riskLayersConfig = {
-    amenaza_at: {
-      label: "Amenaza por avenida torrencial",
-      url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/amenaza/Zonificacion_Amenaza_Avenida.json",
-      info: `
-        <p><strong>Amenaza:</strong> posibilidad de ocurrencia de un fenómeno físico potencialmente dañino.</p>
-        <p>Esta capa representa zonas asociadas a amenaza por avenida torrencial.</p>
-      `,
-      legend: `
-        <div class="legend-item"><span class="swatch" style="background:#ff0000;"></span><span>Amenaza alta</span></div>
-        <div class="legend-item"><span class="swatch" style="background:#ffff00;"></span><span>Amenaza media</span></div>
-        <div class="legend-item"><span class="swatch" style="background:#00aa00;"></span><span>Amenaza baja</span></div>
-      `
-    },
-
-    exposicion_at: {
-      label: "Exposición por avenida torrencial",
-      url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/exposicion/Construccion_Expuesta_avenid1.json",
-      info: `
-        <p><strong>Exposición:</strong> muestra construcciones ubicadas en zonas potencialmente afectadas por avenida torrencial.</p>
-      `,
-      legend: `
-        <div class="legend-item"><span class="swatch" style="background:#f59e0b;"></span><span>Construcción expuesta</span></div>
-      `
-    },
-
-    riesgo_at: {
-      label: "Riesgo por avenida torrencial",
-      url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/riesgo/Construccion_Riesgo_avenida_json",
-      info: `
-        <p><strong>Riesgo:</strong> resultado de la interacción entre amenaza, exposición y vulnerabilidad para avenida torrencial.</p>
-      `,
-      legend: `
-        <div class="legend-item"><span class="swatch" style="background:#dc2626;"></span><span>Riesgo alto</span></div>
-        <div class="legend-item"><span class="swatch" style="background:#f59e0b;"></span><span>Riesgo medio</span></div>
-        <div class="legend-item"><span class="swatch" style="background:#22c55e;"></span><span>Riesgo bajo</span></div>
-      `
-    },
-
-    amenaza_inundacion: {
-      label: "Amenaza por inundación",
-      url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/amenaza/Zonificacion_Amenaza_InundacUrban.json",
-      info: `
-        <p>Esta capa representa la zonificación de amenaza por inundación.</p>
-      `,
-      legend: `
-        <div class="legend-item"><span class="swatch" style="background:#2563eb;"></span><span>Amenaza por inundación</span></div>
-      `
-    },
-
-    exposicion_inundacion: {
-      label: "Exposición por inundación",
-      url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/exposicion/Construccion_Expuesta_inunda1.json",
-      info: `
-        <p>Esta capa muestra construcciones expuestas a inundación.</p>
-      `,
-      legend: `
-        <div class="legend-item"><span class="swatch" style="background:#60a5fa;"></span><span>Construcción expuesta</span></div>
-      `
-    },
-
-    riesgo_inundacion: {
-      label: "Riesgo por inundación",
-      url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/riesgo/Construccion_Riesgo_inundaci.json",
-      info: `
-        <p>Esta capa muestra construcciones en riesgo por inundación.</p>
-      `,
-      legend: `
-        <div class="legend-item"><span class="swatch" style="background:#1d4ed8;"></span><span>Riesgo por inundación</span></div>
-      `
-    },
-
-    amenaza_mm: {
-      label: "Amenaza por movimiento en masa",
-      url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/amenaza/Zonificacion_Amenaza_Movimie_Mas.json",
-      info: `
-        <p>Esta capa representa la zonificación de amenaza por movimiento en masa.</p>
-      `,
-      legend: `
-        <div class="legend-item"><span class="swatch" style="background:#7c3aed;"></span><span>Amenaza por movimiento en masa</span></div>
-      `
-    },
-
-    exposicion_mm: {
-      label: "Exposición por movimiento en masa",
-      url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/exposicion/Construccion_Expuesta_Movimi1.json",
-      info: `
-        <p>Esta capa muestra construcciones expuestas por movimiento en masa.</p>
-      `,
-      legend: `
-        <div class="legend-item"><span class="swatch" style="background:#a78bfa;"></span><span>Construcción expuesta</span></div>
-      `
-    },
-
-    riesgo_mm: {
-      label: "Riesgo por movimiento en masa",
-      url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/riesgo/Construccion_Riesgo_Movimien.json",
-      info: `
-        <p>Esta capa muestra construcciones en riesgo por movimiento en masa.</p>
-      `,
-      legend: `
-        <div class="legend-item"><span class="swatch" style="background:#6d28d9;"></span><span>Riesgo por movimiento en masa</span></div>
-      `
-    }
-  };
-
-  function updateLegend(html = null) {
-    const legendContent = document.getElementById("legendContent");
-    if (!legendContent) return;
-
-    if (html) {
-      legendContent.innerHTML = html;
-      return;
-    }
-
-    legendContent.innerHTML = `
-      <div class="legend-item">
-        <span class="swatch" style="background:#2f8f5b;"></span>
-        <span>Selecciona una capa de riesgo</span>
-      </div>
-    `;
-  }
-
-  function updateRiskInfo(html = "") {
-    const riskInfoContent = document.getElementById("riskInfoContent");
-    if (!riskInfoContent) return;
-    riskInfoContent.innerHTML = html || "<p>Selecciona una capa para ver su contenido.</p>";
-  }
-
-  function getFeatureStyle(props = {}) {
-    const nivel = (
-      props.nivel ||
-      props.NIVEL ||
-      props.amenaza ||
-      props.AMENAZA ||
-      props.clase ||
-      props.CLASIFICA ||
-      props.tipo ||
-      props.TIPO ||
-      ""
-    ).toString().trim().toLowerCase();
-
-    let fillColor = "#d9d9d9";
-    let borderColor = "#666666";
-
-    if (nivel.includes("alta")) {
-      fillColor = "#ff0000";
-      borderColor = "#990000";
-    } else if (nivel.includes("media")) {
-      fillColor = "#ffff00";
-      borderColor = "#999900";
-    } else if (nivel.includes("baja")) {
-      fillColor = "#00aa00";
-      borderColor = "#006400";
-    }
-
-    return {
-      color: borderColor,
-      weight: 2,
-      fillColor: fillColor,
-      fillOpacity: 0.45
-    };
-  }
 
   function setBaseLayer(layerName) {
     if (!map || !osm || !satellite) return;
@@ -347,63 +525,373 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  async function loadRiskLayer(layerKey) {
-    if (!map) return;
+  function findLayerItemById(id) {
+    return FLAT_LAYERS.find((item) => item.id === id);
+  }
 
-    const config = riskLayersConfig[layerKey];
-    if (!config) return;
+  function detectSeverity(props = {}) {
+    const fields = [
+      "nivel", "NIVEL",
+      "amenaza", "AMENAZA",
+      "riesgo", "RIESGO",
+      "categoria", "CATEGORIA",
+      "clase", "CLASE",
+      "clasifica", "CLASIFICA",
+      "gridcode", "GRIDCODE",
+      "id", "ID"
+    ];
 
-    syncChatbotContext({
-      activeLayer: config.label,
-      activeModule: "Mapas de Riesgo",
-      selectedFeature: null
+    for (const field of fields) {
+      const value = props[field];
+      if (value !== undefined && value !== null && value !== "") {
+        if (typeof value === "number") {
+          if (value === 3) return "alto";
+          if (value === 2) return "medio";
+          if (value === 1) return "bajo";
+        }
+
+        const text = normalizeText(value);
+
+        if (
+          text.includes("alta") ||
+          text.includes("alto") ||
+          text === "3"
+        ) return "alto";
+
+        if (
+          text.includes("media") ||
+          text.includes("medio") ||
+          text === "2"
+        ) return "medio";
+
+        if (
+          text.includes("baja") ||
+          text.includes("bajo") ||
+          text === "1"
+        ) return "bajo";
+      }
+    }
+
+    return "";
+  }
+
+  function getExposureColor(subtype) {
+    if (subtype === "construccion") {
+      return {
+        fillColor: "#f59e0b",
+        color: "#b45309"
+      };
+    }
+
+    if (subtype === "predio") {
+      return {
+        fillColor: "#8b5cf6",
+        color: "#6d28d9"
+      };
+    }
+
+    if (subtype === "via") {
+      return {
+        fillColor: "#3b82f6",
+        color: "#1d4ed8"
+      };
+    }
+
+    return {
+      fillColor: "#64748b",
+      color: "#475569"
+    };
+  }
+
+  function getFeatureStyle(props = {}, item) {
+    const severity = detectSeverity(props);
+
+    if (item.kind === "amenaza") {
+      if (severity === "alto") {
+        return {
+          color: "#991b1b",
+          weight: 1.5,
+          fillColor: "#d73027",
+          fillOpacity: 0.55
+        };
+      }
+      if (severity === "medio") {
+        return {
+          color: "#a16207",
+          weight: 1.5,
+          fillColor: "#facc15",
+          fillOpacity: 0.55
+        };
+      }
+      if (severity === "bajo") {
+        return {
+          color: "#166534",
+          weight: 1.5,
+          fillColor: "#22c55e",
+          fillOpacity: 0.55
+        };
+      }
+
+      return {
+        color: "#a16207",
+        weight: 1.5,
+        fillColor: "#facc15",
+        fillOpacity: 0.5
+      };
+    }
+
+    if (item.kind === "riesgo") {
+      if (severity === "alto") {
+        return {
+          color: "#7f1d1d",
+          weight: 1.5,
+          fillColor: "#dc2626",
+          fillOpacity: 0.6
+        };
+      }
+      if (severity === "medio") {
+        return {
+          color: "#9a3412",
+          weight: 1.5,
+          fillColor: "#f97316",
+          fillOpacity: 0.6
+        };
+      }
+      if (severity === "bajo") {
+        return {
+          color: "#166534",
+          weight: 1.5,
+          fillColor: "#22c55e",
+          fillOpacity: 0.6
+        };
+      }
+
+      return {
+        color: "#9a3412",
+        weight: 1.5,
+        fillColor: "#f97316",
+        fillOpacity: 0.55
+      };
+    }
+
+    if (item.kind === "exposicion") {
+      const base = getExposureColor(item.subtype);
+      return {
+        color: base.color,
+        weight: 1.5,
+        fillColor: base.fillColor,
+        fillOpacity: 0.58
+      };
+    }
+
+    return {
+      color: "#475569",
+      weight: 1.5,
+      fillColor: "#94a3b8",
+      fillOpacity: 0.5
+    };
+  }
+
+  function buildLegendHTML(item) {
+    if (!item) {
+      return `<p>Selecciona una subcapa para ver su leyenda.</p>`;
+    }
+
+    if (item.kind === "amenaza") {
+      return `
+        <div class="legend-block">
+          <h4 class="legend-title">${item.title}</h4>
+          <p class="legend-subtitle">${item.phenomenon}</p>
+
+          <div class="legend-item">
+            <span class="swatch" style="background:#d73027;"></span>
+            <span>Amenaza alta</span>
+          </div>
+          <div class="legend-item">
+            <span class="swatch" style="background:#facc15;"></span>
+            <span>Amenaza media</span>
+          </div>
+          <div class="legend-item">
+            <span class="swatch" style="background:#22c55e;"></span>
+            <span>Amenaza baja</span>
+          </div>
+        </div>
+      `;
+    }
+
+    if (item.kind === "riesgo") {
+      return `
+        <div class="legend-block">
+          <h4 class="legend-title">${item.title}</h4>
+          <p class="legend-subtitle">${item.phenomenon}</p>
+
+          <div class="legend-item">
+            <span class="swatch" style="background:#dc2626;"></span>
+            <span>Riesgo alto</span>
+          </div>
+          <div class="legend-item">
+            <span class="swatch" style="background:#f97316;"></span>
+            <span>Riesgo medio</span>
+          </div>
+          <div class="legend-item">
+            <span class="swatch" style="background:#22c55e;"></span>
+            <span>Riesgo bajo</span>
+          </div>
+        </div>
+      `;
+    }
+
+    if (item.kind === "exposicion") {
+      const exposure = getExposureColor(item.subtype);
+
+      let label = "Elemento expuesto";
+      if (item.subtype === "construccion") label = "Construcción expuesta";
+      if (item.subtype === "predio") label = "Predio expuesto";
+      if (item.subtype === "via") label = "Vía expuesta";
+
+      return `
+        <div class="legend-block">
+          <h4 class="legend-title">${item.title}</h4>
+          <p class="legend-subtitle">${item.phenomenon}</p>
+
+          <div class="legend-item">
+            <span class="swatch" style="background:${exposure.fillColor};"></span>
+            <span>${label}</span>
+          </div>
+        </div>
+      `;
+    }
+
+    return `<p>Selecciona una subcapa para ver su leyenda.</p>`;
+  }
+
+  function buildInfoHTML(item) {
+    if (!item) {
+      return `<p>Selecciona una subcapa para ver su descripción y colores.</p>`;
+    }
+
+    if (item.kind === "amenaza") {
+      return `
+        <h4 class="info-title">${item.title}</h4>
+        <p class="info-text">
+          Esta subcapa representa la <strong>zonificación de amenaza</strong> para el fenómeno
+          <strong>${item.phenomenon}</strong>.
+        </p>
+        <ul class="info-list">
+          <li><strong>Rojo:</strong> amenaza alta.</li>
+          <li><strong>Amarillo:</strong> amenaza media.</li>
+          <li><strong>Verde:</strong> amenaza baja.</li>
+        </ul>
+      `;
+    }
+
+    if (item.kind === "riesgo") {
+      return `
+        <h4 class="info-title">${item.title}</h4>
+        <p class="info-text">
+          Esta subcapa representa elementos en <strong>condición de riesgo</strong> para
+          <strong>${item.phenomenon}</strong>.
+        </p>
+        <ul class="info-list">
+          <li><strong>Rojo:</strong> riesgo alto.</li>
+          <li><strong>Naranja:</strong> riesgo medio.</li>
+          <li><strong>Verde:</strong> riesgo bajo.</li>
+        </ul>
+      `;
+    }
+
+    if (item.kind === "exposicion") {
+      let elementLabel = "elementos expuestos";
+      if (item.subtype === "construccion") elementLabel = "construcciones expuestas";
+      if (item.subtype === "predio") elementLabel = "predios expuestos";
+      if (item.subtype === "via") elementLabel = "vías expuestas";
+
+      return `
+        <h4 class="info-title">${item.title}</h4>
+        <p class="info-text">
+          Esta subcapa identifica <strong>${elementLabel}</strong> frente al fenómeno
+          <strong>${item.phenomenon}</strong>.
+        </p>
+        <ul class="info-list">
+          <li>El color representa el tipo de elemento expuesto seleccionado.</li>
+          <li>Construcción, predio y vía se diferencian por subcapa.</li>
+        </ul>
+      `;
+    }
+
+    return `<p>Selecciona una subcapa para ver su descripción.</p>`;
+  }
+
+  function updateLegend(item = null) {
+    if (!legendContent) return;
+    legendContent.innerHTML = buildLegendHTML(item);
+  }
+
+  function updateRiskInfo(item = null) {
+    if (!riskInfoContent) return;
+    riskInfoContent.innerHTML = buildInfoHTML(item);
+  }
+
+  function buildPopupHtml(feature, item) {
+    const props = feature.properties || {};
+    let html = `<strong>${item.title}</strong><br><small>${item.phenomenon}</small>`;
+
+    Object.entries(props).forEach(([key, value]) => {
+      if (value !== null && value !== undefined && value !== "") {
+        html += `<br><strong>${key}:</strong> ${value}`;
+      }
     });
+
+    return html;
+  }
+
+  async function loadRiskLayer(layerId) {
+    const item = findLayerItemById(layerId);
+    if (!item || !map) return;
 
     if (currentRiskLayer && map.hasLayer(currentRiskLayer)) {
       map.removeLayer(currentRiskLayer);
       currentRiskLayer = null;
     }
 
-    updateLegend(config.legend);
-    updateRiskInfo(`<h4>${config.label}</h4>${config.info}`);
+    updateLegend(item);
+    updateRiskInfo(item);
 
-    if (!config.url) return;
+    syncChatbotContext({
+      activeModule: "Mapas de Riesgo",
+      activeLayer: item.title,
+      selectedFeature: null
+    });
 
     try {
-      const response = await fetch(config.url);
+      const response = await fetch(item.url);
       if (!response.ok) {
-        throw new Error("No se pudo cargar el archivo GeoJSON");
+        throw new Error("No se pudo cargar el archivo GeoJSON.");
       }
 
-      const data = await response.json();
+      const geojson = await response.json();
 
-      currentRiskLayer = L.geoJSON(data, {
+      currentRiskLayer = L.geoJSON(geojson, {
         style: function (feature) {
-          return getFeatureStyle(feature.properties || {});
+          return getFeatureStyle(feature.properties || {}, item);
+        },
+        pointToLayer: function (feature, latlng) {
+          const style = getFeatureStyle(feature.properties || {}, item);
+          return L.circleMarker(latlng, {
+            radius: 6,
+            color: style.color,
+            weight: 1,
+            fillColor: style.fillColor,
+            fillOpacity: style.fillOpacity
+          });
         },
         onEachFeature: function (feature, layer) {
-          const props = feature.properties || {};
-          const title =
-            props.titulo ||
-            props.nombre ||
-            props.NOMBRE ||
-            config.label;
-
-          let popupHTML = `<strong>${title}</strong>`;
-
-          Object.keys(props).forEach((key) => {
-            const value = props[key];
-            if (value !== null && value !== undefined && value !== "") {
-              popupHTML += `<br><strong>${key}:</strong> ${value}`;
-            }
-          });
-
-          layer.bindPopup(popupHTML);
+          layer.bindPopup(buildPopupHtml(feature, item));
 
           layer.on("click", function () {
             syncChatbotContext({
-              activeLayer: config.label,
               activeModule: "Mapas de Riesgo",
+              activeLayer: item.title,
               selectedFeature: feature
             });
           });
@@ -413,20 +901,46 @@ document.addEventListener("DOMContentLoaded", function () {
       currentRiskLayer.addTo(map);
 
       if (currentRiskLayer.getBounds && currentRiskLayer.getBounds().isValid()) {
-        map.fitBounds(currentRiskLayer.getBounds());
+        map.fitBounds(currentRiskLayer.getBounds(), { padding: [20, 20] });
       }
     } catch (error) {
       console.error("Error cargando capa:", error);
-      updateRiskInfo(`
-        <h4>${config.label}</h4>
-        ${config.info}
-        <p><strong>Error:</strong> no se pudo cargar el archivo GeoJSON.</p>
-      `);
+      if (riskInfoContent) {
+        riskInfoContent.innerHTML = `
+          <h4 class="info-title">${item.title}</h4>
+          <p class="info-text">No se pudo cargar la subcapa. Revisa el nombre del archivo o la ruta.</p>
+        `;
+      }
     }
+  }
+
+  function clearActiveRiskLayer() {
+    document.querySelectorAll('input[name="riskLayer"]').forEach((radio) => {
+      radio.checked = false;
+    });
+
+    if (currentRiskLayer && map && map.hasLayer(currentRiskLayer)) {
+      map.removeLayer(currentRiskLayer);
+      currentRiskLayer = null;
+    }
+
+    updateLegend(null);
+    updateRiskInfo(null);
+
+    if (map) {
+      map.setView(ocanaCoords, 15);
+    }
+
+    syncChatbotContext({
+      activeModule: "Mapas de Riesgo",
+      activeLayer: null,
+      selectedFeature: null
+    });
   }
 
   try {
     const mapElement = document.getElementById("map");
+
     if (mapElement && window.L) {
       map = L.map("map", {
         preferCanvas: true
@@ -455,43 +969,27 @@ document.addEventListener("DOMContentLoaded", function () {
         });
       });
 
-      document.querySelectorAll('input[name="riesgoLayer"]').forEach((radio) => {
+      document.querySelectorAll('input[name="riskLayer"]').forEach((radio) => {
         radio.addEventListener("change", (e) => {
           loadRiskLayer(e.target.value);
         });
       });
 
-      const clearRiskLayerBtn = document.getElementById("clearRiskLayer");
-      if (clearRiskLayerBtn) {
-        clearRiskLayerBtn.addEventListener("click", function () {
-          document.querySelectorAll('input[name="riesgoLayer"]').forEach((radio) => {
-            radio.checked = false;
-          });
-
-          if (currentRiskLayer && map.hasLayer(currentRiskLayer)) {
-            map.removeLayer(currentRiskLayer);
-            currentRiskLayer = null;
-          }
-
-          syncChatbotContext({
-            activeLayer: null,
-            activeModule: "Mapas de Riesgo",
-            selectedFeature: null
-          });
-
-          updateLegend();
-          updateRiskInfo("<p>Selecciona una capa para ver su significado, interpretación y referencia normativa.</p>");
-          map.setView(ocanaCoords, 15);
-        });
+      const clearButton = document.getElementById("clearRiskLayer");
+      if (clearButton) {
+        clearButton.addEventListener("click", clearActiveRiskLayer);
       }
 
       setTimeout(() => {
         map.invalidateSize(true);
-      }, 500);
+      }, 400);
     }
   } catch (error) {
-    console.error("Error inicializando mapa:", error);
+    console.error("Error inicializando el mapa:", error);
   }
+
+  updateLegend(null);
+  updateRiskInfo(null);
 
   syncChatbotContext({
     activeModule: "Inicio"

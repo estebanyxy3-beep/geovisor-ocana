@@ -34,7 +34,7 @@ body {
   gap: 16px;
   position: sticky;
   top: 0;
-  z-index: 1100;
+  z-index: 1300;
   backdrop-filter: blur(6px);
 }
 
@@ -64,7 +64,7 @@ body {
 }
 
 .nav-toggle {
-  display: none;
+  display: inline-block;
   border: none;
   background: var(--verde-principal);
   color: white;
@@ -75,27 +75,31 @@ body {
 }
 
 .layout {
-  display: grid;
-  grid-template-columns: 255px 1fr;
+  display: block;
   min-height: calc(100vh - 78px);
-  transition: grid-template-columns 0.25s ease;
-}
-
-body.sidebar-compact .layout {
-  grid-template-columns: 120px 1fr;
 }
 
 /* SIDEBAR */
 .sidebar {
+  position: fixed;
+  top: 78px;
+  left: 0;
+  width: 270px;
+  height: calc(100vh - 78px);
   background-image: url("assets/Ocaña.jpeg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   border-right: 1px solid var(--gris-borde);
   padding: 14px;
-  position: relative;
   overflow: hidden;
-  transition: all 0.25s ease;
+  z-index: 1250;
+  transform: translateX(0);
+  transition: transform 0.25s ease;
+}
+
+.sidebar.collapsed {
+  transform: translateX(-100%);
 }
 
 .sidebar::before {
@@ -114,10 +118,9 @@ body.sidebar-compact .layout {
 }
 
 .sidebar-inner {
-  position: sticky;
-  top: 92px;
+  position: relative;
   z-index: 2;
-  min-height: calc(100vh - 120px);
+  min-height: 100%;
   display: flex;
   flex-direction: column;
 }
@@ -149,13 +152,6 @@ body.sidebar-compact .layout {
   box-shadow: 0 8px 18px rgba(31, 143, 61, 0.20);
 }
 
-body.sidebar-compact .nav-item {
-  padding: 10px 8px;
-  font-size: 0.74rem;
-  line-height: 1.15;
-  text-align: center;
-}
-
 .sidebar-ally-card {
   margin-top: auto;
   margin-bottom: 16px;
@@ -165,7 +161,6 @@ body.sidebar-compact .nav-item {
   padding: 16px 14px;
   box-shadow: 0 10px 24px rgba(0,0,0,0.18);
   backdrop-filter: blur(3px);
-  transition: all 0.25s ease;
 }
 
 .sidebar-ally-card img {
@@ -183,15 +178,6 @@ body.sidebar-compact .nav-item {
   line-height: 1.45;
   font-weight: 700;
   font-size: 0.92rem;
-}
-
-body.sidebar-compact .sidebar-ally-card {
-  opacity: 0;
-  pointer-events: none;
-  height: 0;
-  padding: 0;
-  margin: 0;
-  overflow: hidden;
 }
 
 .content {
@@ -892,7 +878,6 @@ body.sidebar-compact .sidebar-ally-card {
   }
 }
 
-/* TABLET */
 @media (max-width: 1350px) {
   .home-cards {
     grid-template-columns: repeat(3, 1fr);
@@ -903,41 +888,9 @@ body.sidebar-compact .sidebar-ally-card {
   }
 }
 
-/* MOBILE / TABLET */
 @media (max-width: 900px) {
-  .layout,
-  body.sidebar-compact .layout {
-    grid-template-columns: 1fr;
-  }
-
-  .nav-toggle {
-    display: inline-block;
-  }
-
   .sidebar {
-    display: none;
-    border-right: none;
-    border-bottom: 1px solid #dce4df;
-    min-height: auto;
-    z-index: 1200;
-  }
-
-  .sidebar.open {
-    display: block;
-  }
-
-  .sidebar-inner {
-    position: static;
-    min-height: auto;
-  }
-
-  .sidebar-ally-card {
-    margin-top: 24px;
-    margin-bottom: 10px;
-    opacity: 1 !important;
-    height: auto !important;
-    padding: 16px 14px !important;
-    overflow: visible !important;
+    width: 270px;
   }
 
   .content {

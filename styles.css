@@ -15,6 +15,7 @@ html, body {
   --texto: #1f2937;
   --texto-suave: #5b6470;
   --sombra: 0 10px 30px rgba(0, 0, 0, 0.10);
+  --topbar-h: 78px;
 }
 
 body {
@@ -23,8 +24,9 @@ body {
   color: var(--texto);
 }
 
+/* ── TOPBAR ──────────────────────────────────────────────────────────────── */
 .topbar {
-  height: 78px;
+  height: var(--topbar-h);
   background: rgba(255,255,255,0.96);
   border-bottom: 1px solid var(--gris-borde);
   display: flex;
@@ -63,29 +65,59 @@ body {
   margin: 0;
 }
 
+/* Botón ☰ */
 .nav-toggle {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border: none;
   background: var(--verde-principal);
   color: white;
   border-radius: 14px;
   padding: 10px 14px;
   cursor: pointer;
-  font-size: 1.05rem;
+  font-size: 1.15rem;
+  line-height: 1;
+  transition: background 0.2s ease;
+  flex-shrink: 0;
 }
 
+.nav-toggle:hover {
+  background: var(--verde-oscuro);
+}
+
+/* ── LAYOUT PRINCIPAL ────────────────────────────────────────────────────── */
 .layout {
   display: block;
-  min-height: calc(100vh - 78px);
+  min-height: calc(100vh - var(--topbar-h));
 }
 
-/* SIDEBAR */
+/* ── OVERLAY (cierra sidebar en móvil al hacer clic fuera) ───────────────── */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 1240;
+  backdrop-filter: blur(1px);
+  transition: opacity 0.25s ease;
+}
+
+.sidebar-overlay.visible {
+  display: block;
+}
+
+/* ── SIDEBAR ─────────────────────────────────────────────────────────────── */
+/*
+  FIX: el sidebar es position:fixed, arranca SIEMPRE oculto (collapsed).
+  El botón ☰ lo abre/cierra. No empuja el contenido — es overlay sobre él.
+*/
 .sidebar {
   position: fixed;
-  top: 78px;
+  top: var(--topbar-h);
   left: 0;
   width: 270px;
-  height: calc(100vh - 78px);
+  height: calc(100vh - var(--topbar-h));
   background-image: url("assets/Ocaña.jpeg");
   background-size: cover;
   background-position: center;
@@ -94,10 +126,18 @@ body {
   padding: 14px;
   overflow: hidden;
   z-index: 1250;
-  transform: translateX(0);
-  transition: transform 0.25s ease;
+  /* OCULTO por defecto — translateX(-100%) */
+  transform: translateX(-100%);
+  transition: transform 0.27s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 4px 0 24px rgba(0,0,0,0.14);
 }
 
+/* Cuando NO tiene .collapsed = está abierto */
+.sidebar:not(.collapsed) {
+  transform: translateX(0);
+}
+
+/* .collapsed = cerrado */
 .sidebar.collapsed {
   transform: translateX(-100%);
 }
@@ -120,7 +160,7 @@ body {
 .sidebar-inner {
   position: relative;
   z-index: 2;
-  min-height: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
 }
@@ -180,6 +220,11 @@ body {
   font-size: 0.92rem;
 }
 
+/* ── CONTENIDO PRINCIPAL ─────────────────────────────────────────────────── */
+/*
+  El contenido NO tiene margin-left: el sidebar es un overlay.
+  Esto evita el espacio vacío y funciona igual en PC y móvil.
+*/
 .content {
   padding: 18px;
 }
@@ -192,7 +237,7 @@ body {
   display: block !important;
 }
 
-/* HOME */
+/* ── HOME ────────────────────────────────────────────────────────────────── */
 .home-page {
   position: relative;
   min-height: calc(100vh - 114px);
@@ -371,8 +416,8 @@ body {
   flex-shrink: 0;
 }
 
-.benefit-dot.green { background: #2a9d3f; }
-.benefit-dot.blue { background: #3679d6; }
+.benefit-dot.green  { background: #2a9d3f; }
+.benefit-dot.blue   { background: #3679d6; }
 .benefit-dot.purple { background: #8e46b8; }
 .benefit-dot.yellow { background: #d1a119; }
 
@@ -504,10 +549,10 @@ body {
   cursor: pointer;
 }
 
-.green-btn { background: #1f8f3d; }
+.green-btn  { background: #1f8f3d; }
 .purple-btn { background: #8b46b5; }
-.blue-btn { background: #2f74dd; }
-.teal-btn { background: #22a28f; }
+.blue-btn   { background: #2f74dd; }
+.teal-btn   { background: #22a28f; }
 .yellow-btn { background: #d6a20f; }
 
 .home-footer-banner {
@@ -521,7 +566,7 @@ body {
   font-size: 0.94rem;
 }
 
-/* MODULES */
+/* ── MÓDULOS GENÉRICOS ───────────────────────────────────────────────────── */
 .module-header {
   background: white;
   border: 1px solid #dce4df;
@@ -569,7 +614,7 @@ body {
   line-height: 1.7;
 }
 
-/* RISK */
+/* ── MÓDULO RIESGO ───────────────────────────────────────────────────────── */
 .risk-layout {
   display: grid;
   grid-template-columns: 315px 1fr;
@@ -713,20 +758,28 @@ body {
   background: var(--verde-oscuro);
 }
 
+/* ── PANEL DEL MAPA ──────────────────────────────────────────────────────── */
+/*
+  FIX: el panel necesita height real para que #map height:100% funcione.
+  Usamos calc() restando el topbar, el padding del .content y un margen.
+  También dejamos min-height como red de seguridad.
+*/
 .risk-map-panel {
   position: relative;
-  min-height: 720px;
+  height: calc(100vh - var(--topbar-h) - 52px);
+  min-height: 520px;
 }
 
 #map {
   width: 100%;
-  height: 100%;
-  min-height: 720px;
+  height: 100%;            /* hereda la altura real del padre */
+  min-height: 520px;       /* red de seguridad */
   border-radius: 22px;
   overflow: hidden;
   box-shadow: var(--sombra);
 }
 
+/* ── LEYENDA FLOTANTE ────────────────────────────────────────────────────── */
 .legend-floating {
   position: absolute;
   right: 18px;
@@ -775,7 +828,7 @@ body {
   color: #17325d;
 }
 
-/* CHAT */
+/* ── CHAT ────────────────────────────────────────────────────────────────── */
 .chat-header {
   display: flex;
   align-items: center;
@@ -867,17 +920,13 @@ body {
   flex-shrink: 0;
 }
 
+/* ── ANIMACIÓN ───────────────────────────────────────────────────────────── */
 @keyframes fadeIn {
-  from {
-    opacity: 0.65;
-    transform: translateY(6px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0.65; transform: translateY(6px); }
+  to   { opacity: 1;    transform: translateY(0);   }
 }
 
+/* ── RESPONSIVE ──────────────────────────────────────────────────────────── */
 @media (max-width: 1350px) {
   .home-cards {
     grid-template-columns: repeat(3, 1fr);
@@ -889,10 +938,6 @@ body {
 }
 
 @media (max-width: 900px) {
-  .sidebar {
-    width: 270px;
-  }
-
   .content {
     padding: 12px;
   }
@@ -939,16 +984,20 @@ body {
     width: 100%;
   }
 
+  /* En móvil el grid del mapa pasa a columna única */
   .risk-layout {
     grid-template-columns: 1fr;
   }
 
+  /* FIX móvil: el panel usa altura fija razonable */
   .risk-map-panel {
-    min-height: 480px;
+    height: 500px;
+    min-height: 400px;
   }
 
   #map {
-    min-height: 480px;
+    height: 100%;
+    min-height: 400px;
   }
 
   .legend-floating {
@@ -997,5 +1046,14 @@ body {
 
   .risk-card {
     padding: 12px;
+  }
+
+  .risk-map-panel {
+    height: 420px;
+    min-height: 350px;
+  }
+
+  #map {
+    min-height: 350px;
   }
 }

@@ -9,7 +9,7 @@
     rel="stylesheet"
     href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
   />
-  <link rel="stylesheet" href="styles.css?v=31" />
+  <link rel="stylesheet" href="styles.css?v=40" />
 </head>
 <body>
   <header class="topbar">
@@ -151,7 +151,7 @@
                 <img src="assets/UNGRD.png" alt="UNGRD" class="topic-image" />
                 <h3>Gestión del riesgo</h3>
                 <p>
-                  Consulta mapas de amenazas, vulnerabilidad y riesgo para apoyar la toma de decisiones.
+                  Consulta mapas de amenazas, exposición y riesgo para apoyar la toma de decisiones.
                 </p>
                 <button class="topic-btn green-btn" type="button" data-view-target="riesgo">
                   Explorar mapas
@@ -217,7 +217,7 @@
             <p class="module-kicker">Módulo</p>
             <h2>Mapas de Riesgo</h2>
             <p class="module-description">
-              Consulta amenazas, exposición y riesgo para avenida torrencial, inundación y movimiento en masa.
+              Selecciona subcapas por fenómeno: amenaza, exposición o riesgo, y visualiza la información sobre el mapa.
             </p>
           </div>
         </div>
@@ -239,64 +239,8 @@
             </div>
 
             <div class="risk-card">
-              <h3>Capas de riesgo</h3>
-
-              <details open>
-                <summary>Avenida torrencial</summary>
-
-                <label class="control-item">
-                  <input type="radio" name="riesgoLayer" value="amenaza_at" />
-                  Amenaza
-                </label>
-
-                <label class="control-item">
-                  <input type="radio" name="riesgoLayer" value="exposicion_at" />
-                  Exposición
-                </label>
-
-                <label class="control-item">
-                  <input type="radio" name="riesgoLayer" value="riesgo_at" />
-                  Riesgo
-                </label>
-              </details>
-
-              <details>
-                <summary>Inundación</summary>
-
-                <label class="control-item">
-                  <input type="radio" name="riesgoLayer" value="amenaza_inundacion" />
-                  Amenaza
-                </label>
-
-                <label class="control-item">
-                  <input type="radio" name="riesgoLayer" value="exposicion_inundacion" />
-                  Exposición
-                </label>
-
-                <label class="control-item">
-                  <input type="radio" name="riesgoLayer" value="riesgo_inundacion" />
-                  Riesgo
-                </label>
-              </details>
-
-              <details>
-                <summary>Movimiento en masa</summary>
-
-                <label class="control-item">
-                  <input type="radio" name="riesgoLayer" value="amenaza_mm" />
-                  Amenaza
-                </label>
-
-                <label class="control-item">
-                  <input type="radio" name="riesgoLayer" value="exposicion_mm" />
-                  Exposición
-                </label>
-
-                <label class="control-item">
-                  <input type="radio" name="riesgoLayer" value="riesgo_mm" />
-                  Riesgo
-                </label>
-              </details>
+              <h3>Subcapas temáticas</h3>
+              <div id="riskLayerTree"></div>
 
               <button id="clearRiskLayer" class="clear-btn" type="button">
                 Quitar capa activa
@@ -306,14 +250,14 @@
             <div class="risk-card">
               <h3>Leyenda de la capa activa</h3>
               <div id="legendContent">
-                <p>Selecciona una capa para ver su leyenda.</p>
+                <p>Selecciona una subcapa para ver su leyenda.</p>
               </div>
             </div>
 
             <div class="risk-card">
               <h3>Interpretación</h3>
               <div id="riskInfoContent">
-                <p>Selecciona una capa para ver la descripción y el significado de sus colores.</p>
+                <p>Selecciona una subcapa para ver su descripción y colores.</p>
               </div>
             </div>
           </aside>
@@ -412,14 +356,6 @@
               Aquí podrás integrar información de accidentalidad, mapas viales, reportes,
               puntos críticos, indicadores y análisis de seguridad vial.
             </p>
-
-            <h4>Contenido sugerido</h4>
-            <ul>
-              <li>Puntos críticos de siniestralidad</li>
-              <li>Estadísticas por tipo de accidente</li>
-              <li>Indicadores por zona</li>
-              <li>Mapas de apoyo para movilidad y tránsito</li>
-            </ul>
           </div>
         </div>
       </section>
@@ -428,7 +364,7 @@
   </main>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="main.js?v=31"></script>
+  <script src="main.js?v=40"></script>
   <script src="chatbot.js?v=20"></script>
 </body>
 </html>

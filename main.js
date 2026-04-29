@@ -18,16 +18,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  function updateSidebarMode(viewName) {
-    if (viewName === "inicio") {
-      document.body.classList.remove("sidebar-compact");
-      document.body.classList.add("sidebar-home");
-    } else {
-      document.body.classList.remove("sidebar-home");
-      document.body.classList.add("sidebar-compact");
-    }
-  }
-
   function setActiveNav(viewName) {
     navButtons.forEach((btn) => btn.classList.remove("active"));
     const activeButton = document.querySelector(`.nav-item[data-view="${viewName}"]`);
@@ -41,10 +31,9 @@ document.addEventListener("DOMContentLoaded", function () {
     if (targetView) targetView.classList.add("active");
 
     setActiveNav(viewName);
-    updateSidebarMode(viewName);
 
-    if (window.innerWidth <= 900 && sidebar) {
-      sidebar.classList.remove("open");
+    if (sidebar) {
+      sidebar.classList.add("collapsed");
     }
 
     const moduleNames = {
@@ -158,7 +147,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (navToggle && sidebar) {
     navToggle.addEventListener("click", function () {
-      sidebar.classList.toggle("open");
+      sidebar.classList.toggle("collapsed");
     });
   }
 
@@ -184,7 +173,6 @@ document.addEventListener("DOMContentLoaded", function () {
       kind: "amenaza",
       info: `
         <p><strong>Amenaza:</strong> zonificación territorial del fenómeno de avenida torrencial.</p>
-        <p>Colores: rojo = alta, amarillo = media, verde = baja.</p>
       `
     },
     exposicion_at: {
@@ -198,12 +186,11 @@ document.addEventListener("DOMContentLoaded", function () {
     },
     riesgo_at: {
       label: "Construcción en riesgo por avenida torrencial",
-      url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/riesgo/Construccion_Riesgo_avenida_json",
+      url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/riesgo/Construccion_Riesgo_avenida_.json",
       kind: "riesgo",
       subtype: "construccion",
       info: `
         <p><strong>Riesgo:</strong> construcciones en riesgo por avenida torrencial.</p>
-        <p>Colores: rojo = alto, naranja = medio, verde = bajo.</p>
       `
     },
 
@@ -213,7 +200,6 @@ document.addEventListener("DOMContentLoaded", function () {
       kind: "amenaza",
       info: `
         <p><strong>Amenaza:</strong> zonificación de amenaza por inundación.</p>
-        <p>Colores: rojo = alta, amarillo = media, verde = baja.</p>
       `
     },
     exposicion_inundacion: {
@@ -232,7 +218,6 @@ document.addEventListener("DOMContentLoaded", function () {
       subtype: "construccion",
       info: `
         <p><strong>Riesgo:</strong> construcciones en riesgo por inundación.</p>
-        <p>Colores: rojo = alto, naranja = medio, verde = bajo.</p>
       `
     },
 
@@ -242,7 +227,6 @@ document.addEventListener("DOMContentLoaded", function () {
       kind: "amenaza",
       info: `
         <p><strong>Amenaza:</strong> zonificación de amenaza por movimiento en masa.</p>
-        <p>Colores: rojo = alta, amarillo = media, verde = baja.</p>
       `
     },
     exposicion_mm: {
@@ -261,75 +245,9 @@ document.addEventListener("DOMContentLoaded", function () {
       subtype: "construccion",
       info: `
         <p><strong>Riesgo:</strong> construcciones en riesgo por movimiento en masa.</p>
-        <p>Colores: rojo = alto, naranja = medio, verde = bajo.</p>
       `
     }
   };
-
-  function updateLegend(config = null) {
-    if (!legendContent) return;
-
-    if (!config) {
-      legendContent.innerHTML = `
-        <div class="legend-item">
-          <span class="swatch" style="background:#2f8f5b;"></span>
-          <span>Selecciona una capa</span>
-        </div>
-      `;
-      return;
-    }
-
-    if (config.kind === "amenaza") {
-      legendContent.innerHTML = `
-        <div class="legend-item">
-          <span class="swatch" style="background:#d73027;"></span>
-          <span>Amenaza alta</span>
-        </div>
-        <div class="legend-item">
-          <span class="swatch" style="background:#facc15;"></span>
-          <span>Amenaza media</span>
-        </div>
-        <div class="legend-item">
-          <span class="swatch" style="background:#22c55e;"></span>
-          <span>Amenaza baja</span>
-        </div>
-      `;
-      return;
-    }
-
-    if (config.kind === "riesgo") {
-      legendContent.innerHTML = `
-        <div class="legend-item">
-          <span class="swatch" style="background:#dc2626;"></span>
-          <span>Riesgo alto</span>
-        </div>
-        <div class="legend-item">
-          <span class="swatch" style="background:#f97316;"></span>
-          <span>Riesgo medio</span>
-        </div>
-        <div class="legend-item">
-          <span class="swatch" style="background:#22c55e;"></span>
-          <span>Riesgo bajo</span>
-        </div>
-      `;
-      return;
-    }
-
-    if (config.kind === "exposicion") {
-      legendContent.innerHTML = `
-        <div class="legend-item">
-          <span class="swatch" style="background:#f59e0b;"></span>
-          <span>Construcción expuesta</span>
-        </div>
-      `;
-      return;
-    }
-  }
-
-  function updateRiskInfo(html = "") {
-    if (!riskInfoContent) return;
-    riskInfoContent.innerHTML = html || "<p>Selecciona una capa para ver su contenido.</p>";
-  }
 
   function detectSeverity(props = {}) {
     const fields = [
@@ -341,6 +259,8 @@ document.addEventListener("DOMContentLoaded", function () {
       "clasifica", "CLASIFICA",
       "tipo", "TIPO",
       "gridcode", "GRIDCODE",
+      "grado", "GRADO",
+      "grado_3", "Grado_3",
       "id", "ID"
     ];
 
@@ -368,28 +288,16 @@ document.addEventListener("DOMContentLoaded", function () {
     const severity = detectSeverity(props);
 
     if (config.kind === "amenaza") {
-      if (severity === "alto") {
-        return { color: "#991b1b", weight: 2, fillColor: "#d73027", fillOpacity: 0.55 };
-      }
-      if (severity === "medio") {
-        return { color: "#a16207", weight: 2, fillColor: "#facc15", fillOpacity: 0.55 };
-      }
-      if (severity === "bajo") {
-        return { color: "#166534", weight: 2, fillColor: "#22c55e", fillOpacity: 0.55 };
-      }
+      if (severity === "alto") return { color: "#991b1b", weight: 2, fillColor: "#d73027", fillOpacity: 0.55 };
+      if (severity === "medio") return { color: "#a16207", weight: 2, fillColor: "#facc15", fillOpacity: 0.55 };
+      if (severity === "bajo") return { color: "#166534", weight: 2, fillColor: "#22c55e", fillOpacity: 0.55 };
       return { color: "#a16207", weight: 2, fillColor: "#facc15", fillOpacity: 0.50 };
     }
 
     if (config.kind === "riesgo") {
-      if (severity === "alto") {
-        return { color: "#7f1d1d", weight: 2, fillColor: "#dc2626", fillOpacity: 0.60 };
-      }
-      if (severity === "medio") {
-        return { color: "#9a3412", weight: 2, fillColor: "#f97316", fillOpacity: 0.60 };
-      }
-      if (severity === "bajo") {
-        return { color: "#166534", weight: 2, fillColor: "#22c55e", fillOpacity: 0.60 };
-      }
+      if (severity === "alto") return { color: "#7f1d1d", weight: 2, fillColor: "#dc2626", fillOpacity: 0.60 };
+      if (severity === "medio") return { color: "#9a3412", weight: 2, fillColor: "#f97316", fillOpacity: 0.60 };
+      if (severity === "bajo") return { color: "#166534", weight: 2, fillColor: "#22c55e", fillOpacity: 0.60 };
       return { color: "#9a3412", weight: 2, fillColor: "#f97316", fillOpacity: 0.55 };
     }
 
@@ -411,6 +319,90 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       osm.addTo(map);
     }
+  }
+
+  function getLegendItemsFromLayer(features, config) {
+    if (!features || !features.length) {
+      if (config.kind === "exposicion") {
+        return [
+          { color: "#f59e0b", label: "Construcción expuesta" }
+        ];
+      }
+      return [];
+    }
+
+    if (config.kind === "exposicion") {
+      return [
+        { color: "#f59e0b", label: "Construcción expuesta" }
+      ];
+    }
+
+    const found = {
+      alto: false,
+      medio: false,
+      bajo: false
+    };
+
+    features.forEach((feature) => {
+      const severity = detectSeverity((feature && feature.properties) || {});
+      if (severity === "alto") found.alto = true;
+      if (severity === "medio") found.medio = true;
+      if (severity === "bajo") found.bajo = true;
+    });
+
+    const items = [];
+
+    if (config.kind === "amenaza") {
+      if (found.alto) items.push({ color: "#d73027", label: "Amenaza alta" });
+      if (found.medio) items.push({ color: "#facc15", label: "Amenaza media" });
+      if (found.bajo) items.push({ color: "#22c55e", label: "Amenaza baja" });
+    }
+
+    if (config.kind === "riesgo") {
+      if (found.alto) items.push({ color: "#dc2626", label: "Riesgo alto" });
+      if (found.medio) items.push({ color: "#f97316", label: "Riesgo medio" });
+      if (found.bajo) items.push({ color: "#22c55e", label: "Riesgo bajo" });
+    }
+
+    return items;
+  }
+
+  function updateLegend(config = null, features = []) {
+    if (!legendContent) return;
+
+    if (!config) {
+      legendContent.innerHTML = `
+        <div class="legend-item">
+          <span class="swatch" style="background:#2f8f5b;"></span>
+          <span>Selecciona una capa</span>
+        </div>
+      `;
+      return;
+    }
+
+    const items = getLegendItemsFromLayer(features, config);
+
+    if (!items.length) {
+      legendContent.innerHTML = `
+        <div class="legend-item">
+          <span class="swatch" style="background:#94a3b8;"></span>
+          <span>Capa activa</span>
+        </div>
+      `;
+      return;
+    }
+
+    legendContent.innerHTML = items.map((item) => `
+      <div class="legend-item">
+        <span class="swatch" style="background:${item.color};"></span>
+        <span>${item.label}</span>
+      </div>
+    `).join("");
+  }
+
+  function updateRiskInfo(html = "") {
+    if (!riskInfoContent) return;
+    riskInfoContent.innerHTML = html || "<p>Selecciona una capa para ver su contenido.</p>";
   }
 
   function buildPopupHtml(feature, config) {
@@ -443,7 +435,6 @@ document.addEventListener("DOMContentLoaded", function () {
       currentRiskLayer = null;
     }
 
-    updateLegend(config);
     updateRiskInfo(`<h4>${config.label}</h4>${config.info}`);
 
     try {
@@ -454,6 +445,9 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       const geojson = await response.json();
+      const features = Array.isArray(geojson.features) ? geojson.features : [];
+
+      updateLegend(config, features);
 
       currentRiskLayer = L.geoJSON(geojson, {
         style: function (feature) {
@@ -488,6 +482,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     } catch (error) {
       console.error("Error cargando capa:", error);
+      updateLegend(null);
       updateRiskInfo(`
         <h4>${config.label}</h4>
         <p>No se pudo cargar la capa.</p>
@@ -572,7 +567,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   updateLegend(null);
   updateRiskInfo("<p>Selecciona una capa para ver su contenido.</p>");
-  updateSidebarMode("inicio");
 
   syncChatbotContext({
     activeModule: "Inicio"

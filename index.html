@@ -9,9 +9,9 @@
     rel="stylesheet"
     href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
   />
-  <link rel="stylesheet" href="styles.css?v=50" />
+  <link rel="stylesheet" href="styles.css?v=60" />
 </head>
-<body class="sidebar-home">
+<body>
   <header class="topbar">
     <div class="brand">
       <img src="assets/Logo_Geovisor.png" alt="Logo VAOI" class="brand-logo-img" />
@@ -27,7 +27,7 @@
   </header>
 
   <main class="layout">
-    <aside class="sidebar" id="sidebar">
+    <aside class="sidebar collapsed" id="sidebar">
       <div class="sidebar-inner">
         <nav class="nav-menu">
           <button class="nav-item active" data-view="inicio">Inicio</button>
@@ -150,9 +150,7 @@
               <article class="topic-card green-card">
                 <img src="assets/UNGRD.png" alt="UNGRD" class="topic-image" />
                 <h3>Gestión del riesgo</h3>
-                <p>
-                  Consulta mapas de amenazas, exposición y riesgo para apoyar la toma de decisiones.
-                </p>
+                <p>Consulta mapas de amenazas, exposición y riesgo para apoyar la toma de decisiones.</p>
                 <button class="topic-btn green-btn" type="button" data-view-target="riesgo">
                   Explorar mapas
                 </button>
@@ -161,9 +159,7 @@
               <article class="topic-card purple-card">
                 <img src="assets/Participacion_Ciudadana.png" alt="Participación ciudadana" class="topic-image" />
                 <h3>Mecanismo de Participación</h3>
-                <p>
-                  Infórmate y participa en los espacios de diálogo y construcción colectiva del territorio.
-                </p>
+                <p>Infórmate y participa en los espacios de diálogo y construcción colectiva del territorio.</p>
                 <button class="topic-btn purple-btn" type="button" data-view-target="participacion">
                   Participar
                 </button>
@@ -172,9 +168,7 @@
               <article class="topic-card blue-card">
                 <img src="assets/POT.png" alt="POT" class="topic-image" />
                 <h3>POT</h3>
-                <p>
-                  Consulta los planes de ordenamiento territorial y contenidos clave del municipio.
-                </p>
+                <p>Consulta los planes de ordenamiento territorial y contenidos clave del municipio.</p>
                 <button class="topic-btn blue-btn" type="button" data-view-target="pot">
                   Explorar POT
                 </button>
@@ -183,9 +177,7 @@
               <article class="topic-card teal-card">
                 <img src="assets/POMCA.png" alt="POMCA" class="topic-image" />
                 <h3>POMCA</h3>
-                <p>
-                  Accede a información sobre cuencas hidrográficas, planificación y manejo ambiental.
-                </p>
+                <p>Accede a información sobre cuencas hidrográficas, planificación y manejo ambiental.</p>
                 <button class="topic-btn teal-btn" type="button" data-view-target="pomca">
                   Explorar POMCA
                 </button>
@@ -194,9 +186,7 @@
               <article class="topic-card yellow-card">
                 <img src="assets/Codigo_Transito.png" alt="Código Nacional de Tránsito" class="topic-image" />
                 <h3>Accidentabilidad</h3>
-                <p>
-                  Integra información vial, indicadores, reportes y análisis temáticos sobre tránsito y seguridad vial.
-                </p>
+                <p>Integra información vial, indicadores, reportes y análisis temáticos sobre tránsito y seguridad vial.</p>
                 <button class="topic-btn yellow-btn" type="button" data-view-target="accidentabilidad">
                   Explorar módulo
                 </button>
@@ -399,10 +389,7 @@
 
           <div class="content-card">
             <h3>Participación ciudadana</h3>
-            <p>
-              Aquí podrás mostrar procesos participativos, espacios comunitarios,
-              mecanismos de intervención ciudadana y resultados de trabajo con la comunidad.
-            </p>
+            <p>Aquí podrás mostrar procesos participativos y resultados de trabajo con la comunidad.</p>
           </div>
         </div>
       </section>
@@ -422,9 +409,7 @@
 
           <div class="content-card">
             <h3>Contenido POT</h3>
-            <p>
-              Aquí podrás mostrar el contenido del Plan de Ordenamiento Territorial.
-            </p>
+            <p>Aquí podrás mostrar el contenido del Plan de Ordenamiento Territorial.</p>
           </div>
         </div>
       </section>
@@ -444,9 +429,7 @@
 
           <div class="content-card">
             <h3>Contenido POMCA</h3>
-            <p>
-              Esta sección servirá para integrar conceptos, documentos, normativas y cartografía.
-            </p>
+            <p>Esta sección servirá para integrar conceptos, documentos, normativas y cartografía.</p>
           </div>
         </div>
       </section>
@@ -466,9 +449,7 @@
 
           <div class="content-card">
             <h3>Módulo de accidentabilidad</h3>
-            <p>
-              Aquí podrás integrar información de accidentalidad, mapas viales, reportes y análisis.
-            </p>
+            <p>Aquí podrás integrar información de accidentalidad, mapas viales, reportes y análisis.</p>
           </div>
         </div>
       </section>
@@ -477,7 +458,7 @@
   </main>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="main.js?v=50"></script>
+  <script src="main.js?v=60"></script>
   <script src="chatbot.js?v=20"></script>
 </body>
 </html>

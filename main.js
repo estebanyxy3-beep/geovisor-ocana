@@ -13,14 +13,12 @@ document.addEventListener("DOMContentLoaded", function () {
   const legendContent = document.getElementById("legendContent");
   const riskInfoContent = document.getElementById("riskInfoContent");
 
-  // ─── CHATBOT SYNC ─────────────────────────────────────────────────────────
   function syncChatbotContext(data) {
     if (window.updateChatbotContext) {
       window.updateChatbotContext(data);
     }
   }
 
-  // ─── NAVEGACIÓN ───────────────────────────────────────────────────────────
   function setActiveNav(viewName) {
     navButtons.forEach((btn) => btn.classList.remove("active"));
     const activeButton = document.querySelector(`.nav-item[data-view="${viewName}"]`);
@@ -29,19 +27,31 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function closeSidebar() {
     if (sidebar) sidebar.classList.add("collapsed");
-    if (sidebarOverlay) sidebarOverlay.classList.remove("visible");
+    if (sidebarOverlay) {
+      sidebarOverlay.classList.remove("visible");
+      sidebarOverlay.classList.remove("active");
+    }
   }
 
   function openSidebar() {
     if (sidebar) sidebar.classList.remove("collapsed");
-    if (sidebarOverlay) sidebarOverlay.classList.add("visible");
+    if (sidebarOverlay) {
+      sidebarOverlay.classList.add("visible");
+      sidebarOverlay.classList.add("active");
+    }
   }
 
   function showView(viewName) {
     views.forEach((view) => view.classList.remove("active"));
 
     const targetView = document.getElementById(`view-${viewName}`);
-    if (targetView) targetView.classList.add("active");
+    if (targetView) {
+      targetView.classList.add("active");
+    } else {
+      const fallback = document.getElementById("view-inicio");
+      if (fallback) fallback.classList.add("active");
+      viewName = "inicio";
+    }
 
     setActiveNav(viewName);
     closeSidebar();
@@ -49,13 +59,14 @@ document.addEventListener("DOMContentLoaded", function () {
     const moduleNames = {
       inicio: "Inicio",
       riesgo: "Mapas de Riesgo",
-      participacion: "Participación",
+      mecanismos: "Mecanismos de Participación",
       pot: "POT",
       pomca: "POMCA",
       accidentabilidad: "Accidentabilidad"
     };
 
     syncChatbotContext({ activeModule: moduleNames[viewName] || "Inicio" });
+
     window.scrollTo({ top: 0, behavior: "smooth" });
 
     if (viewName === "riesgo" && window.__geovisorMap) {
@@ -65,7 +76,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // ─── BUSCADOR ─────────────────────────────────────────────────────────────
   function normalizeText(text) {
     return String(text || "")
       .toLowerCase()
@@ -85,27 +95,60 @@ document.addEventListener("DOMContentLoaded", function () {
     const q = normalizeText(raw);
     let targetView = null;
 
-    if (q.includes("inicio") || q.includes("vaoi") || q.includes("vision ambiental") || q.includes("ocana interactiva")) {
+    if (
+      q.includes("inicio") ||
+      q.includes("vaoi") ||
+      q.includes("vision ambiental") ||
+      q.includes("ocana interactiva")
+    ) {
       targetView = "inicio";
-    } else if (q.includes("riesgo") || q.includes("amenaza") || q.includes("avenida torrencial") || q.includes("inundacion") || q.includes("movimiento en masa") || q.includes("exposicion")) {
+    } else if (
+      q.includes("riesgo") ||
+      q.includes("amenaza") ||
+      q.includes("avenida torrencial") ||
+      q.includes("inundacion") ||
+      q.includes("movimiento en masa") ||
+      q.includes("exposicion")
+    ) {
       targetView = "riesgo";
-    } else if (q.includes("participacion") || q.includes("ciudadana") || q.includes("comunidad")) {
-      targetView = "participacion";
-    } else if (q.includes("pot") || q.includes("ordenamiento territorial")) {
+    } else if (
+      q.includes("participacion") ||
+      q.includes("ciudadana") ||
+      q.includes("comunidad") ||
+      q.includes("mecanismos")
+    ) {
+      targetView = "mecanismos";
+    } else if (
+      q.includes("pot") ||
+      q.includes("ordenamiento territorial") ||
+      q.includes("normativa")
+    ) {
       targetView = "pot";
-    } else if (q.includes("pomca") || q.includes("cuenca")) {
+    } else if (
+      q.includes("pomca") ||
+      q.includes("cuenca") ||
+      q.includes("algodonal")
+    ) {
       targetView = "pomca";
-    } else if (q.includes("accidentabilidad") || q.includes("accidente") || q.includes("transito") || q.includes("movilidad") || q.includes("vial")) {
+    } else if (
+      q.includes("accidentabilidad") ||
+      q.includes("accidente") ||
+      q.includes("transito") ||
+      q.includes("movilidad") ||
+      q.includes("vial") ||
+      q.includes("siniestro")
+    ) {
       targetView = "accidentabilidad";
     }
 
     if (targetView) {
       showView(targetView);
+
       if (searchStatus) {
         const names = {
           inicio: "Inicio",
           riesgo: "Mapas de Riesgo",
-          participacion: "Mecanismo de Participación",
+          mecanismos: "Mecanismos de Participación",
           pot: "POT",
           pomca: "POMCA",
           accidentabilidad: "Accidentabilidad"
@@ -117,7 +160,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // ─── EVENTOS DE NAVEGACIÓN ────────────────────────────────────────────────
   navButtons.forEach((button) => {
     button.addEventListener("click", function () {
       const viewName = this.dataset.view;
@@ -132,7 +174,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // ─── TOGGLE SIDEBAR ───────────────────────────────────────────────────────
   if (navToggle && sidebar) {
     navToggle.addEventListener("click", function () {
       const isCollapsed = sidebar.classList.contains("collapsed");
@@ -144,19 +185,20 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Cerrar sidebar al hacer clic en el overlay (móvil)
   if (sidebarOverlay) {
     sidebarOverlay.addEventListener("click", closeSidebar);
   }
 
-  if (searchBtn) searchBtn.addEventListener("click", runHomeSearch);
+  if (searchBtn) {
+    searchBtn.addEventListener("click", runHomeSearch);
+  }
+
   if (searchInput) {
     searchInput.addEventListener("keydown", function (e) {
       if (e.key === "Enter") runHomeSearch();
     });
   }
 
-  // ─── MAPA ─────────────────────────────────────────────────────────────────
   let map = null;
   let osm = null;
   let satellite = null;
@@ -219,13 +261,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   };
 
-  // ─── DETECCIÓN DE SEVERIDAD ───────────────────────────────────────────────
-  // Lee TODOS los campos del feature y trata de detectar alto/medio/bajo
-  // con una lista ampliada de nombres de columna conocidos en shapefiles colombianos
   function detectSeverity(props = {}) {
-    // Campos priorizados — amplía esta lista si tus GeoJSONs usan otros nombres
     const knownFields = [
-      // Genéricos comunes
       "nivel", "NIVEL",
       "amenaza", "AMENAZA",
       "riesgo", "RIESGO",
@@ -238,28 +275,23 @@ document.addEventListener("DOMContentLoaded", function () {
       "grado_3", "Grado_3", "GRADO_3",
       "gridcode", "GRIDCODE",
       "id", "ID",
-      // Variantes frecuentes en exportaciones ArcGIS / QGIS
       "Nivel_Amen", "NIVEL_AMEN",
       "Nivel_Ries", "NIVEL_RIES",
       "Nivel_Expo", "NIVEL_EXPO",
       "nivel_amen", "nivel_ries",
-      "Niv_Amena",  "NIV_AMENA",
+      "Niv_Amena", "NIV_AMENA",
       "Niv_Riesgo", "NIV_RIESGO",
-      "Cat_Amena",  "CAT_AMENA",
+      "Cat_Amena", "CAT_AMENA",
       "Cat_Riesgo", "CAT_RIESGO",
-      "Zona",       "ZONA",
-      "zona",
-      "Clasif",     "CLASIF",
-      "clasif",
-      "Descrip",    "DESCRIP",
-      "descrip",
-      "descripcion","DESCRIPCION",
-      "name",       "NAME",
-      "value",      "VALUE",
-      "Val",        "VAL"
+      "Zona", "ZONA", "zona",
+      "Clasif", "CLASIF", "clasif",
+      "Descrip", "DESCRIP", "descrip",
+      "descripcion", "DESCRIPCION",
+      "name", "NAME",
+      "value", "VALUE",
+      "Val", "VAL"
     ];
 
-    // 1) Revisar campos conocidos primero
     for (const field of knownFields) {
       const value = props[field];
       if (value === undefined || value === null || value === "") continue;
@@ -276,7 +308,6 @@ document.addEventListener("DOMContentLoaded", function () {
       if (text.includes("baja") || text.includes("bajo") || text === "1" || text.includes("low")) return "bajo";
     }
 
-    // 2) Barrido completo de todos los campos como fallback
     for (const [, value] of Object.entries(props)) {
       if (value === undefined || value === null || value === "") continue;
 
@@ -295,21 +326,20 @@ document.addEventListener("DOMContentLoaded", function () {
     return "";
   }
 
-  // ─── ESTILOS DE FEATURES ──────────────────────────────────────────────────
   function getFeatureStyle(props = {}, config = {}) {
     const severity = detectSeverity(props);
 
     if (config.kind === "amenaza") {
-      if (severity === "alto")  return { color: "#991b1b", weight: 2, fillColor: "#d73027", fillOpacity: 0.55 };
+      if (severity === "alto") return { color: "#991b1b", weight: 2, fillColor: "#d73027", fillOpacity: 0.55 };
       if (severity === "medio") return { color: "#a16207", weight: 2, fillColor: "#facc15", fillOpacity: 0.55 };
-      if (severity === "bajo")  return { color: "#166534", weight: 2, fillColor: "#22c55e", fillOpacity: 0.55 };
+      if (severity === "bajo") return { color: "#166534", weight: 2, fillColor: "#22c55e", fillOpacity: 0.55 };
       return { color: "#a16207", weight: 2, fillColor: "#facc15", fillOpacity: 0.45 };
     }
 
     if (config.kind === "riesgo") {
-      if (severity === "alto")  return { color: "#7f1d1d", weight: 2, fillColor: "#dc2626", fillOpacity: 0.60 };
+      if (severity === "alto") return { color: "#7f1d1d", weight: 2, fillColor: "#dc2626", fillOpacity: 0.60 };
       if (severity === "medio") return { color: "#9a3412", weight: 2, fillColor: "#f97316", fillOpacity: 0.60 };
-      if (severity === "bajo")  return { color: "#166534", weight: 2, fillColor: "#22c55e", fillOpacity: 0.60 };
+      if (severity === "bajo") return { color: "#166534", weight: 2, fillColor: "#22c55e", fillOpacity: 0.60 };
       return { color: "#9a3412", weight: 2, fillColor: "#f97316", fillOpacity: 0.50 };
     }
 
@@ -320,17 +350,18 @@ document.addEventListener("DOMContentLoaded", function () {
     return { color: "#64748b", weight: 2, fillColor: "#94a3b8", fillOpacity: 0.45 };
   }
 
-  // ─── CAPAS BASE ───────────────────────────────────────────────────────────
   function setBaseLayer(layerName) {
     if (!map || !osm || !satellite) return;
     if (map.hasLayer(osm)) map.removeLayer(osm);
     if (map.hasLayer(satellite)) map.removeLayer(satellite);
-    if (layerName === "satellite") { satellite.addTo(map); } else { osm.addTo(map); }
+    if (layerName === "satellite") {
+      satellite.addTo(map);
+    } else {
+      osm.addTo(map);
+    }
   }
 
-  // ─── LEYENDA DINÁMICA ─────────────────────────────────────────────────────
   function getLegendItemsFromLayer(features, config) {
-    // Exposición: siempre una sola etiqueta, sin niveles
     if (config.kind === "exposicion") {
       return [{ color: "#f59e0b", label: "Construcción expuesta" }];
     }
@@ -341,26 +372,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
     features.forEach((feature) => {
       const severity = detectSeverity((feature && feature.properties) || {});
-      if (severity === "alto")  found.alto  = true;
+      if (severity === "alto") found.alto = true;
       if (severity === "medio") found.medio = true;
-      if (severity === "bajo")  found.bajo  = true;
+      if (severity === "bajo") found.bajo = true;
     });
 
     const items = [];
 
     if (config.kind === "amenaza") {
-      if (found.alto)  items.push({ color: "#d73027", label: "Amenaza alta" });
+      if (found.alto) items.push({ color: "#d73027", label: "Amenaza alta" });
       if (found.medio) items.push({ color: "#facc15", label: "Amenaza media" });
-      if (found.bajo)  items.push({ color: "#22c55e", label: "Amenaza baja" });
+      if (found.bajo) items.push({ color: "#22c55e", label: "Amenaza baja" });
     }
 
     if (config.kind === "riesgo") {
-      if (found.alto)  items.push({ color: "#dc2626", label: "Riesgo alto" });
+      if (found.alto) items.push({ color: "#dc2626", label: "Riesgo alto" });
       if (found.medio) items.push({ color: "#f97316", label: "Riesgo medio" });
-      if (found.bajo)  items.push({ color: "#22c55e", label: "Riesgo bajo" });
+      if (found.bajo) items.push({ color: "#22c55e", label: "Riesgo bajo" });
     }
 
-    // Si no se detectó ningún nivel (columna desconocida), mostrar genérico
     if (!items.length) {
       const baseColor = config.kind === "riesgo" ? "#dc2626" : "#d73027";
       const baseLabel = config.kind === "riesgo" ? "Construcción en riesgo" : "Zona de amenaza";
@@ -396,7 +426,6 @@ document.addEventListener("DOMContentLoaded", function () {
     riskInfoContent.innerHTML = html || "<p>Selecciona una capa para ver su contenido.</p>";
   }
 
-  // ─── POPUP ────────────────────────────────────────────────────────────────
   function buildPopupHtml(feature, config) {
     const props = feature.properties || {};
     let html = `<strong>${config.label}</strong>`;
@@ -408,7 +437,6 @@ document.addEventListener("DOMContentLoaded", function () {
     return html;
   }
 
-  // ─── CARGA DE CAPA DE RIESGO ──────────────────────────────────────────────
   async function loadRiskLayer(layerKey) {
     if (!map) return;
 
@@ -430,7 +458,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     try {
       const response = await fetch(config.url);
-
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
       const geojson = await response.json();
@@ -466,15 +493,11 @@ document.addEventListener("DOMContentLoaded", function () {
       });
 
       currentRiskLayer.addTo(map);
-
-      // FIX: invalidateSize antes del fitBounds para que Leaflet
-      // conozca las dimensiones reales del contenedor
       map.invalidateSize(true);
 
       if (currentRiskLayer.getBounds && currentRiskLayer.getBounds().isValid()) {
         map.fitBounds(currentRiskLayer.getBounds(), { padding: [40, 40] });
       }
-
     } catch (error) {
       console.error("Error cargando capa:", error);
       updateLegend(null);
@@ -487,7 +510,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // ─── LIMPIAR CAPA ─────────────────────────────────────────────────────────
   function clearActiveRiskLayer() {
     document.querySelectorAll('input[name="riesgoLayer"]').forEach((radio) => {
       radio.checked = false;
@@ -510,7 +532,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // ─── INIT MAPA ────────────────────────────────────────────────────────────
   try {
     const mapElement = document.getElementById("map");
 
@@ -525,7 +546,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
       satellite = L.tileLayer(
         "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
-        { maxZoom: 19, attribution: "Tiles &copy; Esri" }
+        {
+          maxZoom: 19,
+          attribution: "Tiles &copy; Esri"
+        }
       );
 
       osm.addTo(map);
@@ -541,15 +565,14 @@ document.addEventListener("DOMContentLoaded", function () {
       const clearButton = document.getElementById("clearRiskLayer");
       if (clearButton) clearButton.addEventListener("click", clearActiveRiskLayer);
 
-      // Invalidar tamaño inicial después de que el DOM se renderice completo
       setTimeout(() => map.invalidateSize(true), 400);
     }
   } catch (error) {
     console.error("Error inicializando el mapa:", error);
   }
 
-  // ─── ESTADO INICIAL ───────────────────────────────────────────────────────
   updateLegend(null);
   updateRiskInfo("<p>Selecciona una capa para ver su contenido.</p>");
   syncChatbotContext({ activeModule: "Inicio" });
+  closeSidebar();
 });

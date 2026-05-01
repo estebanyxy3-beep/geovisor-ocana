@@ -74,6 +74,10 @@ document.addEventListener("DOMContentLoaded", function () {
         window.__geovisorMap.invalidateSize(true);
       }, 300);
     }
+
+    if (viewName === "accidentabilidad" && accidentMap) {
+      setTimeout(() => accidentMap.invalidateSize(true), 300);
+    }
   }
 
   function normalizeText(text) {
@@ -203,6 +207,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let osm = null;
   let satellite = null;
   let currentRiskLayer = null;
+  let accidentMap = null;
 
   const riskLayersConfig = {
     amenaza_at: {
@@ -566,6 +571,34 @@ document.addEventListener("DOMContentLoaded", function () {
       if (clearButton) clearButton.addEventListener("click", clearActiveRiskLayer);
 
       setTimeout(() => map.invalidateSize(true), 400);
+    }
+
+    const accidentMapElement = document.getElementById("accidentMap");
+    if (accidentMapElement && window.L) {
+      accidentMap = L.map("accidentMap", { preferCanvas: true, zoomControl: true }).setView(ocanaCoords, 13);
+
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        maxZoom: 19,
+        attribution: "&copy; OpenStreetMap contributors"
+      }).addTo(accidentMap);
+
+      const accidentPoints = [
+        { coords: [8.236372, -73.353228], label: "Centro de Ocaña" },
+        { coords: [8.2489, -73.3574], label: "Corredor vial norte" },
+        { coords: [8.2261, -73.3447], label: "Corredor vial sur" }
+      ];
+
+      accidentPoints.forEach((point) => {
+        L.circleMarker(point.coords, {
+          radius: 7,
+          color: "#b45309",
+          weight: 2,
+          fillColor: "#f59e0b",
+          fillOpacity: 0.85
+        }).addTo(accidentMap).bindPopup(`<strong>${point.label}</strong>`);
+      });
+
+      setTimeout(() => accidentMap.invalidateSize(true), 450);
     }
   } catch (error) {
     console.error("Error inicializando el mapa:", error);

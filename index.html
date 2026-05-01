@@ -34,7 +34,7 @@
         <nav class="nav-menu">
           <button class="nav-item active" data-view="inicio">Inicio</button>
           <button class="nav-item" data-view="riesgo">Mapas de Riesgo</button>
-          <button class="nav-item" data-view="participacion">Mecanismo de Participación</button>
+        <button class="nav-item" data-view="mecanismos">Mecanismo de Participación</button>
           <button class="nav-item" data-view="pot">POT</button>
           <button class="nav-item" data-view="pomca">POMCA</button>
           <button class="nav-item" data-view="accidentabilidad">Accidentabilidad</button>
@@ -162,9 +162,9 @@
                 <img src="assets/Participacion_Ciudadana.png" alt="Participación ciudadana" class="topic-image" />
                 <h3>Mecanismo de Participación</h3>
                 <p>Infórmate y participa en los espacios de diálogo y construcción colectiva del territorio.</p>
-                <button class="topic-btn purple-btn" type="button" data-view-target="participacion">
-                  Participar
-                </button>
+               <button class="topic-btn purple-btn" type="button" data-view-target="mecanismos">
+  Participar
+</button>
               </article>
 
               <article class="topic-card blue-card">
@@ -377,44 +377,287 @@
       </section>
 
       <!-- PARTICIPACION -->
-      <section class="view" id="view-participacion">
-        <div class="module-page">
-          <div class="module-header">
-            <div>
-              <p class="module-kicker">Módulo</p>
-              <h2>Mecanismo de Participación</h2>
-              <p class="module-description">
-                Espacios comunitarios, rutas de participación, materiales pedagógicos y procesos colectivos.
-              </p>
+    <section class="view" id="view-mecanismos">
+  <div class="module-shell part-shell">
+    <aside class="module-sidebar part-sidebar">
+      <div class="module-brand part-brand">
+        <img src="assets/Participacion_Ciudadana.png" alt="Participación" />
+        <div>
+          <h3>MECANISMOS DE PARTICIPACIÓN</h3>
+          <p>Construimos comunidad, transformamos territorio</p>
+        </div>
+      </div>
+
+      <div class="mini-label">MÓDULOS</div>
+
+      <nav class="module-menu">
+        <button class="module-menu-item active" type="button">Mecanismos de Participación</button>
+        <button class="module-menu-item" type="button">Espacios Comunitarios</button>
+        <button class="module-menu-item" type="button">Rutas de Participación</button>
+        <button class="module-menu-item" type="button">Materiales Pedagógicos</button>
+        <button class="module-menu-item" type="button">Procesos Colectivos</button>
+      </nav>
+
+      <div class="module-side-card">
+        <h4>Participación ciudadana</h4>
+        <p>
+          Aquí podrás mostrar procesos participativos y resultados de trabajo en la comunidad.
+        </p>
+      </div>
+
+      <button class="module-back-btn" type="button" data-view-target="inicio">← Volver al inicio</button>
+    </aside>
+
+    <div class="module-main">
+      <div class="top-actions purple-actions">
+        <button type="button" class="top-action-btn">Quitar capa activa</button>
+        <button type="button" class="top-action-btn active">Información temática</button>
+      </div>
+
+      <section class="content-and-side">
+        <div class="content-panel">
+          <div class="section-title">
+            <h2>Mecanismos de Participación</h2>
+            <p>
+              Explora las diferentes formas en que la comunidad participa activamente
+              en la construcción de soluciones y en la transformación del territorio.
+            </p>
+          </div>
+
+          <div class="stacked-feature-cards">
+            <article class="wide-card purple">
+              <div class="wide-card-info">
+                <div class="feature-icon">👥</div>
+                <div>
+                  <h3>Espacios Comunitarios</h3>
+                  <p>Lugares donde la comunidad se reúne para dialogar, compartir ideas y construir soluciones conjuntas.</p>
+                  <button type="button">Explorar espacios</button>
+                </div>
+              </div>
+              <div class="wide-card-art">🗣️</div>
+            </article>
+
+            <article class="wide-card green">
+              <div class="wide-card-info">
+                <div class="feature-icon">🛤️</div>
+                <div>
+                  <h3>Rutas de Participación</h3>
+                  <p>Recorridos y estrategias que promueven la participación activa en diferentes momentos y territorios.</p>
+                  <button type="button">Ver rutas</button>
+                </div>
+              </div>
+              <div class="wide-card-art">📍</div>
+            </article>
+
+            <article class="wide-card yellow">
+              <div class="wide-card-info">
+                <div class="feature-icon">📘</div>
+                <div>
+                  <h3>Materiales Pedagógicos</h3>
+                  <p>Recursos educativos y didácticos que fortalecen el aprendizaje colectivo y el conocimiento comunitario.</p>
+                  <button type="button">Ver materiales</button>
+                </div>
+              </div>
+              <div class="wide-card-art">📚</div>
+            </article>
+
+            <article class="wide-card pink">
+              <div class="wide-card-info">
+                <div class="feature-icon">🤝</div>
+                <div>
+                  <h3>Procesos Colectivos</h3>
+                  <p>Iniciativas y experiencias comunitarias que generan cambios positivos a través del trabajo conjunto y solidario.</p>
+                  <button type="button">Ver procesos</button>
+                </div>
+              </div>
+              <div class="wide-card-art">🧩</div>
+            </article>
+          </div>
+        </div>
+
+        <aside class="right-panel">
+          <div class="right-panel-card">
+            <h4>Información temática</h4>
+            <p>
+              Explora los mecanismos de participación ciudadana y conoce los
+              procesos que se desarrollan en nuestra comunidad.
+            </p>
+
+            <div class="quote-box">
+              La participación es el corazón del cambio.
+              Tu voz, tu experiencia y tus ideas construyen comunidad.
+            </div>
+
+            <div class="info-box">
+              <strong>¿Qué puedes encontrar aquí?</strong>
+              <ul>
+                <li>Información sobre espacios de encuentro</li>
+                <li>Rutas y estrategias para participar</li>
+                <li>Recursos educativos</li>
+                <li>Procesos colectivos y resultados</li>
+              </ul>
             </div>
           </div>
 
-          <div class="content-card">
-            <h3>Participación ciudadana</h3>
-            <p>Aquí podrás mostrar procesos participativos y resultados de trabajo con la comunidad.</p>
+          <div class="right-panel-card">
+            <h4>Datos destacados</h4>
+            <div class="mini-stats-grid">
+              <article><strong>28</strong><span>Espacios comunitarios</span></article>
+              <article><strong>15</strong><span>Rutas de participación</span></article>
+              <article><strong>42</strong><span>Materiales pedagógicos</span></article>
+              <article><strong>18</strong><span>Procesos colectivos</span></article>
+            </div>
+            <button class="quick-link full" type="button">Ver reportes y resultados</button>
           </div>
-        </div>
+        </aside>
       </section>
+    </div>
+  </div>
+</section>
 
       <!-- POT -->
-      <section class="view" id="view-pot">
-        <div class="module-page">
-          <div class="module-header">
-            <div>
-              <p class="module-kicker">Módulo</p>
-              <h2>POT</h2>
-              <p class="module-description">
-                Plan de Ordenamiento Territorial, normativa, conceptos base y contenidos municipales.
-              </p>
+     <section class="view" id="view-pot">
+  <div class="module-shell pot-shell">
+    <aside class="module-sidebar pot-sidebar">
+      <div class="module-brand pot-brand">
+        <img src="assets/POT.png" alt="POT" />
+        <div>
+          <h3>POT</h3>
+          <p>Plan de Ordenamiento Territorial</p>
+        </div>
+      </div>
+
+      <div class="mini-label">MÓDULOS</div>
+
+      <nav class="module-menu">
+        <button class="module-menu-item" type="button">Plan de Ordenamiento Territorial</button>
+        <button class="module-menu-item active" type="button">Normativa</button>
+        <button class="module-menu-item" type="button">Concepto Base</button>
+        <button class="module-menu-item" type="button">Contenidos Municipales</button>
+      </nav>
+
+      <button class="module-back-btn" type="button" data-view-target="inicio">← Volver al inicio</button>
+    </aside>
+
+    <div class="module-main">
+      <div class="top-actions">
+        <button type="button" class="top-action-btn">Quitar capa activa</button>
+        <button type="button" class="top-action-btn active">Información temática</button>
+      </div>
+
+      <section class="content-and-side">
+        <div class="content-panel">
+          <div class="pot-main-card">
+            <div class="pot-header-row">
+              <div>
+                <h2>Normativa del POT</h2>
+                <p>
+                  Consulta las normas que orientan y regulan el uso del suelo
+                  y el desarrollo del territorio.
+                </p>
+                <div class="dual-search">
+                  <input type="text" placeholder="Buscar norma..." />
+                  <select>
+                    <option>Filtrar por tipo</option>
+                    <option>Leyes Nacionales</option>
+                    <option>Decretos</option>
+                    <option>Acuerdos Municipales</option>
+                    <option>Normativa Urbana y Rural</option>
+                  </select>
+                </div>
+              </div>
+              <div class="pot-illustration">⚖️</div>
+            </div>
+
+            <div class="feature-grid four-cols">
+              <article class="feature-card tone-blue">
+                <div class="feature-icon">⚖️</div>
+                <h4>Leyes Nacionales</h4>
+                <p>Leyes de la República que establecen los principios y lineamientos del ordenamiento territorial.</p>
+                <button type="button">Ver detalle</button>
+              </article>
+
+              <article class="feature-card tone-green">
+                <div class="feature-icon">📄</div>
+                <h4>Decretos</h4>
+                <p>Decretos reglamentarios que complementan y desarrollan las disposiciones legales vigentes.</p>
+                <button type="button">Ver detalle</button>
+              </article>
+
+              <article class="feature-card tone-purple">
+                <div class="feature-icon">📜</div>
+                <h4>Acuerdos Municipales</h4>
+                <p>Acuerdos expedidos por el concejo municipal relacionados con el ordenamiento y uso del suelo.</p>
+                <button type="button">Ver detalle</button>
+              </article>
+
+              <article class="feature-card tone-yellow">
+                <div class="feature-icon">🏛️</div>
+                <h4>Normativa Urbana y Rural</h4>
+                <p>Normas específicas para el suelo urbano, rural y de expansión, y sus condiciones de uso.</p>
+                <button type="button">Ver detalle</button>
+              </article>
             </div>
           </div>
 
-          <div class="content-card">
-            <h3>Contenido POT</h3>
-            <p>Aquí podrás mostrar el contenido del Plan de Ordenamiento Territorial.</p>
+          <div class="pot-split-grid">
+            <div class="pot-mini-card green">
+              <h3>Conceptos Base del POT</h3>
+              <p>Conoce los conceptos fundamentales para comprender el ordenamiento territorial y su aplicación.</p>
+              <div class="mini-feature-grid">
+                <article><strong>Ordenamiento Territorial</strong><button>Ampiar</button></article>
+                <article><strong>Uso del Suelo</strong><button>Ampiar</button></article>
+                <article><strong>Riesgo y Amenaza</strong><button>Ampiar</button></article>
+                <article><strong>Desarrollo Sostenible</strong><button>Ampiar</button></article>
+              </div>
+            </div>
+
+            <div class="pot-mini-card gold">
+              <h3>Contenidos Municipales del POT</h3>
+              <p>Explora la información específica del territorio municipal y sus componentes.</p>
+              <div class="mini-feature-grid">
+                <article><strong>Clasificación del Suelo</strong><button>Explorar</button></article>
+                <article><strong>Uso del Suelo</strong><button>Explorar</button></article>
+                <article><strong>Estructura Ecológica</strong><button>Explorar</button></article>
+                <article><strong>Sistema Vial</strong><button>Explorar</button></article>
+                <article><strong>Servicios Públicos</strong><button>Explorar</button></article>
+                <article><strong>Equipamientos</strong><button>Explorar</button></article>
+              </div>
+            </div>
           </div>
         </div>
+
+        <aside class="right-panel">
+          <div class="right-panel-card">
+            <h4>Información temática</h4>
+            <p>
+              Explora las normas que hacen parte del marco jurídico del
+              Plan de Ordenamiento Territorial.
+            </p>
+
+            <div class="info-box">
+              <strong>¿Qué encontrarás aquí?</strong>
+              <ul>
+                <li>Marco legal nacional</li>
+                <li>Normas reglamentarias</li>
+                <li>Acuerdos del municipio</li>
+                <li>Normas específicas del POT</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="right-panel-card">
+            <h4>Documentos destacados</h4>
+            <button type="button" class="quick-link">Ley 388 de 1997</button>
+            <button type="button" class="quick-link">Decreto 1077 de 2015</button>
+            <button type="button" class="quick-link">Acuerdo Municipal 012 de 2020</button>
+            <button type="button" class="quick-link">Ver todos los documentos</button>
+          </div>
+        </aside>
       </section>
+    </div>
+  </div>
+</section>
 
       <!-- POMCA -->
  <section class="view" id="view-pomca">
@@ -672,25 +915,185 @@
   </div>
 </section>
       <!-- ACCIDENTABILIDAD -->
-      <section class="view" id="view-accidentabilidad">
-        <div class="module-page">
-          <div class="module-header">
-            <div>
-              <p class="module-kicker">Módulo</p>
-              <h2>Accidentabilidad</h2>
-              <p class="module-description">
-                Consulta información vial, siniestros, seguridad vial, análisis temáticos e indicadores.
-              </p>
-            </div>
-          </div>
+<section class="view" id="view-accidentabilidad">
+  <div class="module-shell accident-shell">
+    <aside class="module-sidebar accident-sidebar">
+      <div class="module-brand accident-brand">
+        <img src="assets/Codigo_Transito.png" alt="Accidentabilidad" />
+        <div>
+          <h3>ACCIDENTABILIDAD</h3>
+          <p>Información y análisis para la seguridad vial</p>
+        </div>
+      </div>
 
-          <div class="content-card">
-            <h3>Módulo de accidentabilidad</h3>
-            <p>Aquí podrás integrar información de accidentalidad, mapas viales, reportes y análisis.</p>
+      <nav class="module-menu">
+        <button class="module-menu-item active" type="button">Inicio Accidentabilidad</button>
+        <button class="module-menu-item" type="button">Consulta información vial</button>
+        <button class="module-menu-item" type="button">Siniestros</button>
+        <button class="module-menu-item" type="button">Seguridad vial</button>
+        <button class="module-menu-item" type="button">Análisis temático</button>
+        <button class="module-menu-item" type="button">Indicadores</button>
+        <button class="module-menu-item" type="button">Reportes</button>
+        <button class="module-menu-item" type="button">Participación ciudadana</button>
+        <button class="module-menu-item" type="button">Glosario</button>
+      </nav>
+
+      <button class="module-back-btn" type="button" data-view-target="inicio">← Volver al inicio</button>
+    </aside>
+
+    <div class="module-main">
+      <section class="module-hero accident-hero">
+        <div class="module-hero-card">
+          <h1>Accidentabilidad</h1>
+          <h2>Seguridad vial para salvar vidas</h2>
+          <p>
+            Consulta, analiza y comprende la información sobre siniestros viales,
+            seguridad vial y factores asociados para la toma de decisiones y la
+            planificación territorial.
+          </p>
+
+          <div class="module-search">
+            <input type="text" placeholder="Buscar vías, siniestros, indicadores, reportes..." />
+            <button type="button">🔍</button>
           </div>
+        </div>
+
+        <div class="module-info-card">
+          <h3>Accidentabilidad</h3>
+          <p>
+            Aquí podrás integrar información de accidentabilidad, mapas viales,
+            reportes y análisis para comprender los siniestros viales y mejorar
+            la seguridad en las vías del territorio.
+          </p>
+
+          <ul class="module-checklist">
+            <li>Información integrada y actualizada</li>
+            <li>Mapas interactivos y análisis espacial</li>
+            <li>Reportes y estadísticas confiables</li>
+            <li>Apoyo a la toma de decisiones</li>
+            <li>Planeación y prevención vial</li>
+          </ul>
         </div>
       </section>
 
+      <section class="stats-row accident-stats">
+        <article class="stat-card">
+          <span class="stat-label">Siniestros registrados</span>
+          <strong>1.245</strong>
+          <small>En el territorio</small>
+        </article>
+        <article class="stat-card">
+          <span class="stat-label">Víctimas</span>
+          <strong>1.876</strong>
+          <small>Totales</small>
+        </article>
+        <article class="stat-card">
+          <span class="stat-label">Lesionados</span>
+          <strong>1.432</strong>
+          <small>Total</small>
+        </article>
+        <article class="stat-card">
+          <span class="stat-label">Fallecidos</span>
+          <strong>224</strong>
+          <small>Total</small>
+        </article>
+        <article class="stat-card">
+          <span class="stat-label">Año de referencia</span>
+          <strong>2024</strong>
+          <small>Actualizado</small>
+        </article>
+      </section>
+
+      <section class="content-and-side">
+        <div class="content-panel">
+          <div class="section-title">
+            <h3>Explora la información</h3>
+          </div>
+
+          <div class="feature-grid">
+            <article class="feature-card">
+              <div class="feature-icon">🛣️</div>
+              <h4>Consulta información vial</h4>
+              <p>Explora la red vial, inventario de vías, condiciones y atributos.</p>
+              <button type="button">Consultar</button>
+            </article>
+
+            <article class="feature-card">
+              <div class="feature-icon">🚗</div>
+              <h4>Siniestros</h4>
+              <p>Consulta y analiza los siniestros viales registrados en el territorio.</p>
+              <button type="button">Explorar</button>
+            </article>
+
+            <article class="feature-card">
+              <div class="feature-icon">🛡️</div>
+              <h4>Seguridad vial</h4>
+              <p>Conoce las acciones, programas y estrategias de seguridad vial.</p>
+              <button type="button">Ver más</button>
+            </article>
+
+            <article class="feature-card">
+              <div class="feature-icon">📊</div>
+              <h4>Análisis temático</h4>
+              <p>Análisis espaciales y temporales sobre la accidentabilidad.</p>
+              <button type="button">Analizar</button>
+            </article>
+
+            <article class="feature-card">
+              <div class="feature-icon">📈</div>
+              <h4>Indicadores</h4>
+              <p>Consulta indicadores clave de accidentabilidad y seguridad vial.</p>
+              <button type="button">Ver indicadores</button>
+            </article>
+          </div>
+
+          <div class="map-preview-card">
+            <div class="map-preview-header">
+              <div>
+                <h4>Mapa de siniestros</h4>
+                <p>Visualiza la distribución espacial de los siniestros viales en el territorio.</p>
+              </div>
+              <button type="button">Ver mapa completo</button>
+            </div>
+            <div class="map-preview-placeholder">
+              <span>Vista previa del mapa de accidentabilidad</span>
+            </div>
+          </div>
+
+          <div class="module-bottom-banner">
+            <div>
+              <strong>Conocimiento para la acción</strong>
+              <p>
+                La información de accidentabilidad es clave para salvar vidas y construir
+                vías más seguras para todos.
+              </p>
+            </div>
+            <button type="button">Explorar todo el módulo →</button>
+          </div>
+        </div>
+
+        <aside class="right-panel">
+          <div class="right-panel-card">
+            <h4>Accesos rápidos</h4>
+            <button type="button" class="quick-link">Visor de mapas de siniestros</button>
+            <button type="button" class="quick-link">Reportes de accidentabilidad</button>
+            <button type="button" class="quick-link">Indicadores de seguridad vial</button>
+            <button type="button" class="quick-link">Participa y reporta</button>
+          </div>
+
+          <div class="right-panel-card soft-green">
+            <h4>Información importante</h4>
+            <p>
+              Los datos de accidentabilidad son actualizados periódicamente.
+              Verifica la fecha de actualización de los indicadores y reportes.
+            </p>
+            <small>Última actualización: 12/05/2024</small>
+          </div>
+        </aside>
+      </section>
+    </div>
+  </div>
+</section>
     </section>
   </main>
 

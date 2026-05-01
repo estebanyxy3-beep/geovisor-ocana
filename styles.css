@@ -1057,3 +1057,428 @@ body {
     min-height: 350px;
   }
 }
+/* =========================
+   MODULO POMCA
+========================= */
+
+.pomca-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 18px;
+  align-items: start;
+}
+
+.pomca-sidebar {
+  background: #f7faf8;
+  border: 1px solid #dce4df;
+  border-radius: 22px;
+  padding: 0;
+  overflow: hidden;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.06);
+}
+
+.pomca-sidebar-header {
+  background: linear-gradient(135deg, #1f4d96 0%, #244a84 100%);
+  color: white;
+  padding: 18px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pomca-sidebar-logo {
+  width: 54px;
+  height: 54px;
+  object-fit: contain;
+  flex-shrink: 0;
+  background: rgba(255,255,255,0.12);
+  border-radius: 14px;
+  padding: 4px;
+}
+
+.pomca-sidebar-header h3 {
+  margin: 0 0 4px 0;
+  font-size: 1.35rem;
+}
+
+.pomca-sidebar-header p {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.35;
+  opacity: 0.95;
+}
+
+.pomca-menu {
+  display: flex;
+  flex-direction: column;
+  padding: 14px;
+  gap: 8px;
+}
+
+.pomca-menu-item {
+  width: 100%;
+  border: 1px solid #e2e8e4;
+  background: white;
+  color: #334155;
+  border-radius: 14px;
+  padding: 12px 14px;
+  text-align: left;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pomca-menu-item:hover,
+.pomca-menu-item.active {
+  background: #ebf6ef;
+  border-color: #b8d8c2;
+  color: #1f8f3d;
+}
+
+.pomca-back-btn {
+  margin: 0 14px 14px 14px;
+  border: 1px solid #d8e1da;
+  background: #f9fbfa;
+  color: #475569;
+  border-radius: 14px;
+  padding: 12px 14px;
+  font-size: 0.94rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pomca-back-btn:hover {
+  background: #eef5f0;
+  color: #1f8f3d;
+}
+
+.pomca-main {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.pomca-hero {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 18px;
+  align-items: stretch;
+}
+
+.pomca-hero-card {
+  background:
+    linear-gradient(rgba(255,255,255,0.84), rgba(255,255,255,0.84)),
+    url("assets/Ocaña.jpeg");
+  background-size: cover;
+  background-position: center;
+  border: 1px solid #dce4df;
+  border-radius: 24px;
+  padding: 28px;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.05);
+}
+
+.pomca-hero-card h1 {
+  margin: 0;
+  font-size: 3rem;
+  line-height: 1.05;
+  color: #18396d;
+  font-weight: 800;
+}
+
+.pomca-hero-card h2 {
+  margin: 6px 0 16px 0;
+  font-size: 2rem;
+  color: #4b8f69;
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.pomca-hero-card p {
+  margin: 0 0 18px 0;
+  color: #5b6470;
+  line-height: 1.7;
+  max-width: 780px;
+}
+
+.pomca-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 700px;
+  background: rgba(255,255,255,0.96);
+  border: 1px solid #d7e1da;
+  border-radius: 18px;
+  padding: 10px 12px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.04);
+}
+
+.pomca-search input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 10px 8px;
+  font-size: 1rem;
+  color: #334155;
+}
+
+.pomca-search button {
+  width: 46px;
+  height: 46px;
+  border: none;
+  border-radius: 14px;
+  background: #1f8f3d;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.pomca-info-card {
+  background: rgba(255,255,255,0.96);
+  border: 1px solid #dce4df;
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 10px 26px rgba(0,0,0,0.05);
+}
+
+.pomca-info-card h3 {
+  margin: 0 0 12px 0;
+  font-size: 1.8rem;
+  color: #20804f;
+}
+
+.pomca-info-card p {
+  margin: 0 0 18px 0;
+  color: #5b6470;
+  line-height: 1.7;
+}
+
+.pomca-concepts {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pomca-concept-item {
+  border: 1px solid #e5ece7;
+  background: #fbfdfb;
+  border-radius: 16px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pomca-concept-item strong {
+  color: #244a84;
+  font-size: 0.98rem;
+}
+
+.pomca-concept-item span {
+  color: #64748b;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.pomca-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.pomca-stat-card {
+  background: white;
+  border: 1px solid #dce4df;
+  border-radius: 20px;
+  padding: 18px 18px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+}
+
+.pomca-stat-label {
+  display: block;
+  color: #64748b;
+  font-size: 0.86rem;
+  margin-bottom: 8px;
+}
+
+.pomca-stat-card strong {
+  display: block;
+  font-size: 1.9rem;
+  color: #1e3a72;
+  margin-bottom: 4px;
+}
+
+.pomca-stat-card small {
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.pomca-docs-section {
+  background: rgba(255,255,255,0.94);
+  border: 1px solid #dce4df;
+  border-radius: 24px;
+  padding: 20px;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.05);
+}
+
+.pomca-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.pomca-section-header h3 {
+  margin: 0 0 4px 0;
+  color: #17325d;
+  font-size: 1.7rem;
+}
+
+.pomca-section-header p {
+  margin: 0;
+  color: #64748b;
+}
+
+.pomca-doc-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.pomca-doc-card {
+  background: white;
+  border: 1px solid #dce4df;
+  border-radius: 20px;
+  padding: 18px 16px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.04);
+  display: flex;
+  flex-direction: column;
+  min-height: 190px;
+}
+
+.pomca-doc-card h4 {
+  margin: 0 0 10px 0;
+  font-size: 1.05rem;
+  color: #18396d;
+}
+
+.pomca-doc-card p {
+  margin: 0 0 18px 0;
+  color: #64748b;
+  line-height: 1.55;
+  flex: 1;
+}
+
+.pomca-doc-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.pomca-doc-actions button {
+  border: none;
+  border-radius: 12px;
+  background: #1f8f3d;
+  color: white;
+  padding: 10px 14px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.pomca-doc-actions button.secondary {
+  background: #eef4ef;
+  color: #2f4c38;
+  border: 1px solid #d5e2d8;
+}
+
+.pomca-bottom-banner {
+  background: #eef8f1;
+  border: 1px solid #d8eadc;
+  border-radius: 20px;
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.pomca-bottom-banner strong {
+  display: block;
+  color: #1f8f3d;
+  margin-bottom: 6px;
+}
+
+.pomca-bottom-banner p {
+  margin: 0;
+  color: #5b6470;
+  line-height: 1.6;
+}
+
+.pomca-bottom-banner button {
+  border: none;
+  border-radius: 14px;
+  background: #1f8f3d;
+  color: white;
+  padding: 12px 18px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* RESPONSIVE POMCA */
+
+@media (max-width: 1400px) {
+  .pomca-doc-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pomca-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 1100px) {
+  .pomca-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .pomca-hero {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .pomca-doc-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pomca-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .pomca-hero-card {
+    padding: 20px;
+  }
+
+  .pomca-hero-card h1 {
+    font-size: 2.2rem;
+  }
+
+  .pomca-hero-card h2 {
+    font-size: 1.5rem;
+  }
+
+  .pomca-bottom-banner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .pomca-bottom-banner button {
+    width: 100%;
+  }
+}

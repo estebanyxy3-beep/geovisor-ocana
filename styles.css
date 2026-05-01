@@ -1897,6 +1897,13 @@ body {
   font-weight: 700;
 }
 
+.accident-map {
+  min-height: 260px;
+  border-radius: 18px;
+  border: 1px solid #aac0aa;
+  overflow: hidden;
+}
+
 .quick-link {
   width: 100%;
   text-align: left;

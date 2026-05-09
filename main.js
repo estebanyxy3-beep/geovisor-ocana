@@ -207,7 +207,11 @@ document.addEventListener("DOMContentLoaded", function () {
   let osm = null;
   let satellite = null;
   let currentRiskLayer = null;
+  let currentPotLayer = null;
+  let currentPomcaLayer = null;
   let accidentMap = null;
+  let potMap = null;
+  let pomcaMap = null;
 
   const riskLayersConfig = {
     amenaza_at: {
@@ -263,8 +267,53 @@ document.addEventListener("DOMContentLoaded", function () {
       url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/riesgo/Construccion_Riesgo_Movimien.json",
       kind: "riesgo",
       info: `<p><strong>Riesgo:</strong> construcciones en riesgo por movimiento en masa.</p>`
+    },
+    falla_geologica: {
+      label: "Fallas geológicas de Ocaña",
+      url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/fallas_geologicas/Fallasgeologicas.json",
+      kind: "linea",
+      info: `<p><strong>Fallas geológicas:</strong> trazado estructural en el municipio de Ocaña.</p>`
+    },
+    amenaza_mm_la_ermita: {
+      label: "Movimiento en masa - La Ermita",
+      url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/amenaza/Zonificacion_Amenaza_MM_La_Erm.json",
+      kind: "amenaza",
+      info: "<p><strong>Amenaza:</strong> sector específico La Ermita.</p>"
     }
   };
+
+  const potLayersConfig = {
+    pot_comunas: { label: "Comunas de Ocaña", url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/pot/usos_suelo/Comunas_.json", kind: "pot" },
+    pot_usos: { label: "Usos del suelo", url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/pot/usos_suelo/Usos_Suelo.json", kind: "pot" }
+  };
+  const pomcaLayersConfig = {
+    pomca_protegidas: { label: "Áreas protegidas", url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/pomca/Areas_Protegidas.json", kind: "pomca" },
+    pomca_forestales: { label: "Áreas forestales protectoras", url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/pomca/%C3%81reas_Forestales_Protectoras.json", kind: "pomca" },
+    pomca_ecosistemicas: { label: "Áreas de especial importancia ecosistémica", url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/pomca/Areas_Especial_Importancia_E.json", kind: "pomca" }
+  };
+
+  function getClassificationField(features, preferredFields = []) {
+    if (!features || !features.length) return null;
+    const defaultFields = ["uso", "Uso", "USO", "uso_suelo", "Uso_Suelo", "USO_SUELO", "categoria", "Categoria", "CATEGORIA", "clase", "Clase", "CLASE", "comuna", "Comuna", "COMUNA", "nombre", "Nombre", "NOMBRE", "tipo", "Tipo", "TIPO", "amenaza", "Amenaza", "AMENAZA", "riesgo", "Riesgo", "RIESGO", "nivel", "Nivel", "NIVEL"];
+    const fields = [...preferredFields, ...defaultFields];
+    for (const field of fields) {
+      if (features.some((feature) => feature?.properties?.[field] !== undefined && feature?.properties?.[field] !== null && String(feature.properties[field]).trim() !== "")) return field;
+    }
+    return null;
+  }
+  function getUniqueValues(features, field) {
+    const values = new Set();
+    features.forEach((feature) => {
+      const value = feature?.properties?.[field];
+      if (value !== undefined && value !== null && String(value).trim() !== "") values.add(String(value).trim());
+    });
+    return Array.from(values).sort();
+  }
+  function buildColorMap(values, palette) {
+    const colorMap = {};
+    values.forEach((value, index) => { colorMap[value] = palette[index % palette.length]; });
+    return colorMap;
+  }
 
   function detectSeverity(props = {}) {
     const knownFields = [
@@ -331,8 +380,14 @@ document.addEventListener("DOMContentLoaded", function () {
     return "";
   }
 
-  function getFeatureStyle(props = {}, config = {}) {
+  function getFeatureStyle(props = {}, config = {}, classificationField = null, colorMap = {}) {
+    const classValue = classificationField ? String(props[classificationField] || "").trim() : "";
     const severity = detectSeverity(props);
+    if (config.kind === "pot" || config.kind === "pomca") {
+      const color = colorMap[classValue] || "#64748b";
+      return { color: "#334155", weight: 1.5, fillColor: color, fillOpacity: 0.6 };
+    }
+    if (config.kind === "linea") return { color: "#4b5563", weight: 3 };
 
     if (config.kind === "amenaza") {
       if (severity === "alto") return { color: "#991b1b", weight: 2, fillColor: "#d73027", fillOpacity: 0.55 };
@@ -405,11 +460,11 @@ document.addEventListener("DOMContentLoaded", function () {
     return items;
   }
 
-  function updateLegend(config = null, features = []) {
-    if (!legendContent) return;
+  function updateLegend(config = null, features = [], legendNode = legendContent, classificationField = null, colorMap = {}) {
+    if (!legendNode) return;
 
     if (!config) {
-      legendContent.innerHTML = `
+      legendNode.innerHTML = `
         <div class="legend-item">
           <span class="swatch" style="background:#2f8f5b;"></span>
           <span>Selecciona una capa</span>
@@ -417,9 +472,11 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
-    const items = getLegendItemsFromLayer(features, config);
+    const items = (config.kind === "pot" || config.kind === "pomca")
+      ? Object.entries(colorMap).map(([label, color]) => ({ label, color }))
+      : getLegendItemsFromLayer(features, config);
 
-    legendContent.innerHTML = items.map((item) => `
+    legendNode.innerHTML = items.map((item) => `
       <div class="legend-item">
         <span class="swatch" style="background:${item.color};"></span>
         <span>${item.label}</span>
@@ -431,9 +488,10 @@ document.addEventListener("DOMContentLoaded", function () {
     riskInfoContent.innerHTML = html || "<p>Selecciona una capa para ver su contenido.</p>";
   }
 
-  function buildPopupHtml(feature, config) {
+  function buildPopupHtml(feature, config, classificationField = null) {
     const props = feature.properties || {};
     let html = `<strong>${config.label}</strong>`;
+    if (classificationField && props[classificationField] !== undefined) html += `<br><strong>Clasificación:</strong> ${props[classificationField]}`;
     Object.entries(props).forEach(([key, value]) => {
       if (value !== null && value !== undefined && value !== "") {
         html += `<br><strong>${key}:</strong> ${value}`;
@@ -468,15 +526,19 @@ document.addEventListener("DOMContentLoaded", function () {
       const geojson = await response.json();
       const features = Array.isArray(geojson.features) ? geojson.features : [];
 
-      updateLegend(config, features);
+      const classificationField = getClassificationField(features);
+      const values = getUniqueValues(features, classificationField);
+      const palette = config.kind === "amenaza" || config.kind === "riesgo" ? ["#dc2626", "#f59e0b", "#22c55e"] : ["#f59e0b", "#fbbf24", "#f97316"];
+      const colorMap = buildColorMap(values, palette);
+      updateLegend(config, features, legendContent, classificationField, colorMap);
       updateRiskInfo(`<h4>${config.label}</h4>${config.info}`);
 
       currentRiskLayer = L.geoJSON(geojson, {
         style: function (feature) {
-          return getFeatureStyle(feature.properties || {}, config);
+          return getFeatureStyle(feature.properties || {}, config, classificationField, colorMap);
         },
         pointToLayer: function (feature, latlng) {
-          const style = getFeatureStyle(feature.properties || {}, config);
+          const style = getFeatureStyle(feature.properties || {}, config, classificationField, colorMap);
           return L.circleMarker(latlng, {
             radius: 6,
             color: style.color,
@@ -486,7 +548,7 @@ document.addEventListener("DOMContentLoaded", function () {
           });
         },
         onEachFeature: function (feature, layer) {
-          layer.bindPopup(buildPopupHtml(feature, config));
+          layer.bindPopup(buildPopupHtml(feature, config, classificationField));
           layer.on("click", function () {
             syncChatbotContext({
               activeLayer: config.label,
@@ -513,6 +575,29 @@ document.addEventListener("DOMContentLoaded", function () {
         <p style="font-size:0.82rem;color:#64748b;">Verifica que el archivo existe en GitHub con ese nombre exacto.</p>
       `);
     }
+  }
+
+  async function loadGenericLayer(mapRef, key, configMap, layerRefName, legendNode, infoNode) {
+    const config = configMap[key];
+    if (!mapRef || !config) return;
+    if (window[layerRefName] && mapRef.hasLayer(window[layerRefName])) mapRef.removeLayer(window[layerRefName]);
+    const response = await fetch(config.url);
+    const geojson = await response.json();
+    const features = geojson.features || [];
+    const field = getClassificationField(features, config.kind === "pot" ? ["comuna", "uso", "uso_suelo"] : ["categoria", "nombre", "tipo"]);
+    const values = getUniqueValues(features, field);
+    const palette = config.kind === "pot" ? ["#2563eb","#16a34a","#f59e0b","#9333ea","#ef4444","#0891b2","#84cc16"] : ["#166534","#15803d","#0f766e","#65a30d","#22c55e","#14b8a6","#84cc16"];
+    const colorMap = buildColorMap(values, palette);
+    updateLegend(config, features, legendNode, field, colorMap);
+    if (infoNode) infoNode.innerHTML = `<h4>${config.label}</h4><p><strong>Campo clasificación:</strong> ${field || "No detectado"}</p>`;
+    window[layerRefName] = L.geoJSON(geojson, {
+      style: (feature) => getFeatureStyle(feature.properties || {}, config, field, colorMap),
+      pointToLayer: (feature, latlng) => {
+        const st = getFeatureStyle(feature.properties || {}, config, field, colorMap);
+        return L.circleMarker(latlng, { radius: 6, color: st.color, fillColor: st.fillColor, fillOpacity: 0.8, weight: 1 });
+      },
+      onEachFeature: (feature, layer) => layer.bindPopup(buildPopupHtml(feature, config, field))
+    }).addTo(mapRef);
   }
 
   function clearActiveRiskLayer() {
@@ -571,6 +656,32 @@ document.addEventListener("DOMContentLoaded", function () {
       if (clearButton) clearButton.addEventListener("click", clearActiveRiskLayer);
 
       setTimeout(() => map.invalidateSize(true), 400);
+    }
+
+    const potMapElement = document.getElementById("potMap");
+    if (potMapElement && window.L) {
+      potMap = L.map("potMap", { preferCanvas: true }).setView(ocanaCoords, 13);
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 19, attribution: "&copy; OpenStreetMap contributors" }).addTo(potMap);
+      document.querySelectorAll('input[name="potLayer"]').forEach((radio) => {
+        radio.addEventListener("change", (e) => loadGenericLayer(potMap, e.target.value, potLayersConfig, "currentPotLayer", document.getElementById("potLegendContent"), document.getElementById("potInfoContent")));
+      });
+      const clearPot = document.getElementById("clearPotLayer");
+      if (clearPot) clearPot.addEventListener("click", () => {
+        if (currentPotLayer && potMap.hasLayer(currentPotLayer)) potMap.removeLayer(currentPotLayer);
+      });
+    }
+
+    const pomcaMapElement = document.getElementById("pomcaMap");
+    if (pomcaMapElement && window.L) {
+      pomcaMap = L.map("pomcaMap", { preferCanvas: true }).setView(ocanaCoords, 12);
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 19, attribution: "&copy; OpenStreetMap contributors" }).addTo(pomcaMap);
+      document.querySelectorAll('input[name="pomcaLayer"]').forEach((radio) => {
+        radio.addEventListener("change", (e) => loadGenericLayer(pomcaMap, e.target.value, pomcaLayersConfig, "currentPomcaLayer", document.getElementById("pomcaLegendContent"), document.getElementById("pomcaInfoContent")));
+      });
+      const clearPomca = document.getElementById("clearPomcaLayer");
+      if (clearPomca) clearPomca.addEventListener("click", () => {
+        if (currentPomcaLayer && pomcaMap.hasLayer(currentPomcaLayer)) pomcaMap.removeLayer(currentPomcaLayer);
+      });
     }
 
     const accidentMapElement = document.getElementById("accidentMap");

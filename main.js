@@ -216,7 +216,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const riskLayersConfig = {
     amenaza_at: {
       label: "Amenaza por avenida torrencial",
-      url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/Amenaza_Avenida_Torrencial_Urbano.json",
+      url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/amenaza/Amenaza_Avenida_Torrencial_Urbano.json",
       kind: "amenaza",
       info: `<p><strong>Amenaza:</strong> zonificación territorial del fenómeno de avenida torrencial.</p>`
     },
@@ -279,6 +279,24 @@ document.addEventListener("DOMContentLoaded", function () {
       url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/amenaza/Zonificacion_Amenaza_MM_La_Erm.json",
       kind: "amenaza",
       info: "<p><strong>Amenaza:</strong> sector específico La Ermita.</p>"
+    },
+    amenaza_mm_aguas_claras: {
+      label: "Movimiento en masa - Aguas Claras",
+      url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/amenaza/Zonificacion_Amenaza_MM_Agua1.json",
+      kind: "amenaza",
+      info: "<p><strong>Amenaza:</strong> sector específico Aguas Claras.</p>"
+    },
+    amenaza_mm_pueblo_nuevo: {
+      label: "Movimiento en masa - Pueblo Nuevo",
+      url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/amenaza/Zonificacion_Amenaza_MM_Pueb.json",
+      kind: "amenaza",
+      info: "<p><strong>Amenaza:</strong> sector específico Pueblo Nuevo.</p>"
+    },
+    amenaza_mm_otare: {
+      label: "Movimiento en masa - Otaré",
+      url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/amenaza/Zonificacion_Amenaza_MM_Otar.json",
+      kind: "amenaza",
+      info: "<p><strong>Amenaza:</strong> sector específico Otaré.</p>"
     }
   };
 

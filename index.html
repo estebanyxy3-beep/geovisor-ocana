@@ -347,6 +347,26 @@
                 </div>
               </details>
 
+              <details class="risk-group">
+                <summary>Sectores movimiento en masa</summary>
+                <div class="risk-group-content">
+                  <label class="layer-option">
+                    <input type="radio" name="riesgoLayer" value="amenaza_mm_la_ermita" />
+                    <span class="layer-option-text"><strong>La Ermita</strong><small>Amenaza sectorial de movimiento en masa.</small></span>
+                  </label>
+                </div>
+              </details>
+
+              <details class="risk-group">
+                <summary>Fallas geológicas</summary>
+                <div class="risk-group-content">
+                  <label class="layer-option">
+                    <input type="radio" name="riesgoLayer" value="falla_geologica" />
+                    <span class="layer-option-text"><strong>Fallas geológicas de Ocaña</strong><small>Trazado lineal de fallas.</small></span>
+                  </label>
+                </div>
+              </details>
+
               <button id="clearRiskLayer" class="clear-btn" type="button">
                 Quitar capa activa
               </button>
@@ -601,6 +621,17 @@
           </div>
 
           <div class="pot-split-grid">
+            <div class="risk-card">
+              <h3>Cartografía POT</h3>
+              <label class="control-item"><input type="radio" name="potLayer" value="pot_comunas" /> Comunas de Ocaña</label>
+              <label class="control-item"><input type="radio" name="potLayer" value="pot_usos" /> Usos del suelo</label>
+              <button id="clearPotLayer" class="clear-btn" type="button">Quitar capa activa</button>
+              <div id="potLegendContent"></div>
+              <div id="potInfoContent"><p>Selecciona una capa del POT.</p></div>
+            </div>
+            <div class="risk-map-panel">
+              <div id="potMap"></div>
+            </div>
             <div class="pot-mini-card green">
               <h3>Conceptos Base del POT</h3>
               <p>Conoce los conceptos fundamentales para comprender el ordenamiento territorial y su aplicación.</p>
@@ -738,6 +769,18 @@
       </section>
 
       <section class="pomca-stats">
+        <div class="risk-card">
+          <h3>Cartografía POMCA</h3>
+          <label class="control-item"><input type="radio" name="pomcaLayer" value="pomca_protegidas" /> Áreas protegidas</label>
+          <label class="control-item"><input type="radio" name="pomcaLayer" value="pomca_forestales" /> Áreas forestales protectoras</label>
+          <label class="control-item"><input type="radio" name="pomcaLayer" value="pomca_ecosistemicas" /> Áreas de especial importancia ecosistémica</label>
+          <button id="clearPomcaLayer" class="clear-btn" type="button">Quitar capa activa</button>
+          <div id="pomcaLegendContent"></div>
+          <div id="pomcaInfoContent"><p>Selecciona una capa del POMCA.</p></div>
+        </div>
+        <div class="risk-map-panel">
+          <div id="pomcaMap"></div>
+        </div>
         <article class="pomca-stat-card">
           <span class="pomca-stat-label">Cuenca principal</span>
           <strong>Río Algodonal</strong>

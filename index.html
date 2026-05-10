@@ -225,8 +225,10 @@
           </div>
         </div>
 
-        <div class="risk-layout">
-          <aside class="risk-sidebar">
+        <div class="risk-full-map-layout">
+          <div class="risk-map-panel risk-map-full">
+            <div id="map"></div>
+            <aside class="risk-map-controls">
             <div class="risk-card">
               <h3>Mapas base</h3>
 
@@ -401,17 +403,14 @@
                 Quitar capa activa
               </button>
             </div>
+            </aside>
 
-            <div class="risk-card">
+            <aside class="risk-map-info-panel">
               <h3>Información temática</h3>
               <div id="riskInfoContent">
                 <p>Selecciona una capa para ver su descripción.</p>
               </div>
-            </div>
-          </aside>
-
-          <div class="risk-map-panel">
-            <div id="map"></div>
+            </aside>
 
             <div class="legend-floating" id="legendBox">
               <h4>Leyenda</h4>

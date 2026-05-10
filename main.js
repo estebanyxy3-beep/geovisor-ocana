@@ -803,6 +803,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function renderPotFichaCard(ficha) {
       const usos = ficha.usos || {};
+      const principales = usos.principal || usos.permitido || usos.permitidos || [];
+      const compatibles = usos.compatible || usos.compatibles || [];
+      const condicionados = usos.condicionado || usos.condicionados || usos.restringido || usos.restringidos || [];
+      const prohibidos = usos.prohibido || usos.prohibidos || [];
 
       return `
         <article class="pot-ficha-card">
@@ -815,12 +819,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
           ${ficha.sector ? `<p><strong>Sector:</strong> ${valueToText(ficha.sector)}</p>` : ""}
 
-          ${renderUsosPot("Usos principales / permitidos", usos.principal || usos.permitido || usos.permitidos)}
-          ${renderUsosPot("Usos compatibles", usos.compatible || usos.compatibles)}
-          ${renderUsosPot("Usos condicionados o restringidos", usos.condicionado || usos.condicionados || usos.restringido || usos.restringidos)}
-          ${renderUsosPot("Usos prohibidos", usos.prohibido || usos.prohibidos)}
+          <div class="pot-ficha-summary">
+            <span>${principales.length} usos principales</span>
+            <span>${compatibles.length} compatibles</span>
+            <span>${condicionados.length} condicionados/restringidos</span>
+            <span>${prohibidos.length} prohibidos</span>
+          </div>
 
-          ${renderEdificabilidadPot(ficha.edificabilidad)}
+          <details class="pot-ficha-details">
+            <summary>Ver detalle</summary>
+            ${renderUsosPot("Usos principales / permitidos", principales)}
+            ${renderUsosPot("Usos compatibles", compatibles)}
+            ${renderUsosPot("Usos condicionados o restringidos", condicionados)}
+            ${renderUsosPot("Usos prohibidos", prohibidos)}
+            ${renderEdificabilidadPot(ficha.edificabilidad)}
+          </details>
         </article>
       `;
     }
@@ -884,8 +897,11 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       resultsNode.innerHTML = `
+        <p class="pot-fichas-count">
+          Mostrando ${Math.min(filtered.length, 12)} de ${filtered.length} fichas encontradas.
+        </p>
         <div class="pot-fichas-results-grid">
-          ${filtered.map(renderPotFichaCard).join("")}
+          ${filtered.slice(0, 12).map(renderPotFichaCard).join("")}
         </div>
       `;
     }
@@ -938,6 +954,31 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     loadPotFichasNormativas();
+
+    document.querySelectorAll("[data-pot-subview]").forEach((button) => {
+      button.addEventListener("click", function () {
+        const target = this.dataset.potSubview;
+
+        document.querySelectorAll("#view-pot .module-menu-item").forEach((btn) => {
+          btn.classList.remove("active");
+        });
+
+        this.classList.add("active");
+
+        document.querySelectorAll("#view-pot .pot-subview").forEach((section) => {
+          section.classList.remove("active");
+        });
+
+        const targetSection = document.getElementById(`pot-subview-${target}`);
+        if (targetSection) {
+          targetSection.classList.add("active");
+        }
+
+        if (target === "contenidos" && potMap) {
+          setTimeout(() => potMap.invalidateSize(true), 300);
+        }
+      });
+    });
 
     const pomcaMapElement = document.getElementById("pomcaMap");
     if (pomcaMapElement && window.L) {

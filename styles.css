@@ -2151,7 +2151,12 @@ body {
   background: #ffffff;
   border: 1px solid #dce4df;
   border-radius: 18px;
-  padding: 16px;
+  padding: 18px;
+}
+
+.pot-fichas-section h4 {
+  margin: 0 0 10px 0;
+  color: #17325d;
 }
 
 .pot-fichas-filters {
@@ -2161,74 +2166,89 @@ body {
   margin: 14px 0;
 }
 
-.pot-fichas-results-grid {
-  display: grid;
-  gap: 12px;
-  max-height: 520px;
-  overflow-y: auto;
-  padding-right: 6px;
-}
-
-.pot-ficha-card {
-  border: 1px solid #dce4df;
-  border-radius: 16px;
-  padding: 14px;
-  background: #f8fbf9;
-}
-
-.pot-ficha-card-header {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin-bottom: 8px;
-}
-
-.pot-ficha-card-header span,
-.pot-ficha-card-header strong {
-  background: #e8f5ec;
-  color: #166534;
-  border-radius: 999px;
-  padding: 5px 9px;
-  font-size: 0.82rem;
-}
-
-.pot-ficha-summary {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin: 10px 0;
-}
-
-.pot-ficha-summary span {
-  background: #eef6ff;
-  color: #17325d;
-  border-radius: 999px;
-  padding: 5px 9px;
-  font-size: 0.8rem;
-}
-
-.pot-ficha-details {
-  margin-top: 8px;
-}
-
-.pot-ficha-details summary {
-  cursor: pointer;
-  font-weight: 700;
-  color: #174a8b;
-}
-
-.pot-ficha-usos {
-  margin-top: 10px;
-}
-
-.pot-ficha-usos ul {
-  margin: 6px 0 0 18px;
-  padding: 0;
+.pot-fichas-section input,
+.pot-fichas-section select {
+  width: 100%;
+  border: 1px solid #cfdcd3;
+  border-radius: 10px;
+  padding: 8px 10px;
+  margin-top: 6px;
 }
 
 .pot-fichas-count {
   color: #5b6470;
   font-size: 0.9rem;
+  margin: 10px 0;
+}
+
+.pot-fichas-table-wrap {
+  max-height: 520px;
+  overflow: auto;
+  border: 1px solid #dce4df;
+  border-radius: 14px;
+}
+
+.pot-fichas-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  background: white;
+}
+
+.pot-fichas-table th {
+  position: sticky;
+  top: 0;
+  background: #e8f5ec;
+  color: #17325d;
+  text-align: left;
+  padding: 10px;
+  border-bottom: 1px solid #cfdcd3;
+  z-index: 1;
+}
+
+.pot-fichas-table td {
+  padding: 10px;
+  border-bottom: 1px solid #edf2ef;
+  vertical-align: top;
+}
+
+.pot-fichas-table tr:nth-child(even) {
+  background: #f8fbf9;
+}
+
+.pot-table-details summary {
+  cursor: pointer;
+  color: #174a8b;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.pot-detail-block {
+  margin-top: 12px;
+}
+
+.pot-detail-block h5 {
+  margin: 8px 0;
+  color: #17325d;
+}
+
+.pot-detail-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.84rem;
+  margin-top: 6px;
+}
+
+.pot-detail-table th,
+.pot-detail-table td {
+  border: 1px solid #dce4df;
+  padding: 7px 8px;
+  vertical-align: top;
+}
+
+.pot-detail-table th {
+  background: #f0f7f2;
+  color: #17325d;
 }
 
 .mini-feature-grid {
@@ -2369,5 +2389,15 @@ body {
 
   .module-hero-card h1 {
     font-size: 2rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .pot-fichas-filters {
+    grid-template-columns: 1fr;
+  }
+
+  .pot-fichas-table {
+    min-width: 760px;
   }
 }

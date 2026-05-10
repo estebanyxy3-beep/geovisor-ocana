@@ -771,37 +771,55 @@ document.addEventListener("DOMContentLoaded", function () {
       return String(value);
     }
 
-    function renderUsosPot(titulo, lista) {
+    function renderUsosTablePot(titulo, lista) {
       if (!Array.isArray(lista) || !lista.length) return "";
 
       return `
-        <div class="pot-ficha-usos">
-          <strong>${titulo}</strong>
-          <ul>
-            ${lista.slice(0, 10).map((item) => `
-              <li>${valueToText(item)}</li>
+        <div class="pot-detail-block">
+          <h5>${titulo}</h5>
+          <table class="pot-detail-table">
+            <thead>
+              <tr>
+                <th>Código</th>
+                <th>Uso</th>
+                <th>Condiciones / clasificación</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${lista.slice(0, 20).map((item) => `
+              <tr>
+                <td>${valueToText(item?.codigo) || "—"}</td>
+                <td>${valueToText(item?.uso || item?.nombre || item?.descripcion) || valueToText(item)}</td>
+                <td>${valueToText(item?.condiciones || item?.clasificacion || item?.observacion) || "—"}</td>
+              </tr>
             `).join("")}
-          </ul>
+            </tbody>
+          </table>
         </div>
       `;
     }
 
-    function renderEdificabilidadPot(edificabilidad) {
+    function renderEdificabilidadTablePot(edificabilidad) {
       if (!Array.isArray(edificabilidad) || !edificabilidad.length) return "";
 
       return `
-        <details class="pot-ficha-details">
-          <summary>Ver edificabilidad y normas aplicables</summary>
-          <ul>
-            ${edificabilidad.slice(0, 12).map((item) => `
-              <li>${valueToText(item)}</li>
+        <div class="pot-detail-block">
+          <h5>Edificabilidad y normas aplicables</h5>
+          <table class="pot-detail-table">
+            <tbody>
+              ${edificabilidad.slice(0, 20).map((item) => `
+              <tr>
+                <th>${valueToText(item?.concepto || item?.norma || item?.campo) || "Norma"}</th>
+                <td>${valueToText(item?.valor || item?.descripcion || item)}</td>
+              </tr>
             `).join("")}
-          </ul>
-        </details>
+            </tbody>
+          </table>
+        </div>
       `;
     }
 
-    function renderPotFichaCard(ficha) {
+    function renderPotFichaTableRow(ficha) {
       const usos = ficha.usos || {};
       const principales = usos.principal || usos.permitido || usos.permitidos || [];
       const compatibles = usos.compatible || usos.compatibles || [];
@@ -809,32 +827,28 @@ document.addEventListener("DOMContentLoaded", function () {
       const prohibidos = usos.prohibido || usos.prohibidos || [];
 
       return `
-        <article class="pot-ficha-card">
-          <div class="pot-ficha-card-header">
-            <span>${valueToText(ficha.ambito) || "POT"}</span>
-            <strong>${valueToText(ficha.ficha) || "Ficha normativa"}</strong>
-          </div>
-
-          <h4>${valueToText(ficha.tratamiento) || valueToText(ficha.sector) || "Tratamiento urbanístico"}</h4>
-
-          ${ficha.sector ? `<p><strong>Sector:</strong> ${valueToText(ficha.sector)}</p>` : ""}
-
-          <div class="pot-ficha-summary">
-            <span>${principales.length} usos principales</span>
-            <span>${compatibles.length} compatibles</span>
-            <span>${condicionados.length} condicionados/restringidos</span>
-            <span>${prohibidos.length} prohibidos</span>
-          </div>
-
-          <details class="pot-ficha-details">
+        <tr>
+          <td><strong>${valueToText(ficha.ficha) || "Ficha normativa"}</strong></td>
+          <td>${valueToText(ficha.ambito) || "POT"}</td>
+          <td>
+            <strong>${valueToText(ficha.tratamiento) || "Tratamiento"}</strong>
+            ${ficha.sector ? `<br><small>${valueToText(ficha.sector)}</small>` : ""}
+          </td>
+          <td>${principales.length}</td>
+          <td>${compatibles.length}</td>
+          <td>${condicionados.length}</td>
+          <td>${prohibidos.length}</td>
+          <td>
+            <details class="pot-table-details">
             <summary>Ver detalle</summary>
-            ${renderUsosPot("Usos principales / permitidos", principales)}
-            ${renderUsosPot("Usos compatibles", compatibles)}
-            ${renderUsosPot("Usos condicionados o restringidos", condicionados)}
-            ${renderUsosPot("Usos prohibidos", prohibidos)}
-            ${renderEdificabilidadPot(ficha.edificabilidad)}
-          </details>
-        </article>
+            ${renderUsosTablePot("Usos principales / permitidos", principales)}
+            ${renderUsosTablePot("Usos compatibles", compatibles)}
+            ${renderUsosTablePot("Usos condicionados o restringidos", condicionados)}
+            ${renderUsosTablePot("Usos prohibidos", prohibidos)}
+            ${renderEdificabilidadTablePot(ficha.edificabilidad)}
+            </details>
+          </td>
+        </tr>
       `;
     }
 
@@ -880,13 +894,21 @@ document.addEventListener("DOMContentLoaded", function () {
           valueToText(ficha.edificabilidad)
         ].join(" "));
 
+        const principales = usos.principal || usos.permitido || usos.permitidos || [];
+        const compatibles = usos.compatible || usos.compatibles || [];
+        const condicionados = usos.condicionado || usos.condicionados || usos.restringido || usos.restringidos || [];
+        const prohibidos = usos.prohibido || usos.prohibidos || [];
+
         const matchesQuery = !query || texto.includes(query);
         const matchesAmbito = ambito === "todos" || normalizeText(ficha.ambito) === normalizeText(ambito);
 
         const matchesCategoria =
           categoria === "todos" ||
-          Array.isArray(usos[categoria]) ||
-          Array.isArray(usos[`${categoria}s`]);
+          (categoria === "principal" && principales.length) ||
+          (categoria === "compatible" && compatibles.length) ||
+          (categoria === "condicionado" && condicionados.length) ||
+          (categoria === "restringido" && condicionados.length) ||
+          (categoria === "prohibido" && prohibidos.length);
 
         return matchesQuery && matchesAmbito && matchesCategoria;
       });
@@ -896,12 +918,30 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
       }
 
+      const visible = filtered.slice(0, 12);
+
       resultsNode.innerHTML = `
         <p class="pot-fichas-count">
-          Mostrando ${Math.min(filtered.length, 12)} de ${filtered.length} fichas encontradas.
+          Mostrando ${visible.length} de ${filtered.length} fichas encontradas.
         </p>
-        <div class="pot-fichas-results-grid">
-          ${filtered.slice(0, 12).map(renderPotFichaCard).join("")}
+        <div class="pot-fichas-table-wrap">
+          <table class="pot-fichas-table">
+            <thead>
+              <tr>
+                <th>Ficha</th>
+                <th>Ámbito</th>
+                <th>Tratamiento / sector</th>
+                <th>Principales</th>
+                <th>Compatibles</th>
+                <th>Condicionados</th>
+                <th>Prohibidos</th>
+                <th>Detalle</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${visible.map(renderPotFichaTableRow).join("")}
+            </tbody>
+          </table>
         </div>
       `;
     }

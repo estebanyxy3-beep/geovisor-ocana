@@ -746,6 +746,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const POT_FICHAS_URL = "data/pot/usos_suelo/pot_fichas_normativas_ocana.json";
     let potFichasNormativas = [];
+    const POT_CODE_GUIDE = {
+      R1: "Vivienda unifamiliar",
+      R2: "Vivienda bifamiliar",
+      R3: "Vivienda multifamiliar",
+      M1: "Mixto 1",
+      M2: "Mixto 2",
+      M3: "Mixto 3",
+      C1: "Comercio 1",
+      C2: "Comercio 2",
+      C3: "Comercio 3",
+      C4: "Comercio 4",
+      DOT1: "Dotacional 1",
+      DOT2: "Dotacional 2",
+      S1: "Servicios 1",
+      S2: "Servicios 2",
+      S3: "Servicios 3",
+      S4: "Servicios 4",
+      S5: "Servicios 5",
+      S6: "Servicios 6",
+      S7: "Servicios 7"
+    };
 
     function valueToText(value) {
       if (value === null || value === undefined || value === "") return "";
@@ -819,6 +840,38 @@ document.addEventListener("DOMContentLoaded", function () {
       `;
     }
 
+    function getPotFichaImage(ficha) {
+      const fichaText = normalizeText(valueToText(ficha.ficha));
+      const tratamientoText = normalizeText(valueToText(ficha.tratamiento));
+      const ambitoText = normalizeText(valueToText(ficha.ambito));
+
+      if (tratamientoText.includes("conservacion patrimonial") || fichaText.includes("1")) {
+        return "data/pot/usos_suelo/Tratamiento_conservacion_patrimonial.png";
+      }
+
+      if (tratamientoText.includes("consolidacion") || fichaText.includes("2")) {
+        return "data/pot/usos_suelo/Tratamiento_consolidacion.png";
+      }
+
+      if (tratamientoText.includes("desarrollo") || fichaText.includes("3")) {
+        return "data/pot/usos_suelo/Tratamiento_desarrollo_suelo_urbano.png";
+      }
+
+      if (tratamientoText.includes("mejoramiento integral") || fichaText.includes("4")) {
+        return "data/pot/usos_suelo/Tratamiento_mejoramiento_integral.png";
+      }
+
+      if (tratamientoText.includes("renovacion urbana") || fichaText.includes("5")) {
+        return "data/pot/usos_suelo/Tratamiento_renovacion_urbana.png";
+      }
+
+      if (ambitoText.includes("rural") || tratamientoText.includes("rural")) {
+        return "data/pot/usos_suelo/Tratamiento_rural.png";
+      }
+
+      return "";
+    }
+
     function renderPotFichaTableRow(ficha, index) {
       const usos = ficha.usos || {};
       const principales = usos.principal || usos.permitido || usos.permitidos || [];
@@ -857,6 +910,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const compatibles = usos.compatible || usos.compatibles || [];
       const condicionados = usos.condicionado || usos.condicionados || usos.restringido || usos.restringidos || [];
       const prohibidos = usos.prohibido || usos.prohibidos || [];
+      const imageUrl = getPotFichaImage(ficha);
 
       panel.innerHTML = `
         <article class="pot-ficha-detail-card">
@@ -869,6 +923,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
           ${ficha.sector ? `<p><strong>Sector:</strong> ${valueToText(ficha.sector)}</p>` : ""}
 
+          ${imageUrl ? `
+            <figure class="pot-ficha-map-figure">
+              <img
+                class="pot-ficha-map-img"
+                src="${imageUrl}"
+                alt="Mapa de referencia de ${valueToText(ficha.tratamiento)}"
+                loading="lazy"
+                onerror="this.closest('figure').remove()"
+              />
+              <figcaption>Mapa de referencia del tratamiento seleccionado.</figcaption>
+            </figure>
+          ` : ""}
+
           ${renderUsosTablePot("Usos principales / permitidos", principales)}
           ${renderUsosTablePot("Usos compatibles", compatibles)}
           ${renderUsosTablePot("Usos condicionados o restringidos", condicionados)}
@@ -877,7 +944,51 @@ document.addEventListener("DOMContentLoaded", function () {
         </article>
       `;
 
+      renderPotSidebarInfo(ficha);
       panel.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+
+    function renderPotSidebarInfo(ficha) {
+      const codeGuideNode = document.getElementById("potCodeGuide");
+      const sectorGuideNode = document.getElementById("potSectorGuide");
+      if (!codeGuideNode || !sectorGuideNode) return;
+
+      if (!ficha) {
+        codeGuideNode.innerHTML = "<p>Selecciona una ficha para ver la explicación de sus códigos.</p>";
+        sectorGuideNode.innerHTML = "<p>Selecciona una ficha para conocer los sectores asociados.</p>";
+        return;
+      }
+
+      const usos = ficha.usos || {};
+      const allUses = [
+        ...(usos.principal || usos.permitido || usos.permitidos || []),
+        ...(usos.compatible || usos.compatibles || []),
+        ...(usos.condicionado || usos.condicionados || usos.restringido || usos.restringidos || []),
+        ...(usos.prohibido || usos.prohibidos || [])
+      ];
+
+      const codes = [...new Set(
+        allUses
+          .map((item) => (item && item.codigo ? String(item.codigo).trim() : ""))
+          .filter(Boolean)
+      )];
+
+      codeGuideNode.innerHTML = codes.length
+        ? `<ul>${codes.map((code) => {
+          const normalized = code.replace(/\s+/g, "").toUpperCase();
+          return `<li><strong>${code}</strong>: ${POT_CODE_GUIDE[normalized] || "Código de uso definido en la ficha normativa."}</li>`;
+        }).join("")}</ul>`
+        : "<p>No hay códigos identificados en esta ficha.</p>";
+
+      const sectorText = ficha.sector ? String(ficha.sector) : "";
+      const sectores = sectorText
+        .split(/-|,|;/)
+        .map((s) => s.trim())
+        .filter(Boolean);
+
+      sectorGuideNode.innerHTML = sectores.length
+        ? `<ul>${sectores.map((s) => `<li>${valueToText(s)}</li>`).join("")}</ul>`
+        : "<p>Esta ficha no especifica sectores o barrios asociados.</p>";
     }
 
     function populatePotFichasFilters() {

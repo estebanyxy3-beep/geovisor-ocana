@@ -827,7 +827,7 @@ document.addEventListener("DOMContentLoaded", function () {
           </div>
 
           <details class="pot-ficha-details">
-            <summary>Ver usos y normas</summary>
+            <summary>Ver detalle</summary>
             ${renderUsosPot("Usos principales / permitidos", principales)}
             ${renderUsosPot("Usos compatibles", compatibles)}
             ${renderUsosPot("Usos condicionados o restringidos", condicionados)}

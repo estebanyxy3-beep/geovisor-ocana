@@ -580,9 +580,9 @@
 
       <nav class="module-menu">
         <button class="module-menu-item" type="button">Plan de Ordenamiento Territorial</button>
-        <button class="module-menu-item active" type="button">Normativa</button>
-        <button class="module-menu-item" type="button">Concepto Base</button>
-        <button class="module-menu-item" type="button">Contenidos Municipales</button>
+        <button class="module-menu-item active" type="button" data-pot-subview="normativa">Normativa</button>
+        <button class="module-menu-item" type="button" data-pot-subview="conceptos">Concepto Base</button>
+        <button class="module-menu-item" type="button" data-pot-subview="contenidos">Contenidos Municipales</button>
       </nav>
 
       <button class="module-back-btn" type="button" data-view-target="inicio">← Volver al inicio</button>
@@ -596,6 +596,7 @@
 
       <section class="content-and-side">
         <div class="content-panel">
+          <div class="pot-subview active" id="pot-subview-normativa">
           <div class="pot-main-card">
             <div class="pot-header-row">
               <div>
@@ -648,8 +649,9 @@
               </article>
             </div>
           </div>
+          </div>
 
-          <div class="pot-split-grid">
+          <div class="pot-subview" id="pot-subview-conceptos">
             <div class="pot-mini-card green">
               <h3>Conceptos Base del POT</h3>
               <p>Conoce los conceptos fundamentales para comprender el ordenamiento territorial y su aplicación.</p>
@@ -660,7 +662,10 @@
                 <article><strong>Desarrollo Sostenible</strong><button>Ampiar</button></article>
               </div>
             </div>
+          </div>
 
+          <div class="pot-subview" id="pot-subview-contenidos">
+          <div class="pot-split-grid">
             <div class="pot-mini-card gold">
               <h3>Contenidos Municipales del POT</h3>
               <p>Explora la información específica del territorio municipal y sus componentes.</p>
@@ -671,9 +676,6 @@
                 <button id="clearPotLayer" class="clear-btn" type="button">Quitar capa activa</button>
                 <div id="potLegendContent"></div>
                 <div id="potInfoContent"><p>Selecciona una capa del POT.</p></div>
-              </div>
-              <div class="risk-map-panel">
-                <div id="potMap"></div>
               </div>
               <section class="pot-fichas-section">
                 <h4>Fichas normativas y tratamientos urbanísticos</h4>
@@ -713,37 +715,33 @@
                 <div id="potFichasResults">
                   <p>Cargando fichas normativas...</p>
                 </div>
+
+                <div id="potFichaDetailPanel" class="pot-ficha-detail-panel">
+                  <p>Selecciona una ficha para ver sus usos y normas aplicables.</p>
+                </div>
               </section>
+              <div class="risk-map-panel">
+                <div id="potMap"></div>
+              </div>
             </div>
+          </div>
           </div>
         </div>
 
-        <aside class="right-panel">
-          <div class="right-panel-card">
-            <h4>Información temática</h4>
-            <p>
-              Explora las normas que hacen parte del marco jurídico del
-              Plan de Ordenamiento Territorial.
-            </p>
-
-            <div class="info-box">
-              <strong>¿Qué encontrarás aquí?</strong>
-              <ul>
-                <li>Marco legal nacional</li>
-                <li>Normas reglamentarias</li>
-                <li>Acuerdos del municipio</li>
-                <li>Normas específicas del POT</li>
-              </ul>
+        <aside class="right-panel pot-context-sidebar">
+          <section class="pot-context-card">
+            <h3>¿Qué significan los códigos?</h3>
+            <div id="potCodeGuide">
+              <p>Selecciona una ficha para ver la explicación de sus códigos.</p>
             </div>
-          </div>
+          </section>
 
-          <div class="right-panel-card">
-            <h4>Documentos destacados</h4>
-            <button type="button" class="quick-link">Ley 388 de 1997</button>
-            <button type="button" class="quick-link">Decreto 1077 de 2015</button>
-            <button type="button" class="quick-link">Acuerdo Municipal 012 de 2020</button>
-            <button type="button" class="quick-link">Ver todos los documentos</button>
-          </div>
+          <section class="pot-context-card">
+            <h3>Sectores o barrios asociados</h3>
+            <div id="potSectorGuide">
+              <p>Selecciona una ficha para conocer los sectores asociados.</p>
+            </div>
+          </section>
         </aside>
       </section>
     </div>

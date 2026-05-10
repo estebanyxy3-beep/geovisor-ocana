@@ -746,6 +746,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const POT_FICHAS_URL = "data/pot/usos_suelo/pot_fichas_normativas_ocana.json";
     let potFichasNormativas = [];
+    const POT_CODE_GUIDE = {
+      R1: "Vivienda unifamiliar",
+      R2: "Vivienda bifamiliar",
+      R3: "Vivienda multifamiliar",
+      M1: "Mixto 1",
+      M2: "Mixto 2",
+      M3: "Mixto 3",
+      C1: "Comercio 1",
+      C2: "Comercio 2",
+      C3: "Comercio 3",
+      C4: "Comercio 4",
+      DOT1: "Dotacional 1",
+      DOT2: "Dotacional 2",
+      S1: "Servicios 1",
+      S2: "Servicios 2",
+      S3: "Servicios 3",
+      S4: "Servicios 4",
+      S5: "Servicios 5",
+      S6: "Servicios 6",
+      S7: "Servicios 7"
+    };
 
     function valueToText(value) {
       if (value === null || value === undefined || value === "") return "";
@@ -771,41 +792,128 @@ document.addEventListener("DOMContentLoaded", function () {
       return String(value);
     }
 
-    function renderUsosPot(titulo, lista) {
+    function renderUsosTablePot(titulo, lista) {
       if (!Array.isArray(lista) || !lista.length) return "";
 
       return `
-        <div class="pot-ficha-usos">
-          <strong>${titulo}</strong>
-          <ul>
-            ${lista.slice(0, 10).map((item) => `
-              <li>${valueToText(item)}</li>
+        <div class="pot-detail-block">
+          <h5>${titulo}</h5>
+          <table class="pot-detail-table">
+            <thead>
+              <tr>
+                <th>Código</th>
+                <th>Uso</th>
+                <th>Condiciones / clasificación</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${lista.slice(0, 20).map((item) => `
+              <tr>
+                <td>${valueToText(item?.codigo) || "—"}</td>
+                <td>${valueToText(item?.uso || item?.nombre || item?.descripcion) || valueToText(item)}</td>
+                <td>${valueToText(item?.condiciones || item?.clasificacion || item?.observacion) || "—"}</td>
+              </tr>
             `).join("")}
-          </ul>
+            </tbody>
+          </table>
         </div>
       `;
     }
 
-    function renderEdificabilidadPot(edificabilidad) {
+    function renderEdificabilidadTablePot(edificabilidad) {
       if (!Array.isArray(edificabilidad) || !edificabilidad.length) return "";
 
       return `
-        <details class="pot-ficha-details">
-          <summary>Ver edificabilidad y normas aplicables</summary>
-          <ul>
-            ${edificabilidad.slice(0, 12).map((item) => `
-              <li>${valueToText(item)}</li>
+        <div class="pot-detail-block">
+          <h5>Edificabilidad y normas aplicables</h5>
+          <table class="pot-detail-table">
+            <tbody>
+              ${edificabilidad.slice(0, 20).map((item) => `
+              <tr>
+                <th>${valueToText(item?.concepto || item?.norma || item?.campo) || "Norma"}</th>
+                <td>${valueToText(item?.valor || item?.descripcion || item)}</td>
+              </tr>
             `).join("")}
-          </ul>
-        </details>
+            </tbody>
+          </table>
+        </div>
       `;
     }
 
-    function renderPotFichaCard(ficha) {
+    function getPotFichaImage(ficha) {
+      const fichaText = normalizeText(valueToText(ficha.ficha));
+      const tratamientoText = normalizeText(valueToText(ficha.tratamiento));
+      const ambitoText = normalizeText(valueToText(ficha.ambito));
+
+      if (tratamientoText.includes("conservacion patrimonial") || fichaText.includes("1")) {
+        return "data/pot/usos_suelo/Tratamiento_conservacion_patrimonial.png";
+      }
+
+      if (tratamientoText.includes("consolidacion") || fichaText.includes("2")) {
+        return "data/pot/usos_suelo/Tratamiento_consolidacion.png";
+      }
+
+      if (tratamientoText.includes("desarrollo") || fichaText.includes("3")) {
+        return "data/pot/usos_suelo/Tratamiento_desarrollo_suelo_urbano.png";
+      }
+
+      if (tratamientoText.includes("mejoramiento integral") || fichaText.includes("4")) {
+        return "data/pot/usos_suelo/Tratamiento_mejoramiento_integral.png";
+      }
+
+      if (tratamientoText.includes("renovacion urbana") || fichaText.includes("5")) {
+        return "data/pot/usos_suelo/Tratamiento_renovacion_urbana.png";
+      }
+
+      if (ambitoText.includes("rural") || tratamientoText.includes("rural")) {
+        return "data/pot/usos_suelo/Tratamiento_rural.png";
+      }
+
+      return "";
+    }
+
+    function renderPotFichaTableRow(ficha, index) {
       const usos = ficha.usos || {};
+      const principales = usos.principal || usos.permitido || usos.permitidos || [];
+      const compatibles = usos.compatible || usos.compatibles || [];
+      const condicionados = usos.condicionado || usos.condicionados || usos.restringido || usos.restringidos || [];
+      const prohibidos = usos.prohibido || usos.prohibidos || [];
 
       return `
-        <article class="pot-ficha-card">
+        <tr>
+          <td><strong>${valueToText(ficha.ficha) || "Ficha normativa"}</strong></td>
+          <td>${valueToText(ficha.ambito) || "POT"}</td>
+          <td>
+            <strong>${valueToText(ficha.tratamiento) || "Tratamiento"}</strong>
+            ${ficha.sector ? `<br><small>${valueToText(ficha.sector)}</small>` : ""}
+          </td>
+          <td>${principales.length}</td>
+          <td>${compatibles.length}</td>
+          <td>${condicionados.length}</td>
+          <td>${prohibidos.length}</td>
+          <td>
+            <button class="pot-detail-btn" type="button" data-pot-ficha-index="${index}">
+              Ver detalle
+            </button>
+          </td>
+        </tr>
+      `;
+    }
+
+    function renderPotFichaDetailPanel(ficha) {
+      const panel = document.getElementById("potFichaDetailPanel");
+      if (!panel || !ficha) return;
+
+      const usos = ficha.usos || {};
+
+      const principales = usos.principal || usos.permitido || usos.permitidos || [];
+      const compatibles = usos.compatible || usos.compatibles || [];
+      const condicionados = usos.condicionado || usos.condicionados || usos.restringido || usos.restringidos || [];
+      const prohibidos = usos.prohibido || usos.prohibidos || [];
+      const imageUrl = getPotFichaImage(ficha);
+
+      panel.innerHTML = `
+        <article class="pot-ficha-detail-card">
           <div class="pot-ficha-card-header">
             <span>${valueToText(ficha.ambito) || "POT"}</span>
             <strong>${valueToText(ficha.ficha) || "Ficha normativa"}</strong>
@@ -815,14 +923,72 @@ document.addEventListener("DOMContentLoaded", function () {
 
           ${ficha.sector ? `<p><strong>Sector:</strong> ${valueToText(ficha.sector)}</p>` : ""}
 
-          ${renderUsosPot("Usos principales / permitidos", usos.principal || usos.permitido || usos.permitidos)}
-          ${renderUsosPot("Usos compatibles", usos.compatible || usos.compatibles)}
-          ${renderUsosPot("Usos condicionados o restringidos", usos.condicionado || usos.condicionados || usos.restringido || usos.restringidos)}
-          ${renderUsosPot("Usos prohibidos", usos.prohibido || usos.prohibidos)}
+          ${imageUrl ? `
+            <figure class="pot-ficha-map-figure">
+              <img
+                class="pot-ficha-map-img"
+                src="${imageUrl}"
+                alt="Mapa de referencia de ${valueToText(ficha.tratamiento)}"
+                loading="lazy"
+                onerror="this.closest('figure').remove()"
+              />
+              <figcaption>Mapa de referencia del tratamiento seleccionado.</figcaption>
+            </figure>
+          ` : ""}
 
-          ${renderEdificabilidadPot(ficha.edificabilidad)}
+          ${renderUsosTablePot("Usos principales / permitidos", principales)}
+          ${renderUsosTablePot("Usos compatibles", compatibles)}
+          ${renderUsosTablePot("Usos condicionados o restringidos", condicionados)}
+          ${renderUsosTablePot("Usos prohibidos", prohibidos)}
+          ${renderEdificabilidadTablePot(ficha.edificabilidad)}
         </article>
       `;
+
+      renderPotSidebarInfo(ficha);
+      panel.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+
+    function renderPotSidebarInfo(ficha) {
+      const codeGuideNode = document.getElementById("potCodeGuide");
+      const sectorGuideNode = document.getElementById("potSectorGuide");
+      if (!codeGuideNode || !sectorGuideNode) return;
+
+      if (!ficha) {
+        codeGuideNode.innerHTML = "<p>Selecciona una ficha para ver la explicación de sus códigos.</p>";
+        sectorGuideNode.innerHTML = "<p>Selecciona una ficha para conocer los sectores asociados.</p>";
+        return;
+      }
+
+      const usos = ficha.usos || {};
+      const allUses = [
+        ...(usos.principal || usos.permitido || usos.permitidos || []),
+        ...(usos.compatible || usos.compatibles || []),
+        ...(usos.condicionado || usos.condicionados || usos.restringido || usos.restringidos || []),
+        ...(usos.prohibido || usos.prohibidos || [])
+      ];
+
+      const codes = [...new Set(
+        allUses
+          .map((item) => (item && item.codigo ? String(item.codigo).trim() : ""))
+          .filter(Boolean)
+      )];
+
+      codeGuideNode.innerHTML = codes.length
+        ? `<ul>${codes.map((code) => {
+          const normalized = code.replace(/\s+/g, "").toUpperCase();
+          return `<li><strong>${code}</strong>: ${POT_CODE_GUIDE[normalized] || "Código de uso definido en la ficha normativa."}</li>`;
+        }).join("")}</ul>`
+        : "<p>No hay códigos identificados en esta ficha.</p>";
+
+      const sectorText = ficha.sector ? String(ficha.sector) : "";
+      const sectores = sectorText
+        .split(/-|,|;/)
+        .map((s) => s.trim())
+        .filter(Boolean);
+
+      sectorGuideNode.innerHTML = sectores.length
+        ? `<ul>${sectores.map((s) => `<li>${valueToText(s)}</li>`).join("")}</ul>`
+        : "<p>Esta ficha no especifica sectores o barrios asociados.</p>";
     }
 
     function populatePotFichasFilters() {
@@ -867,27 +1033,69 @@ document.addEventListener("DOMContentLoaded", function () {
           valueToText(ficha.edificabilidad)
         ].join(" "));
 
+        const principales = usos.principal || usos.permitido || usos.permitidos || [];
+        const compatibles = usos.compatible || usos.compatibles || [];
+        const condicionados = usos.condicionado || usos.condicionados || usos.restringido || usos.restringidos || [];
+        const prohibidos = usos.prohibido || usos.prohibidos || [];
+
         const matchesQuery = !query || texto.includes(query);
         const matchesAmbito = ambito === "todos" || normalizeText(ficha.ambito) === normalizeText(ambito);
 
         const matchesCategoria =
           categoria === "todos" ||
-          Array.isArray(usos[categoria]) ||
-          Array.isArray(usos[`${categoria}s`]);
+          (categoria === "principal" && principales.length) ||
+          (categoria === "compatible" && compatibles.length) ||
+          (categoria === "condicionado" && condicionados.length) ||
+          (categoria === "restringido" && condicionados.length) ||
+          (categoria === "prohibido" && prohibidos.length);
 
         return matchesQuery && matchesAmbito && matchesCategoria;
       });
 
       if (!filtered.length) {
         resultsNode.innerHTML = "<p>No se encontraron fichas con esos filtros.</p>";
+        const panel = document.getElementById("potFichaDetailPanel");
+        if (panel) {
+          panel.innerHTML = "<p>Selecciona una ficha para ver sus usos y normas aplicables.</p>";
+        }
         return;
       }
 
+      const visible = filtered.slice(0, 12);
+
       resultsNode.innerHTML = `
-        <div class="pot-fichas-results-grid">
-          ${filtered.map(renderPotFichaCard).join("")}
+        <p class="pot-fichas-count">
+          Mostrando ${visible.length} de ${filtered.length} fichas encontradas.
+        </p>
+        <div class="pot-fichas-table-wrap">
+          <table class="pot-fichas-table">
+            <thead>
+              <tr>
+                <th>Ficha</th>
+                <th>Ámbito</th>
+                <th>Tratamiento / sector</th>
+                <th>Principales</th>
+                <th>Compatibles</th>
+                <th>Condicionados</th>
+                <th>Prohibidos</th>
+                <th>Detalle</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${visible.map((ficha, index) => renderPotFichaTableRow(ficha, index)).join("")}
+            </tbody>
+          </table>
         </div>
       `;
+
+      document.querySelectorAll("[data-pot-ficha-index]").forEach((button) => {
+        button.addEventListener("click", function () {
+          const index = Number.parseInt(this.dataset.potFichaIndex || "", 10);
+          if (Number.isNaN(index) || !visible[index]) return;
+          const ficha = visible[index];
+          renderPotFichaDetailPanel(ficha);
+        });
+      });
     }
 
     async function loadPotFichasNormativas() {
@@ -938,6 +1146,31 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     loadPotFichasNormativas();
+
+    document.querySelectorAll("[data-pot-subview]").forEach((button) => {
+      button.addEventListener("click", function () {
+        const target = this.dataset.potSubview;
+
+        document.querySelectorAll("#view-pot .module-menu-item").forEach((btn) => {
+          btn.classList.remove("active");
+        });
+
+        this.classList.add("active");
+
+        document.querySelectorAll("#view-pot .pot-subview").forEach((section) => {
+          section.classList.remove("active");
+        });
+
+        const targetSection = document.getElementById(`pot-subview-${target}`);
+        if (targetSection) {
+          targetSection.classList.add("active");
+        }
+
+        if (target === "contenidos" && potMap) {
+          setTimeout(() => potMap.invalidateSize(true), 300);
+        }
+      });
+    });
 
     const pomcaMapElement = document.getElementById("pomcaMap");
     if (pomcaMapElement && window.L) {

@@ -943,6 +943,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
       if (!filtered.length) {
         resultsNode.innerHTML = "<p>No se encontraron fichas con esos filtros.</p>";
+        const panel = document.getElementById("potFichaDetailPanel");
+        if (panel) {
+          panel.innerHTML = "<p>Selecciona una ficha para ver sus usos y normas aplicables.</p>";
+        }
         return;
       }
 
@@ -975,7 +979,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
       document.querySelectorAll("[data-pot-ficha-index]").forEach((button) => {
         button.addEventListener("click", function () {
-          const index = Number(this.dataset.potFichaIndex);
+          const index = Number.parseInt(this.dataset.potFichaIndex || "", 10);
+          if (Number.isNaN(index) || !visible[index]) return;
           const ficha = visible[index];
           renderPotFichaDetailPanel(ficha);
         });

@@ -249,8 +249,7 @@ document.addEventListener("DOMContentLoaded", function () {
       url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/riesgo/Construccion_Riesgo_inundaci.json",
       kind: "riesgo",
       info: `<h4>Construcción en riesgo por inundación</h4><p><strong>¿Qué muestra?</strong> Construcciones con posibilidad de afectación al combinar amenaza y exposición.</p><p><strong>¿Cómo leerla?</strong> Riesgo alto requiere mayor atención preventiva; riesgo medio y bajo también necesitan seguimiento.</p><p><strong>¿Para qué sirve?</strong> Orienta acciones de reducción del riesgo y planificación del territorio.</p>`
-      info: `<p><strong>¿Qué muestra esta capa?</strong></p><p>Relaciona la amenaza con los elementos expuestos para identificar construcciones con mayor posibilidad de afectación.</p><p><strong>¿Para qué sirve?</strong> Apoya decisiones sobre prevención, priorización de acciones y gestión responsable del territorio.</p>`
-    },
+        },
     amenaza_mm: {
       label: "Amenaza por movimiento en masa",
       url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/amenaza/Zonificacion_Amenaza_Movimie_Mas.json",

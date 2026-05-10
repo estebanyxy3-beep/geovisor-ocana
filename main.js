@@ -308,8 +308,20 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   const potLayersConfig = {
-    pot_comunas: { label: "Comunas de Ocaña", url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/pot/usos_suelo/Comunas_.json", kind: "pot" },
-    pot_usos: { label: "Usos del suelo", url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/pot/usos_suelo/Usos_Suelo.json", kind: "pot" }
+    pot_comunas: {
+      label: "Comunas de Ocaña",
+      url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/pot/usos_suelo/Comunas_.json",
+      kind: "pot",
+      preferredFields: ["comuna", "Comuna", "COMUNA", "nombre", "Nombre", "NOMBRE"],
+      info: `<h4>Comunas de Ocaña</h4><p><strong>¿Qué son?</strong> Las comunas son divisiones urbanas que agrupan barrios para facilitar la planeación territorial y la gestión pública.</p><p><strong>¿Cómo leer esta capa?</strong> Cada color representa una comuna diferente. En la leyenda encontrarás el nombre de cada comuna para ubicarla en el mapa.</p><p><strong>¿Para qué sirve?</strong> Ayuda a reconocer cómo se organiza la ciudad, priorizar inversiones, analizar cobertura de servicios y orientar decisiones comunitarias e institucionales.</p>`
+    },
+    pot_usos: {
+      label: "Usos del suelo",
+      url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/pot/usos_suelo/Usos_Suelo.json",
+      kind: "pot",
+      preferredFields: ["uso", "Uso", "USO", "uso_suelo", "Uso_Suelo", "USO_SUELO", "categoria", "Categoria", "CATEGORIA"],
+      info: `<h4>Usos del suelo</h4><p><strong>¿Qué significa?</strong> El uso del suelo indica la actividad principal permitida o predominante en cada zona del municipio (por ejemplo: residencial, comercial, institucional o protección).</p><p><strong>¿Cómo leer esta capa?</strong> Cada color corresponde a un tipo de uso y su nombre aparece en la leyenda. Puedes comparar sectores para identificar dónde se concentra cada uso.</p><p><strong>¿Para qué sirve?</strong> Permite entender qué actividades son compatibles con cada área, apoyar trámites y orientar decisiones de planificación urbana y convivencia territorial.</p>`
+    }
   };
   const pomcaLayersConfig = {
     pomca_protegidas: { label: "Áreas protegidas", url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/pomca/Areas_Protegidas.json", kind: "pomca" },
@@ -628,12 +640,18 @@ document.addEventListener("DOMContentLoaded", function () {
     const response = await fetch(config.url);
     const geojson = await response.json();
     const features = geojson.features || [];
-    const field = getClassificationField(features, config.kind === "pot" ? ["comuna", "uso", "uso_suelo"] : ["categoria", "nombre", "tipo"]);
+    const preferredFields = Array.isArray(config.preferredFields)
+      ? config.preferredFields
+      : (config.kind === "pot" ? ["comuna", "uso", "uso_suelo"] : ["categoria", "nombre", "tipo"]);
+    const field = getClassificationField(features, preferredFields);
     const values = getUniqueValues(features, field);
     const palette = config.kind === "pot" ? ["#2563eb","#16a34a","#f59e0b","#9333ea","#ef4444","#0891b2","#84cc16"] : ["#166534","#15803d","#0f766e","#65a30d","#22c55e","#14b8a6","#84cc16"];
     const colorMap = buildColorMap(values, palette);
     updateLegend(config, features, legendNode, field, colorMap);
-    if (infoNode) infoNode.innerHTML = `<h4>${config.label}</h4><p><strong>Campo clasificación:</strong> ${field || "No detectado"}</p>`;
+    if (infoNode) {
+      const defaultInfo = `<h4>${config.label}</h4><p><strong>Campo de clasificación detectado:</strong> ${field || "No detectado"}</p>`;
+      infoNode.innerHTML = config.info || defaultInfo;
+    }
     window[layerRefName] = L.geoJSON(geojson, {
       style: (feature) => getFeatureStyle(feature.properties || {}, config, field, colorMap),
       pointToLayer: (feature, latlng) => {

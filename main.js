@@ -764,7 +764,9 @@ document.addEventListener("DOMContentLoaded", function () {
       fetch("data/pot/usos_suelo/pot_fichas_normativas_ocana.json")
         .then((response) => response.json())
         .then((payload) => {
-          const fichas = Array.isArray(payload) ? payload : (Array.isArray(payload?.data) ? payload.data : (Array.isArray(payload?.features) ? payload.features.map((f) => f.properties || {}) : []));
+          const fichas = Array.isArray(payload?.fichas)
+            ? payload.fichas
+            : (Array.isArray(payload) ? payload : (Array.isArray(payload?.data) ? payload.data : (Array.isArray(payload?.features) ? payload.features.map((f) => f.properties || {}) : [])));
           const ambitoField = resolveField(fichas[0] || {}, ["ambito", "Ámbito", "AMB", "zona"]);
           const ambitos = [...new Set(fichas.map((item) => item?.[ambitoField]).filter(Boolean).map((item) => String(item).trim()))];
           ambitos.forEach((ambito) => {

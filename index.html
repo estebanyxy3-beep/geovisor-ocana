@@ -580,9 +580,9 @@
 
       <nav class="module-menu">
         <button class="module-menu-item" type="button">Plan de Ordenamiento Territorial</button>
-        <button class="module-menu-item active" type="button">Normativa</button>
-        <button class="module-menu-item" type="button">Concepto Base</button>
-        <button class="module-menu-item" type="button">Contenidos Municipales</button>
+        <button class="module-menu-item active" type="button" data-pot-subview="normativa">Normativa</button>
+        <button class="module-menu-item" type="button" data-pot-subview="conceptos">Concepto Base</button>
+        <button class="module-menu-item" type="button" data-pot-subview="contenidos">Contenidos Municipales</button>
       </nav>
 
       <button class="module-back-btn" type="button" data-view-target="inicio">← Volver al inicio</button>
@@ -596,6 +596,7 @@
 
       <section class="content-and-side">
         <div class="content-panel">
+          <div class="pot-subview active" id="pot-subview-normativa">
           <div class="pot-main-card">
             <div class="pot-header-row">
               <div>
@@ -648,8 +649,9 @@
               </article>
             </div>
           </div>
+          </div>
 
-          <div class="pot-split-grid">
+          <div class="pot-subview" id="pot-subview-conceptos">
             <div class="pot-mini-card green">
               <h3>Conceptos Base del POT</h3>
               <p>Conoce los conceptos fundamentales para comprender el ordenamiento territorial y su aplicación.</p>
@@ -660,7 +662,10 @@
                 <article><strong>Desarrollo Sostenible</strong><button>Ampiar</button></article>
               </div>
             </div>
+          </div>
 
+          <div class="pot-subview" id="pot-subview-contenidos">
+          <div class="pot-split-grid">
             <div class="pot-mini-card gold">
               <h3>Contenidos Municipales del POT</h3>
               <p>Explora la información específica del territorio municipal y sus componentes.</p>
@@ -671,9 +676,6 @@
                 <button id="clearPotLayer" class="clear-btn" type="button">Quitar capa activa</button>
                 <div id="potLegendContent"></div>
                 <div id="potInfoContent"><p>Selecciona una capa del POT.</p></div>
-              </div>
-              <div class="risk-map-panel">
-                <div id="potMap"></div>
               </div>
               <section class="pot-fichas-section">
                 <h4>Fichas normativas y tratamientos urbanísticos</h4>
@@ -714,7 +716,11 @@
                   <p>Cargando fichas normativas...</p>
                 </div>
               </section>
+              <div class="risk-map-panel">
+                <div id="potMap"></div>
+              </div>
             </div>
+          </div>
           </div>
         </div>
 

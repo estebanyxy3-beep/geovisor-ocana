@@ -308,8 +308,20 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   const potLayersConfig = {
-    pot_comunas: { label: "Comunas de Ocaña", url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/pot/usos_suelo/Comunas_.json", kind: "pot" },
-    pot_usos: { label: "Usos del suelo", url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/pot/usos_suelo/Usos_Suelo.json", kind: "pot" }
+    pot_comunas: {
+      label: "Comunas de Ocaña",
+      url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/pot/usos_suelo/Comunas_.json",
+      kind: "pot",
+      preferredFields: ["comuna", "Comuna", "COMUNA", "nombre", "Nombre", "NOMBRE"],
+      info: `<h4>Comunas de Ocaña</h4><p><strong>¿Qué son?</strong> Las comunas son divisiones urbanas que agrupan barrios para facilitar la planeación territorial y la gestión pública.</p><p><strong>¿Cómo leer esta capa?</strong> Cada color representa una comuna diferente. En la leyenda encontrarás el nombre de cada comuna para ubicarla en el mapa.</p><p><strong>¿Para qué sirve?</strong> Ayuda a reconocer cómo se organiza la ciudad, priorizar inversiones, analizar cobertura de servicios y orientar decisiones comunitarias e institucionales.</p>`
+    },
+    pot_usos: {
+      label: "Usos del suelo",
+      url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/pot/usos_suelo/Usos_Suelo.json",
+      kind: "pot",
+      preferredFields: ["uso", "Uso", "USO", "uso_suelo", "Uso_Suelo", "USO_SUELO", "categoria", "Categoria", "CATEGORIA"],
+      info: `<h4>Usos del suelo</h4><p><strong>¿Qué significa?</strong> El uso del suelo indica la actividad principal permitida o predominante en cada zona del municipio (por ejemplo: residencial, comercial, institucional o protección).</p><p><strong>¿Cómo leer esta capa?</strong> Cada color corresponde a un tipo de uso y su nombre aparece en la leyenda. Puedes comparar sectores para identificar dónde se concentra cada uso.</p><p><strong>¿Para qué sirve?</strong> Permite entender qué actividades son compatibles con cada área, apoyar trámites y orientar decisiones de planificación urbana y convivencia territorial.</p>`
+    }
   };
   const pomcaLayersConfig = {
     pomca_protegidas: { label: "Áreas protegidas", url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/pomca/Areas_Protegidas.json", kind: "pomca" },
@@ -628,12 +640,18 @@ document.addEventListener("DOMContentLoaded", function () {
     const response = await fetch(config.url);
     const geojson = await response.json();
     const features = geojson.features || [];
-    const field = getClassificationField(features, config.kind === "pot" ? ["comuna", "uso", "uso_suelo"] : ["categoria", "nombre", "tipo"]);
+    const preferredFields = Array.isArray(config.preferredFields)
+      ? config.preferredFields
+      : (config.kind === "pot" ? ["comuna", "uso", "uso_suelo"] : ["categoria", "nombre", "tipo"]);
+    const field = getClassificationField(features, preferredFields);
     const values = getUniqueValues(features, field);
     const palette = config.kind === "pot" ? ["#2563eb","#16a34a","#f59e0b","#9333ea","#ef4444","#0891b2","#84cc16"] : ["#166534","#15803d","#0f766e","#65a30d","#22c55e","#14b8a6","#84cc16"];
     const colorMap = buildColorMap(values, palette);
     updateLegend(config, features, legendNode, field, colorMap);
-    if (infoNode) infoNode.innerHTML = `<h4>${config.label}</h4><p><strong>Campo clasificación:</strong> ${field || "No detectado"}</p>`;
+    if (infoNode) {
+      const defaultInfo = `<h4>${config.label}</h4><p><strong>Campo de clasificación detectado:</strong> ${field || "No detectado"}</p>`;
+      infoNode.innerHTML = config.info || defaultInfo;
+    }
     window[layerRefName] = L.geoJSON(geojson, {
       style: (feature) => getFeatureStyle(feature.properties || {}, config, field, colorMap),
       pointToLayer: (feature, latlng) => {
@@ -725,6 +743,201 @@ document.addEventListener("DOMContentLoaded", function () {
         if (currentPotLayer && potMap.hasLayer(currentPotLayer)) potMap.removeLayer(currentPotLayer);
       });
     }
+
+    const POT_FICHAS_URL = "data/pot/usos_suelo/pot_fichas_normativas_ocana.json";
+    let potFichasNormativas = [];
+
+    function valueToText(value) {
+      if (value === null || value === undefined || value === "") return "";
+
+      if (typeof value === "string" || typeof value === "number") {
+        return String(value);
+      }
+
+      if (Array.isArray(value)) {
+        return value
+          .map(valueToText)
+          .filter(Boolean)
+          .join(", ");
+      }
+
+      if (typeof value === "object") {
+        return Object.entries(value)
+          .filter(([, v]) => v !== null && v !== undefined && v !== "")
+          .map(([key, v]) => `${key}: ${valueToText(v)}`)
+          .join(" | ");
+      }
+
+      return String(value);
+    }
+
+    function renderUsosPot(titulo, lista) {
+      if (!Array.isArray(lista) || !lista.length) return "";
+
+      return `
+        <div class="pot-ficha-usos">
+          <strong>${titulo}</strong>
+          <ul>
+            ${lista.slice(0, 10).map((item) => `
+              <li>${valueToText(item)}</li>
+            `).join("")}
+          </ul>
+        </div>
+      `;
+    }
+
+    function renderEdificabilidadPot(edificabilidad) {
+      if (!Array.isArray(edificabilidad) || !edificabilidad.length) return "";
+
+      return `
+        <details class="pot-ficha-details">
+          <summary>Ver edificabilidad y normas aplicables</summary>
+          <ul>
+            ${edificabilidad.slice(0, 12).map((item) => `
+              <li>${valueToText(item)}</li>
+            `).join("")}
+          </ul>
+        </details>
+      `;
+    }
+
+    function renderPotFichaCard(ficha) {
+      const usos = ficha.usos || {};
+
+      return `
+        <article class="pot-ficha-card">
+          <div class="pot-ficha-card-header">
+            <span>${valueToText(ficha.ambito) || "POT"}</span>
+            <strong>${valueToText(ficha.ficha) || "Ficha normativa"}</strong>
+          </div>
+
+          <h4>${valueToText(ficha.tratamiento) || valueToText(ficha.sector) || "Tratamiento urbanístico"}</h4>
+
+          ${ficha.sector ? `<p><strong>Sector:</strong> ${valueToText(ficha.sector)}</p>` : ""}
+
+          ${renderUsosPot("Usos principales / permitidos", usos.principal || usos.permitido || usos.permitidos)}
+          ${renderUsosPot("Usos compatibles", usos.compatible || usos.compatibles)}
+          ${renderUsosPot("Usos condicionados o restringidos", usos.condicionado || usos.condicionados || usos.restringido || usos.restringidos)}
+          ${renderUsosPot("Usos prohibidos", usos.prohibido || usos.prohibidos)}
+
+          ${renderEdificabilidadPot(ficha.edificabilidad)}
+        </article>
+      `;
+    }
+
+    function populatePotFichasFilters() {
+      const ambitoNode = document.getElementById("potFichasAmbito");
+      if (!ambitoNode) return;
+
+      const ambitos = Array.from(
+        new Set(
+          potFichasNormativas
+            .map((ficha) => valueToText(ficha.ambito))
+            .filter(Boolean)
+        )
+      ).sort();
+
+      ambitoNode.innerHTML = `
+        <option value="todos">Todos</option>
+        ${ambitos.map((ambito) => `<option value="${ambito}">${ambito}</option>`).join("")}
+      `;
+    }
+
+    function renderPotFichasNormativas() {
+      const resultsNode = document.getElementById("potFichasResults");
+      const searchNode = document.getElementById("potFichasSearch");
+      const ambitoNode = document.getElementById("potFichasAmbito");
+      const categoriaNode = document.getElementById("potFichasCategoria");
+
+      if (!resultsNode) return;
+
+      const query = normalizeText(searchNode?.value || "");
+      const ambito = ambitoNode?.value || "todos";
+      const categoria = categoriaNode?.value || "todos";
+
+      const filtered = potFichasNormativas.filter((ficha) => {
+        const usos = ficha.usos || {};
+
+        const texto = normalizeText([
+          ficha.ambito,
+          ficha.ficha,
+          ficha.tratamiento,
+          ficha.sector,
+          valueToText(usos),
+          valueToText(ficha.edificabilidad)
+        ].join(" "));
+
+        const matchesQuery = !query || texto.includes(query);
+        const matchesAmbito = ambito === "todos" || normalizeText(ficha.ambito) === normalizeText(ambito);
+
+        const matchesCategoria =
+          categoria === "todos" ||
+          Array.isArray(usos[categoria]) ||
+          Array.isArray(usos[`${categoria}s`]);
+
+        return matchesQuery && matchesAmbito && matchesCategoria;
+      });
+
+      if (!filtered.length) {
+        resultsNode.innerHTML = "<p>No se encontraron fichas con esos filtros.</p>";
+        return;
+      }
+
+      resultsNode.innerHTML = `
+        <div class="pot-fichas-results-grid">
+          ${filtered.map(renderPotFichaCard).join("")}
+        </div>
+      `;
+    }
+
+    async function loadPotFichasNormativas() {
+      const resultsNode = document.getElementById("potFichasResults");
+      if (!resultsNode) return;
+
+      resultsNode.innerHTML = "<p>Cargando fichas normativas...</p>";
+
+      try {
+        const response = await fetch(POT_FICHAS_URL);
+
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}`);
+        }
+
+        const payload = await response.json();
+
+        potFichasNormativas = Array.isArray(payload?.fichas)
+          ? payload.fichas
+          : (Array.isArray(payload) ? payload : []);
+
+        if (!potFichasNormativas.length) {
+          resultsNode.innerHTML = "<p>No se encontraron fichas normativas en el archivo JSON.</p>";
+          return;
+        }
+
+        populatePotFichasFilters();
+        renderPotFichasNormativas();
+      } catch (error) {
+        console.error("Error cargando fichas normativas POT:", error);
+        resultsNode.innerHTML = `
+          <div class="module-info-box">
+            <strong>No se pudieron cargar las fichas normativas.</strong>
+            <p>Verifica que exista el archivo:</p>
+            <code>${POT_FICHAS_URL}</code>
+            <p>Detalle técnico: ${error.message}</p>
+          </div>
+        `;
+      }
+    }
+
+    ["potFichasSearch", "potFichasAmbito", "potFichasCategoria"].forEach((id) => {
+      const node = document.getElementById(id);
+      if (!node) return;
+
+      node.addEventListener("input", renderPotFichasNormativas);
+      node.addEventListener("change", renderPotFichasNormativas);
+    });
+
+    loadPotFichasNormativas();
 
     const pomcaMapElement = document.getElementById("pomcaMap");
     if (pomcaMapElement && window.L) {

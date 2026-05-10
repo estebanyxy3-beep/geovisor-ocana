@@ -218,85 +218,91 @@ document.addEventListener("DOMContentLoaded", function () {
       label: "Amenaza por avenida torrencial",
       url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/amenaza/Amenaza_Avenida_Torrencial_Urbano.json",
       kind: "amenaza",
-      info: `<p><strong>Amenaza:</strong> zonificación territorial del fenómeno de avenida torrencial.</p>`
+      info: `<p><strong>¿Qué muestra esta capa?</strong></p><p>Identifica las zonas donde podría presentarse una avenida torrencial, es decir, una creciente rápida con agua, lodo, piedras o material arrastrado por lluvias intensas.</p><p><strong>¿Para qué sirve?</strong> Ayuda a reconocer sectores donde se deben tomar medidas de prevención, evitar ocupaciones inseguras y fortalecer la preparación comunitaria.</p>`
     },
     exposicion_at: {
       label: "Construcción expuesta por avenida torrencial",
       url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/exposicion/Construccion_Expuesta_avenid1.json",
       kind: "exposicion",
-      info: `<p><strong>Exposición:</strong> construcciones expuestas frente a avenida torrencial.</p>`
+      info: `<p><strong>¿Qué muestra esta capa?</strong></p><p>Muestra construcciones ubicadas en zonas donde podrían verse afectadas por el fenómeno seleccionado.</p><p><strong>¿Cómo leerla?</strong> No significa que el daño sea seguro, sino que esas construcciones están expuestas y requieren mayor atención preventiva.</p>`
     },
     riesgo_at: {
       label: "Construcción en riesgo por avenida torrencial",
       url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/riesgo/Construccion_Riesgo_avenida_.json",
       kind: "riesgo",
-      info: `<p><strong>Riesgo:</strong> construcciones en riesgo por avenida torrencial.</p>`
+      info: `<p><strong>¿Qué muestra esta capa?</strong></p><p>Relaciona la amenaza con los elementos expuestos para identificar construcciones con mayor posibilidad de afectación.</p><p><strong>¿Para qué sirve?</strong> Apoya decisiones sobre prevención, priorización de acciones y gestión responsable del territorio.</p>`
     },
     amenaza_inundacion: {
       label: "Amenaza por inundación",
       url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/amenaza/Zonificacion_Amenaza_InundacUrban.json",
       kind: "amenaza",
-      info: `<p><strong>Amenaza:</strong> zonificación de amenaza por inundación.</p>`
+      info: `<p><strong>¿Qué muestra esta capa?</strong></p><p>Identifica las zonas donde podría presentarse una avenida torrencial, es decir, una creciente rápida con agua, lodo, piedras o material arrastrado por lluvias intensas.</p><p><strong>¿Para qué sirve?</strong> Ayuda a reconocer sectores donde se deben tomar medidas de prevención, evitar ocupaciones inseguras y fortalecer la preparación comunitaria.</p>`
     },
     exposicion_inundacion: {
       label: "Construcción expuesta por inundación",
       url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/exposicion/Construccion_Expuesta_inunda1.json",
       kind: "exposicion",
-      info: `<p><strong>Exposición:</strong> construcciones expuestas por inundación.</p>`
+      info: `<p><strong>¿Qué muestra esta capa?</strong></p><p>Muestra construcciones ubicadas en zonas donde podrían verse afectadas por el fenómeno seleccionado.</p><p><strong>¿Cómo leerla?</strong> No significa que el daño sea seguro, sino que esas construcciones están expuestas y requieren mayor atención preventiva.</p>`
     },
     riesgo_inundacion: {
       label: "Construcción en riesgo por inundación",
       url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/riesgo/Construccion_Riesgo_inundaci.json",
       kind: "riesgo",
-      info: `<p><strong>Riesgo:</strong> construcciones en riesgo por inundación.</p>`
+      info: `<p><strong>¿Qué muestra esta capa?</strong></p><p>Relaciona la amenaza con los elementos expuestos para identificar construcciones con mayor posibilidad de afectación.</p><p><strong>¿Para qué sirve?</strong> Apoya decisiones sobre prevención, priorización de acciones y gestión responsable del territorio.</p>`
     },
     amenaza_mm: {
       label: "Amenaza por movimiento en masa",
       url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/amenaza/Zonificacion_Amenaza_Movimie_Mas.json",
       kind: "amenaza",
-      info: `<p><strong>Amenaza:</strong> zonificación de amenaza por movimiento en masa.</p>`
+      info: `<p><strong>¿Qué muestra esta capa?</strong></p><p>Identifica las zonas donde podría presentarse una avenida torrencial, es decir, una creciente rápida con agua, lodo, piedras o material arrastrado por lluvias intensas.</p><p><strong>¿Para qué sirve?</strong> Ayuda a reconocer sectores donde se deben tomar medidas de prevención, evitar ocupaciones inseguras y fortalecer la preparación comunitaria.</p>`
     },
     exposicion_mm: {
       label: "Construcción expuesta por movimiento en masa",
       url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/exposicion/Construccion_Expuesta_Movimi1.json",
       kind: "exposicion",
-      info: `<p><strong>Exposición:</strong> construcciones expuestas por movimiento en masa.</p>`
+      info: `<p><strong>¿Qué muestra esta capa?</strong></p><p>Muestra construcciones ubicadas en zonas donde podrían verse afectadas por el fenómeno seleccionado.</p><p><strong>¿Cómo leerla?</strong> No significa que el daño sea seguro, sino que esas construcciones están expuestas y requieren mayor atención preventiva.</p>`
     },
     riesgo_mm: {
       label: "Construcción en riesgo por movimiento en masa",
       url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/riesgo/Construccion_Riesgo_Movimien.json",
       kind: "riesgo",
-      info: `<p><strong>Riesgo:</strong> construcciones en riesgo por movimiento en masa.</p>`
+      info: `<p><strong>¿Qué muestra esta capa?</strong></p><p>Relaciona la amenaza con los elementos expuestos para identificar construcciones con mayor posibilidad de afectación.</p><p><strong>¿Para qué sirve?</strong> Apoya decisiones sobre prevención, priorización de acciones y gestión responsable del territorio.</p>`
     },
     falla_geologica: {
       label: "Fallas geológicas de Ocaña",
       url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/fallas_geologicas/Fallasgeologicas.json",
       kind: "linea",
-      info: `<p><strong>Fallas geológicas:</strong> trazado estructural en el municipio de Ocaña.</p>`
+      info: `<p><strong>¿Qué muestra esta capa?</strong></p><p>Muestra el trazado de fallas geológicas identificadas en el territorio de Ocaña.</p><p><strong>Importante:</strong> Una falla geológica no significa por sí sola que exista un riesgo inmediato, pero sí es información clave para entender el territorio y orientar estudios técnicos.</p>`
     },
     amenaza_mm_la_ermita: {
       label: "Movimiento en masa - La Ermita",
       url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/amenaza/Zonificacion_Amenaza_MM_La_Erm.json",
       kind: "amenaza",
-      info: "<p><strong>Amenaza:</strong> sector específico La Ermita.</p>"
+      info: `<p><strong>¿Qué muestra esta capa?</strong></p><p>Esta capa muestra las zonas del sector La Ermita donde pueden presentarse movimientos en masa, como deslizamientos o caída de material en laderas.</p><p><strong>¿Para qué sirve?</strong> Ayuda a reconocer áreas donde se deben tomar precauciones, evitar construcciones inseguras y reportar señales de inestabilidad del terreno.</p>`
     },
     amenaza_mm_aguas_claras: {
       label: "Movimiento en masa - Aguas Claras",
       url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/amenaza/Zonificacion_Amenaza_MM_Agua1.json",
       kind: "amenaza",
-      info: "<p><strong>Amenaza:</strong> sector específico Aguas Claras.</p>"
+      info: `<p><strong>¿Qué muestra esta capa?</strong></p><p>Esta capa muestra las zonas del sector Aguas Claras donde pueden presentarse movimientos en masa, como deslizamientos o caída de material en laderas.</p><p><strong>¿Para qué sirve?</strong> Ayuda a reconocer áreas donde se deben tomar precauciones, evitar construcciones inseguras y reportar señales de inestabilidad del terreno.</p>`
     },
     amenaza_mm_pueblo_nuevo: {
       label: "Movimiento en masa - Pueblo Nuevo",
       url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/amenaza/Zonificacion_Amenaza_MM_Pueb.json",
       kind: "amenaza",
-      info: "<p><strong>Amenaza:</strong> sector específico Pueblo Nuevo.</p>"
+      info: `<p><strong>¿Qué muestra esta capa?</strong></p><p>Esta capa muestra las zonas del sector Pueblo Nuevo donde pueden presentarse movimientos en masa, como deslizamientos o caída de material en laderas.</p><p><strong>¿Para qué sirve?</strong> Ayuda a reconocer áreas donde se deben tomar precauciones, evitar construcciones inseguras y reportar señales de inestabilidad del terreno.</p>`
     },
     amenaza_mm_otare: {
       label: "Movimiento en masa - Otaré",
       url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/amenaza/Zonificacion_Amenaza_MM_Otar.json",
       kind: "amenaza",
-      info: "<p><strong>Amenaza:</strong> sector específico Otaré.</p>"
+      info: `<p><strong>¿Qué muestra esta capa?</strong></p><p>Esta capa muestra las zonas del sector Otaré donde pueden presentarse movimientos en masa, como deslizamientos o caída de material en laderas.</p><p><strong>¿Para qué sirve?</strong> Ayuda a reconocer áreas donde se deben tomar precauciones, evitar construcciones inseguras y reportar señales de inestabilidad del terreno.</p>`
+    },
+    amenaza_mm_buena_vista: {
+      label: "Movimiento en masa - Buena Vista",
+      url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/amenaza/Zonificacion_Amenaza_MM_Buen1.json",
+      kind: "amenaza",
+      info: `<p><strong>¿Qué muestra esta capa?</strong></p><p>Esta capa muestra las zonas del sector Buena Vista donde pueden presentarse movimientos en masa, como deslizamientos o caída de material en laderas.</p><p><strong>¿Para qué sirve?</strong> Ayuda a reconocer áreas donde se deben tomar precauciones, evitar construcciones inseguras y reportar señales de inestabilidad del terreno.</p>`
     }
   };
 
@@ -687,6 +693,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
       document.querySelectorAll('input[name="riesgoLayer"]').forEach((radio) => {
         radio.addEventListener("change", (e) => loadRiskLayer(e.target.value));
+      });
+      document.querySelectorAll("#view-riesgo .risk-group").forEach((group) => {
+        group.addEventListener("toggle", function () {
+          if (this.open) {
+            document.querySelectorAll("#view-riesgo .risk-group").forEach((otherGroup) => {
+              if (otherGroup !== this) {
+                otherGroup.open = false;
+              }
+            });
+          }
+        });
       });
 
       const clearButton = document.getElementById("clearRiskLayer");

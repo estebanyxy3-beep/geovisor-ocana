@@ -204,13 +204,24 @@
 
       <!-- RIESGO -->
       <section class="view" id="view-riesgo">
-        <div class="module-header">
+        <div class="module-header risk-hero-header">
           <div>
             <p class="module-kicker">Módulo</p>
             <h2>Mapas de Riesgo</h2>
             <p class="module-description">
-              Selecciona una capa temática y visualiza la información sobre el territorio.
+              Consulta las zonas de amenaza, exposición y riesgo del municipio de Ocaña.
+              Esta información ayuda a la comunidad a reconocer áreas que requieren prevención,
+              cuidado y planificación responsable.
             </p>
+            <div class="risk-hero-tags">
+              <span>Amenazas naturales</span>
+              <span>Exposición territorial</span>
+              <span>Prevención comunitaria</span>
+            </div>
+          </div>
+          <div class="risk-hero-note">
+            <strong>¿Cómo usarlo?</strong>
+            <p>Abre una categoría, selecciona una capa y revisa la explicación ciudadana.</p>
           </div>
         </div>
 
@@ -365,6 +376,13 @@
                   <label class="layer-option">
                     <input type="radio" name="riesgoLayer" value="amenaza_mm_otare" />
                     <span class="layer-option-text"><strong>Otaré</strong><small>Amenaza sectorial de movimiento en masa.</small></span>
+                  </label>
+                  <label class="layer-option">
+                    <input type="radio" name="riesgoLayer" value="amenaza_mm_buena_vista" />
+                    <span class="layer-option-text">
+                      <strong>Buena Vista</strong>
+                      <small>Amenaza sectorial de movimiento en masa.</small>
+                    </span>
                   </label>
                 </div>
               </details>

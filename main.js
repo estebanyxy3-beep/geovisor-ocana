@@ -218,85 +218,91 @@ document.addEventListener("DOMContentLoaded", function () {
       label: "Amenaza por avenida torrencial",
       url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/amenaza/Amenaza_Avenida_Torrencial_Urbano.json",
       kind: "amenaza",
-      info: `<p><strong>Amenaza:</strong> zonificación territorial del fenómeno de avenida torrencial.</p>`
+      info: `<h4>Amenaza por avenida torrencial</h4><p><strong>¿Qué muestra?</strong> Zonas donde podría presentarse una creciente rápida con agua, lodo, piedras o material arrastrado por lluvias intensas.</p><p><strong>¿Cómo leerla?</strong> Los niveles alto, medio y bajo indican mayor o menor posibilidad de ocurrencia del fenómeno.</p><p><strong>¿Para qué sirve?</strong> Ayuda a identificar sectores donde se deben tomar medidas de prevención y evitar ocupaciones inseguras.</p>`
     },
     exposicion_at: {
       label: "Construcción expuesta por avenida torrencial",
       url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/exposicion/Construccion_Expuesta_avenid1.json",
       kind: "exposicion",
-      info: `<p><strong>Exposición:</strong> construcciones expuestas frente a avenida torrencial.</p>`
+      info: `<h4>Construcción expuesta por avenida torrencial</h4><p><strong>¿Qué muestra?</strong> Construcciones ubicadas en zonas donde podrían verse afectadas por una avenida torrencial.</p><p><strong>¿Cómo leerla?</strong> Exposición alta, media o baja indica qué tan comprometida está la construcción frente al fenómeno.</p><p><strong>¿Para qué sirve?</strong> Permite reconocer edificaciones que requieren mayor atención preventiva o revisión técnica.</p>`
     },
     riesgo_at: {
       label: "Construcción en riesgo por avenida torrencial",
       url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/riesgo/Construccion_Riesgo_avenida_.json",
       kind: "riesgo",
-      info: `<p><strong>Riesgo:</strong> construcciones en riesgo por avenida torrencial.</p>`
+      info: `<h4>Construcción en riesgo por avenida torrencial</h4><p><strong>¿Qué muestra?</strong> Construcciones donde se combinan amenaza y exposición, indicando posibilidad de afectación.</p><p><strong>¿Cómo leerla?</strong> Riesgo alto requiere mayor atención; riesgo medio o bajo también debe considerarse en la planificación.</p><p><strong>¿Para qué sirve?</strong> Apoya decisiones sobre prevención, priorización de acciones y gestión responsable del territorio.</p>`
     },
     amenaza_inundacion: {
       label: "Amenaza por inundación",
       url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/amenaza/Zonificacion_Amenaza_InundacUrban.json",
       kind: "amenaza",
-      info: `<p><strong>Amenaza:</strong> zonificación de amenaza por inundación.</p>`
+      info: `<h4>Amenaza por inundación</h4><p><strong>¿Qué muestra?</strong> Zonas que pueden acumular agua o ser cubiertas durante lluvias intensas o crecientes.</p><p><strong>¿Cómo leerla?</strong> Alto, medio y bajo indican mayor o menor posibilidad de inundación.</p><p><strong>¿Para qué sirve?</strong> Ayuda a prevenir afectaciones en viviendas, vías y espacios comunitarios.</p>`
     },
     exposicion_inundacion: {
       label: "Construcción expuesta por inundación",
       url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/exposicion/Construccion_Expuesta_inunda1.json",
       kind: "exposicion",
-      info: `<p><strong>Exposición:</strong> construcciones expuestas por inundación.</p>`
+      info: `<h4>Construcción expuesta por inundación</h4><p><strong>¿Qué muestra?</strong> Construcciones ubicadas en zonas donde podría llegar el agua.</p><p><strong>¿Cómo leerla?</strong> Exposición alta, media o baja indica el nivel de compromiso frente al fenómeno.</p><p><strong>¿Para qué sirve?</strong> Permite priorizar revisión, prevención y preparación comunitaria.</p>`
     },
     riesgo_inundacion: {
       label: "Construcción en riesgo por inundación",
       url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/riesgo/Construccion_Riesgo_inundaci.json",
       kind: "riesgo",
-      info: `<p><strong>Riesgo:</strong> construcciones en riesgo por inundación.</p>`
+      info: `<h4>Construcción en riesgo por inundación</h4><p><strong>¿Qué muestra?</strong> Construcciones con posibilidad de afectación al combinar amenaza y exposición.</p><p><strong>¿Cómo leerla?</strong> Riesgo alto requiere mayor atención preventiva; riesgo medio y bajo también necesitan seguimiento.</p><p><strong>¿Para qué sirve?</strong> Orienta acciones de reducción del riesgo y planificación del territorio.</p>`
     },
     amenaza_mm: {
       label: "Amenaza por movimiento en masa",
       url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/amenaza/Zonificacion_Amenaza_Movimie_Mas.json",
       kind: "amenaza",
-      info: `<p><strong>Amenaza:</strong> zonificación de amenaza por movimiento en masa.</p>`
+      info: `<h4>Amenaza por movimiento en masa</h4><p><strong>¿Qué muestra?</strong> Zonas donde pueden presentarse deslizamientos, caída de material o inestabilidad de laderas.</p><p><strong>¿Cómo leerla?</strong> Alto, medio y bajo indican mayor o menor posibilidad de ocurrencia.</p><p><strong>¿Para qué sirve?</strong> Ayuda a reconocer laderas y sectores donde se deben tomar precauciones.</p>`
     },
     exposicion_mm: {
       label: "Construcción expuesta por movimiento en masa",
       url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/exposicion/Construccion_Expuesta_Movimi1.json",
       kind: "exposicion",
-      info: `<p><strong>Exposición:</strong> construcciones expuestas por movimiento en masa.</p>`
+      info: `<h4>Construcción expuesta por movimiento en masa</h4><p><strong>¿Qué muestra?</strong> Construcciones ubicadas cerca de zonas inestables o con posibilidad de deslizamiento.</p><p><strong>¿Cómo leerla?</strong> Exposición alta, media o baja indica nivel de compromiso frente al fenómeno.</p><p><strong>¿Para qué sirve?</strong> Ayuda a identificar edificaciones que requieren observación o revisión.</p>`
     },
     riesgo_mm: {
       label: "Construcción en riesgo por movimiento en masa",
       url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/riesgo/Construccion_Riesgo_Movimien.json",
       kind: "riesgo",
-      info: `<p><strong>Riesgo:</strong> construcciones en riesgo por movimiento en masa.</p>`
+      info: `<h4>Construcción en riesgo por movimiento en masa</h4><p><strong>¿Qué muestra?</strong> Construcciones donde la amenaza y la exposición se combinan.</p><p><strong>¿Cómo leerla?</strong> Riesgo alto debe priorizarse para prevención y seguimiento; riesgo medio y bajo también requieren gestión.</p><p><strong>¿Para qué sirve?</strong> Orienta acciones comunitarias e institucionales.</p>`
     },
     falla_geologica: {
       label: "Fallas geológicas de Ocaña",
       url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/fallas_geologicas/Fallasgeologicas.json",
       kind: "linea",
-      info: `<p><strong>Fallas geológicas:</strong> trazado estructural en el municipio de Ocaña.</p>`
+      info: `<h4>Fallas geológicas de Ocaña</h4><p><strong>¿Qué muestra?</strong> Trazado de fallas geológicas identificadas en Ocaña.</p><p><strong>¿Cómo leerla?</strong> Son líneas de referencia geológica, no una alerta inmediata por sí solas.</p><p><strong>¿Para qué sirve?</strong> Aporta contexto técnico para entender el territorio y orientar estudios.</p>`
     },
     amenaza_mm_la_ermita: {
       label: "Movimiento en masa - La Ermita",
       url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/amenaza/Zonificacion_Amenaza_MM_La_Erm.json",
       kind: "amenaza",
-      info: "<p><strong>Amenaza:</strong> sector específico La Ermita.</p>"
+      info: `<h4>Movimiento en masa - La Ermita</h4><p><strong>¿Qué muestra?</strong> Zona específica del sector seleccionado con amenaza por movimiento en masa.</p><p><strong>¿Cómo leerla?</strong> Los colores indican niveles de amenaza.</p><p><strong>¿Para qué sirve?</strong> Permite a la comunidad del sector reconocer zonas de mayor cuidado.</p>`
     },
     amenaza_mm_aguas_claras: {
       label: "Movimiento en masa - Aguas Claras",
       url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/amenaza/Zonificacion_Amenaza_MM_Agua1.json",
       kind: "amenaza",
-      info: "<p><strong>Amenaza:</strong> sector específico Aguas Claras.</p>"
+      info: `<h4>Movimiento en masa - Aguas Claras</h4><p><strong>¿Qué muestra?</strong> Zona específica del sector seleccionado con amenaza por movimiento en masa.</p><p><strong>¿Cómo leerla?</strong> Los colores indican niveles de amenaza.</p><p><strong>¿Para qué sirve?</strong> Permite a la comunidad del sector reconocer zonas de mayor cuidado.</p>`
     },
     amenaza_mm_pueblo_nuevo: {
       label: "Movimiento en masa - Pueblo Nuevo",
       url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/amenaza/Zonificacion_Amenaza_MM_Pueb.json",
       kind: "amenaza",
-      info: "<p><strong>Amenaza:</strong> sector específico Pueblo Nuevo.</p>"
+      info: `<h4>Movimiento en masa - Pueblo Nuevo</h4><p><strong>¿Qué muestra?</strong> Zona específica del sector seleccionado con amenaza por movimiento en masa.</p><p><strong>¿Cómo leerla?</strong> Los colores indican niveles de amenaza.</p><p><strong>¿Para qué sirve?</strong> Permite a la comunidad del sector reconocer zonas de mayor cuidado.</p>`
     },
     amenaza_mm_otare: {
       label: "Movimiento en masa - Otaré",
       url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/amenaza/Zonificacion_Amenaza_MM_Otar.json",
       kind: "amenaza",
-      info: "<p><strong>Amenaza:</strong> sector específico Otaré.</p>"
+      info: `<h4>Movimiento en masa - Otaré</h4><p><strong>¿Qué muestra?</strong> Zona específica del sector seleccionado con amenaza por movimiento en masa.</p><p><strong>¿Cómo leerla?</strong> Los colores indican niveles de amenaza.</p><p><strong>¿Para qué sirve?</strong> Permite a la comunidad del sector reconocer zonas de mayor cuidado.</p>`
+    },
+    amenaza_mm_buena_vista: {
+      label: "Movimiento en masa - Buena Vista",
+      url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/amenaza/Zonificacion_Amenaza_MM_Buen1.json",
+      kind: "amenaza",
+      info: `<h4>Movimiento en masa - Buena Vista</h4><p><strong>¿Qué muestra?</strong> Zona específica del sector seleccionado con amenaza por movimiento en masa.</p><p><strong>¿Cómo leerla?</strong> Los colores indican niveles de amenaza.</p><p><strong>¿Para qué sirve?</strong> Permite a la comunidad del sector reconocer zonas de mayor cuidado.</p>`
     }
   };
 
@@ -422,6 +428,15 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     if (config.kind === "exposicion") {
+      if (severity === "alto") {
+        return { color: "#92400e", weight: 2, fillColor: "#d97706", fillOpacity: 0.62 };
+      }
+      if (severity === "medio") {
+        return { color: "#b45309", weight: 2, fillColor: "#f59e0b", fillOpacity: 0.58 };
+      }
+      if (severity === "bajo") {
+        return { color: "#ca8a04", weight: 2, fillColor: "#fde68a", fillOpacity: 0.55 };
+      }
       return { color: "#b45309", weight: 2, fillColor: "#f59e0b", fillOpacity: 0.58 };
     }
 
@@ -440,10 +455,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function getLegendItemsFromLayer(features, config) {
-    if (config.kind === "exposicion") {
-      return [{ color: "#f59e0b", label: "Construcción expuesta" }];
-    }
-
     if (!features || !features.length) return [];
 
     const found = { alto: false, medio: false, bajo: false };
@@ -469,10 +480,24 @@ document.addEventListener("DOMContentLoaded", function () {
       if (found.bajo) items.push({ color: "#22c55e", label: "Riesgo bajo" });
     }
 
+    if (config.kind === "exposicion") {
+      if (found.alto) items.push({ color: "#d97706", label: "Exposición alta" });
+      if (found.medio) items.push({ color: "#f59e0b", label: "Exposición media" });
+      if (found.bajo) items.push({ color: "#fde68a", label: "Exposición baja" });
+    }
+
     if (!items.length) {
-      const baseColor = config.kind === "riesgo" ? "#dc2626" : "#d73027";
-      const baseLabel = config.kind === "riesgo" ? "Construcción en riesgo" : "Zona de amenaza";
-      items.push({ color: baseColor, label: baseLabel });
+      const fallback = {
+        amenaza: { color: "#d73027", label: "Amenaza" },
+        riesgo: { color: "#dc2626", label: "Riesgo" },
+        exposicion: { color: "#f59e0b", label: "Exposición" },
+        linea: { color: "#4b5563", label: config.label || "Falla geológica" }
+      };
+      const item = fallback[config.kind] || {
+        color: "#64748b",
+        label: config.label || "Capa seleccionada"
+      };
+      items.push(item);
     }
 
     return items;
@@ -668,6 +693,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
       document.querySelectorAll('input[name="riesgoLayer"]').forEach((radio) => {
         radio.addEventListener("change", (e) => loadRiskLayer(e.target.value));
+      });
+      document.querySelectorAll("#view-riesgo .risk-group").forEach((group) => {
+        group.addEventListener("toggle", function () {
+          if (this.open) {
+            document.querySelectorAll("#view-riesgo .risk-group").forEach((otherGroup) => {
+              if (otherGroup !== this) {
+                otherGroup.open = false;
+              }
+            });
+          }
+        });
       });
 
       const clearButton = document.getElementById("clearRiskLayer");

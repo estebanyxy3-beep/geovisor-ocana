@@ -422,6 +422,15 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     if (config.kind === "exposicion") {
+      if (severity === "alto") {
+        return { color: "#92400e", weight: 2, fillColor: "#d97706", fillOpacity: 0.62 };
+      }
+      if (severity === "medio") {
+        return { color: "#b45309", weight: 2, fillColor: "#f59e0b", fillOpacity: 0.58 };
+      }
+      if (severity === "bajo") {
+        return { color: "#ca8a04", weight: 2, fillColor: "#fde68a", fillOpacity: 0.55 };
+      }
       return { color: "#b45309", weight: 2, fillColor: "#f59e0b", fillOpacity: 0.58 };
     }
 
@@ -440,10 +449,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function getLegendItemsFromLayer(features, config) {
-    if (config.kind === "exposicion") {
-      return [{ color: "#f59e0b", label: "Construcción expuesta" }];
-    }
-
     if (!features || !features.length) return [];
 
     const found = { alto: false, medio: false, bajo: false };
@@ -469,10 +474,24 @@ document.addEventListener("DOMContentLoaded", function () {
       if (found.bajo) items.push({ color: "#22c55e", label: "Riesgo bajo" });
     }
 
+    if (config.kind === "exposicion") {
+      if (found.alto) items.push({ color: "#d97706", label: "Exposición alta" });
+      if (found.medio) items.push({ color: "#f59e0b", label: "Exposición media" });
+      if (found.bajo) items.push({ color: "#fde68a", label: "Exposición baja" });
+    }
+
     if (!items.length) {
-      const baseColor = config.kind === "riesgo" ? "#dc2626" : "#d73027";
-      const baseLabel = config.kind === "riesgo" ? "Construcción en riesgo" : "Zona de amenaza";
-      items.push({ color: baseColor, label: baseLabel });
+      const fallback = {
+        amenaza: { color: "#d73027", label: "Amenaza" },
+        riesgo: { color: "#dc2626", label: "Riesgo" },
+        exposicion: { color: "#f59e0b", label: "Exposición" },
+        linea: { color: "#4b5563", label: config.label || "Falla geológica" }
+      };
+      const item = fallback[config.kind] || {
+        color: "#64748b",
+        label: config.label || "Capa seleccionada"
+      };
+      items.push(item);
     }
 
     return items;

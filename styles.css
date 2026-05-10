@@ -2135,8 +2135,101 @@ body {
   gap: 18px;
 }
 
+.pot-subview {
+  display: none;
+}
+
+.pot-subview.active {
+  display: block;
+}
+
 .pot-mini-card.green { border-top: 6px solid #2f9b52; }
 .pot-mini-card.gold { border-top: 6px solid #c99411; }
+
+.pot-fichas-section {
+  margin-top: 18px;
+  background: #ffffff;
+  border: 1px solid #dce4df;
+  border-radius: 18px;
+  padding: 16px;
+}
+
+.pot-fichas-filters {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 14px 0;
+}
+
+.pot-fichas-results-grid {
+  display: grid;
+  gap: 12px;
+  max-height: 520px;
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
+.pot-ficha-card {
+  border: 1px solid #dce4df;
+  border-radius: 16px;
+  padding: 14px;
+  background: #f8fbf9;
+}
+
+.pot-ficha-card-header {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.pot-ficha-card-header span,
+.pot-ficha-card-header strong {
+  background: #e8f5ec;
+  color: #166534;
+  border-radius: 999px;
+  padding: 5px 9px;
+  font-size: 0.82rem;
+}
+
+.pot-ficha-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 10px 0;
+}
+
+.pot-ficha-summary span {
+  background: #eef6ff;
+  color: #17325d;
+  border-radius: 999px;
+  padding: 5px 9px;
+  font-size: 0.8rem;
+}
+
+.pot-ficha-details {
+  margin-top: 8px;
+}
+
+.pot-ficha-details summary {
+  cursor: pointer;
+  font-weight: 700;
+  color: #174a8b;
+}
+
+.pot-ficha-usos {
+  margin-top: 10px;
+}
+
+.pot-ficha-usos ul {
+  margin: 6px 0 0 18px;
+  padding: 0;
+}
+
+.pot-fichas-count {
+  color: #5b6470;
+  font-size: 0.9rem;
+}
 
 .mini-feature-grid {
   display: grid;

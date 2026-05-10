@@ -2182,7 +2182,7 @@ body {
 }
 
 .pot-fichas-table-wrap {
-  max-height: 520px;
+  max-height: 360px;
   overflow: auto;
   border: 1px solid #dce4df;
   border-radius: 14px;
@@ -2214,6 +2214,34 @@ body {
 
 .pot-fichas-table tr:nth-child(even) {
   background: #f8fbf9;
+}
+
+.pot-detail-btn {
+  border: 1px solid #174a8b;
+  background: #ffffff;
+  color: #174a8b;
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.pot-detail-btn:hover {
+  background: #eef6ff;
+}
+
+.pot-ficha-detail-panel {
+  margin-top: 16px;
+  border: 1px solid #dce4df;
+  border-radius: 16px;
+  background: #f8fbf9;
+  padding: 14px;
+}
+
+.pot-ficha-detail-card h4 {
+  margin: 10px 0;
+  color: #17325d;
 }
 
 .pot-table-details summary {

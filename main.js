@@ -744,6 +744,85 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
 
+    const potFichasResults = document.getElementById("potFichasResults");
+    const potFichaSearch = document.getElementById("potFichaSearch");
+    const potFichaAmbitoFilter = document.getElementById("potFichaAmbitoFilter");
+    const potFichaCategoriaFilter = document.getElementById("potFichaCategoriaFilter");
+    if (potFichasResults && potFichaSearch && potFichaAmbitoFilter && potFichaCategoriaFilter) {
+      const normalize = (value = "") => String(value).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
+      const toArray = (value) => Array.isArray(value) ? value : (value ? [value] : []);
+      const resolveField = (record, candidates = []) => candidates.find((key) => record?.[key] !== undefined && record?.[key] !== null && String(record[key]).trim() !== "");
+      const categoryFields = {
+        principal: ["usos_principales", "uso_principal", "principal"],
+        compatible: ["usos_compatibles", "uso_compatible", "compatible"],
+        restringido: ["usos_restringidos", "uso_restringido", "restringido"],
+        condicionado: ["usos_condicionados", "uso_condicionado", "condicionado"],
+        prohibido: ["usos_prohibidos", "uso_prohibido", "prohibido"]
+      };
+      const renderList = (value) => toArray(value).flatMap((entry) => String(entry).split(";")).map((item) => item.trim()).filter(Boolean).join(", ");
+
+      fetch("data/pot/usos_suelo/pot_fichas_normativas_ocana.json")
+        .then((response) => response.json())
+        .then((payload) => {
+          const fichas = Array.isArray(payload) ? payload : (Array.isArray(payload?.data) ? payload.data : (Array.isArray(payload?.features) ? payload.features.map((f) => f.properties || {}) : []));
+          const ambitoField = resolveField(fichas[0] || {}, ["ambito", "Ámbito", "AMB", "zona"]);
+          const ambitos = [...new Set(fichas.map((item) => item?.[ambitoField]).filter(Boolean).map((item) => String(item).trim()))];
+          ambitos.forEach((ambito) => {
+            const opt = document.createElement("option");
+            opt.value = ambito;
+            opt.textContent = ambito;
+            potFichaAmbitoFilter.appendChild(opt);
+          });
+
+          const filterAndRender = () => {
+            const q = normalize(potFichaSearch.value);
+            const ambitoSelected = normalize(potFichaAmbitoFilter.value);
+            const categorySelected = potFichaCategoriaFilter.value;
+            const matches = fichas.filter((item) => {
+              const text = normalize(JSON.stringify(item));
+              const itemAmbito = normalize(item?.[ambitoField] || "");
+              if (q && !text.includes(q)) return false;
+              if (ambitoSelected && itemAmbito !== ambitoSelected) return false;
+              if (categorySelected) {
+                const categoryField = resolveField(item, categoryFields[categorySelected]);
+                if (!categoryField || !String(item[categoryField]).trim()) return false;
+              }
+              return true;
+            });
+
+            if (!matches.length) {
+              potFichasResults.innerHTML = "<p>No se encontraron fichas con esos filtros.</p>";
+              return;
+            }
+
+            potFichasResults.innerHTML = matches.slice(0, 30).map((item) => {
+              const nombreField = resolveField(item, ["ficha", "nombre_ficha", "tratamiento", "nombre", "titulo"]);
+              const normaField = resolveField(item, ["edificabilidad", "normas", "norma_aplicable", "observaciones"]);
+              const principalField = resolveField(item, categoryFields.principal);
+              const compatibleField = resolveField(item, categoryFields.compatible);
+              const restringidoField = resolveField(item, [...categoryFields.restringido, ...categoryFields.condicionado]);
+              const prohibidoField = resolveField(item, categoryFields.prohibido);
+              const ambitoValue = item?.[ambitoField];
+              return `<article><strong>${item?.[nombreField] || "Ficha normativa"}</strong>`
+                + (ambitoValue ? `<p><strong>Ámbito:</strong> ${ambitoValue}</p>` : "")
+                + (principalField ? `<p><strong>Usos permitidos/principales:</strong> ${renderList(item[principalField])}</p>` : "")
+                + (compatibleField ? `<p><strong>Usos compatibles:</strong> ${renderList(item[compatibleField])}</p>` : "")
+                + (restringidoField ? `<p><strong>Usos restringidos/condicionados:</strong> ${renderList(item[restringidoField])}</p>` : "")
+                + (prohibidoField ? `<p><strong>Usos prohibidos:</strong> ${renderList(item[prohibidoField])}</p>` : "")
+                + (normaField ? `<p><strong>Edificabilidad o normas aplicables:</strong> ${item[normaField]}</p>` : "")
+                + "</article>";
+            }).join("");
+          };
+
+          [potFichaSearch, potFichaAmbitoFilter, potFichaCategoriaFilter].forEach((node) => node.addEventListener("input", filterAndRender));
+          [potFichaAmbitoFilter, potFichaCategoriaFilter].forEach((node) => node.addEventListener("change", filterAndRender));
+          filterAndRender();
+        })
+        .catch(() => {
+          potFichasResults.innerHTML = "<p>No fue posible cargar las fichas normativas en este momento.</p>";
+        });
+    }
+
     const pomcaMapElement = document.getElementById("pomcaMap");
     if (pomcaMapElement && window.L) {
       pomcaMap = L.map("pomcaMap", { preferCanvas: true }).setView(ocanaCoords, 12);

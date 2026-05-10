@@ -9,7 +9,7 @@
     rel="stylesheet"
     href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
   />
-  <link rel="stylesheet" href="styles.css?v=60" />
+  <link rel="stylesheet" href="styles.css?v=61" />
 </head>
 <body>
   <header class="topbar">
@@ -204,18 +204,31 @@
 
       <!-- RIESGO -->
       <section class="view" id="view-riesgo">
-        <div class="module-header">
+        <div class="module-header risk-hero-header">
           <div>
             <p class="module-kicker">Módulo</p>
             <h2>Mapas de Riesgo</h2>
             <p class="module-description">
-              Selecciona una capa temática y visualiza la información sobre el territorio.
+              Consulta las zonas de amenaza, exposición y riesgo del municipio de Ocaña.
+              Esta información ayuda a la comunidad a reconocer áreas que requieren prevención,
+              cuidado y planificación responsable.
             </p>
+            <div class="risk-hero-tags">
+              <span>Amenazas naturales</span>
+              <span>Exposición territorial</span>
+              <span>Prevención comunitaria</span>
+            </div>
+          </div>
+          <div class="risk-hero-note">
+            <strong>¿Cómo usarlo?</strong>
+            <p>Abre una categoría, selecciona una capa y revisa la explicación ciudadana.</p>
           </div>
         </div>
 
-        <div class="risk-layout">
-          <aside class="risk-sidebar">
+        <div class="risk-full-map-layout">
+          <div class="risk-map-panel risk-map-full">
+            <div id="map"></div>
+            <aside class="risk-map-controls">
             <div class="risk-card">
               <h3>Mapas base</h3>
 
@@ -366,6 +379,13 @@
                     <input type="radio" name="riesgoLayer" value="amenaza_mm_otare" />
                     <span class="layer-option-text"><strong>Otaré</strong><small>Amenaza sectorial de movimiento en masa.</small></span>
                   </label>
+                  <label class="layer-option">
+                    <input type="radio" name="riesgoLayer" value="amenaza_mm_buena_vista" />
+                    <span class="layer-option-text">
+                      <strong>Buena Vista</strong>
+                      <small>Amenaza sectorial de movimiento en masa.</small>
+                    </span>
+                  </label>
                 </div>
               </details>
 
@@ -383,17 +403,14 @@
                 Quitar capa activa
               </button>
             </div>
+            </aside>
 
-            <div class="risk-card">
+            <aside class="risk-map-info-panel">
               <h3>Información temática</h3>
               <div id="riskInfoContent">
                 <p>Selecciona una capa para ver su descripción.</p>
               </div>
-            </div>
-          </aside>
-
-          <div class="risk-map-panel">
-            <div id="map"></div>
+            </aside>
 
             <div class="legend-floating" id="legendBox">
               <h4>Leyenda</h4>
@@ -1151,7 +1168,7 @@
   </main>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="main.js?v=60"></script>
-  <script src="chatbot.js?v=20"></script>
+  <script src="main.js?v=62"></script>
+  <script src="chatbot.js?v=61"></script>
 </body>
 </html>

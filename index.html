@@ -650,17 +650,6 @@
           </div>
 
           <div class="pot-split-grid">
-            <div class="risk-card">
-              <h3>Cartografía POT</h3>
-              <label class="control-item"><input type="radio" name="potLayer" value="pot_comunas" /> Comunas de Ocaña</label>
-              <label class="control-item"><input type="radio" name="potLayer" value="pot_usos" /> Usos del suelo</label>
-              <button id="clearPotLayer" class="clear-btn" type="button">Quitar capa activa</button>
-              <div id="potLegendContent"></div>
-              <div id="potInfoContent"><p>Selecciona una capa del POT.</p></div>
-            </div>
-            <div class="risk-map-panel">
-              <div id="potMap"></div>
-            </div>
             <div class="pot-mini-card green">
               <h3>Conceptos Base del POT</h3>
               <p>Conoce los conceptos fundamentales para comprender el ordenamiento territorial y su aplicación.</p>
@@ -675,13 +664,41 @@
             <div class="pot-mini-card gold">
               <h3>Contenidos Municipales del POT</h3>
               <p>Explora la información específica del territorio municipal y sus componentes.</p>
-              <div class="mini-feature-grid">
-                <article><strong>Clasificación del Suelo</strong><button>Explorar</button></article>
-                <article><strong>Uso del Suelo</strong><button>Explorar</button></article>
-                <article><strong>Estructura Ecológica</strong><button>Explorar</button></article>
-                <article><strong>Sistema Vial</strong><button>Explorar</button></article>
-                <article><strong>Servicios Públicos</strong><button>Explorar</button></article>
-                <article><strong>Equipamientos</strong><button>Explorar</button></article>
+              <div class="risk-card">
+                <h3>Cartografía POT</h3>
+                <label class="control-item"><input type="radio" name="potLayer" value="pot_comunas" /> Comunas de Ocaña</label>
+                <label class="control-item"><input type="radio" name="potLayer" value="pot_usos" /> Usos del suelo</label>
+                <button id="clearPotLayer" class="clear-btn" type="button">Quitar capa activa</button>
+                <div id="potLegendContent"></div>
+                <div id="potInfoContent"><p>Selecciona una capa del POT.</p></div>
+              </div>
+              <div class="risk-map-panel">
+                <div id="potMap"></div>
+              </div>
+              <div class="risk-card">
+                <h3>Fichas normativas y tratamientos urbanísticos</h3>
+                <label class="control-item" for="potFichaSearch">Buscar por ficha, tratamiento, uso o palabra clave</label>
+                <input id="potFichaSearch" type="search" placeholder="Ej: tratamiento, residencial, centralidad" />
+                <div class="mini-feature-grid">
+                  <article>
+                    <strong>Ámbito</strong>
+                    <select id="potFichaAmbitoFilter">
+                      <option value="">Todos</option>
+                    </select>
+                  </article>
+                  <article>
+                    <strong>Categoría de uso</strong>
+                    <select id="potFichaCategoriaFilter">
+                      <option value="">Todas</option>
+                      <option value="principal">Principal</option>
+                      <option value="compatible">Compatible</option>
+                      <option value="restringido">Restringido</option>
+                      <option value="condicionado">Condicionado</option>
+                      <option value="prohibido">Prohibido</option>
+                    </select>
+                  </article>
+                </div>
+                <div id="potFichasResults"><p>Cargando fichas normativas…</p></div>
               </div>
             </div>
           </div>

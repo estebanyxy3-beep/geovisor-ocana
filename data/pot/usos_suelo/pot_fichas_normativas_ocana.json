@@ -1,0 +1,2787 @@
+{
+  "metadata": {
+    "descripcion": "Fichas normativas POT Ocaña extraídas desde Excel para uso en geovisor",
+    "total_fichas": 17,
+    "total_usos": 151,
+    "total_edificabilidad": 208
+  },
+  "fichas": [
+    {
+      "ambito": "urbano",
+      "archivo_origen": "SECTORES NORMATIVOS DE TRATAMIENTO DE DESARROLLO.xlsx",
+      "hoja": "FICHA NORMATIVA 3",
+      "ficha": "FICHA NORMATIVA N° 3",
+      "ficha_numero": "3",
+      "tratamiento": "TRATAMIENTO DE DESARROLLO",
+      "sector": "",
+      "usos": {
+        "principal": [
+          {
+            "codigo": "R1",
+            "uso": "Vivienda Unifamiliar",
+            "condiciones": "En toda la zona",
+            "clasificacion": "Urbanizaciones abiertas, cerradas o lotes individuales"
+          },
+          {
+            "codigo": "R2",
+            "uso": "Vivienda Bifamiliar",
+            "condiciones": "En toda la zona",
+            "clasificacion": "Urbanizaciones abiertas o viviendas individuales, tambien en edificaciones existente que se subdividan,asi también las que se amplien en número de pisos."
+          },
+          {
+            "codigo": "R3",
+            "uso": "Vivienda Multifamiliar.",
+            "condiciones": "En toda la zona",
+            "clasificacion": "Conjuntos cerrados o abiertos, edificios en altura."
+          }
+        ],
+        "compatible": [
+          {
+            "codigo": "M1",
+            "uso": "Mixto 1",
+            "condiciones": "Sobre vias secundarias o locales",
+            "clasificacion": "Constituido por el uso R1, R2, R3 y Cualquiera de los Comerciales, especialmente en esta zona de influencia de las actividades economicas del Centro"
+          },
+          {
+            "codigo": "M2",
+            "uso": "Mixto 2",
+            "condiciones": "Sobre vias secundarias o locales",
+            "clasificacion": "Constituido por el uso R1 , R2, R3 y DOT 1 (Dotacional ) o DOT 2 (Dotacional), Especialmente en esta zona de influencia de las actividades economicas del Centro"
+          },
+          {
+            "codigo": "M3",
+            "uso": "Mixto 3",
+            "condiciones": "Sobre vias secundarias o locales",
+            "clasificacion": "Constituido por el uso C1, C2, C3 o C4 y DOT 1 (Dotacional ) o DOT 2 (Dotacionall), Especialmente en esta zona de influencia de las actividades economicas del Centro"
+          },
+          {
+            "codigo": "S 1,2,3,4,5,6 y 7",
+            "uso": "Servicios del 1 al 7",
+            "condiciones": "Sobre vias secundarias o locales",
+            "clasificacion": "Se puede desarrollar en un local independiente (minimo 9 M2), anexo a un edificación, o en una agrupación comercial"
+          },
+          {
+            "codigo": "C1",
+            "uso": "Comercio 1",
+            "condiciones": "Sobre vias secundarias o locales",
+            "clasificacion": "Se puede desarrollar en un local independiente, anexo a un edificación, o en una agrupación comercial"
+          },
+          {
+            "codigo": "C2",
+            "uso": "Comercio 2",
+            "condiciones": "Sobre vias secundarias o locales",
+            "clasificacion": "Se puede desarrollar en un local independiente, anexo a un edificación, o en una agrupación comercial"
+          },
+          {
+            "codigo": "DOT 1",
+            "uso": "Dotacional 1",
+            "condiciones": "Sobre todo tipo de vias.",
+            "clasificacion": "Local o predio independiente. Constituido por establecimientos públicos y privados de bajo impacto de cobertura zonal, compatibles con el uso residencial tales como: educación preescolar básica y primaria, centro de atención inmediato de policía o puesto de vigilancia de policía, parques infantiles, canchas infantiles y escenarios deportivos de bajo impacto, puesto de salud, templos religiosos. Centros de asociaciones locales comunales."
+          },
+          {
+            "codigo": "RECYD1.",
+            "uso": "Recreacional y Deporte 1",
+            "condiciones": "Sobre todo tipo de vias.",
+            "clasificacion": "Es el uso constituido por canchas deportivas, parques y zonas y espacios verdes."
+          }
+        ],
+        "restringido": [],
+        "condicionado": [],
+        "prohibido": [
+          {
+            "codigo": "S",
+            "uso": "Todos los Usos de suelo de Servicios de alto impacto para las areas residenciales. Esta zona es netamente de actividades residenciales locales",
+            "condiciones": "N/A",
+            "clasificacion": "N/A"
+          },
+          {
+            "codigo": "C",
+            "uso": "Todos los comercios de alto imapcto para las zonas residenciales.",
+            "condiciones": "N/A",
+            "clasificacion": "N/A"
+          },
+          {
+            "codigo": "IN",
+            "uso": "Todos los Usos Industriales en esta zona netamente de activiades residenciales y locales",
+            "condiciones": "N/A",
+            "clasificacion": "N/A"
+          },
+          {
+            "codigo": "S 18",
+            "uso": "Servicios 18, es un uso no compatible con zonas de vocación residencial como es el caso de esa sector normativo",
+            "condiciones": "N/A",
+            "clasificacion": "N/A"
+          },
+          {
+            "codigo": "S 21",
+            "uso": "Servicios 21, es un uso no compatible con zonas de vocación residencial como es el caso de este sector normativo",
+            "condiciones": "N/A",
+            "clasificacion": "N/A"
+          }
+        ]
+      },
+      "edificabilidad": [
+        {
+          "criterio": "Lote minimo (1 piso)",
+          "valor": "60 Mts 2"
+        },
+        {
+          "criterio": "Lote minimo (2 o 3 pisos)",
+          "valor": "60 - 90 M2"
+        },
+        {
+          "criterio": "Frente minimo (1 piso)",
+          "valor": "6 ML"
+        },
+        {
+          "criterio": "Frente minimo (2-3 piso)",
+          "valor": "7 - 10ML"
+        },
+        {
+          "criterio": "lote minimo 4 a 7 pisos",
+          "valor": "150 - 200M2"
+        },
+        {
+          "criterio": "Frente minimo (4 a 7 pisos)",
+          "valor": "10 - 15 ML"
+        },
+        {
+          "criterio": "lote minimo 7 a 12 pisos",
+          "valor": "400M2"
+        },
+        {
+          "criterio": "Frente minimo (7 a 20 pisos)",
+          "valor": "15 ML en adelante"
+        },
+        {
+          "criterio": "Para frente de medidas inferiores al minimo de tamaño de lote, se define en relación de proporción frente-fondo.",
+          "valor": "Para R1 es de relación 1-2, para R2 o R3 la proporción es 1-4 es decir que para una determinada medida del lote en frente debera tener la proporcion antes mencionada y sin embargo no podra ser inferior en R1 a 6ML Y en R2 y R3 a 9 ML. Se aclara que para cuando no cumpla con el ancho minimo pero tenga fondo suficiente se aplica esta norma."
+        },
+        {
+          "criterio": "Indice de ocupacion R1",
+          "valor": "0.8"
+        },
+        {
+          "criterio": "Indice de ocupación R2-R3",
+          "valor": "70%, para el uso R3 a manera de compensación si la ocupación no pasa del 55 % del área neta del lote se podria acceder a construir hasta los 20 pisos"
+        },
+        {
+          "criterio": "Indice de construcción R1",
+          "valor": "1.37"
+        },
+        {
+          "criterio": "Indice de construcción R2-R3",
+          "valor": "R2: 2,4 Y R3 : 3,2"
+        },
+        {
+          "criterio": "Altura de piso a piso minimo",
+          "valor": "2.5 metros libres y para doble altura hasta 6 M"
+        },
+        {
+          "criterio": "Antejardin",
+          "valor": "Cuando el lote pase de 200 metros cuadrados y desarrolle R3 se debera dejar el antejardin y para el caso del lote minimo y la vivienda unifamilar puede seguir el actual paramento"
+        },
+        {
+          "criterio": "Aislamiento lateral",
+          "valor": "2 metros si deja aislamiento o se puede adosar."
+        },
+        {
+          "criterio": "Aislamiento posterior o patio",
+          "valor": "2 ML-o dejar un espacio de minimo 3 M2 de ventilación sin cubierta, cuando es R3. Para el caso de vivienda unifamilar se debera dejarse el patio de minimo 2 M2"
+        },
+        {
+          "criterio": "NORMAS PARA EL ESPACIO URBANO",
+          "valor": ""
+        },
+        {
+          "criterio": "LOTES, VIVIENDAS O EDIFICACIONES CON CONDICIÓN DE RIESGOS.",
+          "valor": "Para el que caso de las viviendas, edificaciones o lotes sin construir que se encuentren localizados en areas con condición de riesgo alto se debera proceder a elaborar los estudios detallados para hacer cualquier tipo de intervención."
+        },
+        {
+          "criterio": "REGULARIZACIÓN URBANISTICAS",
+          "valor": "Los predios o edificaciones que no tengan legalización de su propiedad o falta de licencia urbansitica o construcción deberan realizar los procedimientos de reconocimiento como lo esta estipulado en el articulado que precede a esta ficha."
+        },
+        {
+          "criterio": "PLANES ZONALES",
+          "valor": "Como estrategia para generar el mejoramiento de la calidad urbanistica de estos sectores se debera formular el respectivo Plan Zonal, en el cual se definan estrategias especificas para el mejoramiento de su entorno en terminos de: espacio publico, vias, servicios publicos, estacionamientos publicos y equipamientos."
+        },
+        {
+          "criterio": "ESTACIONAMIENTOS",
+          "valor": "Para los desarrollos de usos del suelo de R1 y R2 no tiene la obligación de parqueo, si utiliza la minima lotificación posible, sin embargo si tiene mas de 80 M2 debera tener 1 parqueo minimo, o la compensacion del mismo segun Decreto reglamentario No. 150 de 19 de Noviembre de 2020. Para los uso R3 le aplica un parqueo por cada vivienda y 1 por cada 8 viviendas para visitantes, para proyectos de vivienda de intteres social o predios sujetos a vivienda de intares social, no aplica el cupo minimo de estacionamiemto y podra presentar altenativas de parqueaderos dependiendo del medio de transporte usado."
+        },
+        {
+          "criterio": "Observaciones:",
+          "valor": "No se permiten escaleras en antejardines o fuera del paramento. Los indices de ocupación y construcción para los usos M1, M2 y M3 son los mismo que para los usos R2 o R3. Para los usos diferentes a los residenciales o mixtos se utlizan los mismos estandares normativos en cuanto a tamaño de lote e indices que los residenciales. Generación de parqueos públicos por parte del plan zonal que se estipule en las zonas residuales que aún existen. Cuando el lote pase de doscientos (200) metros cuadrados e inclusive para el lote mínimo puede seguir el actual paramento, sin embargo par R2 y R3 si deberá dejar antejardín y parqueos de visita. Si se deja aislamiento el mínimo son dos (2) metros cuadrados, para el en caso de que se adose solo es para R1 R2, después del Tercer (3) debe aislarse. generación de parqueos públicos por parte del Plan Zonal que se estipule en las zonas residuales que aún existen Esta norma aplica en áreas en suelo urbano no desarrolladas."
+        }
+      ]
+    },
+    {
+      "ambito": "urbano",
+      "archivo_origen": "SECTORES NORMATIVOS MEJORAMIENTO INTEGRAL.xlsx",
+      "hoja": "FICHA NORMATIVA 4",
+      "ficha": "FICHA NORMATIVA N° 4",
+      "ficha_numero": "4",
+      "tratamiento": "TRATAMIENTO DE MEJORAMIENTO INTEGRAL",
+      "sector": "",
+      "usos": {
+        "principal": [
+          {
+            "codigo": "R1",
+            "uso": "Vivienda Unifamiliar",
+            "condiciones": "En todas las zonas",
+            "clasificacion": "Conjuntos cerrados o abiertos o vivienda individual."
+          },
+          {
+            "codigo": "R2",
+            "uso": "Vivienda Bifamiliar",
+            "condiciones": "En todas las zonas",
+            "clasificacion": "Conjuntos cerrados o abiertos o hasta 4 viviendas por bloque en maximo 3 pisos."
+          }
+        ],
+        "compatible": [
+          {
+            "codigo": "R3",
+            "uso": "Vivienda Bifamiliar",
+            "condiciones": "En toda la zona",
+            "clasificacion": "Urbanizaciones abiertas o viviendas individuales, tambien en edificaciones existente que se subdividan,asi también las que se amplien en número de pisos."
+          },
+          {
+            "codigo": "M1",
+            "uso": "Mixto 1",
+            "condiciones": "Sobre vias secundarias o locales",
+            "clasificacion": "Constituido por el uso R1 o R2 y C1 o C2"
+          },
+          {
+            "codigo": "M2",
+            "uso": "Mixto 2",
+            "condiciones": "Sobre vias secundarias o locales",
+            "clasificacion": "Constituido por el uso R1 o R2 y INTS 1 (Institucional ) o INT 2 (Institucional), Especialmente en esta zona de influencia de las actividades economicas del Centro"
+          },
+          {
+            "codigo": "M3",
+            "uso": "Mixto 3",
+            "condiciones": "Sobre vias secundarias o locales",
+            "clasificacion": "Constituido por el uso C1 o C2 y INTS 1 (Institucional ) o INT 2 (Institucional), Especialmente en esta zona de influencia de las actividades economicas del Centro"
+          },
+          {
+            "codigo": "S 1,2,3,4,5,6 y 7",
+            "uso": "Servicios del 1 al 7",
+            "condiciones": "Sobre vias secundarias o locales",
+            "clasificacion": "Se puede desarrollar en un local independiente (minimo 9 M2), anexo a un edificación, o en una agrupación comercial"
+          },
+          {
+            "codigo": "C1",
+            "uso": "Comercio 1",
+            "condiciones": "Sobre vias secundarias o locales",
+            "clasificacion": "Se puede desarrollar en un local independiente, anexo a un edificación, o en una agrupación comercial"
+          },
+          {
+            "codigo": "C2",
+            "uso": "Comercio 2",
+            "condiciones": "Sobre vias secundarias o locales",
+            "clasificacion": "Se puede desarrollar en un local independiente, anexo a un edificación, o en una agrupación comercial"
+          },
+          {
+            "codigo": "DOT 1",
+            "uso": "Dotacional 1",
+            "condiciones": "Sobre todo tipo de vias.",
+            "clasificacion": "Local o predio independiente. Constituido por establecimientos públicos y privados de bajo impacto de cobertura zonal, compatibles con el uso residencial tales como: educación preescolar básica y primaria, centro de atención inmediato de policía o puesto de vigilancia de policía, parques infantiles, canchas infantiles y escenarios deportivos de bajo impacto, puesto de salud, templos religiosos. Centros de asociaciones locales comunales."
+          },
+          {
+            "codigo": "RECYD1.",
+            "uso": "Recreacional y Deporte 1",
+            "condiciones": "Sobre todo tipo de vias.",
+            "clasificacion": "Es el uso constituido por canchas deportivas, parques y zonas y espacios verdes."
+          }
+        ],
+        "restringido": [
+          {
+            "codigo": "DOT 2",
+            "uso": "Dotacional 2",
+            "condiciones": "Sobre vias secundarias o locales",
+            "clasificacion": "Constituido por establecimientos públicos y privados de bajo impacto de cobertura zonal."
+          },
+          {
+            "codigo": "DOT 3",
+            "uso": "Dotacional 3",
+            "condiciones": "Sobre vias secundarias.",
+            "clasificacion": "Constituido por establecimientos de mediano impacto de cobertura zonal complementarios y compatibles con el uso residencial"
+          },
+          {
+            "codigo": "M1",
+            "uso": "Mixto 1",
+            "condiciones": "Sobre vias secundarias o locales",
+            "clasificacion": "C1 o C2, en las areas de activdad comercio y servicios (clubes de billares o pool como actividad deportiva y recreación con uso condcionado al no consumo de bebidas alcholicas)"
+          }
+        ],
+        "condicionado": [],
+        "prohibido": [
+          {
+            "codigo": "S",
+            "uso": "Todos los Usos de suelo de Servicios de alto impacto para las areas residenciales. Esta zona es netamente de actividades residenciales locales",
+            "condiciones": "N/A",
+            "clasificacion": "N/A"
+          },
+          {
+            "codigo": "C",
+            "uso": "Todos los comercios de alto imapcto para las zonas residenciales.",
+            "condiciones": "N/A",
+            "clasificacion": "N/A"
+          },
+          {
+            "codigo": "IN",
+            "uso": "Todos los Usos Industriales en esta zona netamente de activiades residenciales y locales",
+            "condiciones": "N/A",
+            "clasificacion": "N/A"
+          },
+          {
+            "codigo": "S 18",
+            "uso": "Servicios 18, es un uso no compatible con zonas de vocación residencial como es el caso de esa sector normativo",
+            "condiciones": "N/A",
+            "clasificacion": "N/A"
+          },
+          {
+            "codigo": "S 21",
+            "uso": "Servicios 21, es un uso no compatible con zonas de vocación residencial como es el caso de esa sector normativo",
+            "condiciones": "N/A",
+            "clasificacion": "N/A"
+          }
+        ]
+      },
+      "edificabilidad": [
+        {
+          "criterio": "Lote minimo (1 piso)",
+          "valor": "60 Mts 2"
+        },
+        {
+          "criterio": "Lote minimo (2 o 3 pisos)",
+          "valor": "60 - 90 M2"
+        },
+        {
+          "criterio": "Frente minimo (1 piso)",
+          "valor": "6 ML"
+        },
+        {
+          "criterio": "Frente minimo (2-3 piso)",
+          "valor": "7 - 10ML"
+        },
+        {
+          "criterio": "lote minimo 4 a 7 pisos",
+          "valor": "150 - 200M2"
+        },
+        {
+          "criterio": "Frente minimo (4 a 7 pisos)",
+          "valor": "10 - 15 ML"
+        },
+        {
+          "criterio": "lote minimo 7 a 12 pisos",
+          "valor": "400M2"
+        },
+        {
+          "criterio": "Frente minimo (7 a 20 pisos)",
+          "valor": "15 ML en adelante"
+        },
+        {
+          "criterio": "Frente de medidas inferiores al minimo de tamaño de lote, se define en relación de proporción frente-fondo.",
+          "valor": "Para R1 es de relación 1-2, para R2 o R3 la proporción es 1-4, es decir que para una determinada medida del lote en frente debera tener la proporcion antes mencionada y sin embargo no podra ser inferior en R1 a 5ML Y en R2 y R3 a 9 .Se aclara que para cuando no cumpla con el ancho minimo pero tenga fondo suficiente se aplica esta norma"
+        },
+        {
+          "criterio": "Indice de ocupacion R1",
+          "valor": "0.8"
+        },
+        {
+          "criterio": "Indice de ocupación R2-R3",
+          "valor": "0.6"
+        },
+        {
+          "criterio": "Indice de construcción R1",
+          "valor": "1.6"
+        },
+        {
+          "criterio": "Indice de construcción R2-R3",
+          "valor": "R2: 2,4 Y R3 : 3,2"
+        },
+        {
+          "criterio": "Altura de piso a piso",
+          "valor": "2,5 metros y para doble altura hasta 6 M"
+        },
+        {
+          "criterio": "Antejardin",
+          "valor": "Cuando el lote pase de 200 metros cuadrados y desarrolle R3 se debera dejar el antejardin y para el caso del lote minimo y la vivienda unifamilar puede seguir el actual paramento"
+        },
+        {
+          "criterio": "Aislamiento lateral",
+          "valor": "2 metros si deja aislamiento o se puede adosar."
+        },
+        {
+          "criterio": "Aislamiento posterior o patio",
+          "valor": "2 ML-o dejar un espacio de minimo 3 M2 de ventilación sin cubierta, cuando es R3. Para el caso de vivienda unifamilar se debera dejarse el patio de minimo 2 m2"
+        },
+        {
+          "criterio": "NORMAS PARA EL ESPACIO URBANO",
+          "valor": ""
+        },
+        {
+          "criterio": "LOTES, VIVIENDAS O EDIFICACIONES CON CONDICIÓN DE RIESGOS.",
+          "valor": "Para el que caso de las viviendas, edificaciones o lotes sin construir que se encuentren localizados en areas con condición de riesgo alto se debera proceder a elaborar los estudios detallados para hacer cualquier tipo de intervención."
+        },
+        {
+          "criterio": "REGULARIZACIÓN URBANISTICAS",
+          "valor": "Los predios o edificaciones que no tengan legalización de su propiedad o falta de licencia urbansitica o construcción deberan realizar los procedimientos de reconocimiento como lo esta estipulado en el articulado que precede a esta ficha."
+        },
+        {
+          "criterio": "PLANES ZONALES",
+          "valor": "Como estrategia para generar el mejoramiento de la calidad urbanistica de estos sectores se debera formular el respectivo Plan Zonal, en el cual se definan estrategias especificas para el mejoramiento de su entorno en terminos de: espacio publico, vias, servicios publicos, estacionamientos publicos y equipamientos."
+        },
+        {
+          "criterio": "ESTACIONAMIENTOS",
+          "valor": "Estaran supeditados al Plan Zonal, y serán publicos."
+        },
+        {
+          "criterio": "Observacion:",
+          "valor": "No se permiten escaleras en antejardines o fuera del paramento para ningun uso. Los indices de ocupación y construcción para los usos M1, M2 y M3 son los mismo que para los usos R2 o R3. Para los usos diferentes a los residenciales o mixtos se utlizan los mismos estandares normativos en cuanto a tamaño de lote e indices que los residenciales. Cuando el lote pase de doscientos (200) metros cuadrados e inclusive para el lote mínimo puede seguir el actual paramento, sin embargo para R2 y R3 si deberá dejar antejardín y parqueos de visita. Si deja aislamiento mínimo son dos (2) metros cuadrados, para el en caso de que se adose solo es para R1 y R2, después del Tercer (3) piso debe aislarse. De las áreas mínimas para la subdivisión de predios urbanos construidos, se permite la subdivisión predial para aquellos predios construidos antes de entrada en vigencia la aprobación del Plan de Ordenamiento Territorial, que cuenten con un área no inferior a 35 metros cuadrados, los cuales ya estén consolidados, dicha subdivisión se establecerá para permitir trámites de legalización mediante escritura pública, asi mismo, Los predios urbanizables no urbanizados ubicados en suelo urbano no podrán ser subdivididos previamente a la actuación de urbanización, salvo cuando se cumplan con las condciones del Decreto 1077 del 2015. ARTÍCULO 2.2.2.1.4.1.4 , en especial numeral 4. Existan reglas especiales para subdivisión contenidas en el plan de ordenamiento territorial o los instrumentos que lo desarrollen o complementen."
+        }
+      ]
+    },
+    {
+      "ambito": "urbano",
+      "archivo_origen": "SECTORES NORMATIVOS RENOVACIÓN URBANA.xlsx",
+      "hoja": "FICHA NORMATIVA 5",
+      "ficha": "FICHA NORMATIVA N° 5",
+      "ficha_numero": "5",
+      "tratamiento": "TRATAMIENTO DE RENOVACIÓN URBANA",
+      "sector": "",
+      "usos": {
+        "principal": [
+          {
+            "codigo": "M1",
+            "uso": "Mixto 1",
+            "condiciones": "Sobre vias secundarias o locales",
+            "clasificacion": "Constituido por el uso R1, R2, R3 y Cualquiera de los Comerciales, especialmente en esta zona de influencia de las actividades economicas del Centro"
+          },
+          {
+            "codigo": "M2",
+            "uso": "Mixto 2",
+            "condiciones": "Sobre vias secundarias o locales",
+            "clasificacion": "Constituido por el uso R1 , R2, R3 y DOT 1 (Dotacional ) o DOT 2 (Dotacional), Especialmente en esta zona de influencia de las actividades economicas del Centro"
+          }
+        ],
+        "compatible": [
+          {
+            "codigo": "R3",
+            "uso": "Vivienda Multifamiliar.",
+            "condiciones": "Solo sobre vias con perfil mayor a 12 mts",
+            "clasificacion": "Conjuntos cerrados o abiertos, edificios en altura."
+          },
+          {
+            "codigo": "C2",
+            "uso": "Comercio 2",
+            "condiciones": "Sobre vias secundarias o locales",
+            "clasificacion": "Se puede desarrollar en un local independiente, anexo a un edificación, o en una agrupación comercial"
+          },
+          {
+            "codigo": "C3",
+            "uso": "Comercio 3",
+            "condiciones": "Solo sobre vias primarias o secundarias",
+            "clasificacion": "Centros Comerciales de Gran Superficie Cubiertos"
+          },
+          {
+            "codigo": "M3",
+            "uso": "Mixto 3",
+            "condiciones": "Sobre vias secundarias o locales",
+            "clasificacion": "Constituido por el uso C1, C2, C3 o C4 y DOT 1 (Dotacional ) o DOT 2 (Dotacionall), Especialmente en esta zona de influencia de las actividades economicas del Centro"
+          },
+          {
+            "codigo": "S 1,2,3,4,5,6 y 7",
+            "uso": "Servicios del 1 al 7",
+            "condiciones": "Sobre vias secundarias o locales",
+            "clasificacion": "Se puede desarrollar en un local independiente (minimo 9 M2), anexo a un edificación, o en una agrupación comercial"
+          },
+          {
+            "codigo": "C1",
+            "uso": "Comercio 1",
+            "condiciones": "Sobre vias secundarias o locales",
+            "clasificacion": "Se puede desarrollar en un local independiente, anexo a un edificación, o en una agrupación comercial"
+          },
+          {
+            "codigo": "C3",
+            "uso": "Comercio 3",
+            "condiciones": "Solo sobre vias primarias o secundarias",
+            "clasificacion": "Centros Comerciales de Gran Superficie Cubiertos"
+          },
+          {
+            "codigo": "C4",
+            "uso": "Comercio 4",
+            "condiciones": "Solo sobre vias primarias o secundarias",
+            "clasificacion": "Supermercados, Almacenes de Cadena, Grandes Superficies y Almacenes por Departamento Independientes"
+          },
+          {
+            "codigo": "DOT 1",
+            "uso": "Dotacional 1",
+            "condiciones": "Sobre todo tipo de vias.",
+            "clasificacion": "Local o predio independiente. Constituido por establecimientos públicos y privados de bajo impacto de cobertura zonal, compatibles con el uso residencial tales como: educación preescolar básica y primaria, centro de atención inmediato de policía o puesto de vigilancia de policía, parques infantiles, canchas infantiles y escenarios deportivos de bajo impacto, puesto de salud, templos religiosos. Centros de asociaciones locales comunales, oficinas de entidades públicas."
+          },
+          {
+            "codigo": "DOT 2",
+            "uso": "Dotacional 2",
+            "condiciones": "Sobre todo tipo de vias.",
+            "clasificacion": "Constituido por establecimientos de mediano impacto de cobertura zonal complementarios y compatibles con el uso residencial."
+          },
+          {
+            "codigo": "RECYD1.",
+            "uso": "Recreacional y Deporte 1",
+            "condiciones": "Sobre todo tipo de vias.",
+            "clasificacion": "Es el uso constituido por canchas deportivas, parques y zonas y espacios verdes."
+          }
+        ],
+        "restringido": [
+          {
+            "codigo": "R1",
+            "uso": "Vivienda Unifamiliar",
+            "condiciones": "En todo tipo de vias",
+            "clasificacion": "Urbanizaciones abiertas, cerradas o lotes individuales"
+          },
+          {
+            "codigo": "R2",
+            "uso": "Vivienda Bifamiliar",
+            "condiciones": "Sobre vias secundarias o locales",
+            "clasificacion": "Urbanizaciones abiertas o viviendas individuales, tambien en edificaciones existente que se subdividan,asi también las que se amplien en número de pisos."
+          },
+          {
+            "codigo": "S18",
+            "uso": "Servicios 18",
+            "condiciones": "Sobre vias secundarias o principales",
+            "clasificacion": "Servicios de alto impacto social: integran esta tipología:, discotecas, establecimientos con expendio de licor (estancos), bares, cantinas, juegos de azar; se condiciona el funcionamiento a: no invasión de espacio píbico, insonorización de loclaes para contro de ruido, salidas de emergencia, no puede esrtar localizado a 100 mts de endidades de salud, religiosa y educativo."
+          },
+          {
+            "codigo": "S14",
+            "uso": "Servicios S14",
+            "condiciones": "Sobre vias secundarias o principales",
+            "clasificacion": "Talleres de servicios gran formato, se condiciona el funcionamiento a: no invasión de espacio píbico,"
+          },
+          {
+            "codigo": "S8",
+            "uso": "Servicios 8",
+            "condiciones": "Sobre vias secundarias o principales",
+            "clasificacion": "Estaciones de servicio integrales que contengan en un solo establecimiento"
+          },
+          {
+            "codigo": "DOT 5",
+            "uso": "Dotacional 5",
+            "condiciones": "Sobre vias secundarias o principales",
+            "clasificacion": "Constituido por establecimientos de alto impacto funcional"
+          }
+        ],
+        "condicionado": [],
+        "prohibido": [
+          {
+            "codigo": "S",
+            "uso": "Todos los Usos de suelo de Servicios de alto impacto para las areas residenciales. Esta zona es netamente de actividades residenciales locales",
+            "condiciones": "N/A",
+            "clasificacion": "N/A"
+          },
+          {
+            "codigo": "C",
+            "uso": "Todos los comercios de alto imapcto para las zonas residenciales.",
+            "condiciones": "N/A",
+            "clasificacion": "N/A"
+          },
+          {
+            "codigo": "IN",
+            "uso": "Todos los Usos Industriales en esta zona netamente de activiades residenciales y locales",
+            "condiciones": "N/A",
+            "clasificacion": "N/A"
+          },
+          {
+            "codigo": "S 18",
+            "uso": "Servicios 18, es un uso no compatible con zonas de vocación residencial como es el caso de ese sector normativo.",
+            "condiciones": "N/A",
+            "clasificacion": "N/A"
+          },
+          {
+            "codigo": "S 21",
+            "uso": "Servicios 21, es un uso no compatible con zonas de vocación residencial como es el caso de esa sector normativo.",
+            "condiciones": "N/A",
+            "clasificacion": "N/A"
+          }
+        ]
+      },
+      "edificabilidad": [
+        {
+          "criterio": "Lote minimo (1 piso)",
+          "valor": "60 Mts 2"
+        },
+        {
+          "criterio": "Lote minimo (2 o 3 pisos)",
+          "valor": "60 - 90 M2"
+        },
+        {
+          "criterio": "Frente minimo (1 piso)",
+          "valor": "6 ML"
+        },
+        {
+          "criterio": "Frente minimo (2-3 piso)",
+          "valor": "7 - 10ML"
+        },
+        {
+          "criterio": "lote minimo 4 a 7 pisos",
+          "valor": "150 - 200M2"
+        },
+        {
+          "criterio": "Frente minimo (4 a 7 pisos)",
+          "valor": "10 - 15 ML"
+        },
+        {
+          "criterio": "lote minimo 7 a 12 pisos",
+          "valor": "400M2"
+        },
+        {
+          "criterio": "Frente minimo (7 a 20 pisos)",
+          "valor": "15 ML en adelante"
+        },
+        {
+          "criterio": "Frente de medidas inferiores al minimo de tamaño de lote, se define en relación de proporción frente-fondo.",
+          "valor": "Para R1 es de relación 1-2, para R2 o R3 la proporción es 1-4 es decir que para una determinada medida del lote en frente debera tener la proporcion antes mencionada y sin embargo no podra ser inferior en R1 6 ML y en R2 y R3 9 ML. Se aclara que para cuando no cumpla con el ancho minimo pero tenga fondo suficiente se aplica esta norma."
+        },
+        {
+          "criterio": "Indice de ocupacion R1",
+          "valor": "0.8"
+        },
+        {
+          "criterio": "Indice de ocupación R2-R3",
+          "valor": "0.6"
+        },
+        {
+          "criterio": "Indice de construcción R1",
+          "valor": "1.83"
+        },
+        {
+          "criterio": "Indice de construcción R2-R3",
+          "valor": "R2: 3,2 Y R3 : 4,1"
+        },
+        {
+          "criterio": "Altura de piso a piso",
+          "valor": "2,5 metros y para doble altura hasta 6 M"
+        },
+        {
+          "criterio": "Antejardin",
+          "valor": "Cuando el lote pase de 200 metros cuadrados y desarrolle R3 se debera dejar el antejardin y para el caso del lote minimo y la vivienda unifamilar puede seguir el actual paramento"
+        },
+        {
+          "criterio": "Aislamiento lateral",
+          "valor": "2 metros si deja aislamiento o se puede adosar."
+        },
+        {
+          "criterio": "Aislamiento posterior o patio",
+          "valor": "2 ML-o dejar un espacio de minimo 3 M2 de ventilación sin cubierta, cuando es R3. Para el caso de vivienda unifamilar se debera dejarse el patio de minimo 2 M2"
+        },
+        {
+          "criterio": "NORMAS PARA EL ESPACIO URBANO",
+          "valor": ""
+        },
+        {
+          "criterio": "LOTES, VIVIENDAS O EDIFICACIONES CON CONDICIÓN DE RIESGOS.",
+          "valor": "Para el que caso de las viviendas, edificaciones o lotes sin construir que se encuentren localizados en áreas con condición de riesgo alto se debera proceder a elaborar los estudios detallados al hacer cualquier tipo de intervención."
+        },
+        {
+          "criterio": "REGULARIZACIÓN URBANISTICAS",
+          "valor": "Los predios o edificaciones que no tengan legalización de su propiedad o falta de licencia urbansitica o construcción deberan realizar los procedimientos de reconocimiento como lo esta estipulado en el articulado que precede a esta ficha."
+        },
+        {
+          "criterio": "PLANES ZONALES",
+          "valor": "Como estrategia para generar las diferentes infraestructuras requeridas para que este sector contenga todos las condiciones funcionales se debera formular el respectivo Plan Zonal. El cual tiene como objetivo busca la transformación de zonas desarrolladas de la ciudad que tienen condiciones de subutilización de las estructuras físicas existentes, para aprovechar al máximo su potencial de desarrolloen el cual se definan estrategias especificas para el mejoramiento de su entorno en terminos de: espacio publico, vias, servicios publicos, estacionamientos publicos y equipamientos."
+        },
+        {
+          "criterio": "ESTACIONAMIENTOS",
+          "valor": "Para los desarrollos de usos del suelo de R1 y R2 se tiene la obligación por lo menos de un parqueo, interno o externo por cada unidad residencial o la compensacion de los mismos. Para el uso R3 le aplica un parqueo por cada vivienda y 1 por cada 5 viviendas para visitantes. Para el caso de R3 el primer piso de parqueo o la plataforma basica de parqueos no suma en el indice de construcción. Y la Plataforma podria adosarse hasta el segundo nivel a los lados y al fondo"
+        },
+        {
+          "criterio": "Observacion:",
+          "valor": "No se permiten escaleras en antejardines o fuera del paramento. Los indices de ocupación y construcción para los usos M1, M2 y M3 son los mismo que para los usos R2 o R3. Para los usos diferentes a los residenciales o mixtos se utlizan los mismos estandares normativos en cuanto a tamaño de lote e indices que los residenciales. Generación de parqueos públicos por parte del plan zonal que se estipule en las zonas residuales que aún existen. Cuando el lote pase de doscientos (200) metros cuadrados e inclusive para el lote mínimo puede seguir el actual paramento, sin embargo para R2 y R3 si deberá dejar antejardín y parqueos de visita. Si deja aislamiento mínimo son dos (2) metros cuadrados, para el en caso de que se adose solo es para R1 y R2, después del Tercer (3) piso debe aislarse. subdivisión de predios urbanos construidos, se permite la subdivisión predial para aquellos predios construidos antes de entrada en vigencia la aprobación del Plan de Ordenamiento Territorial, que cuenten con un área no inferior a 35 metros cuadrados, los cuales ya estén consolidados, dicha subdivisión se establecerá para permitir trámites de legalización mediante escritura pública.asi mismo, Los predios urbanizables no urbanizados ubicados en suelo urbano no podrán ser subdivididos previamente a la actuación de urbanización, salvo cuando se cumplan con las condciones del Decreto 1077 del 2015. ARTÍCULO 2.2.2.1.4.1.4 , en especial numeral 4. Existan reglas especiales para subdivisión contenidas en el plan de ordenamiento territorial o los instrumentos que lo desarrollen o complementen."
+        }
+      ]
+    },
+    {
+      "ambito": "urbano",
+      "archivo_origen": "SECTORES NORMATIVOS CONSRVACION Y CONSOLIDACIÓN.xlsx",
+      "hoja": "FICHA NORMATIVA 1",
+      "ficha": "FICHA NORMATIVA N° 1",
+      "ficha_numero": "1",
+      "tratamiento": "TRATAMIENTO CONSERVACION PATRIMONIAL",
+      "sector": "",
+      "usos": {
+        "principal": [
+          {
+            "codigo": "R1",
+            "uso": "Vivienda Unifamiliar",
+            "condiciones": "En toda la zona",
+            "clasificacion": "Urbanizaciones abiertas, cerradas o lotes individuales"
+          }
+        ],
+        "compatible": [
+          {
+            "codigo": "R2",
+            "uso": "Vivienda Bifamiliar",
+            "condiciones": "En toda la zona",
+            "clasificacion": "Urbanizaciones abiertas o viviendas individuales, tambien en edificaciones existente que se subdividan"
+          },
+          {
+            "codigo": "M1",
+            "uso": "Mixto 1",
+            "condiciones": "Sobre vias secundarias o locales",
+            "clasificacion": "Constituido por el uso R1, R2, R3 y Cualquiera de los Comerciales, especialmente en esta zona de influencia de las actividades economicas del Centro"
+          },
+          {
+            "codigo": "M2",
+            "uso": "Mixto 2",
+            "condiciones": "Sobre vias secundarias o locales",
+            "clasificacion": "Constituido por el uso R1 , R2, R3 y DOT 1 (Dotacional ) o DOT 2 (Dotacional), Especialmente en esta zona de influencia de las actividades economicas del Centro"
+          },
+          {
+            "codigo": "M3",
+            "uso": "Mixto 3",
+            "condiciones": "Sobre vias secundarias o locales",
+            "clasificacion": "Constituido por el uso C1, C2, C3 o C4 y DOT 1 (Dotacional ) o DOT 2 (Dotacionall), Especialmente en esta zona de influencia de las actividades economicas del Centro"
+          },
+          {
+            "codigo": "S 1,2,3,4,5,6 y 7",
+            "uso": "Servicios del 1 al 7",
+            "condiciones": "Sobre vias secundarias o locales",
+            "clasificacion": "Se puede desarrollar en un local independiente (minimo 9 M2), anexo a un edificación, o en una agrupación comercial"
+          },
+          {
+            "codigo": "C1",
+            "uso": "Comercio 1",
+            "condiciones": "Sobre vias secundarias o locales",
+            "clasificacion": "Se puede desarrollar en un local independiente, anexo a un edificación, o en una agrupación comercial"
+          },
+          {
+            "codigo": "C2",
+            "uso": "Comercio 2",
+            "condiciones": "Sobre vias secundarias o locales",
+            "clasificacion": ""
+          },
+          {
+            "codigo": "C2",
+            "uso": "Comercial 2",
+            "condiciones": "Sobre vias secundarias o locales",
+            "clasificacion": "Se puede desarrollar en un local independiente, anexo a un edificación, o en una agrupación comercial"
+          },
+          {
+            "codigo": "DOT 1",
+            "uso": "Dotacional 1",
+            "condiciones": "Sobre todo tipo de vias.",
+            "clasificacion": "Local o predio independiente. Constituido por establecimientos públicos y privados de bajo impacto de cobertura zonal, compatibles con el uso residencial tales como: educación preescolar básica y primaria, centro de atención inmediato de policía o puesto de vigilancia de policía, parques infantiles, canchas infantiles y escenarios deportivos de bajo impacto, puesto de salud, templos religiosos. Centros de asociaciones locales comunales."
+          },
+          {
+            "codigo": "RECYD1.",
+            "uso": "Recreacional y Deporte 1",
+            "condiciones": "Sobre todo tipo de vias.",
+            "clasificacion": "Es el uso constituido por canchas deportivas, parques y zonas y espacios verdes."
+          }
+        ],
+        "restringido": [],
+        "condicionado": [],
+        "prohibido": [
+          {
+            "codigo": "S",
+            "uso": "Todos los Usos de suelo de Servicios de alto impacto para las areas residenciales. Esta zona es netamente de actividades residenciales locales",
+            "condiciones": "N/A",
+            "clasificacion": "N/A"
+          },
+          {
+            "codigo": "C",
+            "uso": "Todos los comercios de alto imapcto para las zonas residenciales.",
+            "condiciones": "N/A",
+            "clasificacion": "N/A"
+          },
+          {
+            "codigo": "IN",
+            "uso": "Todos los Usos Industriales en esta zona netamente de activiades residenciales y locales",
+            "condiciones": "N/A",
+            "clasificacion": "N/A"
+          },
+          {
+            "codigo": "S 18",
+            "uso": "Servicios 18, es un uso no compatible con zonas de vocación residencial como es el caso de esa sector normativo",
+            "condiciones": "N/A",
+            "clasificacion": "N/A"
+          },
+          {
+            "codigo": "S 21",
+            "uso": "Servicios 21, es un uso no compatible con zonas de vocación residencial como es el caso de este sector normativo",
+            "condiciones": "N/A",
+            "clasificacion": "N/A"
+          }
+        ]
+      },
+      "edificabilidad": [
+        {
+          "criterio": "Lotificación",
+          "valor": "Al ser un sector de consolidación y de influencia del Centro Historico el tamaño y frente de los lotes se conservaran tal y como se encuentre el predio al momento de solicitar algun tipo de actuación y durante la vigencia del POT. En todo caso la subdivisión esta supedidata al tipo de uso y el requerimiento de área para funcionar la edificación como se explica en la linea siguiente para los mismo."
+        },
+        {
+          "criterio": "Tamaño de lote, se define en relación de proporción frente-fondo.",
+          "valor": "Para R1 es de relación 1-2, para R2 o R3 la proporción es 1-4, es decir que para una determinada medida del lote en frente debera tener la proporcion antes mencionada y sin embargo no podra ser inferior en R1 a 5ML Y en R2 y R3 a 9 .Se aclara que para cuando no cumpla con el ancho minimo pero tenga fondo suficiente se aplica esta norma."
+        },
+        {
+          "criterio": "Indice de ocupacion R1",
+          "valor": "0.8"
+        },
+        {
+          "criterio": "Indice de construcción R1",
+          "valor": "1.37"
+        },
+        {
+          "criterio": "Indice de construcción R2-R3",
+          "valor": "3.6"
+        },
+        {
+          "criterio": "Altura de piso a piso",
+          "valor": "2,5 metros y para doble altura hasta 6 M"
+        },
+        {
+          "criterio": "Aislamiento lateral",
+          "valor": "N.A"
+        },
+        {
+          "criterio": "Aislamiento posterior o patio",
+          "valor": "2 M2-o dejar un espacio de minimo 2 M2 de ventilación sin cubierta."
+        },
+        {
+          "criterio": "NORMAS PARA EL ESPACIO URBANO",
+          "valor": ""
+        },
+        {
+          "criterio": "REGULARIZACIÓN URBANISTICAS",
+          "valor": "Los predios o edificaciones que no tengan legalización de su propiedad o falta de licencia urbansitica o construcción deberan realizar los procedimientos de reconocimiento como lo esta estipulado en el articulado que precede a esta ficha."
+        },
+        {
+          "criterio": "PEMP",
+          "valor": "Para el caso de este sector normativo se debera ampliar sus considciones reglamentarias una vez se formule y adopte el PEMP centro fundacional de Ocaña. La administración en el corto plazo debera generar una reglamentacion de compensaciones en asocio con el Ministerio en competencia en un mediano plazo"
+        },
+        {
+          "criterio": "ESTACIONAMIENTOS",
+          "valor": "Este sector por ser un área de consolidada con influencia hacia el centro fundacional se debera generar politicas y estrategias en el orden fiscal en en temas como reducción de impuestos o cualquiera sea el instrumento aplicable para asi promover o incentivar la actividades de construcción de parqueos o estacionamientos privados, se tendra encuenta 1 cupo de parqueadero por cada unidad residencial o la compensacion de los mismos."
+        },
+        {
+          "criterio": "OBSERVACIONES",
+          "valor": "No se permiten escaleras en antejardines o fuera del paramento para ningun uso. Para los usos diferentes a los residenciales o mixtos se utlizan los mismos estandares normativos en cuanto a tamaño de lote e indices que los residenciales. Cuando el lote pase de doscientos (200) metros cuadrados e inclusive para el lote mínimo puede seguir el actual paramento. La cantidad de pisos permitidos dependera dependera del sector donde se ubique de conformidad con el artticuoad del acuerdo, la complementacio de normas se encuentran consignadas en el tratamiento de conservacion del acuerdo del POT."
+        }
+      ]
+    },
+    {
+      "ambito": "urbano",
+      "archivo_origen": "SECTORES NORMATIVOS CONSRVACION Y CONSOLIDACIÓN.xlsx",
+      "hoja": "FICHA NORMATIVA 2",
+      "ficha": "FICHA NORMATIVA N° 2",
+      "ficha_numero": "2",
+      "tratamiento": "TRATAMIENTO DE CONSOLIDACIÓN",
+      "sector": "",
+      "usos": {
+        "principal": [
+          {
+            "codigo": "R1",
+            "uso": "Vivienda Unifamiliar",
+            "condiciones": "En todo la zona",
+            "clasificacion": "Urbanizaciones abiertas, cerradas o lotes individuales"
+          },
+          {
+            "codigo": "R2",
+            "uso": "Vivienda Bifamiliar",
+            "condiciones": "En toda la zona",
+            "clasificacion": "Urbanizaciones abiertas o viviendas individuales, tambien en edificaciones existente que se subdividan,asi también las que se amplien en número de pisos."
+          }
+        ],
+        "compatible": [
+          {
+            "codigo": "R3",
+            "uso": "Vivienda Multifamiliar.",
+            "condiciones": "En toda la zona",
+            "clasificacion": "Conjuntos cerrados o abiertos, edificios en altura."
+          },
+          {
+            "codigo": "M1",
+            "uso": "Mixto 1",
+            "condiciones": "Sobre vias secundarias o locales",
+            "clasificacion": "Constituido por el uso R1, R2, R3 y Cualquiera de los Comerciales, especialmente en esta zona de influencia de las actividades economicas del Centro"
+          },
+          {
+            "codigo": "M2",
+            "uso": "Mixto 2",
+            "condiciones": "Sobre vias secundarias o locales",
+            "clasificacion": "Constituido por el uso R1 , R2, R3 y DOT 1 (Dotacional ) o DOT 2 (Dotacional), Especialmente en esta zona de influencia de las actividades economicas del Centro"
+          },
+          {
+            "codigo": "M3",
+            "uso": "Mixto 3",
+            "condiciones": "Sobre vias secundarias o locales",
+            "clasificacion": "Constituido por el uso C1, C2, C3 o C4 y DOT 1 (Dotacional ) o DOT 2 (Dotacionall), Especialmente en esta zona de influencia de las actividades economicas del Centro"
+          },
+          {
+            "codigo": "S 1,2,3,4,5,6 y 7",
+            "uso": "Servicios del 1 al 7",
+            "condiciones": "Sobre vias secundarias o locales",
+            "clasificacion": "Se puede desarrollar en un local independiente (minimo 9 M2), anexo a un edificación, o en una agrupación comercial"
+          },
+          {
+            "codigo": "C1",
+            "uso": "Comercio 1",
+            "condiciones": "Sobre vias secundarias o locales",
+            "clasificacion": "Se puede desarrollar en un local independiente, anexo a un edificación, o en una agrupación comercial"
+          },
+          {
+            "codigo": "C2",
+            "uso": "Comercio 2",
+            "condiciones": "Sobre vias secundarias o locales",
+            "clasificacion": "Se puede desarrollar en un local independiente, anexo a un edificación, o en una agrupación comercial"
+          },
+          {
+            "codigo": "DOT 1",
+            "uso": "Dotacional 1",
+            "condiciones": "Sobre todo tipo de vias.",
+            "clasificacion": "Local o predio independiente. Constituido por establecimientos públicos y privados de bajo impacto de cobertura zonal, compatibles con el uso residencial tales como: educación preescolar básica y primaria, centro de atención inmediato de policía o puesto de vigilancia de policía, parques infantiles, canchas infantiles y escenarios deportivos de bajo impacto, puesto de salud, templos religiosos. Centros de asociaciones locales comunales."
+          },
+          {
+            "codigo": "RECYD1.",
+            "uso": "Recreacional y Deporte 1",
+            "condiciones": "Sobre todo tipo de vias.",
+            "clasificacion": "Es el uso constituido por canchas deportivas, parques y zonas y espacios verdes."
+          }
+        ],
+        "restringido": [],
+        "condicionado": [],
+        "prohibido": [
+          {
+            "codigo": "S",
+            "uso": "Todos los Usos de suelo de Servicios de alto impacto para las areas residenciales. Esta zona es netamente de actividades residenciales locales",
+            "condiciones": "N/A",
+            "clasificacion": "N/A"
+          },
+          {
+            "codigo": "C",
+            "uso": "Todos los comercios de alto imapcto para las zonas residenciales.",
+            "condiciones": "N/A",
+            "clasificacion": "N/A"
+          },
+          {
+            "codigo": "IN",
+            "uso": "Todos los Usos Industriales en esta zona netamente de activiades residenciales y locales",
+            "condiciones": "N/A",
+            "clasificacion": "N/A"
+          },
+          {
+            "codigo": "S 18",
+            "uso": "Servicios 18, es un uso no compatible con zonas de vocación residencial como es el caso de esa sector normativo",
+            "condiciones": "N/A",
+            "clasificacion": "N/A"
+          },
+          {
+            "codigo": "S 21",
+            "uso": "Servicios 21, es un uso no compatible con zonas de vocación residencial como es el caso de este sector normativo",
+            "condiciones": "N/A",
+            "clasificacion": "N/A"
+          }
+        ]
+      },
+      "edificabilidad": [
+        {
+          "criterio": "Lote minimo (1 piso)",
+          "valor": "60 M2"
+        },
+        {
+          "criterio": "Lote minimo (2 o 3 pisos)",
+          "valor": "60 a 90 M2"
+        },
+        {
+          "criterio": "Frente minimo (1 piso)",
+          "valor": "6 ML"
+        },
+        {
+          "criterio": "Frente minimo (2-3 piso)",
+          "valor": "7 a 10 ML"
+        },
+        {
+          "criterio": "lote minimo 4 a 7 pisos",
+          "valor": "150 - 200M2"
+        },
+        {
+          "criterio": "Frente minimo (4 a 7 pisos)",
+          "valor": "10 - 15 ML"
+        },
+        {
+          "criterio": "lote minimo 7 a 12 pisos",
+          "valor": "400M2"
+        },
+        {
+          "criterio": "Frente minimo (7 a 20 pisos)",
+          "valor": "15 ML en adelante"
+        },
+        {
+          "criterio": "Para frente de medidas inferiores al minimo de tamaño de lote, se define en relación de proporción frente-fondo.",
+          "valor": "Para R1 es de relación 1-2, para R2 o R3 la proporción es 1-4 es decir que para una determinada medida del lote en frente debera tener la proporcion antes mencionada y sin embargo no podra ser inferior en R1 a 5 ML Y en R2 y R3 a 9 ML. Se aclara que para cuando no cumpla con el ancho minimo pero tenga fondo suficiente se aplica esta norma."
+        },
+        {
+          "criterio": "Indice de ocupacion R1",
+          "valor": "0.8"
+        },
+        {
+          "criterio": "Indice de ocupación R2-R3",
+          "valor": "70%, para el uso R3 a manera de compensación si la ocupación no pasa del 55 % del área neta del lote se podria acceder a construir hasta los 10 pisos"
+        },
+        {
+          "criterio": "Indice de construcción R1",
+          "valor": "1.37"
+        },
+        {
+          "criterio": "Indice de construcción R2-R3",
+          "valor": "R2: 2,4 Y R3 : 3,2"
+        },
+        {
+          "criterio": "Altura de piso a piso",
+          "valor": "2,5 metros libres y para doble altura hasta 6 M"
+        },
+        {
+          "criterio": "Antejardin",
+          "valor": "Cuando el lote pase de 200 metros cuadrados y desarrolle R3 se debera dejar el antejardin y para el caso del lote minimo y la vivienda unifamilar puede seguir el actual paramento"
+        },
+        {
+          "criterio": "Aislamiento lateral",
+          "valor": "2 metros si deja aislamiento o se puede adosar."
+        },
+        {
+          "criterio": "Aislamiento posterior o patio",
+          "valor": "2 ML-o dejar un espacio de minimo 3 M2 de ventilación sin cubierta, cuando es R3. Para el caso de vivienda unifamilar se debera dejarse el patio de minimo 2 M2"
+        },
+        {
+          "criterio": "NORMAS PARA EL ESPACIO URBANO",
+          "valor": ""
+        },
+        {
+          "criterio": "LOTES, VIVIENDAS O EDIFICACIONES CON CONDICIÓN DE RIESGOS.",
+          "valor": "Para el que caso de las viviendas, edificaciones o lotes sin construir que se encuentren localizados en areas con condición de riesgo alto se debera proceder a elaborar los estudios detallados para hacer cualquier tipo de intervención."
+        },
+        {
+          "criterio": "REGULARIZACIÓN URBANISTICAS",
+          "valor": "Los predios o edificaciones que no tengan legalización de su propiedad o falta de licencia urbansitica o construcción deberan realizar los procedimientos de reconocimiento como lo esta estipulado en el articulado que precede a esta ficha."
+        },
+        {
+          "criterio": "PLANES ZONALES",
+          "valor": "Como estrategia para generar el mejoramiento de la calidad urbanistica de estos sectores se debera formular el respectivo Plan Zonal, en el cual se definan estrategias especificas para el mejoramiento de su entorno en terminos de: espacio publico, vias, servicios publicos, estacionamientos publicos y equipamientos."
+        },
+        {
+          "criterio": "ESTACIONAMIENTOS",
+          "valor": "Para los desarrollos de usos del suelo de R1 y R2 no tiene la obligación de parqueo, si utiliza la minima lotificación posible, sin embargo si tiene mas de 80 M2 debera tener 1 parqueo minimo, o la compensacion del mismo segun Decreto reglamentario No. 150 de 19 de Noviembre de 2020. Para los uso R3 le aplica un parqueo por cada vivienda y 1 por cada 8 viviendas para visitantes, para proyectos de vivienda de intteres social o predios sujetos a vivienda de intares social, no aplica el cupo minimo de estacionamiemto y podra presentar altenativas de parqueaderos dependiendo del medio de transporte usado."
+        },
+        {
+          "criterio": "Observaciones:",
+          "valor": "No se permiten escaleras en antejardines o fuera del paramento. Los indices de ocupación y construcción para los usos M1, M2 y M3 son los mismo que para los usos R2 o R3. Para los usos diferentes a los residenciales o mixtos se utlizan los mismos estandares normativos en cuanto a tamaño de lote e indices que los residenciales. Generación de parqueos públicos por parte del plan zonal que se estipule en las zonas residuales que aún existen. Cuando el lote pase de doscientos (200) metros cuadrados e inclusive para el lote mínimo puede seguir el actual paramento, sin embargo par R2 y R3 si deberá dejar antejardín y parqueos de visita. Si hay deja aislamiento mínimo son dos (2) metros cuadrados, para el en caso de que se adose solo es para R1 R2, después del Tercer (3) piso debe aislarse para evitar servidumbre de vista De las áreas mínimas para la subdivisión de predios urbanos construidos, se permite la subdivisión predial para aquellos predios construidos antes de entrada en vigencia la aprobación del Plan de Ordenamiento Territorial, que cuenten con un área no inferior a 35 metros cuadrados, los cuales ya estén consolidados, dicha subdivisión se establecerá para permitir trámites de legalización mediante escritura pública, asi mismo, Los predios urbanizables no urbanizados ubicados en suelo urbano no podrán ser subdivididos previamente a la actuación de urbanización, salvo cuando se cumplan con las condciones del Decreto 1077 del 2015. ARTÍCULO 2.2.2.1.4.1.4 , en especial numeral 4. Existan reglas especiales para subdivisión contenidas en el plan de ordenamiento territorial o los instrumentos que lo desarrollen o complementen."
+        }
+      ]
+    },
+    {
+      "ambito": "urbano",
+      "archivo_origen": "SECTORES NORMATIVOS CONSRVACION Y CONSOLIDACIÓN.xlsx",
+      "hoja": "FICHA NORMATIVA 2a",
+      "ficha": "FICHA NORMATIVA N° 2A",
+      "ficha_numero": "2A",
+      "tratamiento": "TRATAMIENTO DE CONSOLIDACIÓN",
+      "sector": "Las Plameras- Buenos Aires - la Primavera - Ciudad Jardin - el Lago- las Acacias -Torres del Cable y otros",
+      "usos": {
+        "principal": [
+          {
+            "codigo": "R1",
+            "uso": "Vivienda Unifamiliar",
+            "condiciones": "En toda la zona",
+            "clasificacion": "Urbanizaciones abiertas, cerradas o lotes individuales"
+          },
+          {
+            "codigo": "R2",
+            "uso": "Vivienda Bifamiliar",
+            "condiciones": "En toda la zona",
+            "clasificacion": "Urbanizaciones abiertas o viviendas individuales, tambien en edificaciones existente que se subdividan,asi también las que se amplien en número de pisos."
+          }
+        ],
+        "compatible": [
+          {
+            "codigo": "R3",
+            "uso": "Vivienda Multifamiliar.",
+            "condiciones": "En toda la zona",
+            "clasificacion": "Conjuntos cerrados o abiertos, edificios en altura."
+          },
+          {
+            "codigo": "M1",
+            "uso": "Mixto 1",
+            "condiciones": "Sobre vias secundarias o locales",
+            "clasificacion": "Constituido por el uso R1, R2, R3 y Cualquiera de los Comerciales, especialmente en esta zona de influencia de las actividades economicas del Centro"
+          },
+          {
+            "codigo": "M2",
+            "uso": "Mixto 2",
+            "condiciones": "Sobre vias secundarias o locales",
+            "clasificacion": "Constituido por el uso R1 , R2, R3 y DOT 1 (Dotacional ) o DOT 2 (Dotacional), Especialmente en esta zona de influencia de las actividades economicas del Centro"
+          },
+          {
+            "codigo": "M3",
+            "uso": "Mixto 3",
+            "condiciones": "Sobre vias secundarias o locales",
+            "clasificacion": "Constituido por el uso C1, C2, C3 o C4 y DOT 1 (Dotacional ) o DOT 2 (Dotacionall), Especialmente en esta zona de influencia de las actividades economicas del Centro"
+          },
+          {
+            "codigo": "S 1,2,3,4,5,6 y 7",
+            "uso": "Servicios del 1 al 7",
+            "condiciones": "Sobre vias secundarias o locales",
+            "clasificacion": "Se puede desarrollar en un local independiente (minimo 9 M2), anexo a un edificación, o en una agrupación comercial ."
+          },
+          {
+            "codigo": "C1",
+            "uso": "Comercio 1",
+            "condiciones": "Sobre vias secundarias o locales",
+            "clasificacion": "Se puede desarrollar en un local independiente, anexo a un edificación, o en una agrupación comercial"
+          },
+          {
+            "codigo": "C2",
+            "uso": "Comercio 2",
+            "condiciones": "Sobre vias secundarias o locales",
+            "clasificacion": "Se puede desarrollar en un local independiente, anexo a un edificación, o en una agrupación comercial"
+          },
+          {
+            "codigo": "DOT 1",
+            "uso": "Dotacional 1",
+            "condiciones": "Sobre todo tipo de vias.",
+            "clasificacion": "Local o predio independiente. Constituido por establecimientos públicos y privados de bajo impacto de cobertura zonal, compatibles con el uso residencial tales como: educación preescolar básica y primaria, centro de atención inmediato de policía o puesto de vigilancia de policía, parques infantiles, canchas infantiles y escenarios deportivos de bajo impacto, puesto de salud, templos religiosos. Centros de asociaciones locales comunales."
+          },
+          {
+            "codigo": "DOT 2",
+            "uso": "Dotacional 2",
+            "condiciones": "Sobre todo tipo de vias.",
+            "clasificacion": "Constituido por establecimientos de mediano impacto de cobertura zonal complementarios y compatibles con el uso residencial."
+          },
+          {
+            "codigo": "RECYD1.",
+            "uso": "Recreacional y Deporte 1",
+            "condiciones": "Sobre todo tipo de vias.",
+            "clasificacion": "Es el uso constituido por canchas deportivas, parques y zonas y espacios verdes."
+          }
+        ],
+        "restringido": [
+          {
+            "codigo": "C3",
+            "uso": "Comercio 3",
+            "condiciones": "Solo sobre vias primarias o secundarias",
+            "clasificacion": "Centros Comerciales de Gran Superficie Cubiertos"
+          },
+          {
+            "codigo": "C4",
+            "uso": "Comercio 4",
+            "condiciones": "Solo sobre vias primarias o secundarias",
+            "clasificacion": "Supermercados, Almacenes de Cadena, Grandes Superficies y Almacenes por Departamento Independientes"
+          }
+        ],
+        "condicionado": [],
+        "prohibido": [
+          {
+            "codigo": "S",
+            "uso": "Todos los Usos de suelo de Servicios de alto impacto para las areas residenciales. Esta zona es netamente de actividades residenciales locales",
+            "condiciones": "N/A",
+            "clasificacion": "N/A"
+          },
+          {
+            "codigo": "C",
+            "uso": "Todos los comercios de alto imapcto para las zonas residenciales.",
+            "condiciones": "N/A",
+            "clasificacion": "N/A"
+          },
+          {
+            "codigo": "IN",
+            "uso": "Todos los Usos Industriales en esta zona netamente de activiades residenciales y locales",
+            "condiciones": "N/A",
+            "clasificacion": "N/A"
+          },
+          {
+            "codigo": "S 18",
+            "uso": "Servicios 18, es un uso no compatible con zonas de vocación residencial como es el caso de esa sector normativo",
+            "condiciones": "N/A",
+            "clasificacion": "N/A"
+          },
+          {
+            "codigo": "S 21",
+            "uso": "Servicios 21, es un uso no compatible con zonas de vocación residencial como es el caso de este sector normativo",
+            "condiciones": "N/A",
+            "clasificacion": "N/A"
+          }
+        ]
+      },
+      "edificabilidad": [
+        {
+          "criterio": "Lote minimo (1 piso)",
+          "valor": "60 M2"
+        },
+        {
+          "criterio": "Lote minimo (2 o 3 pisos)",
+          "valor": "60 a 90 M2"
+        },
+        {
+          "criterio": "Frente minimo (1 piso)",
+          "valor": "6 ML"
+        },
+        {
+          "criterio": "Frente minimo (2-3 piso)",
+          "valor": "7 a 10 ML"
+        },
+        {
+          "criterio": "lote minimo 4 a 7 pisos",
+          "valor": "150 - 200M2"
+        },
+        {
+          "criterio": "Frente minimo (4 a 7 pisos)",
+          "valor": "10 - 15 ML"
+        },
+        {
+          "criterio": "lote minimo 7 a 12 pisos",
+          "valor": "400M2"
+        },
+        {
+          "criterio": "Frente minimo (7 a 20 pisos)",
+          "valor": "15 ML en adelante"
+        },
+        {
+          "criterio": "Frente de medidas inferiores al minimo de tamaño de lote, se define en relación de proporción frente-fondo.",
+          "valor": "Para R1 es de relación 1-2, para R2 o R3 la proporción es 1-4 es decir que para una determinada medida del lote en frente debera tener la proporcion antes mencionada y sin embargo no podra ser inferior en R1 a 5 ML Y en R2 y R3 a 9 ML. Se aclara que para cuando no cumpla con el ancho minimo pero tenga fondo suficiente se aplica esta norma."
+        },
+        {
+          "criterio": "Indice de ocupacion R1",
+          "valor": "0.8"
+        },
+        {
+          "criterio": "Indice de ocupación R2-R3",
+          "valor": "70%, para el uso R3 a manera de compensación si la ocupación no pasa del 55 % del área neta del lote se podria acceder a construir hasta los 10 pisos. Auque el numero de pisos base para este uso es de 6 pisos."
+        },
+        {
+          "criterio": "Indice de construcción R1",
+          "valor": "1.37"
+        },
+        {
+          "criterio": "Indice de construcción R2-R3",
+          "valor": "5.4"
+        },
+        {
+          "criterio": "Altura de piso a piso",
+          "valor": "2,5 metros y para doble altura hasta 6 M"
+        },
+        {
+          "criterio": "Antejardin",
+          "valor": "Cuando el lote pase de 200 metros cuadrados y desarrolle R3 se debera dejar el antejardin y para el caso del lote minimo y la vivienda unifamilar puede seguir el actual paramento"
+        },
+        {
+          "criterio": "Aislamiento lateral",
+          "valor": "2 metros si deja aislamiento o se puede adosar."
+        },
+        {
+          "criterio": "Aislamiento posterior o patio",
+          "valor": "2 ML-o dejar un espacio de minimo 3 M2 de ventilación sin cubierta, cuando es R3. Para el caso de vivienda unifamilar se debera dejarse el patio de minimo 2 M2"
+        },
+        {
+          "criterio": "NORMAS PARA EL ESPACIO URBANO",
+          "valor": ""
+        },
+        {
+          "criterio": "LOTES, VIVIENDAS O EDIFICACIONES CON CONDICIÓN DE RIESGOS.",
+          "valor": "En esta sector se encuentran viviendas con condición de riesgo alto por inundación y en zonas de expansión en condición de amenaza alta por movimiento en masa. (Esta condición se puede constatar especificamente Los planos de riesgos y amenazas, anexos a esta al diagnostico.)"
+        },
+        {
+          "criterio": "REGULARIZACIÓN URBANISTICAS",
+          "valor": "Los predios o edificaciones que no tengan legalización de su propiedad o falta de licencia urbansitica o construcción deberan realizar los procedimientos de reconocimiento como lo esta estipulado en el articulado que precede a esta ficha."
+        },
+        {
+          "criterio": "PLANES ZONALES",
+          "valor": "Como estrategia para generar el mejoramiento de la calidad urbanistica de estos sectores se debera formular el respectivo Plan Zonal, en el cual se definan estrategias especificas para el mejoramiento de su entorno en terminos de: espacio publico, vias, servicios publicos, estacionamientos publicos y equipamientos."
+        },
+        {
+          "criterio": "ESTACIONAMIENTOS",
+          "valor": "Para los desarrollos de usos del suelo de R1 y R2 se tiene la obligación por lo menos de un parqueo, interno o externo o la compensacion del mismo. Para el uso R3 le aplica un parqueo por cada vivienda y 1 por cada 5 viviendas para visitantes. Para el caso de R3 el primer piso de parqueo o la plataforma basica de parqueos no suma en el indice de construcción. Y la Plataforma podria adosarse hasta el segundo nivel a los lados y al fondo"
+        },
+        {
+          "criterio": "Observacion:",
+          "valor": "No se permiten escaleras en antejardines o fuera del paramento. Los indices de ocupación y construcción para los usos M1, M2 y M3 son los mismo que para los usos R2 o R3. Para los usos diferentes a los residenciales o mixtos se utlizan los mismos estandares normativos en cuanto a tamaño de lote e indices que los residenciales. Generación de parqueos públicos por parte del plan zonal que se estipule en las zonas residuales que aún existen. Cuando el lote pase de doscientos (200) metros cuadrados e inclusive para el lote mínimo puede seguir el actual paramento, sin embargo para R2 y R3 si deberá dejar antejardín y parqueos de visita. Si deja aislamiento mínimo son dos (2) metros cuadrados, para el en caso de que se adose solo es para R1 y R2, después del Tercer (3) piso debe aislarse De las áreas mínimas para la subdivisión de predios urbanos construidos, se permite la subdivisión predial para aquellos predios construidos antes de entrada en vigencia la aprobación del Plan de Ordenamiento Territorial, que cuenten con un área no inferior a 35 metros cuadrados, los cuales ya estén consolidados, dicha subdivisión se establecerá para permitir trámites de legalización mediante escritura pública, asi mismo, Los predios urbanizables no urbanizados ubicados en suelo urbano no podrán ser subdivididos previamente a la actuación de urbanización, salvo cuando se cumplan con las condciones del Decreto 1077 del 2015. ARTÍCULO 2.2.2.1.4.1.4 , en especial numeral 4. Existan reglas especiales para subdivisión contenidas en el plan de ordenamiento territorial o los instrumentos que lo desarrollen o complementen."
+        }
+      ]
+    },
+    {
+      "ambito": "rural",
+      "archivo_origen": "FICHAS_DE_REGLAMENTACIÓN_RURAL-OCAÑA._2023.xlsx",
+      "hoja": "FICHA NORMATIVA 1",
+      "ficha": "FICHA NORMATIVA RURAL N° 1",
+      "ficha_numero": "1",
+      "area_actividad": "ÁREA DE ACTIVIDAD CONSERVACION DE RECURSOS HIDRICO.",
+      "tratamiento_manejo": "MANEJO DE CONSERVACION Y PROTECCION",
+      "descripcion": "La área de actividad para la conservación del recurso hídrico permitirá la compra de terrenos aledaños a la cuenca del río Tejo, los cuales actuaran como zonas de protección y conservación de la cuenca, garantizando la prevalencia y continuidad de los servicios ambientales que provee el río Tejo,entre ellos el abastecimiento de agua para la población rural.",
+      "directrices": "En esta área de actividad del suelo rural la categoría de ordenación es: Conservación y Protección. Manejo: preservación. En este sentido se definen los siguientes lineamientos para su implementación. Se realizará un inventario de flora en los predios adquiridos, identificando especies invasoras, para darle su debido manejo, según el caso. Revegetación de los terrenos adquiridos con especies nativas, garantizando el seguimiento al proceso de crecimiento de las especies, mediante programas de adopción de árboles realizados con las instituciones educativas cercanas a la zona. Protección de la ronda hídrica con estructuras idóneas, según el caso, se contempla la construcción de senderos para el avistamiento de aves. Conformación de equipos de lideres ambientales multiplicadores.",
+      "usos": {
+        "principal": [
+          {
+            "descripcion": "Control y vigilancia, Investigación científica y demás actividades orientadas a la preservación de muestras representativas de la biodiversidad, Caracterización y monitoreo de la biodiversidad, Restauración ecológica en función de restablecer la integridad ecológica del área (composición, estructura y función), Desarrollo de estrategias y programas de conectividad o corredores ecológicos, Implementación de herramientas de manejo del paisaje."
+          }
+        ],
+        "compatible": [
+          {
+            "descripcion": "Aprovechamiento de frutos secundarios del bosque con los respectivos permisos, en aquellas áreas que por sus condiciones biofísicas, socioeconómicas y culturales así lo permitan, y cuando no comprometan el bosque protector. Educación ambiental, recreación pasiva, y ecoturismo sin que se supere la capacidad de carga. Mantenimiento de senderos y caminos existentes, siempre y cuando no alteren los atributos de los ecosistemas."
+          }
+        ],
+        "condicionado": [
+          {
+            "descripcion": "Adecuación y mantenimiento de senderos existentes, siempre y cuando no varíen las especificaciones técnicas y el trazado de los mismos. Control mecánico y biológico para manejo de plagas y especies invasoras. Adecuación de estructuras blandas para ecoturismo, recreación pasiva y educación ambiental. Adecuación de suelos con fines de rehabilitación ecológica. Repoblación y reintroducción de especies nativas con fines de restauración. Producción de material vegetal para la restauración ecológica. Establecimiento de infraestructura asociada a los procesos de restauración. Infraestructura asociada a las actividades de ecoturismo, esta debe integrar criterios de construcción sostenible, utilización de materiales de bajo impacto ambiental y social, y acciones de ahorro y uso eficiente de los recursos naturales durante cada una de las fases requeridas en la construcción y el mantenimiento de la misma."
+          }
+        ],
+        "prohibido": [
+          {
+            "descripcion": "Todos los diferentes a los usos principal, compatible y condicionado."
+          },
+          {
+            "descripcion": "Todos los diferentes a los usos principal, compatible y condicionado."
+          }
+        ]
+      },
+      "edificabilidad": [
+        {
+          "fila": 20,
+          "valores": [
+            "ECOTURISMO",
+            "VIVIENDA DISPERSA",
+            "VIVIENDA CAMPESINA",
+            "RESIDENCIAL FINCA",
+            "GLAMPING",
+            "SERVICIOS PÚBLICOS",
+            "CENTROS DE ACOPIO",
+            "BODEGAS Y ALMACE-NAMIENTO"
+          ]
+        },
+        {
+          "fila": 21,
+          "valores": [
+            "INSTRUMENTO",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A."
+          ]
+        },
+        {
+          "fila": 23,
+          "valores": [
+            "SUB-DIVISIÓN",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A."
+          ]
+        },
+        {
+          "fila": 25,
+          "valores": [
+            "PARCELACIÓN MÍNIMA",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A."
+          ]
+        },
+        {
+          "fila": 27,
+          "valores": [
+            "ALTURA",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A."
+          ]
+        },
+        {
+          "fila": 29,
+          "valores": [
+            "AISLAMIENTOS",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A."
+          ]
+        },
+        {
+          "fila": 31,
+          "valores": [
+            "INDICE DE OCUPACIÓN",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A."
+          ]
+        },
+        {
+          "fila": 33,
+          "valores": [
+            "INDICE DE CONSTRUCCIÓN",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A."
+          ]
+        }
+      ]
+    },
+    {
+      "ambito": "rural",
+      "archivo_origen": "FICHAS_DE_REGLAMENTACIÓN_RURAL-OCAÑA._2023.xlsx",
+      "hoja": "FICHA NORMATIVA 2",
+      "ficha": "FICHA NORMATIVA RURAL N°2",
+      "ficha_numero": "2",
+      "area_actividad": "ÁREA DE ACTIVIDAD BOSQUE SECO TROPICAL Y AREAS SEMI NATURALES.",
+      "tratamiento_manejo": "MANEJO DE CONSERVACION Y PROTECCION",
+      "descripcion": "Esta área de actividad, pretende proteger las Áreas de Bosque Seco Tropical, con la finalidad de conservar este ecosistema, la biodiversidad asociada al mismo y los servicios ecosistemicos que provee.",
+      "directrices": "En esta área de actividad la unidad de ordemaniento es: Conservación y protección. Los lineamientos son de Preservacción: - Se realizaran estudios del ecosistema e inventarios de biodiversidad de las áreas definidas \"de Bosque seco natural y áreas seminaturales\", con la finalidad de identificar las especies de fauna y flora presentes en las áreas definidas para el municipio de Ocaña, su estado de amenaza en las listas rojas UICN, endemismos de la zona, identificación de áreas de reforestación, etc. - Se conformaran comités de trabajo vinculando a la comunidad cercana de la zona, articulando esta asociatividad con gremios, asociacones comunitarias, instituciones educativas y la corporación ambiental (municipal - departamental), con la finalidad de generar sentido de pertenencia, identidad y ciudado hacia los Bosquues Secos. - Habilitación de senderos para el desarrollo de actividades comtemplativas del ecosistema.",
+      "usos": {
+        "principal": [
+          {
+            "descripcion": "Protección de los recursos naturales, educación, investigación relacionada con el conocimiento del ecosistema y los recursos naturales asociados y las demás consagradas en la ley que no atenten contra la estabilidad de estas áreas naturales. Protección de los recursos naturales, educación, investigación relacionada con el conocimiento del ecosistema y los recursos naturales asociados y las demás consagradas en la ley que no atenten contra la estabilidad de estas áreas naturales."
+          }
+        ],
+        "compatible": [
+          {
+            "descripcion": "Recreación contemplativa, rehabilitación ecológica, investigación controlada y educación, defensa y mejoramiento del territorio y sus recursos físico - bióticos y paisajísticos, y como apoyo a actividades de recreación, educación, investigación, ecoturismo o recreación pasiva contemplativa, monitoreo y control ambiental, fomento de cultura, investigación controlada de los recursos naturales renovables, y manejo de biodiversidad. Recreación contemplativa, rehabilitación ecológica, investigación controlada y educación, defensa y mejoramiento del territorio y sus recursos físico - bióticos y paisajísticos, y como apoyo a actividades de recreación, educación, investigación, ecoturismo o recreación pasiva contemplativa, monitoreo y control ambiental, fomento de cultura, investigación controlada de los recursos naturales renovables, y manejo de biodiversidad."
+          }
+        ],
+        "condicionado": [
+          {
+            "descripcion": "Captaciones para abastecimiento y uso del agua para consumo humano abrevadero y riego, captura de ejemplares de fauna y flora con fines de investigación, construcción de infraestructuras relacionadas con el uso compatible, extracción genética controlada, restauración ecológica. Captaciones para abastecimiento y uso del agua para consumo humano abrevadero y riego, captura de ejemplares de fauna y flora con fines de investigación, construcción de infraestructuras relacionadas con el uso compatible, extracción genética controlada, restauración ecológica."
+          }
+        ],
+        "prohibido": [
+          {
+            "descripcion": "Todos los diferentes a los usos principal, compatible y condicionado."
+          }
+        ]
+      },
+      "edificabilidad": [
+        {
+          "fila": 20,
+          "valores": [
+            "ECOTURISMO",
+            "VIVIENDA DISPERSA",
+            "VIVIENDA CAMPESINA",
+            "RESIDENCIAL FINCA",
+            "GLAMPING",
+            "SERVICIOS PÚBLICOS",
+            "CENTROS DE ACOPIO",
+            "BODEGAS Y ALMACE-NAMIENTO"
+          ]
+        },
+        {
+          "fila": 21,
+          "valores": [
+            "INSTRUMENTO",
+            "N.A.",
+            "Mejoramiento de vivienda y saneamiento básico para la población campesina establecida históricamente. En nngún caso de puede construir vivienda nueva.",
+            "Mejoramiento de vivienda y saneamiento básico para la población campesina establecida históricamente. En nngún caso de puede construir vivienda nueva.",
+            "Mejoramientos locativos, si hay vivienda existente. En ningún caso se puede construir vivienda nueva.",
+            "N.A.",
+            "En caso requerido para instalación de redes de servicios públicos domiciliarios rurales, se deberá contar con plan de manejo ambiental.",
+            "N.A.",
+            "N.A."
+          ]
+        },
+        {
+          "fila": 23,
+          "valores": [
+            "SUB-DIVISIÓN",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A."
+          ]
+        },
+        {
+          "fila": 25,
+          "valores": [
+            "PARCELACIÓN MÍNIMA",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A."
+          ]
+        },
+        {
+          "fila": 27,
+          "valores": [
+            "ALTURA",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A."
+          ]
+        },
+        {
+          "fila": 29,
+          "valores": [
+            "AISLAMIENTOS",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A."
+          ]
+        },
+        {
+          "fila": 31,
+          "valores": [
+            "INDICE DE OCUPACIÓN",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A."
+          ]
+        },
+        {
+          "fila": 33,
+          "valores": [
+            "INDICE DE CONSTRUCCIÓN",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A."
+          ]
+        }
+      ]
+    },
+    {
+      "ambito": "rural",
+      "archivo_origen": "FICHAS_DE_REGLAMENTACIÓN_RURAL-OCAÑA._2023.xlsx",
+      "hoja": "FICHA NORMATIVA 3",
+      "ficha": "FICHA NORMATIVA RURAL N°3",
+      "ficha_numero": "3",
+      "area_actividad": "ÁREA DE ACTIVIDAD PROTECCIÓN DE RECURSOS FLORA, FAUNA, SUELO, AGUA Y ECOSISTEMAS ESTRATÉGICOS",
+      "tratamiento_manejo": "MANEJO DE CONSERVACION Y PROTECCION",
+      "descripcion": "Para esta unidad la categoria de ordenación es: Conservación y manejo. Está conformada por las siguientes áreas: 1. Áreas complementarias para la conservación 2. Áreas con reglamentación especial. 3. Áreas de importancia ambiental 4. Áreas de rehabilitación. 5. Áreas de restauración ecologica.",
+      "directrices": "La directriz de manejo correspondiente a las Áreas complementarias para la conservación, Áreas de importancia ambiental y Áreas con reglamentación especial, es de Preservación. Son áreas categorizadas como Áreas de manejo para la preservación de de los recuros naturales y ecosistemas estrategico. En ellas se plantea: - Implementación de estudios ambientales tendientes a identificar especies de fauna y flora endémicas, en categorías de amenaza, identificador de corredores de biodiversidad biológica, etc. - Implementación de programas para el monitoreo de la biodiversidad y monitoreo de variables ambientales. - Implementación de programas de guardianes ambientales para la preservación de la fauna y flora. - A las áreas de rehabilitación la directriz de manejo que le corresponde es la Rehabilitación. Para los ecosistemas estratégicos que se encuentran en estado de degradación y/o pérdida de sus funciones ecológicas, se deberan realizar accciones de evaluación y diagnóstico del ecosistema, para con base en ello implementar acciones tendientes a la restauranción (repoblamiento con especies nativas, mejoramiento de calidad de agua, control de especies invasoras, contro de especies exóticas, etc.) - Se deben identificar en los ecositemas estratégicos, las áreas en las cuales se debe realizar repoblamiento de especies vegetales. - Las áreas de restauración ecológica tienen una directriz de manejo de Restauración. Una vez rehabilitados el/los ecosistemas se debe velar por que en ellos se puedan realizar acciones de preservación de fauna y flora.",
+      "usos": {
+        "principal": [
+          {
+            "descripcion": "Protección de recursos flora, fauna suelo, agua y ecosistemas estratégicos. Protección de los recursos naturales, educación, investigación relacionada con el conocimiento del ecosistema y los recursos naturales asociados y las demás consagradas en la ley que no atenten contra la estabilidad de estas áreas naturales."
+          }
+        ],
+        "compatible": [
+          {
+            "descripcion": "Control y vigilancia, monitoreo. Recreación contemplativa, rehabilitación ecológica, investigación controlada y educación, defensa y mejoramiento del territorio y sus recursos físico - bióticos y paisajísticos, y como apoyo a actividades de recreación, educación, investigación, ecoturismo o recreación pasiva contemplativa, monitoreo y control ambiental, fomento de cultura, investigación controlada de los recursos naturales renovables, y manejo de biodiversidad."
+          }
+        ],
+        "condicionado": [
+          {
+            "descripcion": "Investigación in situ, restauración, manejo de especies exóticas. Captaciones para abastecimiento y uso del agua para consumo humano abrevadero y riego, captura de ejemplares de fauna y flora con fines de investigación, construcción de infraestructuras relacionadas con el uso compatible, extracción genética controlada, restauración ecológica."
+          }
+        ],
+        "prohibido": [
+          {
+            "descripcion": "Todos los diferentes a los usos principal, compatible y condicionado."
+          }
+        ]
+      },
+      "edificabilidad": [
+        {
+          "fila": 20,
+          "valores": [
+            "ECOTURISMO",
+            "VIVIENDA DISPERSA",
+            "VIVIENDA CAMPESINA",
+            "RESIDENCIAL FINCA",
+            "GLAMPING",
+            "SERVICIOS PÚBLICOS",
+            "CENTROS DE ACOPIO",
+            "BODEGAS Y ALMACE-NAMIENTO"
+          ]
+        },
+        {
+          "fila": 21,
+          "valores": [
+            "INSTRUMENTO",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A."
+          ]
+        },
+        {
+          "fila": 23,
+          "valores": [
+            "SUB-DIVISIÓN",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A."
+          ]
+        },
+        {
+          "fila": 25,
+          "valores": [
+            "PARCELACIÓN MÍNIMA",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A."
+          ]
+        },
+        {
+          "fila": 27,
+          "valores": [
+            "ALTURA",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A."
+          ]
+        },
+        {
+          "fila": 29,
+          "valores": [
+            "AISLAMIENTOS",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A."
+          ]
+        },
+        {
+          "fila": 31,
+          "valores": [
+            "INDICE DE OCUPACIÓN",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A."
+          ]
+        },
+        {
+          "fila": 33,
+          "valores": [
+            "INDICE DE CONSTRUCCIÓN",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A."
+          ]
+        }
+      ]
+    },
+    {
+      "ambito": "rural",
+      "archivo_origen": "FICHAS_DE_REGLAMENTACIÓN_RURAL-OCAÑA._2023.xlsx",
+      "hoja": "FICHA NORMATIVA 4",
+      "ficha": "FICHA NORMATIVA RURAL N°4",
+      "ficha_numero": "4",
+      "area_actividad": "ÁREA DE ACTIVIDAD PROTECCIÓN DE REFORESTACIÓN FORESTAL PROTECTORA",
+      "tratamiento_manejo": "MANEJO DE CONSERVACION Y PROTECCION",
+      "descripcion": "Esta unidad de manejo comprende: Las tierras desnudas y degradadas.La categoría de ordenación es de conservación y protección. El manejo es de Restauración. El objetivo de esta unidad es la reforestación en áreas forestales protectoras degradadas.",
+      "directrices": "Son áreas que se encuentran en estado de degradación, es decir que han pérdido las alguna de su características funcionales, las cuales deben ser identificadas y a partir de ello implementar un plan de Reforestación acorde (se plantea la reforestación con especies vegetales carácterístcas del ecosistema y endémicas), involucrando a la comunidad, la academia, gremio comrcial-industrial y a la corporación ambiental.",
+      "usos": {
+        "principal": [
+          {
+            "descripcion": "Reforestación forestal protectora con especies nativas actividades orientadas a la protección integral de los recursos naturales, restauración ecológica. Reforestación forestal protectora con especies nativas actividades orientadas a la protección integral de los recursos naturales, restauración ecológica."
+          }
+        ],
+        "compatible": [
+          {
+            "descripcion": "Infraestructura de captación de agua, aprovechamiento forestal controlado, ganadería estabulada, actividades agrosilvopastoriles y agroforestales de porte alto, distritos de manejo integrado, ecoturismo. Infraestructura de captación de agua, aprovechamiento forestal controlado, ganadería estabulada, actividades agrosilvopastoriles y agroforestales de porte alto, distritos de manejo integrado, ecoturismo."
+          }
+        ],
+        "condicionado": [
+          {
+            "descripcion": "Vertimientos, construcción de infraestructura para apoyo de actividades de recreación, puentes, obras de adecuación y tratamiento, extracción de material de arrastre, ganadería semiestabulada y/o semi-intensiva, distritos de adecuación de tierras. Vertimientos, construcción de infraestructura para apoyo de actividades de recreación, puentes, obras de adecuación y tratamiento, extracción de material de arrastre, ganadería semiestabulada y/o semi-intensiva, distritos de adecuación de tierras."
+          }
+        ],
+        "prohibido": [
+          {
+            "descripcion": "Agricultura intensiva, actividades industriales, vivienda urbana, infraestructura institucional, minería, quema y tala de vegetación nativa, caza, predios menores del 20% del área del total para uso forestal protector y los que no se encuentran contemplados en los usos anteriores."
+          }
+        ]
+      },
+      "edificabilidad": [
+        {
+          "fila": 20,
+          "valores": [
+            "ECOTURISMO",
+            "VIVIENDA DISPERSA",
+            "VIVIENDA CAMPESINA",
+            "RESIDENCIAL FINCA",
+            "GLAMPING",
+            "SERVICIOS PÚBLICOS",
+            "CENTROS DE ACOPIO",
+            "BODEGAS Y ALMACE-NAMIENTO"
+          ]
+        },
+        {
+          "fila": 21,
+          "valores": [
+            "INSTRUMENTO",
+            "Planes de manejo ambiental, basados en análisis de capacidad de carga",
+            "Mejoramiento de vivienda y saneamiento básico para la población campesina establecida históricamente. En nngún caso de puede construir vivienda nueva.",
+            "Mejoramiento de vivienda y saneamiento básico para la población campesina establecida históricamente. En nngún caso de puede construir vivienda nueva.",
+            "Mejoramientos locativos, si hay vivienda existente. En ningún caso se puede construir vivienda nueva.",
+            "Planes de manejo ambiental, basados en análisis de capacidad de carga",
+            "En caso requerido para instalación de redes de servicios públicos domiciliarios rurales, se deberá contar con plan de manejo ambiental.",
+            "N.A.",
+            "N.A."
+          ]
+        },
+        {
+          "fila": 23,
+          "valores": [
+            "SUB-DIVISIÓN",
+            "En ningún caso se puede dar la subdivisión.",
+            "En ningún caso se puede dar la subdivisión.",
+            "En ningún caso se puede dar la subdivisión.",
+            "En ningún caso se puede dar la subdivisión.",
+            "En ningún caso se puede dar la subdivisión.",
+            "En ningún caso se puede dar la subdivisión.",
+            "En ningún caso se puede dar la subdivisión.",
+            "En ningún caso se puede dar la subdivisión."
+          ]
+        },
+        {
+          "fila": 25,
+          "valores": [
+            "PARCELACIÓN MÍNIMA",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A."
+          ]
+        },
+        {
+          "fila": 27,
+          "valores": [
+            "ALTURA",
+            "Un (1) piso",
+            "Un (1) piso",
+            "Un (1) piso",
+            "Dos (2) pisos.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A."
+          ]
+        },
+        {
+          "fila": 29,
+          "valores": [
+            "AISLAMIENTOS",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A."
+          ]
+        },
+        {
+          "fila": 31,
+          "valores": [
+            "INDICE DE OCUPACIÓN",
+            "Para el mejoramiento locativo, no se podrá superar mas del 50% del área actual.",
+            "Para el mejoramiento locativo, no se podrá superar mas del 50% del área actual.",
+            "Para el mejoramiento locativo, no se podrá superar mas del 50% del área actual.",
+            "Para el mejoramiento locativo, no se podrá superar mas del 50% del área actual.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A."
+          ]
+        },
+        {
+          "fila": 33,
+          "valores": [
+            "INDICE DE CONSTRUCCIÓN",
+            "Para el mejoramiento locativo, no se podrá superar mas del 50% del área actual.",
+            "Para el mejoramiento locativo, no se podrá superar mas del 50% del área actual.",
+            "Para el mejoramiento locativo, no se podrá superar mas del 50% del área actual.",
+            "Para el mejoramiento locativo, no se podrá superar mas del 50% del área actual.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A."
+          ]
+        }
+      ]
+    },
+    {
+      "ambito": "rural",
+      "archivo_origen": "FICHAS_DE_REGLAMENTACIÓN_RURAL-OCAÑA._2023.xlsx",
+      "hoja": "FICHA NORMATIVA 5",
+      "ficha": "FICHA NORMATIVA RURAL N°5",
+      "ficha_numero": "5",
+      "area_actividad": "ÁREA DE ACTIVIDAD PROTECCIÓN DE FORESTAL PROTECTORA",
+      "tratamiento_manejo": "MANEJO DE CONSERVACION Y PROTECCION",
+      "descripcion": "La finalidad de esta unidad, es la protección del bosque de galería. Para es...",
+      "directrices": "Estas áreas deben ser declaradas de Protección, ser caracterizadas y evaluada...",
+      "usos": {
+        "principal": [
+          {
+            "descripcion": "Control y vigilancia, Investigación científica y demás actividades orientadas... Control y vigilancia, Investigación científica y demás actividades orientadas..."
+          }
+        ],
+        "compatible": [
+          {
+            "descripcion": "Aprovechamiento de frutos secundarios del bosque con los respectivos permisos... Aprovechamiento de frutos secundarios del bosque con los respectivos permisos..."
+          }
+        ],
+        "condicionado": [
+          {
+            "descripcion": "Adecuación y mantenimiento de senderos existentes, siempre y cuando no varíen... Adecuación y mantenimiento de senderos existentes, siempre y cuando no varíen..."
+          }
+        ],
+        "prohibido": [
+          {
+            "descripcion": "Todos los diferentes a los usos principal, compatible y condicionado."
+          }
+        ]
+      },
+      "edificabilidad": [
+        {
+          "fila": 20,
+          "valores": [
+            "ECOTURISMO",
+            "VIVIENDA DISPERSA",
+            "VIVIENDA CAMPESINA",
+            "RESIDENCIAL FINCA",
+            "GLAMPING",
+            "SERVICIOS PÚBLICOS",
+            "CENTROS DE ACOPIO",
+            "BODEGAS Y ALMACE-NAMIENTO"
+          ]
+        },
+        {
+          "fila": 21,
+          "valores": [
+            "INSTRUMENTO",
+            "Planes de manejo ambiental, basados en análisis de capacidad de carga",
+            "Mejoramiento de vivienda y saneamiento básico para la población campesina est...",
+            "Mejoramiento de vivienda y saneamiento básico para la población campesina est...",
+            "Mejoramientos locativos, si hay vivienda existente. En ningún caso se puede c...",
+            "Planes de manejo ambiental, basados en análisis de capacidad de carga",
+            "En caso requerido para instalación de redes de servicios públicos domiciliari...",
+            "N.A.",
+            "N.A."
+          ]
+        },
+        {
+          "fila": 23,
+          "valores": [
+            "SUB-DIVISIÓN",
+            "En ningún caso se puede dar la subdivisión.",
+            "En ningún caso se puede dar la subdivisión.",
+            "En ningún caso se puede dar la subdivisión.",
+            "En ningún caso se puede dar la subdivisión.",
+            "En ningún caso se puede dar la subdivisión.",
+            "En ningún caso se puede dar la subdivisión.",
+            "En ningún caso se puede dar la subdivisión.",
+            "En ningún caso se puede dar la subdivisión."
+          ]
+        },
+        {
+          "fila": 25,
+          "valores": [
+            "PARCELACIÓN MÍNIMA",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A."
+          ]
+        },
+        {
+          "fila": 27,
+          "valores": [
+            "ALTURA",
+            "Un (1) piso",
+            "Un (1) piso",
+            "Un (1) piso",
+            "Dos (2) pisos.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A."
+          ]
+        },
+        {
+          "fila": 29,
+          "valores": [
+            "AISLAMIENTOS",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A."
+          ]
+        },
+        {
+          "fila": 31,
+          "valores": [
+            "INDICE DE OCUPACIÓN",
+            "Para el mejoramiento locativo, no se podrá superar mas del 50% del área actual.",
+            "Para el mejoramiento locativo, no se podrá superar mas del 50% del área actual.",
+            "Para el mejoramiento locativo, no se podrá superar mas del 50% del área actual.",
+            "Para el mejoramiento locativo, no se podrá superar mas del 50% del área actual.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A."
+          ]
+        },
+        {
+          "fila": 33,
+          "valores": [
+            "INDICE DE CONSTRUCCIÓN",
+            "Para el mejoramiento locativo, no se podrá superar mas del 50% del área actual.",
+            "Para el mejoramiento locativo, no se podrá superar mas del 50% del área actual.",
+            "Para el mejoramiento locativo, no se podrá superar mas del 50% del área actual.",
+            "Para el mejoramiento locativo, no se podrá superar mas del 50% del área actual.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A."
+          ]
+        }
+      ]
+    },
+    {
+      "ambito": "rural",
+      "archivo_origen": "FICHAS_DE_REGLAMENTACIÓN_RURAL-OCAÑA._2023.xlsx",
+      "hoja": "FICHA NORMATIVA 6",
+      "ficha": "FICHA NORMATIVA RURAL N°6",
+      "ficha_numero": "6",
+      "area_actividad": "ÁREA DE ACTIVIDAD PROTECCIÓN FORESTAL PRODUCTORA.",
+      "tratamiento_manejo": "MANEJO DE CONSERVACION Y PROTECCION",
+      "descripcion": "La finalidad de esta unidad de manejo es la obtención de productos forestales...",
+      "directrices": "En la actualidad no se cuenta con el Plan General de Ordenación Forestal (PGO...",
+      "usos": {
+        "principal": [
+          {
+            "descripcion": "Aprovechamiento forestal sostenible incluyendo todas las actividades de extra... Aprovechamiento forestal sostenible incluyendo todas las actividades de extra..."
+          }
+        ],
+        "compatible": [
+          {
+            "descripcion": "Educación ambiental, recreación pasiva, y ecoturismo sin que se supere la cap... Educación ambiental, recreación pasiva, y ecoturismo sin que se supere la cap..."
+          }
+        ],
+        "condicionado": [
+          {
+            "descripcion": "Control mecánico y biológico para manejo de plagas y especies invasoras. Adec... Control mecánico y biológico para manejo de plagas y especies invasoras. Adec..."
+          }
+        ],
+        "prohibido": [
+          {
+            "descripcion": "Todos los diferentes a los usos principal, compatible y condicionado."
+          }
+        ]
+      },
+      "edificabilidad": [
+        {
+          "fila": 20,
+          "valores": [
+            "ECOTURISMO",
+            "VIVIENDA DISPERSA",
+            "VIVIENDA CAMPESINA",
+            "RESIDENCIAL FINCA",
+            "GLAMPING",
+            "SERVICIOS PÚBLICOS",
+            "CENTROS DE ACOPIO",
+            "BODEGAS Y ALMACE-NAMIENTO"
+          ]
+        },
+        {
+          "fila": 21,
+          "valores": [
+            "INSTRUMENTO",
+            "Planes de manejo ambiental, basados en análisis de capacidad de carga",
+            "Mejoramiento de vivienda y saneamiento básico para la población campesina est...",
+            "Mejoramiento de vivienda y saneamiento básico para la población campesina est...",
+            "Mejoramientos locativos, si hay vivienda existente. En ningún caso se puede c...",
+            "Planes de manejo ambiental, basados en análisis de capacidad de carga",
+            "En caso requerido para instalación de redes de servicios públicos domiciliari...",
+            "Establecimiento de infraestructura complementaria para el desarrollo de las a...",
+            "N.A."
+          ]
+        },
+        {
+          "fila": 23,
+          "valores": [
+            "SUB-DIVISIÓN",
+            "En ningún caso se puede dar la subdivisión.",
+            "En ningún caso se puede dar la subdivisión.",
+            "En ningún caso se puede dar la subdivisión.",
+            "En ningún caso se puede dar la subdivisión.",
+            "En ningún caso se puede dar la subdivisión.",
+            "En ningún caso se puede dar la subdivisión.",
+            "En ningún caso se puede dar la subdivisión.",
+            "En ningún caso se puede dar la subdivisión."
+          ]
+        },
+        {
+          "fila": 25,
+          "valores": [
+            "PARCELACIÓN MÍNIMA",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A."
+          ]
+        },
+        {
+          "fila": 27,
+          "valores": [
+            "ALTURA",
+            "Un (1) piso",
+            "Un (1) piso",
+            "Un (1) piso",
+            "Dos (2) pisos.",
+            "N.A.",
+            "N.A.",
+            "Un (1) piso.",
+            "N.A."
+          ]
+        },
+        {
+          "fila": 29,
+          "valores": [
+            "AISLAMIENTOS",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A."
+          ]
+        },
+        {
+          "fila": 31,
+          "valores": [
+            "INDICE DE OCUPACIÓN",
+            "Para el mejoramiento locativo, no se podrá superar mas del 50% del área actual.",
+            "Para el mejoramiento locativo, no se podrá superar mas del 50% del área actual.",
+            "Para el mejoramiento locativo, no se podrá superar mas del 50% del área actual.",
+            "Para el mejoramiento locativo, no se podrá superar mas del 50% del área actual.",
+            "N.A.",
+            "N.A.",
+            "De acuerdo al plan de manejo se estipulará el área máxima que minimize impact...",
+            "N.A."
+          ]
+        },
+        {
+          "fila": 33,
+          "valores": [
+            "INDICE DE CONSTRUCCIÓN",
+            "Para el mejoramiento locativo, no se podrá superar mas del 50% del área actual.",
+            "Para el mejoramiento locativo, no se podrá superar mas del 50% del área actual.",
+            "Para el mejoramiento locativo, no se podrá superar mas del 50% del área actual.",
+            "Para el mejoramiento locativo, no se podrá superar mas del 50% del área actual.",
+            "N.A.",
+            "N.A.",
+            "De acuerdo al plan de manejo se estipulará el área máxima que minimize impact...",
+            "N.A."
+          ]
+        }
+      ]
+    },
+    {
+      "ambito": "rural",
+      "archivo_origen": "FICHAS_DE_REGLAMENTACIÓN_RURAL-OCAÑA._2023.xlsx",
+      "hoja": "FICHA NORMATIVA 7",
+      "ficha": "FICHA NORMATIVA RURAL N°7",
+      "ficha_numero": "7",
+      "area_actividad": "ÁREA DE ACTIVIDAD VEGETACIÓN HERBACIA Y/O ARBUSTIVA Y ÁREAS DEGRADADAS.",
+      "tratamiento_manejo": "MANEJO DE CONSERVACION Y PROTECCION",
+      "descripcion": "La finalidad de esta unidad es la conservación y protección de especies herbá...",
+      "directrices": "Implementación de estudios que permitan el diagnóstico y caracterización de l...",
+      "usos": {
+        "principal": [
+          {
+            "descripcion": "Control y vigilancia, Investigación científica y demás actividades orientadas... Aprovechamiento forestal sostenible incluyendo todas las actividades de extra..."
+          }
+        ],
+        "compatible": [
+          {
+            "descripcion": "Aprovechamiento de frutos secundarios del bosque con los respectivos permisos... Educación ambiental, recreación pasiva, y ecoturismo sin que se supere la cap..."
+          }
+        ],
+        "condicionado": [
+          {
+            "descripcion": "Adecuación y mantenimiento de senderos existentes, siempre y cuando no varíen... Control mecánico y biológico para manejo de plagas y especies invasoras. Adec..."
+          }
+        ],
+        "prohibido": [
+          {
+            "descripcion": "Todos los diferentes a los usos principal, compatible y condicionado."
+          }
+        ]
+      },
+      "edificabilidad": [
+        {
+          "fila": 20,
+          "valores": [
+            "ECOTURISMO",
+            "VIVIENDA DISPERSA",
+            "VIVIENDA CAMPESINA",
+            "RESIDENCIAL FINCA",
+            "GLAMPING",
+            "SERVICIOS PÚBLICOS",
+            "CENTROS DE ACOPIO",
+            "BODEGAS Y ALMACE-NAMIENTO"
+          ]
+        },
+        {
+          "fila": 21,
+          "valores": [
+            "INSTRUMENTO",
+            "Planes de manejo ambiental, basados en análisis de capacidad de carga",
+            "Mejoramiento de vivienda y saneamiento básico para la población campesina est...",
+            "Mejoramiento de vivienda y saneamiento básico para la población campesina est...",
+            "Mejoramientos locativos, si hay vivienda existente. En ningún caso se puede c...",
+            "Planes de manejo ambiental, basados en análisis de capacidad de carga",
+            "En caso requerido para instalación de redes de servicios públicos domiciliari...",
+            "Establecimiento de infraestructura complementaria para el desarrollo de las a...",
+            "N.A."
+          ]
+        },
+        {
+          "fila": 23,
+          "valores": [
+            "SUB-DIVISIÓN",
+            "En ningún caso se puede dar la subdivisión.",
+            "En ningún caso se puede dar la subdivisión.",
+            "En ningún caso se puede dar la subdivisión.",
+            "En ningún caso se puede dar la subdivisión.",
+            "En ningún caso se puede dar la subdivisión.",
+            "En ningún caso se puede dar la subdivisión.",
+            "En ningún caso se puede dar la subdivisión.",
+            "En ningún caso se puede dar la subdivisión."
+          ]
+        },
+        {
+          "fila": 25,
+          "valores": [
+            "PARCELACIÓN MÍNIMA",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A."
+          ]
+        },
+        {
+          "fila": 27,
+          "valores": [
+            "ALTURA",
+            "Un (1) piso",
+            "Un (1) piso",
+            "Un (1) piso",
+            "Dos (2) pisos.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A."
+          ]
+        },
+        {
+          "fila": 29,
+          "valores": [
+            "AISLAMIENTOS",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A."
+          ]
+        },
+        {
+          "fila": 31,
+          "valores": [
+            "INDICE DE OCUPACIÓN",
+            "Para el mejoramiento locativo, no se podrá superar mas del 50% del área actual.",
+            "Para el mejoramiento locativo, no se podrá superar mas del 50% del área actual.",
+            "Para el mejoramiento locativo, no se podrá superar mas del 50% del área actual.",
+            "Para el mejoramiento locativo, no se podrá superar mas del 50% del área actual.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A."
+          ]
+        },
+        {
+          "fila": 33,
+          "valores": [
+            "INDICE DE CONSTRUCCIÓN",
+            "Para el mejoramiento locativo, no se podrá superar mas del 50% del área actual.",
+            "Para el mejoramiento locativo, no se podrá superar mas del 50% del área actual.",
+            "Para el mejoramiento locativo, no se podrá superar mas del 50% del área actual.",
+            "Para el mejoramiento locativo, no se podrá superar mas del 50% del área actual.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A."
+          ]
+        }
+      ]
+    },
+    {
+      "ambito": "rural",
+      "archivo_origen": "FICHAS_DE_REGLAMENTACIÓN_RURAL-OCAÑA._2023.xlsx",
+      "hoja": "FICHA NORMATIVA 8",
+      "ficha": "FICHA NORMATIVA RURAL N°8",
+      "ficha_numero": "8",
+      "area_actividad": "ÁREA DE ACTIVIDAD BOSQUES, HERBAZALES Y ARBUSTALES DE LA RESERVA FORESTAL RIO TEJO.",
+      "tratamiento_manejo": "MANEJO DE CONSERVACION Y PROTECCION",
+      "descripcion": "El objetivo de esta unidad es la conservación y protección de la Cuenca Hidrográfica del Río Tejo que abastece al acueducto del municipio de Ocaña. En tanto se cuente con el Plan de Manejo Ambiental de la Reserva del Río Tejo, se debe tener en cuenta lo estipulado en los artículos 12, 34 y 35 del Decreto 2372 de 2010 compilados en el Decreto Único Reglamentario 1076 de 2015, y se deberán considerar los manejos de: Preservación, restauración, uso sostenible.",
+      "directrices": "Se debe formular el Plan de Manejo Ambiental de la Reserva Forestal Protectora Nacional de la Cuenca Hidrográfica del Río Tejo, lo cual es competencia de CORPONOR, para posterior aprobación mediante resolución por parte del Ministerio de Ambiente y Desarrollo Sostenible.",
+      "usos": {
+        "principal": [
+          {
+            "descripcion": "Para Zona de preservación: Protección de los recursos naturales, evitando impactos generados por actividades humanas no compatibles con los objetivos de conservación. Aprovechamiento forestal sostenible incluyendo todas las actividades de extracción, adecuación, mantenimiento e infraestructura relacionadas."
+          }
+        ],
+        "compatible": [
+          {
+            "descripcion": "Para Zona de preservación: Restauración de zonas del ecosistema de bosque húmedo montano que presentan un grado de transformación alto con el fin de recuperar parte de su estructura, función y composición. Revegetalización, repoblación faunística o reintroducción de especies de fauna y flora endémicas. Investigación controlada y monitoreo, educación ambiental. Infraestructura básica solo con fines de administración y manejo del área. Educación ambiental, recreación pasiva, y ecoturismo sin que se supere la capacidad de carga. Mantenimiento de senderos y caminos existentes, siempre y cuando no alteren los atributos de los ecosistemas. Control y vigilancia, Investigación científica y demás actividades orientadas a la preservación de muestras representativas de la biodiversidad, Caracterización y monitoreo de la biodiversidad, Restauración ecológica en función de restablecer la integridad ecológica del área (composición, estructura y función), Desarrollo de estrategias y programas de conectividad o corredores ecológicos, Implementación de herramientas de manejo del paisaje."
+          }
+        ],
+        "condicionado": [
+          {
+            "descripcion": "Para Zona de preservación: Ecoturismo e infraestructura asociada, recreación pasiva, extracción de productos del bosque de forma controlada, movimiento de especies de flora y/o fauna con fines de repoblación. Obras de control de erosión. Obras para regulación de cauces o captación de agua (acueductos veredales, regionales o tomas individuales o para asociaciones). Extracción de ejemplares de flora y fauna con fines de investigación. Control mecánico y biológico para manejo de plagas y especies invasoras. Adecuación de estructuras blandas para ecoturismo, recreación pasiva y educación ambiental. Adecuación de suelos con fines de rehabilitación ecológica. Repoblación y reintroducción de especies nativas con fines de restauración. Producción de material vegetal para la restauración ecológica. Establecimiento de infraestructura asociada a los procesos de restauración. Actividades productivas asociadas a procesos de sustitución progresiva. Actividades productivas agropecuarias existentes en el marco de la economía campesina, dentro de sistemas agroforestales y silvopastoriles enmarcados en procesos de reconversión progresiva. Establecimiento de infraestructura complementaria para el desarrollo de las actividades productivas agropecuarias en el marco de la economía campesina, dentro de sistemas agroforestales y silvopastoriles. Ubicación y construcción de Infraestructura para la producción de material vegetal asociado a los sistemas agroforestales y silvopastoriles. Infraestructura asociada a las actividades de ecoturismo, esta debe integrar criterios de construcción sostenible, utilización de materiales de bajo impacto ambiental y social, y acciones de ahorro y uso eficiente de los recursos naturales durante cada una de las fases requeridas en la construcción y el mantenimiento de la misma. Se debe procurar utilizar la infraestructura existente actualmente, sin que implique la construcción de nuevas áreas."
+          }
+        ],
+        "prohibido": [
+          {
+            "descripcion": "Todos los diferentes a los usos principal, compatible y condicionado."
+          }
+        ]
+      },
+      "edificabilidad": [
+        {
+          "fila": 20,
+          "valores": [
+            "ECOTURISMO",
+            "VIVIENDA DISPERSA",
+            "VIVIENDA CAMPESINA",
+            "RESIDENCIAL FINCA",
+            "GLAMPING",
+            "SERVICIOS PÚBLICOS",
+            "CENTROS DE ACOPIO",
+            "BODEGAS Y ALMACE-NAMIENTO"
+          ]
+        },
+        {
+          "fila": 21,
+          "valores": [
+            "INSTRUMENTO",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A."
+          ]
+        },
+        {
+          "fila": 23,
+          "valores": [
+            "SUB-DIVISIÓN",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A."
+          ]
+        },
+        {
+          "fila": 25,
+          "valores": [
+            "PARCELACIÓN MÍNIMA",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A."
+          ]
+        },
+        {
+          "fila": 27,
+          "valores": [
+            "ALTURA",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A."
+          ]
+        },
+        {
+          "fila": 29,
+          "valores": [
+            "AISLAMIENTOS",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A."
+          ]
+        },
+        {
+          "fila": 31,
+          "valores": [
+            "INDICE DE OCUPACIÓN",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A."
+          ]
+        },
+        {
+          "fila": 33,
+          "valores": [
+            "INDICE DE CONSTRUCCIÓN",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A."
+          ]
+        }
+      ]
+    },
+    {
+      "ambito": "rural",
+      "archivo_origen": "FICHAS_DE_REGLAMENTACIÓN_RURAL-OCAÑA._2023.xlsx",
+      "hoja": "FICHA NORMATIVA 9",
+      "ficha": "FICHA NORMATIVA RURAL N°9",
+      "ficha_numero": "9",
+      "area_actividad": "ÁREA DE ACTIVIDAD DE ECONOMIA CAMPESINA AGRICOLAS Y DE PASTOS",
+      "tratamiento_manejo": "MANEJO DE CONSERVACION Y PROTECCION",
+      "descripcion": "En esta unidad de uso del suelo rural se pretende dar manejo sostenible a las...",
+      "directrices": "En esta unidad de realizaran las actividades como: Cultivos transitorios con ...",
+      "usos": {
+        "principal": [
+          {
+            "descripcion": "Para la Zona de Uso Sostenible: Para Zona de Uso Sostenible: Aprovechamiento ... Aprovechamiento forestal sostenible incluyendo todas las actividades de extra..."
+          }
+        ],
+        "compatible": [
+          {
+            "descripcion": "Para Zona de Uso Sostenible: Los usos principales de las zonas de preservació... Educación ambiental, recreación pasiva, y ecoturismo sin que se supere la cap..."
+          }
+        ],
+        "condicionado": [
+          {
+            "descripcion": "Para Zona de Uso Sostenible: Actividades productivas agropecuarias existentes... Control mecánico y biológico para manejo de plagas y especies invasoras. Adec..."
+          }
+        ],
+        "prohibido": [
+          {
+            "descripcion": "Todos los diferentes a los usos principal, compatible y condicionado."
+          }
+        ]
+      },
+      "edificabilidad": [
+        {
+          "fila": 20,
+          "valores": [
+            "ECOTURISMO",
+            "VIVIENDA DISPERSA",
+            "VIVIENDA CAMPESINA",
+            "RESIDENCIAL FINCA",
+            "GLAMPING",
+            "SERVICIOS PÚBLICOS",
+            "CENTROS DE ACOPIO",
+            "BODEGAS Y ALMACE-NAMIENTO"
+          ]
+        },
+        {
+          "fila": 21,
+          "valores": [
+            "INSTRUMENTO",
+            "Planes de manejo ambiental, basados en análisis de capacidad de carga",
+            "Mejoramiento de vivienda y saneamiento básico para la población campesina est...",
+            "Mejoramiento de vivienda y saneamiento básico para la población campesina est...",
+            "Mejoramientos locativos, si hay vivienda existente. En ningún caso se puede c...",
+            "N.A.",
+            "En caso requerido para instalación de redes de servicios públicos domiciliari...",
+            "Establecimiento de infraestructura complementaria para el desarrollo de las a...",
+            "Establecimiento de infraestructura complementaria para el desarrollo de las a..."
+          ]
+        },
+        {
+          "fila": 23,
+          "valores": [
+            "SUB-DIVISIÓN",
+            "En ningún caso se puede dar la subdivisión.",
+            "En ningún caso se puede dar la subdivisión.",
+            "En ningún caso se puede dar la subdivisión.",
+            "En ningún caso se puede dar la subdivisión.",
+            "En ningún caso se puede dar la subdivisión.",
+            "En ningún caso se puede dar la subdivisión.",
+            "En ningún caso se puede dar la subdivisión.",
+            "Está supeditada a la UAF municipal en todos los casos."
+          ]
+        },
+        {
+          "fila": 25,
+          "valores": [
+            "PARCELACIÓN MÍNIMA",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A."
+          ]
+        },
+        {
+          "fila": 27,
+          "valores": [
+            "ALTURA",
+            "Un (1) piso",
+            "Un (1) piso",
+            "Un (1) piso",
+            "Dos (2) pisos.",
+            "N.A.",
+            "N.A.",
+            "Un (1) piso.",
+            "N.A."
+          ]
+        },
+        {
+          "fila": 29,
+          "valores": [
+            "AISLAMIENTOS",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A."
+          ]
+        },
+        {
+          "fila": 31,
+          "valores": [
+            "INDICE DE OCUPACIÓN",
+            "Para el mejoramiento locativo, no se podrá superar mas del 50% del área actual.",
+            "Para el mejoramiento locativo, no se podrá superar mas del 50% del área actual.",
+            "Para el mejoramiento locativo, no se podrá superar mas del 50% del área actual.",
+            "Para el mejoramiento locativo, no se podrá superar mas del 50% del área actual.",
+            "N.A.",
+            "N.A.",
+            "O,05",
+            "O,05"
+          ]
+        },
+        {
+          "fila": 33,
+          "valores": [
+            "INDICE DE CONSTRUCCIÓN",
+            "Para el mejoramiento locativo, no se podrá superar mas del 50% del área actual.",
+            "Para el mejoramiento locativo, no se podrá superar mas del 50% del área actual.",
+            "Para el mejoramiento locativo, no se podrá superar mas del 50% del área actual.",
+            "Para el mejoramiento locativo, no se podrá superar mas del 50% del área actual.",
+            "N.A.",
+            "N.A.",
+            "2.63",
+            "2.63"
+          ]
+        }
+      ]
+    },
+    {
+      "ambito": "rural",
+      "archivo_origen": "FICHAS_DE_REGLAMENTACIÓN_RURAL-OCAÑA._2023.xlsx",
+      "hoja": "FICHA NORMATIVA 10",
+      "ficha": "FICHA NORMATIVA RURAL N°10",
+      "ficha_numero": "10",
+      "area_actividad": "ÁREA DE ACTIVIDAD DE MINERÍA Y CANTERAS.",
+      "tratamiento_manejo": "MANEJO DE CONSERVACION Y PROTECCION",
+      "descripcion": "En esta área de actividad se realizará aprovechamiento de los recursos minerales presentes en el municipio de Ocaña. La categoría de ordenación es: De uso múltiple. El manejo: Uso sostenible.",
+      "directrices": "En esta unidad se desarrollan actividades de minería, las cuales deben estar sugetas a los especificado en la licencia ambiental que concede la ANLA.",
+      "usos": {
+        "principal": [
+          {
+            "descripcion": "Se pueden desarrollar actividades mineras, previo otorgamiento del título minero y obtención de la Licencia Ambiental para iniciar los trabajos de construcción, montaje y explotación. Aprovechamiento forestal sostenible incluyendo todas las actividades de extracción, adecuación, mantenimiento e infraestructura relacionadas."
+          }
+        ],
+        "compatible": [
+          {
+            "descripcion": "Infraestructura necesaria para la producción y extracción de minerales. Educación ambiental, recreación pasiva, y ecoturismo sin que se supere la capacidad de carga. Mantenimiento de senderos y caminos existentes, siempre y cuando no alteren los atributos de los ecosistemas. Control y vigilancia, Investigación científica y demás actividades orientadas a la preservación de muestras representativas de la biodiversidad, Caracterización y monitoreo de la biodiversidad, Restauración ecológica en función de restablecer la integridad ecológica del área (composición, estructura y función), Desarrollo de estrategias y programas de conectividad o corredores ecológicos, Implementación de herramientas de manejo del paisaje."
+          }
+        ],
+        "condicionado": [
+          {
+            "descripcion": "Infraestructura para sedes administrativas, bodegaje, parqueo de automotores. Control mecánico y biológico para manejo de plagas y especies invasoras. Adecuación de estructuras blandas para ecoturismo, recreación pasiva y educación ambiental. Adecuación de suelos con fines de rehabilitación ecológica. Repoblación y reintroducción de especies nativas con fines de restauración. Producción de material vegetal para la restauración ecológica. Establecimiento de infraestructura asociada a los procesos de restauración. Actividades productivas asociadas a procesos de sustitución progresiva. Actividades productivas agropecuarias existentes en el marco de la economía campesina, dentro de sistemas agroforestales y silvopastoriles enmarcados en procesos de reconversión progresiva. Establecimiento de infraestructura complementaria para el desarrollo de las actividades productivas agropecuarias en el marco de la economía campesina, dentro de sistemas agroforestales y silvopastoriles. Ubicación y construcción de Infraestructura para la producción de material vegetal asociado a los sistemas agroforestales y silvopastoriles. Infraestructura asociada a las actividades de ecoturismo, esta debe integrar criterios de construcción sostenible, utilización de materiales de bajo impacto ambiental y social, y acciones de ahorro y uso eficiente de los recursos naturales durante cada una de las fases requeridas en la construcción y el mantenimiento de la misma. Se debe procurar utilizar la infraestructura existente actualmente, sin que implique la construcción de nuevas áreas."
+          }
+        ],
+        "prohibido": [
+          {
+            "descripcion": "Todos los diferentes a los usos principal, compatible y condicionado."
+          }
+        ]
+      },
+      "edificabilidad": [
+        {
+          "fila": 20,
+          "valores": [
+            "ECOTURISMO",
+            "VIVIENDA DISPERSA",
+            "VIVIENDA CAMPESINA",
+            "RESIDENCIAL FINCA",
+            "GLAMPING",
+            "SERVICIOS PÚBLICOS",
+            "CENTROS DE ACOPIO",
+            "BODEGAS Y ALMACE-NAMIENTO"
+          ]
+        },
+        {
+          "fila": 21,
+          "valores": [
+            "INSTRUMENTO",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "En caso requerido para instalación de redes de servicios públicos domiciliarios rurales, se deberá contar con plan de manejo ambiental.",
+            "Establecimiento de infraestructura complementaria para el desarrollo de las actividades productivas de minería y canteras.",
+            "Establecimiento de infraestructura complementaria para el desarrollo de las actividades productivas de minería y canteras."
+          ]
+        },
+        {
+          "fila": 23,
+          "valores": [
+            "SUB-DIVISIÓN",
+            "En ningún caso se puede dar la subdivisión.",
+            "En ningún caso se puede dar la subdivisión.",
+            "Está supeditada a la UAF municipal en todos los casos."
+          ]
+        },
+        {
+          "fila": 25,
+          "valores": [
+            "PARCELACIÓN MÍNIMA",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A."
+          ]
+        },
+        {
+          "fila": 27,
+          "valores": [
+            "ALTURA",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "Un (1) piso de 15 m. de altura max.",
+            "Un (1) piso de 15 m. de altura max."
+          ]
+        },
+        {
+          "fila": 29,
+          "valores": [
+            "AISLAMIENTOS",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A."
+          ]
+        },
+        {
+          "fila": 31,
+          "valores": [
+            "INDICE DE OCUPACIÓN",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "O,05",
+            "O,05"
+          ]
+        },
+        {
+          "fila": 33,
+          "valores": [
+            "INDICE DE CONSTRUCCIÓN",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "N.A.",
+            "2.63",
+            "2.63"
+          ]
+        }
+      ]
+    },
+    {
+      "ambito": "rural",
+      "archivo_origen": "FICHAS_DE_REGLAMENTACIÓN_RURAL-OCAÑA._2023.xlsx",
+      "hoja": "FICHA NORMATIVA 11",
+      "ficha": "FICHA NORMATIVA RURAL N°11",
+      "ficha_numero": "11",
+      "area_actividad": "ÁREA DE ACTIVIDAD DE MINERÍA Y CANTERAS.",
+      "tratamiento_manejo": "",
+      "descripcion": "",
+      "directrices": "",
+      "usos": {
+        "principal": [],
+        "compatible": [],
+        "condicionado": [],
+        "prohibido": []
+      },
+      "edificabilidad": []
+    }
+  ]
+}

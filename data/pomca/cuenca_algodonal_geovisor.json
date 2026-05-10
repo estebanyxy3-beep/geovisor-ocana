@@ -1,0 +1,172 @@
+{
+  "geovisor": {
+    "titulo": "Plan de Ordenación y Manejo — Cuenca del Río Algodonal",
+    "descripcion": "Información clave para los habitantes de Ocaña y los municipios de Ábrego y La Playa de Belén",
+    "fuente": "CORPONOR — POMCHRA Río Algodonal, Fase II: Diagnóstico, 2006–2007",
+    "sistema_coordenadas": "WGS84 (EPSG:4326)",
+    "puntos": [
+      {
+        "id": 1,
+        "categoria": "Agua",
+        "titulo": "El Río Algodonal: fuente de vida de Ocaña",
+        "que_pasa": "El río nace en el Páramo de Jurisdicciones a 3.680 metros de altura y recorre 62.7 km hasta llegar a las partes bajas. Su cuenca abarca más de 74.000 hectáreas que suministran agua para el acueducto de Ocaña y cientos de veredas.",
+        "impacto_ciudadano": "De este río depende el agua que llega a tu llave. Protegerlo es garantizar que las futuras generaciones también tengan agua limpia y abundante.",
+        "zona": "Cauce principal del Río Algodonal — municipios de Ocaña, Ábrego y La Playa de Belén",
+        "latitud": 8.2308,
+        "longitud": -73.3517,
+        "color_categoria": "#1D9E75"
+      },
+      {
+        "id": 2,
+        "categoria": "Agua",
+        "titulo": "Acueductos veredales con problemas de cobertura",
+        "que_pasa": "En muchas veredas de la cuenca el sistema de abastecimiento consiste en mangueras que captan agua de nacederos. Hay dificultades por las largas distancias entre las fuentes y las viviendas, y varios corregimientos no tienen sistemas formales de acueducto.",
+        "impacto_ciudadano": "Las familias rurales enfrentan riesgo de quedarse sin agua en época seca. Mejorar estos sistemas significa agua segura para niños y adultos en el campo.",
+        "zona": "Corregimientos La Paz, Unión Campesina, El Tabaco, Capitán Largo, Soltadero, El Chorro",
+        "latitud": 8.1750,
+        "longitud": -73.4100,
+        "color_categoria": "#1D9E75"
+      },
+      {
+        "id": 3,
+        "categoria": "Agua",
+        "titulo": "Contaminación del río por aguas residuales",
+        "que_pasa": "Los estudios de calidad del agua muestran que los coliformes fecales —bacterias provenientes de aguas negras sin tratar— superan la norma en el cauce del Algodonal. Las actividades agrícolas, la ganadería y los vertimientos domésticos son las principales fuentes de contaminación.",
+        "impacto_ciudadano": "El agua contaminada representa un riesgo directo para la salud de quienes la usan para consumo o riego. Controlar los vertimientos protege tu familia y tus cultivos.",
+        "zona": "Cauce principal del Río Algodonal — bocatoma del acueducto de Ocaña",
+        "latitud": 8.2390,
+        "longitud": -73.3620,
+        "color_categoria": "#1D9E75"
+      },
+      {
+        "id": 4,
+        "categoria": "Suelos",
+        "titulo": "Erosión y pérdida de suelos fértiles",
+        "que_pasa": "La tala de bosques para ampliar cultivos y potreros ha dejado los suelos expuestos a la lluvia y al sol. Esto genera erosión severa: la capa fértil se pierde y los sedimentos terminan en el río.",
+        "impacto_ciudadano": "Un suelo erosionado produce menos alimento y necesita más insumos. Recuperar los suelos significa mejores cosechas y menos gastos para las familias campesinas.",
+        "zona": "Laderas de mediana a fuerte pendiente — toda la cuenca",
+        "latitud": 8.1950,
+        "longitud": -73.3800,
+        "color_categoria": "#BA7517"
+      },
+      {
+        "id": 5,
+        "categoria": "Suelos",
+        "titulo": "Uso intensivo del suelo en zonas no aptas",
+        "que_pasa": "Cerca del 34.8% de la cuenca está cubierta por pastos mejorados o introducidos, y un 18.9% por cultivos mezclados con rastrojos. Gran parte de estas áreas se encuentran en laderas donde el uso agropecuario intensivo deteriora la capacidad productiva del suelo.",
+        "impacto_ciudadano": "Conocer qué tan apto es tu terreno para cultivar o criar ganado ayuda a producir más con menos esfuerzo, y evita perder la tierra por degradación.",
+        "zona": "Veredas agrícolas de Ábrego, Ocaña y La Playa de Belén",
+        "latitud": 8.0900,
+        "longitud": -73.4800,
+        "color_categoria": "#BA7517"
+      },
+      {
+        "id": 6,
+        "categoria": "Bosques",
+        "titulo": "Solo el 25% de la cuenca conserva bosque",
+        "que_pasa": "La cuenca del Algodonal tiene apenas el 25.35% de su superficie cubierta por bosque secundario. La tala y las quemas para abrir potreros y cultivos han reducido drásticamente la cobertura forestal que antes protegía nacimientos de agua y regulaba el caudal del río.",
+        "impacto_ciudadano": "Más bosque significa más agua todo el año. Las quebradas con bosque en sus nacimientos no se secan en verano; las que no tienen bosque sí lo hacen, afectando directamente el agua de tu vereda.",
+        "zona": "Nacimientos del Río Oroque, Quebrada Buenos Aires, Quebrada El Playón",
+        "latitud": 8.1400,
+        "longitud": -73.3950,
+        "color_categoria": "#3B6D11"
+      },
+      {
+        "id": 7,
+        "categoria": "Bosques",
+        "titulo": "Comunidades que ya cuidan sus nacimientos",
+        "que_pasa": "Los usuarios del acueducto ADAMIUAIN en Ocaña compraron predios para preservar los bosques que protegen su fuente de agua. En la actualidad están en proceso de declarar una Reserva Natural de la Sociedad Civil.",
+        "impacto_ciudadano": "Tu comunidad puede proteger legalmente las tierras donde nace el agua que consumes. Esto garantiza agua limpia y en cantidad suficiente para siempre.",
+        "zona": "Zona de nacimientos — municipio de Ocaña",
+        "latitud": 8.2350,
+        "longitud": -73.3700,
+        "color_categoria": "#3B6D11"
+      },
+      {
+        "id": 8,
+        "categoria": "Bosques",
+        "titulo": "El Páramo de Jurisdicciones: el corazón del agua",
+        "que_pasa": "En el extremo sur de la cuenca, a 3.680 metros sobre el nivel del mar, el Páramo de Jurisdicciones actúa como una gran esponja que almacena el agua lluvia y la libera lentamente hacia los ríos. Este ecosistema está amenazado por el avance de la agricultura y la ganadería.",
+        "impacto_ciudadano": "Proteger el páramo es proteger el origen de toda el agua de la cuenca. Sin páramo, no hay ríos; sin ríos, no hay agua para Ocaña ni para las veredas.",
+        "zona": "Páramo de Jurisdicciones — extremo sur de la cuenca",
+        "latitud": 7.9800,
+        "longitud": -73.5100,
+        "color_categoria": "#3B6D11"
+      },
+      {
+        "id": 9,
+        "categoria": "Riesgos",
+        "titulo": "Deslizamientos en vías y taludes",
+        "que_pasa": "La deforestación y las lluvias intensas generan deslizamientos en las vías y taludes de la cuenca. Los estudios del plan identifican que la inestabilidad de los suelos afecta especialmente los accesos veredales cuando no se aplican medidas de control y contención.",
+        "impacto_ciudadano": "Los derrumbes bloquean las carreteras, aislan comunidades y pueden destruir viviendas. Conocer las zonas de riesgo permite a las familias tomar precauciones y a las autoridades actuar a tiempo.",
+        "zona": "Vías veredales de la cuenca — sectores de pendiente fuerte",
+        "latitud": 8.1600,
+        "longitud": -73.4300,
+        "color_categoria": "#A32D2D"
+      },
+      {
+        "id": 10,
+        "categoria": "Riesgos",
+        "titulo": "Quebradas sin bosque se secan en verano",
+        "que_pasa": "Quebradas como El Algodonal, El Humeador, El Manzano, El Pantano, El Urumito, La Paz y La Vieja están en zonas altamente fragmentadas donde no queda bosque. Sin vegetación que retenga el agua, estas fuentes se secan en época seca dejando sin agua a las veredas cercanas.",
+        "impacto_ciudadano": "Si la quebrada de tu vereda aparece en esta lista, tu comunidad está en riesgo de escasez de agua. El plan propone acciones de reforestación urgente en estas áreas.",
+        "zona": "Parte media de la cuenca del Río Algodonal",
+        "latitud": 8.2100,
+        "longitud": -73.3850,
+        "color_categoria": "#A32D2D"
+      },
+      {
+        "id": 11,
+        "categoria": "Comunidades",
+        "titulo": "168 veredas en el área de influencia",
+        "que_pasa": "La cuenca abarca 168 veredas de cuatro municipios: Ábrego (76 veredas), Ocaña (73 veredas), La Playa de Belén (17 veredas) y Teorama. Ábrego es el municipio con mayor territorio dentro de la cuenca (56.9% del área total).",
+        "impacto_ciudadano": "Tu vereda hace parte de este territorio protegido. Eso significa que las decisiones sobre el agua, el bosque y el suelo de tu zona están incluidas en este plan de manejo.",
+        "zona": "Municipios de Ábrego, Ocaña, La Playa de Belén y Teorama",
+        "latitud": 8.2200,
+        "longitud": -73.4000,
+        "color_categoria": "#534AB7"
+      },
+      {
+        "id": 12,
+        "categoria": "Comunidades",
+        "titulo": "Zonas con alta densidad poblacional y más presión ambiental",
+        "que_pasa": "Las áreas con más de 40 habitantes por kilómetro cuadrado —como las cuencas del Río Oroque, las quebradas El Viodo, Jujumal y La Paz— sufren mayor presión sobre el agua, la madera y el suelo, lo que acelera la degradación ambiental.",
+        "impacto_ciudadano": "Donde vive más gente, los recursos naturales se agotan más rápido. El plan propone programas focalizados en estas zonas para garantizar que el crecimiento de la comunidad no destruya los recursos de los que todos dependemos.",
+        "zona": "Cuencas del Río Oroque, Quebradas El Viodo, Jujumal y La Paz",
+        "latitud": 8.2050,
+        "longitud": -73.3600,
+        "color_categoria": "#534AB7"
+      },
+      {
+        "id": 13,
+        "categoria": "Economía",
+        "titulo": "Agricultura y ganadería: el mayor impacto sobre la cuenca",
+        "que_pasa": "Las actividades agropecuarias son la base económica de la región pero también la principal causa de deforestación, erosión y contaminación del agua. La expansión de cultivos y potreros hacia laderas y áreas boscosas es el impacto ambiental más grave identificado en el plan.",
+        "impacto_ciudadano": "Un campo bien manejado produce más y dura más tiempo. El plan busca que los agricultores puedan vivir bien sin agotar los recursos naturales que necesitan para seguir produciendo.",
+        "zona": "Zonas de producción agropecuaria de toda la cuenca",
+        "latitud": 8.1300,
+        "longitud": -73.4600,
+        "color_categoria": "#712B13"
+      },
+      {
+        "id": 14,
+        "categoria": "Economía",
+        "titulo": "Minería artesanal y extracción de material de arrastre",
+        "que_pasa": "La extracción de material de arrastre del río (arena, grava y piedra) y la explotación de chircales (ladrilleras artesanales) generan impactos sobre la calidad del agua, la estabilidad de los taludes y la fauna acuática del Algodonal.",
+        "impacto_ciudadano": "Controlar estas actividades no significa prohibirlas, sino ordenarlas para que no destruyan el río del que todos dependemos. Un río sano también es un recurso económico a largo plazo.",
+        "zona": "Cauces del Río Algodonal y afluentes principales",
+        "latitud": 8.2450,
+        "longitud": -73.3400,
+        "color_categoria": "#712B13"
+      }
+    ],
+    "categorias": [
+      { "nombre": "Agua",        "color": "#1D9E75", "icono": "💧" },
+      { "nombre": "Suelos",      "color": "#BA7517", "icono": "🌾" },
+      { "nombre": "Bosques",     "color": "#3B6D11", "icono": "🌿" },
+      { "nombre": "Riesgos",     "color": "#A32D2D", "icono": "⚠️" },
+      { "nombre": "Comunidades", "color": "#534AB7", "icono": "👥" },
+      { "nombre": "Economía",    "color": "#712B13", "icono": "🌱" }
+    ]
+  }
+}

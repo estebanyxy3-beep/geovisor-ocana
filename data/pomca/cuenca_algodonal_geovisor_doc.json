@@ -1,0 +1,352 @@
+{
+  "tipo": "documento_word",
+  "titulo": "Cuenca Algodonal - Geovisor",
+  "fuente": "CORPONOR — POMCA Río Algodonal",
+  "total_parrafos": 15,
+  "parrafos": [
+    {
+      "estilo": "Normal",
+      "texto": "GEOVISOR AMBIENTAL"
+    },
+    {
+      "estilo": "Normal",
+      "texto": "Cuenca Hidrográfica del Río Algodonal"
+    },
+    {
+      "estilo": "Normal",
+      "texto": "Fichas de Visualización Ciudadana"
+    },
+    {
+      "estilo": "Normal",
+      "texto": "Ocaña, Norte de Santander"
+    },
+    {
+      "estilo": "Heading 1",
+      "texto": "¿De qué se trata este plan?"
+    },
+    {
+      "estilo": "Normal",
+      "texto": "La Corporación Autónoma Regional de la Frontera Nororiental (CORPONOR) elaboró el Plan de Ordenación y Manejo de la Cuenca Hidrográfica del Río Algodonal (POMCHRA) para cuidar uno de los territorios más importantes de la Provincia de Ocaña. El documento identifica los principales problemas ambientales de la cuenca —deforestación, contaminación del agua y erosión de suelos— y establece las acciones necesarias para proteger los recursos naturales de los que depende la vida cotidiana en la región."
+    },
+    {
+      "estilo": "Heading 2",
+      "texto": "Datos clave de la cuenca"
+    },
+    {
+      "estilo": "Heading 2",
+      "texto": "Categorías del geovisor"
+    },
+    {
+      "estilo": "Heading 1",
+      "texto": "Agua"
+    },
+    {
+      "estilo": "Heading 1",
+      "texto": "Suelos"
+    },
+    {
+      "estilo": "Heading 1",
+      "texto": "Bosques"
+    },
+    {
+      "estilo": "Heading 1",
+      "texto": "Riesgos y Amenazas"
+    },
+    {
+      "estilo": "Heading 1",
+      "texto": "Comunidades"
+    },
+    {
+      "estilo": "Heading 1",
+      "texto": "Economía y Actividades Productivas"
+    },
+    {
+      "estilo": "Normal",
+      "texto": "Fuente: CORPONOR — Plan de Ordenación y Manejo de la Cuenca Hidrográfica del Río Algodonal (POMCHRA), Fase II: Diagnóstico. Grupo Diagnóstico Río Algodonal, 2006–2007."
+    }
+  ],
+  "tablas": [
+    [
+      [
+        "Extensión total",
+        "74.639,8 hectáreas (0,34% del departamento de Norte de Santander)"
+      ],
+      [
+        "Longitud del río",
+        "62.7 kilómetros desde el páramo hasta la confluencia con el Río Tejo"
+      ],
+      [
+        "Altitud",
+        "Entre 950 m.s.n.m. (parte baja) y 3.680 m.s.n.m. (Páramo de Jurisdicciones)"
+      ],
+      [
+        "Municipios",
+        "Ocaña, Ábrego, La Playa de Belén y Teorama"
+      ],
+      [
+        "Veredas",
+        "168 veredas (101 incluidas totalmente, 67 parcialmente)"
+      ],
+      [
+        "Cobertura boscosa",
+        "Solo el 25.35% de la cuenca conserva bosque secundario"
+      ],
+      [
+        "Entidad responsable",
+        "CORPONOR — Corporación Autónoma Regional de la Frontera Nororiental"
+      ],
+      [
+        "Año del diagnóstico",
+        "2006–2007"
+      ]
+    ],
+    [
+      [
+        "Agua",
+        "Suelos",
+        "Bosques",
+        "Riesgos",
+        "Comunidades",
+        "Economía"
+      ]
+    ],
+    [
+      [
+        "AGUA  ·  Punto #1"
+      ],
+      [
+        "El Río Algodonal: fuente de vida de Ocaña"
+      ],
+      [
+        "¿Qué está pasando?\nEl río nace en el Páramo de Jurisdicciones a 3.680 metros de altura y recorre 62.7 km hasta llegar a las partes bajas. Su cuenca abarca más de 74.000 hectáreas que suministran agua para el acueducto de Ocaña y cientos de veredas."
+      ],
+      [
+        "Impacto directo para ti\nDe este río depende el agua que llega a tu llave. Protegerlo es garantizar que las futuras generaciones también tengan agua limpia y abundante."
+      ],
+      [
+        "Ubicación: Cauce principal del Río Algodonal — municipios de Ocaña, Ábrego y La Playa de Belén   |   Coord: 8.2308° N, 73.3517° O"
+      ]
+    ],
+    [
+      [
+        "AGUA  ·  Punto #2"
+      ],
+      [
+        "Acueductos veredales con problemas de cobertura"
+      ],
+      [
+        "¿Qué está pasando?\nEn muchas veredas de la cuenca el sistema de abastecimiento consiste en mangueras que captan agua de nacederos. Hay dificultades por las largas distancias entre las fuentes y las viviendas, y varios corregimientos no tienen sistemas formales de acueducto."
+      ],
+      [
+        "Impacto directo para ti\nLas familias rurales enfrentan riesgo de quedarse sin agua en época seca. Mejorar estos sistemas significa agua segura para niños y adultos en el campo."
+      ],
+      [
+        "Ubicación: Corregimientos La Paz, Unión Campesina, El Tabaco, Capitán Largo, Soltadero, El Chorro   |   Coord: 8.1750° N, 73.4100° O"
+      ]
+    ],
+    [
+      [
+        "AGUA  ·  Punto #3"
+      ],
+      [
+        "Contaminación del río por aguas residuales"
+      ],
+      [
+        "¿Qué está pasando?\nLos estudios de calidad del agua muestran que los coliformes fecales superan la norma en el cauce del Algodonal. Las actividades agrícolas, la ganadería y los vertimientos domésticos son las principales fuentes de contaminación."
+      ],
+      [
+        "Impacto directo para ti\nEl agua contaminada representa un riesgo directo para la salud de quienes la usan para consumo o riego. Controlar los vertimientos protege tu familia y tus cultivos."
+      ],
+      [
+        "Ubicación: Bocatoma del acueducto de Ocaña — cauce principal del Río Algodonal   |   Coord: 8.2390° N, 73.3620° O"
+      ]
+    ],
+    [
+      [
+        "SUELOS  ·  Punto #4"
+      ],
+      [
+        "Erosión y pérdida de suelos fértiles"
+      ],
+      [
+        "¿Qué está pasando?\nLa tala de bosques para ampliar cultivos y potreros ha dejado los suelos expuestos a la lluvia y al sol. Esto genera erosión severa: la capa fértil se pierde y los sedimentos terminan en el río."
+      ],
+      [
+        "Impacto directo para ti\nUn suelo erosionado produce menos alimento y necesita más insumos. Recuperar los suelos significa mejores cosechas y menos gastos para las familias campesinas."
+      ],
+      [
+        "Ubicación: Laderas de mediana a fuerte pendiente — toda la cuenca   |   Coord: 8.1950° N, 73.3800° O"
+      ]
+    ],
+    [
+      [
+        "SUELOS  ·  Punto #5"
+      ],
+      [
+        "Uso intensivo del suelo en zonas no aptas"
+      ],
+      [
+        "¿Qué está pasando?\nCerca del 34.8% de la cuenca está cubierta por pastos mejorados o introducidos, y un 18.9% por cultivos mezclados con rastrojos. Gran parte se encuentra en laderas donde el uso agropecuario intensivo deteriora la capacidad productiva del suelo."
+      ],
+      [
+        "Impacto directo para ti\nConocer qué tan apto es tu terreno para cultivar o criar ganado ayuda a producir más con menos esfuerzo, y evita perder la tierra por degradación."
+      ],
+      [
+        "Ubicación: Veredas agrícolas de Ábrego, Ocaña y La Playa de Belén   |   Coord: 8.0900° N, 73.4800° O"
+      ]
+    ],
+    [
+      [
+        "BOSQUES  ·  Punto #6"
+      ],
+      [
+        "Solo el 25% de la cuenca conserva bosque"
+      ],
+      [
+        "¿Qué está pasando?\nLa cuenca del Algodonal tiene apenas el 25.35% de su superficie cubierta por bosque secundario. La tala y las quemas para abrir potreros y cultivos han reducido drásticamente la cobertura forestal que antes protegía nacimientos de agua."
+      ],
+      [
+        "Impacto directo para ti\nMás bosque significa más agua todo el año. Las quebradas con bosque en sus nacimientos no se secan en verano; las que no tienen bosque sí lo hacen, afectando el agua de tu vereda."
+      ],
+      [
+        "Ubicación: Nacimientos del Río Oroque, Quebrada Buenos Aires, Quebrada El Playón   |   Coord: 8.1400° N, 73.3950° O"
+      ]
+    ],
+    [
+      [
+        "BOSQUES  ·  Punto #7"
+      ],
+      [
+        "Comunidades que ya cuidan sus nacimientos"
+      ],
+      [
+        "¿Qué está pasando?\nLos usuarios del acueducto ADAMIUAIN en Ocaña compraron predios para preservar los bosques que protegen su fuente de agua. Están en proceso de declarar una Reserva Natural de la Sociedad Civil."
+      ],
+      [
+        "Impacto directo para ti\nTu comunidad puede proteger legalmente las tierras donde nace el agua que consumes. Esto garantiza agua limpia y en cantidad suficiente para siempre."
+      ],
+      [
+        "Ubicación: Zona de nacimientos — municipio de Ocaña   |   Coord: 8.2350° N, 73.3700° O"
+      ]
+    ],
+    [
+      [
+        "BOSQUES  ·  Punto #8"
+      ],
+      [
+        "El Páramo de Jurisdicciones: el corazón del agua"
+      ],
+      [
+        "¿Qué está pasando?\nEn el extremo sur de la cuenca, a 3.680 metros sobre el nivel del mar, el Páramo de Jurisdicciones actúa como una gran esponja que almacena el agua lluvia y la libera lentamente hacia los ríos. Está amenazado por el avance agropecuario."
+      ],
+      [
+        "Impacto directo para ti\nProteger el páramo es proteger el origen de toda el agua de la cuenca. Sin páramo, no hay ríos; sin ríos, no hay agua para Ocaña ni para las veredas."
+      ],
+      [
+        "Ubicación: Páramo de Jurisdicciones — extremo sur de la cuenca   |   Coord: 7.9800° N, 73.5100° O"
+      ]
+    ],
+    [
+      [
+        "RIESGOS  ·  Punto #9"
+      ],
+      [
+        "Deslizamientos en vías y taludes"
+      ],
+      [
+        "¿Qué está pasando?\nLa deforestación y las lluvias intensas generan deslizamientos en las vías y taludes de la cuenca. La inestabilidad de los suelos afecta especialmente los accesos veredales cuando no se aplican medidas de control y contención."
+      ],
+      [
+        "Impacto directo para ti\nLos derrumbes bloquean las carreteras, aislan comunidades y pueden destruir viviendas. Conocer las zonas de riesgo permite tomar precauciones y a las autoridades actuar a tiempo."
+      ],
+      [
+        "Ubicación: Vías veredales de la cuenca — sectores de pendiente fuerte   |   Coord: 8.1600° N, 73.4300° O"
+      ]
+    ],
+    [
+      [
+        "RIESGOS  ·  Punto #10"
+      ],
+      [
+        "Quebradas sin bosque se secan en verano"
+      ],
+      [
+        "¿Qué está pasando?\nQuebradas como El Algodonal, El Humeador, El Manzano, El Pantano, El Urumito, La Paz y La Vieja están en zonas altamente fragmentadas donde no queda bosque. Sin vegetación que retenga el agua, estas fuentes se secan en época seca."
+      ],
+      [
+        "Impacto directo para ti\nSi la quebrada de tu vereda aparece en esta lista, tu comunidad está en riesgo de escasez de agua. El plan propone acciones de reforestación urgente en estas áreas."
+      ],
+      [
+        "Ubicación: Parte media de la cuenca del Río Algodonal   |   Coord: 8.2100° N, 73.3850° O"
+      ]
+    ],
+    [
+      [
+        "COMUNIDADES  ·  Punto #11"
+      ],
+      [
+        "168 veredas en el área de influencia"
+      ],
+      [
+        "¿Qué está pasando?\nLa cuenca abarca 168 veredas de cuatro municipios: Ábrego (76 veredas), Ocaña (73 veredas), La Playa de Belén (17 veredas) y Teorama. Ábrego es el municipio con mayor territorio dentro de la cuenca (56.9% del área total)."
+      ],
+      [
+        "Impacto directo para ti\nTu vereda hace parte de este territorio protegido. Las decisiones sobre el agua, el bosque y el suelo de tu zona están incluidas en este plan de manejo."
+      ],
+      [
+        "Ubicación: Municipios de Ábrego, Ocaña, La Playa de Belén y Teorama   |   Coord: 8.2200° N, 73.4000° O"
+      ]
+    ],
+    [
+      [
+        "COMUNIDADES  ·  Punto #12"
+      ],
+      [
+        "Zonas con alta densidad poblacional y más presión ambiental"
+      ],
+      [
+        "¿Qué está pasando?\nLas áreas con más de 40 habitantes por kilómetro cuadrado —cuencas del Río Oroque, quebradas El Viodo, Jujumal y La Paz— sufren mayor presión sobre el agua, la madera y el suelo, lo que acelera la degradación ambiental."
+      ],
+      [
+        "Impacto directo para ti\nDonde vive más gente, los recursos naturales se agotan más rápido. El plan propone programas focalizados en estas zonas para garantizar el uso sostenible de los recursos."
+      ],
+      [
+        "Ubicación: Cuencas del Río Oroque, Quebradas El Viodo, Jujumal y La Paz   |   Coord: 8.2050° N, 73.3600° O"
+      ]
+    ],
+    [
+      [
+        "ECONOMIA  ·  Punto #13"
+      ],
+      [
+        "Agricultura y ganadería: el mayor impacto sobre la cuenca"
+      ],
+      [
+        "¿Qué está pasando?\nLas actividades agropecuarias son la base económica de la región pero también la principal causa de deforestación, erosión y contaminación del agua. La expansión hacia laderas y áreas boscosas es el impacto ambiental más grave identificado en el plan."
+      ],
+      [
+        "Impacto directo para ti\nUn campo bien manejado produce más y dura más tiempo. El plan busca que los agricultores puedan vivir bien sin agotar los recursos naturales que necesitan para seguir produciendo."
+      ],
+      [
+        "Ubicación: Zonas de producción agropecuaria de toda la cuenca   |   Coord: 8.1300° N, 73.4600° O"
+      ]
+    ],
+    [
+      [
+        "ECONOMIA  ·  Punto #14"
+      ],
+      [
+        "Minería artesanal y extracción de material de arrastre"
+      ],
+      [
+        "¿Qué está pasando?\nLa extracción de arena, grava y piedra del río y la explotación de chircales (ladrilleras artesanales) generan impactos sobre la calidad del agua, la estabilidad de los taludes y la fauna acuática del Algodonal."
+      ],
+      [
+        "Impacto directo para ti\nControlar estas actividades no significa prohibirlas, sino ordenarlas para que no destruyan el río del que todos dependemos. Un río sano también es un recurso económico a largo plazo."
+      ],
+      [
+        "Ubicación: Cauces del Río Algodonal y afluentes principales   |   Coord: 8.2450° N, 73.3400° O"
+      ]
+    ]
+  ]
+}

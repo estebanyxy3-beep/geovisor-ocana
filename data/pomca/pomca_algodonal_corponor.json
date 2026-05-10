@@ -1,0 +1,984 @@
+{
+  "tipo": "documento_word",
+  "titulo": "POMCA Algodonal - Corponor",
+  "fuente": "CORPONOR — POMCA Río Algodonal",
+  "total_parrafos": 102,
+  "parrafos": [
+    {
+      "estilo": "Normal",
+      "texto": "POMCA"
+    },
+    {
+      "estilo": "Normal",
+      "texto": "Plan de Ordenación y Manejo de la Cuenca Hidrográfica"
+    },
+    {
+      "estilo": "Normal",
+      "texto": "Río Algodonal — Código 1605"
+    },
+    {
+      "estilo": "Normal",
+      "texto": "INFORME TÉCNICO ESTRUCTURADO"
+    },
+    {
+      "estilo": "Normal",
+      "texto": "Ajuste y Actualización del POMCA — Contrato de Consultoría N.° 270-2015"
+    },
+    {
+      "estilo": "Normal",
+      "texto": "Autoridades ambientales responsables:"
+    },
+    {
+      "estilo": "Normal",
+      "texto": "CORPONOR — Corporación Autónoma Regional de la Frontera Nororiental"
+    },
+    {
+      "estilo": "Normal",
+      "texto": "CORPOCESAR — Corporación Autónoma Regional del Cesar"
+    },
+    {
+      "estilo": "Normal",
+      "texto": "Consorcio Algodonal (NIT 900854081-6) — Ejecutor técnico"
+    },
+    {
+      "estilo": "Normal",
+      "texto": "Financiado por el Fondo Adaptación — MADS — Colombia, 2015-2019"
+    },
+    {
+      "estilo": "Normal",
+      "texto": "Adoptado mediante Resolución 623 del 18 de junio de 2019"
+    },
+    {
+      "estilo": "Heading 1",
+      "texto": "Introducción"
+    },
+    {
+      "estilo": "Normal",
+      "texto": "El Plan de Ordenación y Manejo de la Cuenca Hidrográfica del Río Algodonal, código 1605 del IDEAM, es el instrumento de planificación ambiental de mayor jerarquía para el territorio comprendido entre los departamentos de Norte de Santander y Cesar. Su proceso de ajuste y actualización se adelantó en el marco del proyecto del Fondo Adaptación 'Incorporación del Componente de Gestión del Riesgo como Determinante Ambiental del Ordenamiento Territorial en los Procesos de Formulación y/o Actualización de Planes de Ordenación y Manejo de Cuencas Hidrográficas Afectadas por el Fenómeno de la Niña 2010-2011'."
+    },
+    {
+      "estilo": "Normal",
+      "texto": "El proceso fue ejecutado por el Consorcio Algodonal bajo el Contrato de Consultoría N.° 270-2015, con la supervisión técnica de CORPONOR y CORPOCESAR, articuladas en Comisión Conjunta. El POMCA fue formalmente aprobado y adoptado mediante Resolución 623 del 18 de junio de 2019, constituyéndose en norma de superior jerarquía y determinante ambiental para los POT, PBOT y EOT de los municipios de la cuenca, según lo dispuesto en el artículo 2.2.3.1.5.6 del Decreto 1076 de 2015."
+    },
+    {
+      "estilo": "Heading 1",
+      "texto": "1. Información Ambiental"
+    },
+    {
+      "estilo": "Normal",
+      "texto": "El diagnóstico del POMCA Algodonal integra tres grandes componentes ambientales desarrollados en campo entre 2016 y 2018, con información primaria levantada en 11 localidades distribuidas en Norte de Santander y Cesar."
+    },
+    {
+      "estilo": "Heading 2",
+      "texto": "1.1. Componente Físico — Caracterización de la Cuenca"
+    },
+    {
+      "estilo": "Normal",
+      "texto": "La cuenca del Río Algodonal (Alto Catatumbo) se localiza en el nororiente colombiano, compartida entre los departamentos de Norte de Santander y Cesar. Sus características físicas fundamentales son:"
+    },
+    {
+      "estilo": "Heading 3",
+      "texto": "Hidrología y Recursos Hídricos"
+    },
+    {
+      "estilo": "List Paragraph",
+      "texto": "El Río Algodonal nace en el Páramo de Jurisdicciones y confluye con el sistema del Alto Catatumbo en la parte baja de la cuenca."
+    },
+    {
+      "estilo": "List Paragraph",
+      "texto": "CORPONOR realiza aforos continuos en el Río Oroque (antes y después de la captación del acueducto ASOCHORRO) y en el cauce principal para monitorear la oferta hídrica."
+    },
+    {
+      "estilo": "List Paragraph",
+      "texto": "La cuenca abastece los acueductos municipales de Ocaña y Ábrego, además de múltiples acueductos veredales que dependen de la Quebrada El Tabaco y afluentes menores."
+    },
+    {
+      "estilo": "List Paragraph",
+      "texto": "El diagnóstico identificó captaciones ilegales de agua para riego de cultivos como presión significativa sobre el caudal disponible."
+    },
+    {
+      "estilo": "Heading 3",
+      "texto": "Geología, Geomorfología y Suelos"
+    },
+    {
+      "estilo": "List Paragraph",
+      "texto": "La cuenca presenta unidades geomorfológicas diversas: páramo, montañas de vertiente fuerte, colinas, valles y terrazas aluviales en la parte baja."
+    },
+    {
+      "estilo": "List Paragraph",
+      "texto": "El componente de gestión del riesgo fue incorporado como determinante ambiental del ordenamiento territorial, razón central del proceso de ajuste del POMCA."
+    },
+    {
+      "estilo": "List Paragraph",
+      "texto": "El diagnóstico caracterizó procesos morfodinámicos activos: deslizamientos en vías veredales, erosión laminar severa en áreas deforestadas, y cárcavas en sectores con pendientes fuertes."
+    },
+    {
+      "estilo": "Heading 2",
+      "texto": "1.2. Componente Biótico — Flora y Fauna"
+    },
+    {
+      "estilo": "Normal",
+      "texto": "La caracterización biótica fue realizada por el Consorcio Algodonal en 11 localidades: 9 en Norte de Santander (Ábrego — veredas El Páramo, Vuelta La María y El Rodeo; Ocaña — veredas Sabaneta y La Cabaña; Convención — vereda El Chorrón; Teorama — vereda Pulpitos; San Calixto — vereda Las Parcelas; El Tarra — vereda Vegas del Catatumbo) y 2 en Cesar (Río de Oro — vereda Volcán; González — vereda San Cayetano)."
+    },
+    {
+      "estilo": "Heading 3",
+      "texto": "Flora"
+    },
+    {
+      "estilo": "Heading 3",
+      "texto": "Fauna"
+    },
+    {
+      "estilo": "List Paragraph",
+      "texto": "Anfibios: 21 especies pertenecientes a 6 familias y 9 géneros. Familias con mayor riqueza: Craugastoridae (7 sp.) e Hylidae (6 sp.)."
+    },
+    {
+      "estilo": "List Paragraph",
+      "texto": "Reptiles: 10 especies agrupadas en 5 familias y 10 géneros. Más representativas: Teiidae y Colubridae."
+    },
+    {
+      "estilo": "List Paragraph",
+      "texto": "Adicionalmente se registraron aves y mamíferos como indicadores de calidad ecosistémica en las 11 localidades de muestreo."
+    },
+    {
+      "estilo": "Heading 2",
+      "texto": "1.3. Componente Socioeconómico y Cultural"
+    },
+    {
+      "estilo": "Normal",
+      "texto": "El diagnóstico socioeconómico y cultural incluyó entrevistas a actores clave del sector productivo, institucional y comunitario, así como conversatorios temáticos sobre recurso hídrico y saneamiento básico, gastronomía tradicional de Ocaña, mitos y leyendas, y tradiciones folclóricas."
+    },
+    {
+      "estilo": "Heading 1",
+      "texto": "2. Planificación y Gestión"
+    },
+    {
+      "estilo": "Normal",
+      "texto": "El ajuste del POMCA Algodonal se desarrolló conforme a la Guía Técnica para la Formulación de los POMCA del MADS (2014) y el artículo 26 del Decreto 1640 de 2012. El alcance técnico del proyecto abarcó las cuatro primeras fases."
+    },
+    {
+      "estilo": "Heading 2",
+      "texto": "2.1. Fases Desarrolladas en el Ajuste POMCA Algodonal"
+    },
+    {
+      "estilo": "Heading 2",
+      "texto": "2.2. Articulación con el Ordenamiento Territorial"
+    },
+    {
+      "estilo": "Normal",
+      "texto": "De conformidad con el artículo 2.2.3.1.5.6 del Decreto 1076 de 2015 y la Resolución 623/2019, los municipios de la cuenca deben incorporar en sus POT/PBOT/EOT los siguientes elementos del POMCA como norma de superior jerarquía:"
+    },
+    {
+      "estilo": "List Paragraph",
+      "texto": "La zonificación ambiental definida en el POMCA para el suelo rural de cada municipio."
+    },
+    {
+      "estilo": "List Paragraph",
+      "texto": "El componente programático: estrategias, programas y proyectos del plan de inversiones."
+    },
+    {
+      "estilo": "List Paragraph",
+      "texto": "El componente de gestión del riesgo: las zonas de alta amenaza identificadas deben ser objeto de estudios de detalle por los entes territoriales."
+    },
+    {
+      "estilo": "List Paragraph",
+      "texto": "Los estudios específicos de riesgo del POMCA son insumo directo para los procesos de revisión y ajuste de los POT de Ocaña, Ábrego, La Playa de Belén y demás municipios de la cuenca."
+    },
+    {
+      "estilo": "Heading 1",
+      "texto": "3. Documentos y Normativa"
+    },
+    {
+      "estilo": "Normal",
+      "texto": "El POMCA Algodonal (Código 1605) cuenta con el siguiente acervo documental oficial, disponible en los portales de CORPONOR y CORPOCESAR:"
+    },
+    {
+      "estilo": "Heading 2",
+      "texto": "3.1. Documentos Oficiales del POMCA Algodonal"
+    },
+    {
+      "estilo": "Heading 2",
+      "texto": "3.2. Marco Normativo Aplicado"
+    },
+    {
+      "estilo": "Heading 1",
+      "texto": "4. Cartografía y Mapas"
+    },
+    {
+      "estilo": "Normal",
+      "texto": "El componente cartográfico del POMCA Algodonal está organizado en carpetas temáticas según la fase del plan. La escala de trabajo es 1:25.000 con Datum MAGNA-SIRGAS, conforme a los requerimientos de la Resolución 0509 de 2013 para cuencas de la macrocuenca Caribe y Magdalena-Cauca."
+    },
+    {
+      "estilo": "Heading 2",
+      "texto": "4.1. Estructura del Atlas Cartográfico por Fases"
+    },
+    {
+      "estilo": "Heading 3",
+      "texto": "Fase de Diagnóstico — Mapa Base"
+    },
+    {
+      "estilo": "List Paragraph",
+      "texto": "Localización de la cuenca Norte y Sur (01_LocalizaCuenca_Norte.pdf / 01_LocalizaCuenca_Sur.pdf)."
+    },
+    {
+      "estilo": "List Paragraph",
+      "texto": "Zonificación climática Norte (02_ZonificacionClimatica_Norte.pdf)."
+    },
+    {
+      "estilo": "List Paragraph",
+      "texto": "Geodatabase (GDB) con datos IGAC: predial, división político-administrativa, red vial, red hídrica."
+    },
+    {
+      "estilo": "List Paragraph",
+      "texto": "Modelo Digital de Terreno (MDT): formato GRID, Tiff y Modelo de Sombras."
+    },
+    {
+      "estilo": "List Paragraph",
+      "texto": "Metadatos conforme a norma NTC 4611 (equivalente ISO 19115)."
+    },
+    {
+      "estilo": "List Paragraph",
+      "texto": "Shapefiles (.shp): capas vectoriales de la cuenca, subcuencas, veredas y municipios."
+    },
+    {
+      "estilo": "List Paragraph",
+      "texto": "Salidas gráficas en formato JPG y PDF georreferenciados."
+    },
+    {
+      "estilo": "Heading 3",
+      "texto": "Inventario de mapas del documento diagnóstico 2006-2007 (base del ajuste)"
+    },
+    {
+      "estilo": "Heading 2",
+      "texto": "4.2. Cartografía Prioritaria para el Geovisor"
+    },
+    {
+      "estilo": "Heading 1",
+      "texto": "5. Indicadores y Reportes"
+    },
+    {
+      "estilo": "Normal",
+      "texto": "Los indicadores del POMCA Algodonal se articulan con el Sistema de Información del Recurso Hídrico (SIRH) del IDEAM y con los sistemas de seguimiento de CORPONOR y CORPOCESAR. El ciclo de evaluación contempla informes anuales, evaluación de medio término (5 años) y evaluación final (10 años), conforme al componente de seguimiento y evaluación definido en la Resolución 623/2019."
+    },
+    {
+      "estilo": "Heading 2",
+      "texto": "5.1. Indicadores de Estado — Cuenca del Río Algodonal"
+    },
+    {
+      "estilo": "Heading 2",
+      "texto": "5.2. Indicadores de Presión — Principales Problemáticas Identificadas"
+    },
+    {
+      "estilo": "Heading 2",
+      "texto": "5.3. Indicadores de Respuesta — Gestión CORPONOR"
+    },
+    {
+      "estilo": "Heading 1",
+      "texto": "6. Participación Ciudadana en el POMCA Algodonal"
+    },
+    {
+      "estilo": "Normal",
+      "texto": "La estrategia de participación del POMCA Algodonal fue diseñada e implementada por el Consorcio Algodonal con énfasis en la representatividad territorial, sectorial y étnica. El proceso involucró a 999 actores identificados desde la fase de aprestamiento en el área de influencia de la cuenca."
+    },
+    {
+      "estilo": "Heading 2",
+      "texto": "6.1. El Consejo de Cuenca — Río Algodonal"
+    },
+    {
+      "estilo": "Heading 2",
+      "texto": "6.2. Estrategia de Participación por Fases"
+    },
+    {
+      "estilo": "Heading 3",
+      "texto": "Fase de Aprestamiento — Identificación y Convocatoria"
+    },
+    {
+      "estilo": "List Paragraph",
+      "texto": "Identificación, caracterización, priorización y mapeo de 999 actores de la cuenca distribuidos en los municipios de la jurisdicción."
+    },
+    {
+      "estilo": "List Paragraph",
+      "texto": "Contacto multicanal: 44% por celular y correo electrónico; 34% solo por teléfono; 14% por teléfono fijo y correo electrónico."
+    },
+    {
+      "estilo": "List Paragraph",
+      "texto": "Primer Foro de Auditoría Visible realizado en el municipio de Ocaña: mecanismo de seguimiento y vigilancia al proceso del POMCA establecido por el Fondo Adaptación."
+    },
+    {
+      "estilo": "List Paragraph",
+      "texto": "Martha Acuña, experta social del Consorcio Algodonal, coordinó la estrategia de participación. El balance fue calificado como positivo por la alta asistencia de los actores convocados."
+    },
+    {
+      "estilo": "List Paragraph",
+      "texto": "Juan Carlos Jácome Ropero, Director CORPONOR-Territorial Ocaña, destacó el carácter participativo: 'este es un plan que queremos construir, en el que todos debemos aportar de manera constante y comprometida'."
+    },
+    {
+      "estilo": "Heading 3",
+      "texto": "Fase de Diagnóstico — Levantamiento Participativo de Información"
+    },
+    {
+      "estilo": "List Paragraph",
+      "texto": "Reuniones veredales y comunitarias en las 11 localidades de muestreo para recolección de información primaria."
+    },
+    {
+      "estilo": "List Paragraph",
+      "texto": "Conversatorios temáticos con actores clave: sector productivo, institucionalidad ambiental, recurso hídrico y saneamiento básico, sociocultural e histórico, y asociaciones productivas."
+    },
+    {
+      "estilo": "List Paragraph",
+      "texto": "Conversatorio de expertos académicos con participación de la Universidad Francisco de Paula Santander Ocaña (UFPSO) (Tabla 10.28 del informe de actividades complementarias)."
+    },
+    {
+      "estilo": "List Paragraph",
+      "texto": "Sistematización de entrevistas sobre gastronomía, mitos y leyendas y tradiciones folclóricas de la provincia de Ocaña."
+    },
+    {
+      "estilo": "List Paragraph",
+      "texto": "Sistematización de entrevistas a actores institucionales con funciones de administración ambiental y de apoyo a la gestión ambiental en la cuenca."
+    },
+    {
+      "estilo": "Heading 3",
+      "texto": "Fase de Prospectiva y Zonificación — Construcción del Escenario Apuesta"
+    },
+    {
+      "estilo": "List Paragraph",
+      "texto": "Talleres de construcción colectiva del escenario deseado y apuesta de la cuenca con todos los sectores del Consejo de Cuenca."
+    },
+    {
+      "estilo": "List Paragraph",
+      "texto": "Consulta y validación participativa de la propuesta de zonificación ambiental y de la Estructura Ecológica Principal."
+    },
+    {
+      "estilo": "List Paragraph",
+      "texto": "Consulta previa con comunidades étnicas presentes en el área de influencia de la cuenca, especialmente en los municipios de Teorama, El Tarra y San Calixto."
+    },
+    {
+      "estilo": "List Paragraph",
+      "texto": "Audiencias de socialización del mapa de amenazas y gestión del riesgo con comunidades en zonas de alta vulnerabilidad."
+    },
+    {
+      "estilo": "Heading 3",
+      "texto": "Fase de Formulación — Validación y Adopción"
+    },
+    {
+      "estilo": "List Paragraph",
+      "texto": "Priorización participativa de programas y proyectos del componente programático con el Consejo de Cuenca."
+    },
+    {
+      "estilo": "List Paragraph",
+      "texto": "Revisión y validación del borrador del POMCA por parte del Consejo de Cuenca antes de su elevación a acto administrativo."
+    },
+    {
+      "estilo": "List Paragraph",
+      "texto": "Adopción oficial mediante Resolución 623 del 18 de junio de 2019, suscrita conjuntamente por CORPONOR y CORPOCESAR."
+    },
+    {
+      "estilo": "Heading 2",
+      "texto": "6.3. Fases de Ejecución, Seguimiento y Evaluación (pendientes)"
+    },
+    {
+      "estilo": "Normal",
+      "texto": "Las fases 5 (Ejecución) y 6 (Seguimiento y Evaluación) son responsabilidad directa de CORPONOR y CORPOCESAR en articulación con los municipios de la cuenca y el Consejo de Cuenca activo. El ciudadano puede participar mediante:"
+    },
+    {
+      "estilo": "List Paragraph",
+      "texto": "Veedurías ciudadanas al cumplimiento de los programas y proyectos del POMCA adoptado."
+    },
+    {
+      "estilo": "List Paragraph",
+      "texto": "Participación en los espacios de rendición de cuentas anuales de CORPONOR ante la comunidad."
+    },
+    {
+      "estilo": "List Paragraph",
+      "texto": "Solicitudes de acceso a información sobre el estado de ejecución del POMCA a través del portal de CORPONOR (www.corponor.gov.co) o CORPOCESAR (www.corpocesar.gov.co)."
+    },
+    {
+      "estilo": "List Paragraph",
+      "texto": "Reporte de captaciones ilegales, vertimientos o afectaciones a la cuenca a la línea anticorrupción de CORPONOR: 01 8000 915306."
+    },
+    {
+      "estilo": "Heading 1",
+      "texto": "7. Glosario de Conceptos — POMCA Algodonal"
+    },
+    {
+      "estilo": "Normal",
+      "texto": "Definiciones aplicadas al contexto específico del POMCA del Río Algodonal (Código 1605), conforme al Decreto 1076 de 2015 y la Guía Técnica del MADS."
+    },
+    {
+      "estilo": "Normal",
+      "texto": "Fuentes oficiales: CORPONOR (www.corponor.gov.co) · CORPOCESAR (www.corpocesar.gov.co) · Consorcio Algodonal · IDEAM · MADS"
+    },
+    {
+      "estilo": "Normal",
+      "texto": "Resolución 623 del 18 de junio de 2019 — Adopción oficial del POMCA Río Algodonal (Alto Catatumbo) — Código 1605"
+    }
+  ],
+  "tablas": [
+    [
+      [
+        "Parámetro",
+        "Dato"
+      ],
+      [
+        "Código IDEAM",
+        "Subzona Hidrográfica 1605"
+      ],
+      [
+        "Área total",
+        "74.639,8 hectáreas"
+      ],
+      [
+        "Longitud cauce principal",
+        "62,7 km"
+      ],
+      [
+        "Altitud máxima",
+        "3.680 m.s.n.m. (Páramo de Jurisdicciones)"
+      ],
+      [
+        "Altitud mínima",
+        "950 m.s.n.m. (parte baja de la cuenca)"
+      ],
+      [
+        "Departamentos",
+        "Norte de Santander y Cesar"
+      ],
+      [
+        "Municipios en cuenca",
+        "Ábrego, Ocaña, La Playa de Belén, Teorama, Convención, El Carmen, El Tarra, San Calixto, Hacarí, Río de Oro (Cesar) y González (Cesar)"
+      ],
+      [
+        "Escala cartográfica de trabajo",
+        "1:25.000 — Datum MAGNA-SIRGAS"
+      ],
+      [
+        "Acueductos abastecidos",
+        "Municipios de Ocaña (1.200-1.500 L/s) y Ábrego (1.700-1.800 L/s) — Datos de aforos CORPONOR"
+      ]
+    ],
+    [
+      [
+        "Hallazgo",
+        "Detalle"
+      ],
+      [
+        "Total de especies vegetales registradas",
+        "293 especies agrupadas en 156 géneros y 73 familias"
+      ],
+      [
+        "Familias más representativas",
+        "Asteraceae, Melastomataceae, Rubiaceae, Fabaceae, Myrtaceae y Lauraceae"
+      ],
+      [
+        "Especies en categoría de amenaza",
+        "3 especies: Espeletia roberti (CR — Crítico), Quercus humboldtii (VU — Vulnerable) y Cedrela odorata (EN — Peligro, también VU según UICN)"
+      ],
+      [
+        "Norma de referencia",
+        "Resolución 192 de 2014 (MADS) — listas rojas nacionales"
+      ],
+      [
+        "Cobertura boscosa remanente",
+        "25,35% del área total de la cuenca (datos diagnóstico 2006-2007, actualizado en ajuste 2015-2018)"
+      ]
+    ],
+    [
+      [
+        "Variable",
+        "Información"
+      ],
+      [
+        "Municipios con mayor área en cuenca (Norte de Santander)",
+        "Ábrego, Ocaña, La Playa de Belén, Teorama, Convención, El Carmen, El Tarra, San Calixto y Hacarí"
+      ],
+      [
+        "Municipios con área en cuenca (Cesar)",
+        "Río de Oro y González"
+      ],
+      [
+        "Principales actividades económicas",
+        "Agricultura (cultivos transitorios y permanentes), ganadería extensiva, minería artesanal de carbón, extracción de material de arrastre y chircales"
+      ],
+      [
+        "Participación UFPSO en el proceso",
+        "La Universidad Francisco de Paula Santander Ocaña participó como actor académico clave en el conversatorio de expertos (Tabla 10.28 del diagnóstico)"
+      ],
+      [
+        "Barrios Ocaña identificados en análisis",
+        "Llano Echavez, La Coruña y Alejandría, entre otros, con influencia directa en la cuenca baja"
+      ],
+      [
+        "Saneamiento básico",
+        "El 75,15% de los vertimientos de la zona urbana se realiza sin tratamiento previo (diagnóstico Consorcio Algodonal)"
+      ]
+    ],
+    [
+      [
+        "Fase 1 — Aprestamiento (2016)\nEjecutada por el Consorcio Algodonal con informe V3 del 12 de diciembre de 2016.\nIdentificación, caracterización, priorización y mapeo de 999 actores de la cuenca.\nForma de contacto con actores: 44% por celular y correo electrónico, 34% solo por teléfono, 14% por teléfono fijo y correo, restante solo teléfono fijo.\nAnálisis situacional inicial por componentes: hidrología, calidad del agua, suelos, geología, hidrogeología, geomorfología, biótico, socioeconómico, participación y gestión del riesgo.\nConformación de la Comisión Conjunta CORPONOR-CORPOCESAR y definición del Plan Operativo Detallado (POD).\nForo de Auditoría Visible realizado en Ocaña como mecanismo de transparencia y veeduría ciudadana."
+      ]
+    ],
+    [
+      [
+        "Fase 2 — Diagnóstico (2017-2018)\nCaracterización básica de la cuenca: parámetros morfométricos, red hídrica, oferta y demanda.\nCaracterización físico-biótica: 11 localidades de muestreo, 293 especies vegetales, 21 anfibios, 10 reptiles, aves y mamíferos.\nCaracterización socioeconómica, cultural y funcional: entrevistas a actores, conversatorios temáticos, sistematización de saberes locales.\nComponente de gestión del riesgo como determinante ambiental: amenazas por movimientos en masa, inundaciones y avenidas torrenciales.\nAforos del Río Algodonal y Río Oroque por CORPONOR para cuantificar oferta hídrica en puntos de captación.\nCampañas de control sobre captaciones ilegales y socialización de ahorro y uso eficiente del agua."
+      ]
+    ],
+    [
+      [
+        "Fase 3 — Prospectiva y Zonificación Ambiental (2018-2019)\nConstrucción de escenarios: tendencial, deseado y apuesta, con participación del Consejo de Cuenca.\nZonificación ambiental del territorio con categorías de conservación, uso múltiple, producción sostenible y rehabilitación.\nIncorporación del componente de gestión del riesgo como determinante ambiental del ordenamiento territorial.\nDefinición de la Estructura Ecológica Principal (EEP) de la cuenca.\nConsulta previa con comunidades indígenas y minorías étnicas del área de influencia."
+      ]
+    ],
+    [
+      [
+        "Fase 4 — Formulación (2019)\nDiseño del componente programático: programas y proyectos con metas, indicadores y fuentes de financiamiento.\nElaboración del Plan de Inversiones articulado con CORPONOR, CORPOCESAR, municipios y Fondo Adaptación.\nDefinición de medidas de administración de los recursos naturales renovables de la cuenca.\nValidación final con el Consejo de Cuenca y adopción mediante Resolución 623 del 18 de junio de 2019."
+      ]
+    ],
+    [
+      [
+        "Tipo",
+        "Documento",
+        "Fase"
+      ],
+      [
+        "Documento general",
+        "Documento General POMCA Río Algodonal (Dcto General_Algodonal_CORPONOR_120419.pdf)",
+        "General"
+      ],
+      [
+        "Aprestamiento",
+        "Informe General de Resultados — Fase de Aprestamiento (InformeAprestamientoAlgodonal_vf_CORPONOR_050419.pdf)",
+        "Fase 1"
+      ],
+      [
+        "Diagnóstico",
+        "Conformación del Consejo de Cuenca (301_ConsejoCuenca_Algodonal_1605_VF_CORPONOR)",
+        "Fase 2"
+      ],
+      [
+        "Diagnóstico",
+        "Caracterización Básica de la Cuenca (02_CaractBasicaCuenca_Algodonal_vf_CORPONOR_190301.pdf)",
+        "Fase 2"
+      ],
+      [
+        "Diagnóstico",
+        "Caracterización Físico-Biótica (03_CaractFisBiot_Algodonal_1605_vf_CORPONOR.pdf)",
+        "Fase 2"
+      ],
+      [
+        "Diagnóstico",
+        "Caracterización Socioeconómica y Cultural (04_CaractSocioEcoCult_Algodonal_1605_vf_CORPONOR.pdf)",
+        "Fase 2"
+      ],
+      [
+        "Diagnóstico",
+        "Caracterización Funcional (06_CaractFuncional_Algodonal_1605_vf_CORPONOR.pdf)",
+        "Fase 2"
+      ],
+      [
+        "Diagnóstico",
+        "Resumen Ejecutivo — Diagnóstico (ResumenEjecutivo_Diagnostico_Algodonal_110419.pdf)",
+        "Fase 2"
+      ],
+      [
+        "Diagnóstico",
+        "Actividades Complementarias — Estrategia de Participación (10_ActComplem_Algodonal_1605_vf.pdf)",
+        "Fase 2"
+      ],
+      [
+        "Diagnóstico",
+        "Anexo SIG y Cartografía (Actividades complementarias_general.pdf)",
+        "Fase 2"
+      ],
+      [
+        "Prospectiva",
+        "Informe Prospectiva y Zonificación Ambiental (Informe_P&ZA_Algodonal_1605_CORPONOR_110419.pdf)",
+        "Fase 3"
+      ],
+      [
+        "Formulación",
+        "Informe Final de Formulación (Informe_Formulacion_Algodonal_1605_vf_CORPONOR.pdf)",
+        "Fase 4"
+      ],
+      [
+        "Acto administrativo",
+        "Resolución 623 del 18/06/2019 — Aprueba y Adopta el POMCA Río Algodonal (Alto Catatumbo)",
+        "Adopción"
+      ],
+      [
+        "Acto administrativo",
+        "Resolución 628 del 04/11/2014 — Revisión y ajuste POMCA Algodonal",
+        "Declaratoria"
+      ],
+      [
+        "Acto administrativo",
+        "Resolución 1663 del 13/11/2014 — Ordenación y manejo Río Algodonal",
+        "Declaratoria"
+      ],
+      [
+        "Comisión conjunta",
+        "Acta de reconformación de la Comisión Conjunta CORPONOR-CORPOCESAR",
+        "Gestión"
+      ],
+      [
+        "Comisión conjunta",
+        "Resolución reglamento interno de la Comisión Conjunta para el Río Algodonal",
+        "Gestión"
+      ]
+    ],
+    [
+      [
+        "Instrumento",
+        "Aplicación en el POMCA Algodonal"
+      ],
+      [
+        "Ley 99 de 1993",
+        "Base institucional de CORPONOR y CORPOCESAR como autoridades ambientales con competencia en la cuenca."
+      ],
+      [
+        "Ley 388 de 1997",
+        "Establece el POMCA como determinante ambiental de los POT de Ocaña, Ábrego y demás municipios."
+      ],
+      [
+        "Ley 1523 de 2012",
+        "Incorporación del componente de gestión del riesgo como determinante ambiental, razón central del ajuste."
+      ],
+      [
+        "Decreto 1640 de 2012 (compilado Decreto 1076/2015)",
+        "Define el proceso de 6 fases, la Comisión Conjunta, el Consejo de Cuenca y los contenidos mínimos del POMCA."
+      ],
+      [
+        "Resolución 0509 de 2013 — MADS",
+        "Guía técnica metodológica aplicada por el Consorcio Algodonal en todas las fases."
+      ],
+      [
+        "Resolución 1907 de 2013 — MADS",
+        "Guía técnica oficial adoptada para la formulación del POMCA."
+      ],
+      [
+        "Resolución 192 de 2014 — MADS",
+        "Marco normativo para la identificación de especies vegetales amenazadas en la caracterización biótica."
+      ],
+      [
+        "Resolución 623 de 2019 — CORPONOR/CORPOCESAR",
+        "Acto administrativo que aprueba y adopta oficialmente el POMCA Río Algodonal (Alto Catatumbo, Código 1605)."
+      ]
+    ],
+    [
+      [
+        "N.°",
+        "Mapa temático"
+      ],
+      [
+        "1",
+        "Mapa Base"
+      ],
+      [
+        "2",
+        "Mapa de División Político-Administrativa"
+      ],
+      [
+        "3",
+        "Mapa Predial"
+      ],
+      [
+        "4A",
+        "Mapa Red Hidrográfica"
+      ],
+      [
+        "4B",
+        "Mapa Cuencas Algodonal"
+      ],
+      [
+        "6",
+        "Mapa de Geología"
+      ],
+      [
+        "7",
+        "Mapa de Pendientes"
+      ],
+      [
+        "8",
+        "Suelos Cuenca Algodonal"
+      ],
+      [
+        "9",
+        "Clases Agrologicas"
+      ],
+      [
+        "10",
+        "Mapa de Paisajes Geomorfológicos"
+      ],
+      [
+        "11-12",
+        "Isoyetas Anuales y Multianuales"
+      ],
+      [
+        "13-14",
+        "Polígonos de Thiessen (Precipitación y Temperatura)"
+      ],
+      [
+        "18-20",
+        "Evapotranspiración Potencial, ETP Multianual y Evapotranspiración Real"
+      ],
+      [
+        "21-22",
+        "Índice de Aridez y Clasificación Climática"
+      ],
+      [
+        "23",
+        "Mapa de Zonas de Vida"
+      ],
+      [
+        "24",
+        "Mapa de Biomas"
+      ],
+      [
+        "25",
+        "Mapa de Ecosistemas"
+      ],
+      [
+        "26",
+        "Mapa de Ecosistemas Estratégicos"
+      ],
+      [
+        "27",
+        "Mapa del SIRAP"
+      ],
+      [
+        "28",
+        "Mapa de Uso Productivo"
+      ],
+      [
+        "29",
+        "Mapa de Uso y Cobertura 2002"
+      ],
+      [
+        "30",
+        "Mapa de Cambios"
+      ],
+      [
+        "31-32",
+        "Oferta Hídrica Lamina Modal y Oferta Hídrica de Estiaje"
+      ],
+      [
+        "33",
+        "Mapa de Puntos de Monitoreo"
+      ],
+      [
+        "34-35",
+        "Mapa de Demanda Agrícola Mensual y Anual"
+      ],
+      [
+        "36",
+        "Mapa de Demanda Total"
+      ],
+      [
+        "37-38",
+        "Índice de Escasez Modal e Índice de Escasez Año Seco"
+      ]
+    ],
+    [
+      [
+        "Mapas esenciales para publicar en el geovisor ciudadano\nPRIORIDAD 1 — Mapa Base, División Político-Administrativa, Red Hidrográfica y Cuencas Algodonal (contextualización del territorio).\nPRIORIDAD 2 — Uso y Cobertura 2002, Mapa de Cambios, Ecosistemas Estratégicos, Zonas de Vida (estado ambiental de la cuenca).\nPRIORIDAD 3 — Índice de Escasez Modal y Año Seco, Oferta Hídrica, Puntos de Monitoreo (riesgo hídrico para las comunidades).\nPRIORIDAD 4 — Suelos, Uso Productivo, Pendientes, Geomorfología (para gestión agropecuaria sostenible).\nFASE TÉCNICA — Zonificación Ambiental, Gestión del Riesgo, Amenazas y Vulnerabilidad (ajuste 2019)."
+      ]
+    ],
+    [
+      [
+        "Indicador",
+        "Referencia en el POMCA",
+        "Unidad / Meta"
+      ],
+      [
+        "Oferta hídrica Río Algodonal en bocatoma Ocaña",
+        "Aforos CORPONOR — Monitoreo permanente",
+        "1.200-1.500 L/s (fluctuación histórica)"
+      ],
+      [
+        "Oferta hídrica Río Algodonal en bocatoma Ábrego",
+        "Aforos CORPONOR — Monitoreo permanente",
+        "1.700-1.800 L/s (fluctuación histórica)"
+      ],
+      [
+        "Cobertura boscosa remanente de la cuenca",
+        "Mapa Uso y Cobertura / Mapa de Cambios",
+        "Línea base: 25,35% del área total"
+      ],
+      [
+        "Riqueza de species vegetales",
+        "Caracterización biótica Consorcio Algodonal",
+        "293 especies en 11 localidades"
+      ],
+      [
+        "Especies vegetales amenazadas",
+        "Resolución 192/2014 — Diagnóstico biótico",
+        "3 especies (CR, VU, EN)"
+      ],
+      [
+        "Calidad del agua en puntos de monitoreo",
+        "Mapa de Puntos de Monitoreo N.° 33",
+        "Parámetros ICA — red CORPONOR"
+      ]
+    ],
+    [
+      [
+        "Indicador",
+        "Hallazgo del diagnóstico",
+        "Zona crítica"
+      ],
+      [
+        "Vertimientos sin tratamiento",
+        "75,15% de aguas residuales urbanas vertidas sin tratar",
+        "Zona urbana de municipios de la cuenca"
+      ],
+      [
+        "Captaciones ilegales de agua",
+        "Identificadas en el Río Algodonal y Quebrada El Tabaco",
+        "Zonas de riego agropecuario"
+      ],
+      [
+        "Deforestación y fragmentación",
+        "Solo 25,35% de cobertura boscosa remanente",
+        "Toda la cuenca — mayor presión en zonas medias"
+      ],
+      [
+        "Erosión activa",
+        "Procesos de deslizamiento, erosión laminar y cárcavas",
+        "Vías veredales y laderas de pendiente fuerte"
+      ],
+      [
+        "Especies en categoría de amenaza",
+        "Espeletia roberti (CR), Quercus humboldtii (VU), Cedrela odorata (EN)",
+        "Zonas de bosque y páramo"
+      ]
+    ],
+    [
+      [
+        "Acción de gestión",
+        "Mecanismo",
+        "Referencia"
+      ],
+      [
+        "Aforos periódicos de caudal",
+        "Monitoreo hidrometeorológico permanente en la cuenca",
+        "Informe seguimiento ambiental CORPONOR 2015"
+      ],
+      [
+        "Control de captaciones ilegales",
+        "Operativos de control y vigilancia en campo",
+        "Programa control y vigilancia CORPONOR"
+      ],
+      [
+        "Campaña ahorro y uso eficiente del agua",
+        "Socialización comunitaria en la Provincia de Ocaña",
+        "Estrategia de mitigación climática CORPONOR"
+      ],
+      [
+        "Auditoría visible del POMCA",
+        "Foro público en Ocaña con actores identificados en aprestamiento",
+        "Primer Foro Auditoría Visible, octubre 2016"
+      ],
+      [
+        "Adopción del POMCA actualizado",
+        "Resolución 623 del 18 de junio de 2019 — CORPONOR/CORPOCESAR",
+        "Acto administrativo conjunto"
+      ],
+      [
+        "Reporte al SIRH-IDEAM",
+        "Indicadores de gestión hídrica de la cuenca 1605",
+        "Ciclo anual de reporte"
+      ]
+    ],
+    [
+      [
+        "¿Qué es y cómo se conformó el Consejo de Cuenca del Río Algodonal?\nEl Consejo de Cuenca es la instancia consultiva y representativa de todos los actores que viven y desarrollan actividades en la cuenca del Río Algodonal, conforme al artículo 48 del Decreto 1640 de 2012 (compilado en el Decreto 1076 de 2015).\nSu conformación fue documentada en el informe '301_ConsejoCuenca_Algodonal_1605_VF_CORPONOR', disponible en el portal de CORPONOR y CORPOCESAR.\nEl Consejo incidió en el modelo ambiental de la cuenca para los próximos 10 años, desde la fase de diagnóstico hasta la formulación.\nFunciones: aportar información sobre la cuenca, participar en todas las fases del plan, servir como canal de consulta y recomendaciones, y contribuir a la solución de conflictos en la administración de recursos naturales."
+      ]
+    ],
+    [
+      [
+        "Alto Catatumbo"
+      ],
+      [
+        "Denominación de la zona hidrográfica a la que pertenece el Río Algodonal. La cuenca del Algodonal (código 1605) es una subzona hidrográfica del sistema del Alto Catatumbo, compartida entre Norte de Santander y Cesar. Este contexto geográfico determinó la conformación de la Comisión Conjunta entre CORPONOR y CORPOCESAR para su ordenación."
+      ]
+    ],
+    [
+      [
+        "Comisión Conjunta"
+      ],
+      [
+        "Instancia de coordinación interinstitucional entre CORPONOR y CORPOCESAR para la ordenación y manejo compartido de la cuenca del Río Algodonal, dado que esta se extiende sobre jurisdicciones de dos corporaciones. Su reglamento interno fue formalizado mediante resolución conjunta. Es la máxima instancia de decisión del proceso POMCA."
+      ]
+    ],
+    [
+      [
+        "Consejo de Cuenca"
+      ],
+      [
+        "Instancia consultiva y representativa de los actores que viven y desarrollan actividades en la cuenca del Río Algodonal. Conformado durante la Fase de Diagnóstico, incluye representantes de comunidades campesinas, organizaciones de usuarios del agua, sector productivo, instituciones públicas y academia. Su proceso de conformación está documentado en el informe '301_ConsejoCuenca_Algodonal_1605_VF_CORPONOR'."
+      ]
+    ],
+    [
+      [
+        "Consorcio Algodonal"
+      ],
+      [
+        "Unión temporal de empresas consultoras (NIT 900854081-6) contratada mediante el Contrato de Consultoría N.° 270-2015 para ejecutar el Ajuste y/o Actualización del POMCA del Río Algodonal en las cuatro primeras fases. Estuvo conformado por un equipo técnico y social interdisciplinario liderado por expertos en hidrología, biología, geología, ciencias sociales y sistemas de información geográfica."
+      ]
+    ],
+    [
+      [
+        "Cuenca Hidrográfica del Río Algodonal"
+      ],
+      [
+        "Unidad territorial de planificación ambiental con código IDEAM 1605, que abarca 74.639,8 hectáreas en los departamentos de Norte de Santander (municipios de Ocaña, Ábrego, La Playa de Belén, Teorama, Convención, El Carmen, El Tarra, San Calixto y Hacarí) y Cesar (municipios de Río de Oro y González). El Río Algodonal nace en el Páramo de Jurisdicciones a 3.680 m.s.n.m. y abastece los acueductos municipales de Ocaña y Ábrego."
+      ]
+    ],
+    [
+      [
+        "Determinante Ambiental"
+      ],
+      [
+        "Condición normativa de superior jerarquía que impone el POMCA sobre los planes de ordenamiento territorial de los municipios de la cuenca. Por mandato de la Resolución 623/2019 y el artículo 2.2.3.1.5.6 del Decreto 1076 de 2015, los municipios de Ocaña, Ábrego, La Playa de Belén y demás de la cuenca deben incorporar en sus POT la zonificación ambiental, el componente programático y el componente de gestión del riesgo definidos en el POMCA."
+      ]
+    ],
+    [
+      [
+        "Fondo Adaptación"
+      ],
+      [
+        "Entidad del Gobierno Nacional creada para atender la reconstrucción de las zonas afectadas por el Fenómeno de la Niña 2010-2011. Financió el ajuste del POMCA Algodonal dentro del proyecto 'Incorporación del Componente de Gestión del Riesgo como Determinante Ambiental del Ordenamiento Territorial en los Procesos de Formulación y/o Actualización de POMCA'. Fue el financiador principal del proceso 2015-2019."
+      ]
+    ],
+    [
+      [
+        "Gestión del Riesgo en la Cuenca"
+      ],
+      [
+        "Componente transversal incorporado en todas las fases del POMCA Algodonal conforme a la Ley 1523 de 2012. Incluye el conocimiento del riesgo (identificación de amenazas por deslizamientos, inundaciones y avenidas torrenciales), la reducción del riesgo (medidas preventivas en la zonificación ambiental) y el manejo del desastre. Las zonas de alta amenaza identificadas en el POMCA son insumo obligatorio para los estudios de detalle de los POT municipales."
+      ]
+    ],
+    [
+      [
+        "Estructura Ecológica Principal (EEP)"
+      ],
+      [
+        "Red de áreas de conservación y ecosistemas estratégicos que sostiene los flujos hídricos, la biodiversidad y los servicios ecosistémicos de la cuenca del Algodonal. Incluye el Páramo de Jurisdicciones, las rondas hídricas del Río Algodonal y sus afluentes principales, los bosques de nacimiento y los humedales. La EEP fue delimitada en la Fase de Prospectiva y Zonificación como base para las categorías de conservación del POMCA."
+      ]
+    ],
+    [
+      [
+        "Páramo de Jurisdicciones"
+      ],
+      [
+        "Ecosistema estratégico de alta montaña localizado en el extremo sur de la cuenca, a 3.680 metros sobre el nivel del mar. Es el nacimiento del Río Algodonal y la principal fuente de recarga hídrica de la cuenca. Su conservación es una prioridad del POMCA dada su función como esponja natural que regula el caudal del río a lo largo del año. Se encuentra amenazado por la expansión de actividades agropecuarias en sus bordes."
+      ]
+    ],
+    [
+      [
+        "Zonificación Ambiental del POMCA Algodonal"
+      ],
+      [
+        "Clasificación del territorio de la cuenca en categorías de uso y manejo, resultado de la Fase de Prospectiva y Zonificación (2018-2019). Define cuatro tipos de categorías: conservación y protección ambiental (páramo, rondas hídricas, bosques estratégicos), uso múltiple sostenible, producción agropecuaria regulada y zonas de rehabilitación (áreas degradadas con erosión activa). Esta zonificación es vinculante como determinante ambiental para los POT de todos los municipios de la cuenca, conforme a la Resolución 623/2019."
+      ]
+    ]
+  ]
+}

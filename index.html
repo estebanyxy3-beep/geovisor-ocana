@@ -761,14 +761,10 @@
       </div>
 
       <nav class="pomca-menu">
-        <button class="pomca-menu-item active" type="button">Inicio POMCA</button>
-        <button class="pomca-menu-item" type="button">Información ambiental</button>
-        <button class="pomca-menu-item" type="button">Planificación y gestión</button>
-        <button class="pomca-menu-item" type="button">Documentos y normativa</button>
-        <button class="pomca-menu-item" type="button">Cartografía y mapas</button>
-        <button class="pomca-menu-item" type="button">Indicadores y reportes</button>
-        <button class="pomca-menu-item" type="button">Participación ciudadana</button>
-        <button class="pomca-menu-item" type="button">Glosario de conceptos</button>
+        <button class="pomca-menu-item active" type="button">1. Vista principal POMCA</button>
+        <button class="pomca-menu-item" type="button">2. Cartografía POMCA</button>
+        <button class="pomca-menu-item" type="button">3. Documentos para descargar</button>
+        <button class="pomca-menu-item" type="button">4. Información temática</button>
       </nav>
 
       <button class="pomca-back-btn" type="button" data-view-target="inicio">
@@ -777,7 +773,7 @@
     </aside>
 
     <div class="pomca-main">
-      <section class="pomca-hero">
+      <section class="pomca-hero" id="pomca-subview-inicio">
         <div class="pomca-hero-card">
           <h1>Módulo POMCA</h1>
           <h2>Río Algodonal</h2>
@@ -826,7 +822,7 @@
         </div>
       </section>
 
-      <section class="pomca-stats">
+      <section class="pomca-stats" id="pomca-subview-cartografia">
         <div class="risk-card">
           <h3>Cartografía POMCA</h3>
           <label class="control-item"><input type="radio" name="pomcaLayer" value="pomca_protegidas" /> Áreas protegidas</label>
@@ -834,7 +830,6 @@
           <label class="control-item"><input type="radio" name="pomcaLayer" value="pomca_ecosistemicas" /> Áreas de especial importancia ecosistémica</label>
           <button id="clearPomcaLayer" class="clear-btn" type="button">Quitar capa activa</button>
           <div id="pomcaLegendContent"></div>
-          <div id="pomcaInfoContent"><p>Selecciona una capa del POMCA.</p></div>
         </div>
         <div class="risk-map-panel">
           <div id="pomcaMap"></div>
@@ -864,7 +859,7 @@
         </article>
       </section>
 
-      <section class="pomca-docs-section">
+      <section class="pomca-docs-section" id="pomca-subview-documentos">
         <div class="pomca-section-header">
           <div>
             <h3>Cartografía temática del Río Algodonal</h3>
@@ -999,6 +994,15 @@
             </div>
           </article>
         </div>
+      </section>
+
+      <section class="pomca-info-card" id="pomca-subview-informacion">
+        <h3>Información temática de la capa seleccionada</h3>
+        <p>
+          En este submódulo se presenta la descripción de la capa activa del visor de Cartografía
+          POMCA para apoyar la interpretación ambiental y territorial.
+        </p>
+        <div id="pomcaInfoContent"><p>Selecciona una capa del POMCA.</p></div>
       </section>
 
       <section class="pomca-bottom-banner">

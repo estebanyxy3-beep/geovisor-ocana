@@ -760,11 +760,15 @@
         </div>
       </div>
 
-      <nav class="pomca-menu">
-        <button class="pomca-menu-item active" type="button">1. Vista principal POMCA</button>
-        <button class="pomca-menu-item" type="button">2. Cartografía POMCA</button>
-        <button class="pomca-menu-item" type="button">3. Documentos para descargar</button>
-        <button class="pomca-menu-item" type="button">4. Información temática</button>
+      <nav class="pomca-menu" id="pomca-subview-menu">
+        <button class="pomca-menu-item active" type="button" data-subview-target="inicio">1. Inicio POMCA</button>
+        <button class="pomca-menu-item" type="button" data-subview-target="ambiental">2. Información ambiental</button>
+        <button class="pomca-menu-item" type="button" data-subview-target="gestion">3. Planificación y gestión</button>
+        <button class="pomca-menu-item" type="button" data-subview-target="documentos">4. Documentos y normativa</button>
+        <button class="pomca-menu-item" type="button" data-subview-target="cartografia">5. Cartografía y mapas</button>
+        <button class="pomca-menu-item" type="button" data-subview-target="indicadores">6. Indicadores y reportes</button>
+        <button class="pomca-menu-item" type="button" data-subview-target="participacion">7. Participación ciudadana</button>
+        <button class="pomca-menu-item" type="button" data-subview-target="glosario">8. Glosario de conceptos</button>
       </nav>
 
       <button class="pomca-back-btn" type="button" data-view-target="inicio">
@@ -773,101 +777,111 @@
     </aside>
 
     <div class="pomca-main">
-      <section class="pomca-hero" id="pomca-subview-inicio">
-        <div class="pomca-hero-card">
-          <h1>Módulo POMCA</h1>
-          <h2>Río Algodonal</h2>
-          <p>
-            Explora la información ambiental y de planificación sobre la cuenca hidrográfica
-            del río Algodonal. Integra conceptos, documentos, normativas y cartografía
-            para apoyar la gestión sostenible del territorio.
-          </p>
+      <section class="pomca-subview active" id="pomca-subview-inicio" data-subview="inicio">
+        <section class="pomca-hero">
+          <div class="pomca-hero-card">
+            <h1>Módulo POMCA</h1>
+            <h2>Cuencas Hidrográficas y Manejo del Territorio</h2>
+            <p>
+              Explora la información ambiental y de planificación sobre la cuenca hidrográfica
+              del río Algodonal. Integra conceptos, documentos, normativas y cartografía
+              para apoyar la gestión sostenible del territorio.
+            </p>
 
-          <div class="pomca-search">
-            <input
-              type="text"
-              id="pomcaSearchInput"
-              placeholder="Buscar documentos, mapas, normativas..."
-            />
-            <button type="button" id="pomcaSearchBtn">🔍</button>
+            <div class="pomca-search">
+              <input
+                type="text"
+                id="pomcaSearchInput"
+                placeholder="Buscar cuencas, estudios, mapas, normativas..."
+              />
+              <button type="button" id="pomcaSearchBtn">🔍</button>
+            </div>
+
+            <div class="pomca-stats">
+              <article class="pomca-stat-card">
+                <span class="pomca-stat-label">Cuencas hidrográficas</span>
+                <strong>Río Algodonal</strong>
+                <small>Unidad principal de análisis</small>
+              </article>
+              <article class="pomca-stat-card">
+                <span class="pomca-stat-label">Documentos y estudios</span>
+                <strong>14</strong>
+                <small>Referencias técnicas disponibles</small>
+              </article>
+              <article class="pomca-stat-card">
+                <span class="pomca-stat-label">Mapas y capas</span>
+                <strong>3 capas</strong>
+                <small>Visor temático interactivo</small>
+              </article>
+              <article class="pomca-stat-card">
+                <span class="pomca-stat-label">Normativas aplicables</span>
+                <strong>23</strong>
+                <small>Instrumentos asociados</small>
+              </article>
+            </div>
           </div>
-        </div>
 
+          <div class="pomca-info-card">
+            <h3>¿Qué es el POMCA?</h3>
+            <p>
+              El Plan de Ordenación y Manejo de Cuencas Hidrográficas es un instrumento de
+              planificación que orienta el uso sostenible de los recursos naturales y la gestión
+              integral del territorio.
+            </p>
+            <h4>Conceptos clave</h4>
+            <div class="pomca-concepts">
+              <div class="pomca-concept-item"><strong>Cuenca hidrográfica</strong><span>Unidad natural de gestión del recurso hídrico.</span></div>
+              <div class="pomca-concept-item"><strong>Ordenación territorial</strong><span>Proceso de organización del uso del suelo.</span></div>
+              <div class="pomca-concept-item"><strong>Manejo sostenible</strong><span>Uso responsable de los recursos naturales.</span></div>
+              <div class="pomca-concept-item"><strong>Gestión integral</strong><span>Articulación de acciones para el desarrollo sostenible.</span></div>
+            </div>
+            <h4>Accesos rápidos</h4>
+            <div class="pomca-doc-actions">
+              <button class="pomca-link-btn" type="button" data-subview-target="cartografia">Ir a cartografía</button>
+              <button class="pomca-link-btn secondary" type="button" data-subview-target="documentos">Ver documentos</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="pomca-docs-section">
+          <div class="pomca-section-header">
+            <div>
+              <h3>Cuencas hidrográficas</h3>
+              <p>Panorama visual y territorial de los componentes principales del POMCA.</p>
+            </div>
+          </div>
+          <div class="pomca-doc-grid">
+            <article class="pomca-doc-card"><h4>Cuenca principal</h4><p>Río Algodonal como eje de planificación ambiental.</p></article>
+            <article class="pomca-doc-card"><h4>Recurso hídrico</h4><p>Conectividad de drenajes, quebradas y afluentes estratégicos.</p></article>
+            <article class="pomca-doc-card"><h4>Ecosistemas</h4><p>Áreas de valor ecosistémico y soporte de biodiversidad.</p></article>
+          </div>
+        </section>
+      </section>
+
+      <section class="pomca-subview" id="pomca-subview-ambiental" data-subview="ambiental" hidden>
         <div class="pomca-info-card">
-          <h3>¿Qué es el POMCA?</h3>
-          <p>
-            El Plan de Ordenación y Manejo de Cuencas Hidrográficas es un instrumento de
-            planificación que orienta el uso sostenible de los recursos naturales y la gestión
-            integral del territorio.
-          </p>
-
-          <div class="pomca-concepts">
-            <div class="pomca-concept-item">
-              <strong>Cuenca hidrográfica</strong>
-              <span>Unidad natural de gestión del recurso hídrico.</span>
-            </div>
-            <div class="pomca-concept-item">
-              <strong>Ordenación territorial</strong>
-              <span>Proceso de organización del uso del suelo.</span>
-            </div>
-            <div class="pomca-concept-item">
-              <strong>Manejo sostenible</strong>
-              <span>Uso responsable de los recursos naturales.</span>
-            </div>
-            <div class="pomca-concept-item">
-              <strong>Gestión integral</strong>
-              <span>Articulación de acciones para el desarrollo sostenible.</span>
-            </div>
-          </div>
+          <h3>Información ambiental</h3>
+          <p>Esta sección presenta la relación entre cuenca hidrográfica, recurso hídrico, ecosistemas y medidas de protección ambiental.</p>
         </div>
       </section>
 
-      <section class="pomca-stats" id="pomca-subview-cartografia">
-        <div class="risk-card">
-          <h3>Cartografía POMCA</h3>
-          <label class="control-item"><input type="radio" name="pomcaLayer" value="pomca_protegidas" /> Áreas protegidas</label>
-          <label class="control-item"><input type="radio" name="pomcaLayer" value="pomca_forestales" /> Áreas forestales protectoras</label>
-          <label class="control-item"><input type="radio" name="pomcaLayer" value="pomca_ecosistemicas" /> Áreas de especial importancia ecosistémica</label>
-          <button id="clearPomcaLayer" class="clear-btn" type="button">Quitar capa activa</button>
-          <div id="pomcaLegendContent"></div>
+      <section class="pomca-subview" id="pomca-subview-gestion" data-subview="gestion" hidden>
+        <div class="pomca-info-card">
+          <h3>Planificación y gestión</h3>
+          <p>Incluye lineamientos sobre manejo sostenible, ordenación territorial y gestión integral del territorio de cuenca.</p>
         </div>
-        <div class="risk-map-panel">
-          <div id="pomcaMap"></div>
-        </div>
-        <article class="pomca-stat-card">
-          <span class="pomca-stat-label">Cuenca principal</span>
-          <strong>Río Algodonal</strong>
-          <small>Territorio de estudio</small>
-        </article>
-
-        <article class="pomca-stat-card">
-          <span class="pomca-stat-label">Documentos y estudios</span>
-          <strong>14</strong>
-          <small>Disponibles</small>
-        </article>
-
-        <article class="pomca-stat-card">
-          <span class="pomca-stat-label">Mapas PDF</span>
-          <strong>14</strong>
-          <small>Publicados</small>
-        </article>
-
-        <article class="pomca-stat-card">
-          <span class="pomca-stat-label">Normativas aplicables</span>
-          <strong>23</strong>
-          <small>Referenciadas</small>
-        </article>
       </section>
 
-      <section class="pomca-docs-section" id="pomca-subview-documentos">
-        <div class="pomca-section-header">
-          <div>
-            <h3>Cartografía temática del Río Algodonal</h3>
-            <p>Consulta los mapas y documentos técnicos del POMCA.</p>
+      <section class="pomca-subview" id="pomca-subview-documentos" data-subview="documentos" hidden>
+        <section class="pomca-docs-section">
+          <div class="pomca-section-header">
+            <div>
+              <h3>Documentos y normativa</h3>
+              <p>Consulta mapas para descarga, GeoJSON disponibles y estudios/documentos técnicos del POMCA.</p>
+            </div>
           </div>
-        </div>
 
-        <div class="pomca-doc-grid">
+          <div class="pomca-doc-grid">
           <article class="pomca-doc-card">
             <h4>1. Mapa Base</h4>
             <p>Mapa base general del POMCA Río Algodonal.</p>
@@ -993,28 +1007,40 @@
               <a href="docs/38.%20Indice%20de%20Escasez%20A%C3%B1o%20Seco.pdf" download class="pomca-link-btn secondary">Descargar</a>
             </div>
           </article>
-        </div>
+          </div>
+        </section>
       </section>
 
-      <section class="pomca-info-card" id="pomca-subview-informacion">
-        <h3>Información temática de la capa seleccionada</h3>
-        <p>
-          En este submódulo se presenta la descripción de la capa activa del visor de Cartografía
-          POMCA para apoyar la interpretación ambiental y territorial.
-        </p>
-        <div id="pomcaInfoContent"><p>Selecciona una capa del POMCA.</p></div>
+      <section class="pomca-subview" id="pomca-subview-cartografia" data-subview="cartografia" hidden>
+        <section class="pomca-stats">
+          <div class="risk-card">
+            <h3>Cartografía POMCA</h3>
+            <label class="control-item"><input type="radio" name="pomcaLayer" value="pomca_protegidas" /> Áreas protegidas</label>
+            <label class="control-item"><input type="radio" name="pomcaLayer" value="pomca_forestales" /> Áreas forestales protectoras</label>
+            <label class="control-item"><input type="radio" name="pomcaLayer" value="pomca_ecosistemicas" /> Áreas de especial importancia ecosistémica</label>
+            <button id="clearPomcaLayer" class="clear-btn" type="button">Quitar capa activa</button>
+            <div id="pomcaLegendContent"></div>
+          </div>
+          <div class="risk-map-panel">
+            <div id="pomcaMap"></div>
+          </div>
+          <div class="pomca-info-card">
+            <h3>Información de capa</h3>
+            <div id="pomcaInfoContent"><p>Selecciona una capa del POMCA.</p></div>
+          </div>
+        </section>
       </section>
 
-      <section class="pomca-bottom-banner">
-        <div>
-          <strong>Integración de información</strong>
-          <p>
-            Esta sección integra conceptos, documentos, normativas y cartografía para una gestión
-            efectiva de la cuenca del río Algodonal.
-          </p>
-        </div>
+      <section class="pomca-subview" id="pomca-subview-indicadores" data-subview="indicadores" hidden>
+        <div class="pomca-info-card"><h3>Indicadores y reportes</h3><p>Espacio preparado para indicadores futuros y reportes periódicos del estado de la cuenca.</p></div>
+      </section>
 
-        <button type="button">Explorar todo el módulo POMCA →</button>
+      <section class="pomca-subview" id="pomca-subview-participacion" data-subview="participacion" hidden>
+        <div class="pomca-info-card"><h3>Participación ciudadana</h3><p>Encuentra información para vincularte a procesos comunitarios de seguimiento y gestión del POMCA.</p></div>
+      </section>
+
+      <section class="pomca-subview" id="pomca-subview-glosario" data-subview="glosario" hidden>
+        <div class="pomca-info-card"><h3>Glosario de conceptos</h3><p>Definiciones sencillas de términos clave para facilitar la lectura e interpretación del módulo POMCA.</p></div>
       </section>
     </div>
   </div>
@@ -1203,5 +1229,33 @@
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
  <script src="main.js?v=62"></script>
 <script src="chatbot.js?v=61"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const pomcaView = document.getElementById("view-pomca");
+  if (!pomcaView) return;
+
+  const menuButtons = pomcaView.querySelectorAll("[data-subview-target]");
+  const subviews = pomcaView.querySelectorAll(".pomca-subview[data-subview]");
+
+  const activateSubview = (target) => {
+    subviews.forEach((section) => {
+      const isActive = section.dataset.subview === target;
+      section.hidden = !isActive;
+      section.classList.toggle("active", isActive);
+    });
+
+    menuButtons.forEach((button) => {
+      button.classList.toggle("active", button.dataset.subviewTarget === target);
+    });
+  };
+
+  menuButtons.forEach((button) => {
+    button.addEventListener("click", () => activateSubview(button.dataset.subviewTarget));
+  });
+
+  activateSubview("inicio");
+});
+</script>
+
 </body>
 </html>

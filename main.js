@@ -738,10 +738,26 @@ document.addEventListener("DOMContentLoaded", function () {
       document.querySelectorAll('input[name="potLayer"]').forEach((radio) => {
         radio.addEventListener("change", (e) => loadGenericLayer(potMap, e.target.value, potLayersConfig, "currentPotLayer", document.getElementById("potLegendContent"), document.getElementById("potInfoContent")));
       });
-      const clearPot = document.getElementById("clearPotLayer");
-      if (clearPot) clearPot.addEventListener("click", () => {
-        if (currentPotLayer && potMap.hasLayer(currentPotLayer)) potMap.removeLayer(currentPotLayer);
-      });
+     const clearPot = document.getElementById("clearPotLayer");
+if (clearPot) clearPot.addEventListener("click", () => {
+  if (currentPotLayer && potMap.hasLayer(currentPotLayer)) {
+    potMap.removeLayer(currentPotLayer);
+  }
+
+  currentPotLayer = null;
+
+  document.querySelectorAll('input[name="potLayer"]').forEach((radio) => {
+    radio.checked = false;
+  });
+
+  const potLegendContent = document.getElementById("potLegendContent");
+  if (potLegendContent) potLegendContent.innerHTML = "";
+
+  const potInfoContent = document.getElementById("potInfoContent");
+  if (potInfoContent) {
+    potInfoContent.innerHTML = "<p>Selecciona una capa del POT.</p>";
+  }
+});
     }
 
     const POT_FICHAS_URL = "data/pot/usos_suelo/pot_fichas_normativas_ocana.json";

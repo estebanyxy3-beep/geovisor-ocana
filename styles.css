@@ -2477,3 +2477,30 @@ body {
     min-width: 760px;
   }
 }
+/* ========================= */
+/* POT - NORMATIVA DETAILS   */
+/* ========================= */
+.pot-simple-detail {
+  margin-top: 12px;
+  border: 1px solid #dce4df;
+  border-radius: 12px;
+  background: #f8fbf9;
+  padding: 10px 12px;
+}
+
+.pot-simple-detail summary {
+  cursor: pointer;
+  color: #174a8b;
+  font-weight: 700;
+}
+
+.pot-simple-detail ul {
+  margin: 10px 0 0 18px;
+  padding: 0;
+}
+
+.pot-simple-detail li {
+  margin-bottom: 8px;
+  color: #475569;
+  line-height: 1.45;
+}

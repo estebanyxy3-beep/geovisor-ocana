@@ -57,47 +57,62 @@ function pauseModuleVideos() {
     }, 80);
   });
 }
-  function showView(viewName) {
-     pauseModuleVideos();
+ function showView(viewName) {
+  pauseModuleVideos();
 
-    views.forEach((view) => view.classList.remove("active"));
+  views.forEach((view) => view.classList.remove("active"));
 
-    const targetView = document.getElementById(`view-${viewName}`);
-    if (targetView) {
-      targetView.classList.add("active");
-    } else {
-      const fallback = document.getElementById("view-inicio");
-      if (fallback) fallback.classList.add("active");
-      viewName = "inicio";
-    }
+  const targetView = document.getElementById(`view-${viewName}`);
 
-    setActiveNav(viewName);
-    closeSidebar();
-
-    const moduleNames = {
-      inicio: "Inicio",
-      riesgo: "Mapas de Riesgo",
-      mecanismos: "Mecanismos de Participación",
-      pot: "POT",
-      pomca: "POMCA",
-      accidentabilidad: "Accidentabilidad"
-    };
-
-    syncChatbotContext({ activeModule: moduleNames[viewName] || "Inicio" });
-
-    window.scrollTo({ top: 0, behavior: "smooth" });
-
-    if (viewName === "riesgo" && window.__geovisorMap) {
-      setTimeout(() => {
-        window.__geovisorMap.invalidateSize(true);
-      }, 300);
-    }
-
-    if (viewName === "accidentabilidad" && accidentMap) {
-      setTimeout(() => accidentMap.invalidateSize(true), 300);
-    }
+  if (targetView) {
+    targetView.classList.add("active");
+  } else {
+    const fallback = document.getElementById("view-inicio");
+    if (fallback) fallback.classList.add("active");
+    viewName = "inicio";
   }
 
+  setActiveNav(viewName);
+  closeSidebar();
+
+  const moduleNames = {
+    inicio: "Inicio",
+    riesgo: "Mapas de Riesgo",
+    mecanismos: "Mecanismos de Participación",
+    pot: "POT",
+    pomca: "POMCA",
+    accidentabilidad: "Accidentabilidad"
+  };
+
+  syncChatbotContext({
+    activeModule: moduleNames[viewName] || "Inicio"
+  });
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+
+  if (viewName === "riesgo" && window.__geovisorMap) {
+    setTimeout(() => {
+      window.__geovisorMap.invalidateSize(true);
+    }, 300);
+  }
+
+  if (viewName === "accidentabilidad") {
+    if (typeof setActiveAccidentMenu === "function") {
+      setActiveAccidentMenu("#accident-inicio");
+    }
+
+    if (accidentMap) {
+      setTimeout(() => {
+        accidentMap.invalidateSize(true);
+      }, 300);
+    }
+  }
+}
+
+ 
   function normalizeText(text) {
     return String(text || "")
       .toLowerCase()
@@ -241,6 +256,97 @@ window.addEventListener("hashchange", () => {
 });
 
 setActiveParticipacionMenu(window.location.hash || "#view-mecanismos");
+const accidentView = document.getElementById("view-accidentabilidad");
+const accidentMenuLinks = document.querySelectorAll("#view-accidentabilidad .module-menu-item");
+
+function getAccidentSectionFromHash(hash) {
+  const sections = {
+    "#accident-inicio": "inicio",
+    "#accident-plsv": "plsv",
+    "#accident-acciones": "acciones",
+    "#accident-siniestralidad": "siniestralidad",
+    "#accident-parque": "parque",
+    "#accident-ciudadania": "ciudadania"
+  };
+
+  return sections[hash] || "inicio";
+}
+
+function setActiveAccidentMenu(hash) {
+  if (!accidentView) return;
+
+  const section = getAccidentSectionFromHash(hash);
+
+ const accidentBlocks = [
+  document.getElementById("accident-inicio"),
+  accidentView.querySelector(".accident-video-card"),
+  accidentView.querySelector(".accident-kpi-grid"),
+  document.getElementById("accident-plsv"),
+  document.getElementById("accident-acciones"),
+  document.getElementById("accident-siniestralidad"),
+  document.getElementById("accident-parque"),
+  document.getElementById("accident-ciudadania")
+];
+
+  accidentBlocks.forEach((block) => {
+    if (block) block.hidden = true;
+  });
+
+  if (section === "inicio") {
+  const inicio = document.getElementById("accident-inicio");
+  const video = accidentView.querySelector(".accident-video-card");
+  const kpis = accidentView.querySelector(".accident-kpi-grid");
+
+  if (inicio) inicio.hidden = false;
+  if (video) video.hidden = false;
+  if (kpis) kpis.hidden = false;
+}
+
+  if (section === "plsv") {
+    const block = document.getElementById("accident-plsv");
+    if (block) block.hidden = false;
+  }
+
+  if (section === "acciones") {
+    const block = document.getElementById("accident-acciones");
+    if (block) block.hidden = false;
+  }
+
+  if (section === "siniestralidad") {
+    const block = document.getElementById("accident-siniestralidad");
+    if (block) block.hidden = false;
+  }
+
+  if (section === "parque") {
+    const block = document.getElementById("accident-parque");
+    if (block) block.hidden = false;
+  }
+
+  if (section === "ciudadania") {
+    const block = document.getElementById("accident-ciudadania");
+    if (block) block.hidden = false;
+  }
+
+  accidentMenuLinks.forEach((link) => {
+    const linkSection = getAccidentSectionFromHash(link.getAttribute("href"));
+    link.classList.toggle("active", linkSection === section);
+  });
+}
+
+accidentMenuLinks.forEach((link) => {
+  link.addEventListener("click", function () {
+    const hash = this.getAttribute("href");
+    setActiveAccidentMenu(hash);
+  });
+});
+
+window.addEventListener("hashchange", () => {
+  if (window.location.hash.startsWith("#accident-")) {
+    setActiveAccidentMenu(window.location.hash);
+  }
+});
+
+setActiveAccidentMenu(window.location.hash || "#accident-inicio");
 
 document.querySelectorAll("#view-pomca [data-subview-target]").forEach((button) => {
   button.addEventListener("click", function () {

@@ -224,7 +224,25 @@
             <p>Abre una categoría, selecciona una capa y revisa la explicación ciudadana.</p>
           </div>
         </div>
+<section class="module-video-card risk-video-card">
+  <div class="module-video-copy">
+    <span class="module-video-kicker">Video de apoyo</span>
+    <h3>Cómo usar los Mapas de Riesgo</h3>
+    <p>
+      Este video explica cómo consultar las capas de amenaza, exposición y riesgo,
+      y cómo interpretar la información territorial para apoyar la prevención y la
+      toma de decisiones en Ocaña.
+    </p>
+  </div>
 
+  <div class="module-video-frame">
+    <iframe
+      src="https://drive.google.com/file/d/1AputDzPjd9_bVN-oQfYbiORberJceyhM/preview"
+      allow="autoplay"
+      allowfullscreen>
+    </iframe>
+  </div>
+</section>
         <div class="risk-full-map-layout">
           <div class="risk-map-panel risk-map-full">
             <div id="map"></div>
@@ -426,141 +444,648 @@
       </section>
 
       <!-- PARTICIPACION -->
-    <section class="view" id="view-mecanismos">
-  <div class="module-shell part-shell">
-    <aside class="module-sidebar part-sidebar">
-      <div class="module-brand part-brand">
-        <img src="assets/Participacion_Ciudadana.png" alt="Participación" />
+   <section class="view" id="view-mecanismos">
+  <div class="module-shell participacion-shell">
+    <aside class="module-sidebar participacion-sidebar">
+      <div class="module-brand participacion-brand">
+        <img src="assets/Participacion_Ciudadana.png" alt="Mecanismos de Participación" />
         <div>
-          <h3>MECANISMOS DE PARTICIPACIÓN</h3>
-          <p>Construimos comunidad, transformamos territorio</p>
+          <h3>PARTICIPACIÓN CIUDADANA</h3>
+          <p>Comunidad, gestión y transformación territorial</p>
         </div>
       </div>
 
-      <div class="mini-label">MÓDULOS</div>
-
       <nav class="module-menu">
-        <button class="module-menu-item active" type="button">Mecanismos de Participación</button>
-        <button class="module-menu-item" type="button">Espacios Comunitarios</button>
-        <button class="module-menu-item" type="button">Rutas de Participación</button>
-        <button class="module-menu-item" type="button">Materiales Pedagógicos</button>
-        <button class="module-menu-item" type="button">Procesos Colectivos</button>
+ <a class="module-menu-item active" href="#view-mecanismos">Inicio</a>      
+<a class="module-menu-item" href="#participacion-espacios">Espacios Comunitarios</a>
+<a class="module-menu-item" href="#participacion-rutas">Rutas de Participación</a>
+<a class="module-menu-item" href="#participacion-materiales">Materiales Pedagógicos</a>
+<a class="module-menu-item" href="#participacion-procesos">Procesos Colectivos</a>
+<a class="module-menu-item" href="#participacion-jac">Juntas de Acción Comunal</a>
+<a class="module-menu-item" href="#participacion-diagnostico">Diagnóstico</a>
       </nav>
 
-      <div class="module-side-card">
-        <h4>Participación ciudadana</h4>
+      <div class="participacion-sidebar-note">
+        <strong>Participar es construir comunidad.</strong>
         <p>
-          Aquí podrás mostrar procesos participativos y resultados de trabajo en la comunidad.
+          La ciudadanía puede proponer, vigilar, dialogar, aprender y transformar
+          su territorio mediante diferentes mecanismos.
         </p>
       </div>
 
-      <button class="module-back-btn" type="button" data-view-target="inicio">← Volver al inicio</button>
+      <button class="module-back-btn" type="button" data-view-target="inicio">
+        ← Volver al inicio
+      </button>
     </aside>
 
-    <div class="module-main">
-      <div class="top-actions purple-actions">
-        <button type="button" class="top-action-btn">Quitar capa activa</button>
-        <button type="button" class="top-action-btn active">Información temática</button>
-      </div>
+    <main class="module-main participacion-main">
+      <section class="participacion-hero" id="participacion-inicio">
+        <div>
+          <span class="participacion-kicker">Mecanismos de participación</span>
+          <h1>Participación Ciudadana y Comunitaria en Ocaña</h1>
+          <p>
+            La participación ciudadana permite que las personas intervengan en las
+            decisiones públicas que afectan su vida cotidiana. En Ocaña, esta participación
+            se expresa mediante espacios comunitarios, rutas institucionales, materiales
+            pedagógicos, procesos colectivos, Juntas de Acción Comunal y ejercicios de
+            control social.
+          </p>
 
-      <section class="content-and-side">
-        <div class="content-panel">
-          <div class="section-title">
-            <h2>Mecanismos de Participación</h2>
-            <p>
-              Explora las diferentes formas en que la comunidad participa activamente
-              en la construcción de soluciones y en la transformación del territorio.
-            </p>
-          </div>
-
-          <div class="stacked-feature-cards">
-            <article class="wide-card purple">
-              <div class="wide-card-info">
-                <div class="feature-icon">👥</div>
-                <div>
-                  <h3>Espacios Comunitarios</h3>
-                  <p>Lugares donde la comunidad se reúne para dialogar, compartir ideas y construir soluciones conjuntas.</p>
-                  <button type="button">Explorar espacios</button>
-                </div>
-              </div>
-              <div class="wide-card-art">🗣️</div>
-            </article>
-
-            <article class="wide-card green">
-              <div class="wide-card-info">
-                <div class="feature-icon">🛤️</div>
-                <div>
-                  <h3>Rutas de Participación</h3>
-                  <p>Recorridos y estrategias que promueven la participación activa en diferentes momentos y territorios.</p>
-                  <button type="button">Ver rutas</button>
-                </div>
-              </div>
-              <div class="wide-card-art">📍</div>
-            </article>
-
-            <article class="wide-card yellow">
-              <div class="wide-card-info">
-                <div class="feature-icon">📘</div>
-                <div>
-                  <h3>Materiales Pedagógicos</h3>
-                  <p>Recursos educativos y didácticos que fortalecen el aprendizaje colectivo y el conocimiento comunitario.</p>
-                  <button type="button">Ver materiales</button>
-                </div>
-              </div>
-              <div class="wide-card-art">📚</div>
-            </article>
-
-            <article class="wide-card pink">
-              <div class="wide-card-info">
-                <div class="feature-icon">🤝</div>
-                <div>
-                  <h3>Procesos Colectivos</h3>
-                  <p>Iniciativas y experiencias comunitarias que generan cambios positivos a través del trabajo conjunto y solidario.</p>
-                  <button type="button">Ver procesos</button>
-                </div>
-              </div>
-              <div class="wide-card-art">🧩</div>
-            </article>
+          <div class="participacion-hero-tags">
+            <span>Comunidad</span>
+            <span>JAC</span>
+            <span>Control social</span>
+            <span>Planeación participativa</span>
+            <span>Territorio</span>
           </div>
         </div>
 
-        <aside class="right-panel">
-          <div class="right-panel-card">
-            <h4>Información temática</h4>
-            <p>
-              Explora los mecanismos de participación ciudadana y conoce los
-              procesos que se desarrollan en nuestra comunidad.
-            </p>
-
-            <div class="quote-box">
-              La participación es el corazón del cambio.
-              Tu voz, tu experiencia y tus ideas construyen comunidad.
-            </div>
-
-            <div class="info-box">
-              <strong>¿Qué puedes encontrar aquí?</strong>
-              <ul>
-                <li>Información sobre espacios de encuentro</li>
-                <li>Rutas y estrategias para participar</li>
-                <li>Recursos educativos</li>
-                <li>Procesos colectivos y resultados</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="right-panel-card">
-            <h4>Datos destacados</h4>
-            <div class="mini-stats-grid">
-              <article><strong>28</strong><span>Espacios comunitarios</span></article>
-              <article><strong>15</strong><span>Rutas de participación</span></article>
-              <article><strong>42</strong><span>Materiales pedagógicos</span></article>
-              <article><strong>18</strong><span>Procesos colectivos</span></article>
-            </div>
-            <button class="quick-link full" type="button">Ver reportes y resultados</button>
-          </div>
+        <aside class="participacion-hero-card">
+          <strong>Idea central</strong>
+          <p>
+            La participación no es solo asistir a reuniones. También es proponer,
+            decidir, vigilar, aprender, gestionar proyectos y construir soluciones
+            colectivas.
+          </p>
         </aside>
       </section>
-    </div>
+<section class="module-video-card participacion-video-card">
+  <div class="module-video-copy">
+    <span class="module-video-kicker">Video de apoyo</span>
+    <h3>Conoce los mecanismos de participación ciudadana</h3>
+    <p>
+      Este video explica cómo la ciudadanía puede participar, organizarse, hacer
+      solicitudes, ejercer control social y fortalecer los procesos comunitarios
+      en Ocaña.
+    </p>
+  </div>
+
+  <div class="module-video-frame">
+    <iframe
+      src="https://drive.google.com/file/d/1FXFrBDUnFoQSl62EBFb2vmjpviiPhZof/preview"
+      allow="autoplay"
+      allowfullscreen>
+    </iframe>
+  </div>
+</section>
+      <section class="participacion-stats-grid">
+        <article>
+          <span>Población estimada</span>
+          <strong>124.603</strong>
+          <small>Habitantes del municipio</small>
+        </article>
+
+        <article>
+          <span>Comunas urbanas</span>
+          <strong>6</strong>
+          <small>Organización territorial urbana</small>
+        </article>
+
+        <article>
+          <span>Corregimientos</span>
+          <strong>17</strong>
+          <small>Territorio rural organizado</small>
+        </article>
+
+        <article>
+          <span>Veredas rurales</span>
+          <strong>90</strong>
+          <small>Comunidades con participación local</small>
+        </article>
+      </section>
+
+      <section class="participacion-topic-card espacios" id="participacion-espacios">
+        <div class="participacion-topic-main">
+          <div class="participacion-topic-icon">🏘️</div>
+
+          <div>
+            <span class="participacion-kicker">Espacios de encuentro</span>
+            <h2>Espacios Comunitarios</h2>
+            <p>
+              Son lugares físicos, institucionales o comunitarios donde la ciudadanía
+              se reúne para dialogar, organizarse, tomar decisiones colectivas y
+              construir soluciones para barrios, veredas y corregimientos.
+            </p>
+
+            <div class="participacion-chips">
+              <span>Salones comunales</span>
+              <span>JAC</span>
+              <span>Bibliotecas</span>
+              <span>JAL</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="participacion-topic-grid">
+          <div class="participacion-mini-box">
+            <strong>Espacios comunitarios</strong>
+            <p>
+              Salones comunales, parques, plazoletas y puntos de encuentro donde las
+              comunidades realizan asambleas, reuniones y actividades barriales.
+            </p>
+          </div>
+
+          <div class="participacion-mini-box">
+            <strong>Espacios institucionales</strong>
+            <p>
+              Concejo Municipal, Juntas Administradoras Locales, Oficina de Participación
+              Comunitaria y Consejo Consultivo de Ordenamiento Territorial.
+            </p>
+          </div>
+
+          <div class="participacion-mini-box">
+            <strong>Espacios culturales y educativos</strong>
+            <p>
+              Casa de la Cultura, Biblioteca Pública Luis Eduardo Páez Courvel,
+              Biblioteca Chaid Neme, Biblioteca Mario Javier Pacheco y Biblioteca Rural Pueblo Nuevo.
+            </p>
+          </div>
+
+          <div class="participacion-mini-box">
+            <strong>Espacios rurales</strong>
+            <p>
+              Buenavista, Otaré, Pueblo Nuevo, La Ermita, Aguas Claras y La Pacha
+              cuentan con dinámicas propias de participación comunitaria.
+            </p>
+          </div>
+        </div>
+
+        <details class="participacion-detail">
+          <summary>Ver explicación</summary>
+          <div>
+            <p>
+              En Ocaña, estos espacios permiten que la ciudadanía participe en la
+              planeación del desarrollo, la priorización de necesidades, la gestión
+              de proyectos y el fortalecimiento del tejido social.
+            </p>
+
+            <div class="participacion-note">
+              <strong>Idea clave:</strong>
+              participar también es cuidar los espacios comunes, asistir a asambleas,
+              proponer soluciones y acompañar procesos comunitarios.
+            </div>
+          </div>
+        </details>
+      </section>
+
+      <section class="participacion-topic-card rutas" id="participacion-rutas">
+        <div class="participacion-topic-main">
+          <div class="participacion-topic-icon">🧭</div>
+
+          <div>
+            <span class="participacion-kicker">Incidencia ciudadana</span>
+            <h2>Rutas de Participación</h2>
+            <p>
+              Son caminos formales e informales que permiten a la comunidad intervenir
+              en decisiones públicas, presentar solicitudes, participar en planeación,
+              ejercer control social y exigir sus derechos.
+            </p>
+
+            <div class="participacion-chips">
+              <span>Cabildo abierto</span>
+              <span>PQRSDF</span>
+              <span>Veedurías</span>
+              <span>Rendición de cuentas</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="participacion-route-grid">
+          <article>
+            <span>01</span>
+            <div>
+              <h3>Plan de Desarrollo Participativo</h3>
+              <p>
+                Proceso donde la comunidad aporta ideas, necesidades y propuestas
+                para orientar la inversión pública municipal.
+              </p>
+            </div>
+          </article>
+
+          <article>
+            <span>02</span>
+            <div>
+              <h3>Rendición de cuentas</h3>
+              <p>
+                Espacio donde la ciudadanía evalúa la gestión pública, formula preguntas
+                y realiza seguimiento a compromisos institucionales.
+              </p>
+            </div>
+          </article>
+
+          <article>
+            <span>03</span>
+            <div>
+              <h3>PQRSDF</h3>
+              <p>
+                Ruta para presentar peticiones, quejas, reclamos, sugerencias,
+                denuncias o felicitaciones ante la administración municipal.
+              </p>
+            </div>
+          </article>
+
+          <article>
+            <span>04</span>
+            <div>
+              <h3>Veedurías ciudadanas</h3>
+              <p>
+                Mecanismos de control social para vigilar obras, programas,
+                recursos públicos y proyectos de interés comunitario.
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <details class="participacion-detail">
+          <summary>Ver mecanismos constitucionales</summary>
+          <div>
+            <p>
+              La ciudadanía también puede participar mediante voto, consulta popular,
+              cabildo abierto, iniciativa popular, referendo, plebiscito y revocatoria
+              del mandato, según el marco legal colombiano.
+            </p>
+          </div>
+        </details>
+      </section>
+
+      <section class="participacion-topic-card materiales" id="participacion-materiales">
+        <div class="participacion-topic-main">
+          <div class="participacion-topic-icon">📚</div>
+
+          <div>
+            <span class="participacion-kicker">Formación ciudadana</span>
+            <h2>Materiales Pedagógicos</h2>
+            <p>
+              Son recursos educativos y didácticos que fortalecen la cultura de la
+              participación, explican derechos, orientan procesos comunitarios y
+              ayudan a los líderes a gestionar proyectos.
+            </p>
+
+            <div class="participacion-chips">
+              <span>Cartillas</span>
+              <span>Talleres</span>
+              <span>Guías</span>
+              <span>Herramientas TIC</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="participacion-topic-grid">
+          <div class="participacion-mini-box">
+            <strong>Cartillas de formación comunal</strong>
+            <p>
+              Materiales sobre derechos, funciones, deberes y organización interna
+              de las Juntas de Acción Comunal.
+            </p>
+          </div>
+
+          <div class="participacion-mini-box">
+            <strong>Guías de participación</strong>
+            <p>
+              Orientan a la ciudadanía sobre mecanismos formales de participación,
+              control social y acceso a la información pública.
+            </p>
+          </div>
+
+          <div class="participacion-mini-box">
+            <strong>Herramientas TIC</strong>
+            <p>
+              Propuestas para mejorar la comunicación entre JAC rurales y la
+              administración municipal mediante canales digitales.
+            </p>
+          </div>
+
+          <div class="participacion-mini-box">
+            <strong>Talleres y diplomados</strong>
+            <p>
+              Procesos de formación en gestión de proyectos, apropiación tecnológica,
+              derechos humanos y participación comunitaria.
+            </p>
+          </div>
+        </div>
+
+        <div class="participacion-note green">
+          <strong>Enfoque:</strong>
+          formar a la ciudadanía mejora la capacidad de proponer, gestionar, vigilar
+          y participar de manera informada.
+        </div>
+      </section>
+
+      <section class="participacion-topic-card procesos" id="participacion-procesos">
+        <div class="participacion-topic-main">
+          <div class="participacion-topic-icon">🤲</div>
+
+          <div>
+            <span class="participacion-kicker">Acción colectiva</span>
+            <h2>Procesos Colectivos</h2>
+            <p>
+              Son dinámicas organizativas sostenidas en el tiempo que generan cohesión
+              social, fortalecen el tejido comunitario y permiten transformar necesidades
+              en proyectos, acuerdos y acciones concretas.
+            </p>
+
+            <div class="participacion-chips">
+              <span>JAC</span>
+              <span>ASOJAC</span>
+              <span>Veedurías</span>
+              <span>Consejos de Juventud</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="participacion-process-grid">
+          <article>
+            <span>🌱</span>
+            <h3>Plan de Desarrollo Comunitario</h3>
+            <p>
+              Proceso de incidencia ciudadana donde líderes comunitarios priorizan
+              iniciativas y necesidades para ser incluidas en la gestión pública.
+            </p>
+          </article>
+
+          <article>
+            <span>🕊️</span>
+            <h3>Construcción de paz</h3>
+            <p>
+              Organizaciones comunitarias y cooperación internacional acompañan procesos
+              de participación, convivencia y fortalecimiento social en el territorio.
+            </p>
+          </article>
+
+          <article>
+            <span>🏗️</span>
+            <h3>Infraestructura comunitaria</h3>
+            <p>
+              Mejoramiento de salones comunales, parques, escenarios deportivos,
+              vías y espacios de uso colectivo.
+            </p>
+          </article>
+
+          <article>
+            <span>💼</span>
+            <h3>Emprendimiento y desarrollo local</h3>
+            <p>
+              Programas sociales y productivos pueden articularse con iniciativas
+              comunitarias para mejorar condiciones económicas.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="participacion-topic-card jac" id="participacion-jac">
+        <div class="participacion-topic-main">
+          <div class="participacion-topic-icon">🏛️</div>
+
+          <div>
+            <span class="participacion-kicker">Organización comunal</span>
+            <h2>Juntas de Acción Comunal en Ocaña</h2>
+            <p>
+              Las JAC son organizaciones cívicas sin ánimo de lucro que representan
+              barrios, veredas o sectores. Son una de las formas más importantes de
+              participación comunitaria en Colombia y en Ocaña.
+            </p>
+          </div>
+        </div>
+
+        <div class="participacion-jac-layout">
+          <div class="participacion-jac-card">
+            <h3>Estructura básica</h3>
+            <ul>
+              <li><strong>Asamblea General:</strong> máximo órgano de decisión.</li>
+              <li><strong>Junta Directiva:</strong> presidente, vicepresidente, secretario, tesorero y fiscal.</li>
+              <li><strong>Comisiones de trabajo:</strong> infraestructura, convivencia, educación, salud y otras áreas.</li>
+              <li><strong>Conciliación y convivencia:</strong> apoyo a la solución de conflictos comunitarios.</li>
+            </ul>
+          </div>
+
+          <div class="participacion-jac-card">
+            <h3>Funciones principales</h3>
+            <ul>
+              <li>Identificar y priorizar necesidades comunitarias.</li>
+              <li>Gestionar proyectos ante la administración municipal.</li>
+              <li>Promover convivencia y resolución pacífica de conflictos.</li>
+              <li>Participar en la planeación del desarrollo municipal.</li>
+              <li>Ejercer control social sobre obras y programas públicos.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="participacion-note">
+          <strong>Dato importante:</strong>
+          las JAC pueden ser urbanas o rurales y se articulan mediante asociaciones
+          comunales para gestionar proyectos de mayor alcance.
+        </div>
+      <section class="participacion-mechanisms-box">
+  <div class="participacion-section-header">
+    <span class="participacion-kicker">Mecanismos ciudadanos</span>
+    <h2>Herramientas para participar, solicitar y proteger derechos</h2>
+    <p>
+      Además de las Juntas de Acción Comunal, la ciudadanía cuenta con mecanismos
+      legales e institucionales para solicitar información, ejercer control social,
+      participar en decisiones públicas y proteger sus derechos.
+    </p>
+  </div>
+
+  <div class="participacion-mechanisms-grid">
+    <article>
+      <span>📄</span>
+      <h3>Derecho de petición</h3>
+      <p>
+        Permite solicitar información, documentos, respuestas o acciones a entidades
+        públicas y privadas que cumplen funciones públicas.
+      </p>
+      <small>Útil para pedir información oficial o respuesta institucional.</small>
+    </article>
+
+    <article>
+      <span>⚖️</span>
+      <h3>Acción de tutela</h3>
+      <p>
+        Sirve para proteger derechos fundamentales cuando están siendo vulnerados
+        o amenazados y se requiere una respuesta rápida.
+      </p>
+      <small>Protege derechos ciudadanos.</small>
+    </article>
+
+    <article>
+      <span>🔎</span>
+      <h3>Veeduría ciudadana</h3>
+      <p>
+        Permite hacer seguimiento a contratos, obras, programas, recursos públicos
+        y compromisos de la administración.
+      </p>
+      <small>Herramienta clave de control social.</small>
+    </article>
+
+    <article>
+      <span>🏛️</span>
+      <h3>Cabildo abierto</h3>
+      <p>
+        Espacio público donde la comunidad puede intervenir ante el Concejo Municipal
+        para discutir temas de interés colectivo.
+      </p>
+      <small>Lleva problemas comunitarios a debate público.</small>
+    </article>
+
+    <article>
+      <span>🗳️</span>
+      <h3>Consulta popular</h3>
+      <p>
+        Mecanismo mediante el cual se pregunta a la ciudadanía sobre una decisión
+        de importancia para el territorio.
+      </p>
+      <small>Fortalece la toma de decisiones colectivas.</small>
+    </article>
+
+    <article>
+      <span>📣</span>
+      <h3>Rendición de cuentas</h3>
+      <p>
+        Espacio donde las entidades informan resultados y la ciudadanía puede preguntar,
+        evaluar y hacer seguimiento a la gestión pública.
+      </p>
+      <small>Ayuda a fortalecer transparencia y confianza.</small>
+    </article>
+
+    <article>
+      <span>📬</span>
+      <h3>PQRSDF</h3>
+      <p>
+        Ruta para presentar peticiones, quejas, reclamos, sugerencias, denuncias
+        y felicitaciones ante la administración.
+      </p>
+      <small>Canal formal de comunicación ciudadana.</small>
+    </article>
+
+    <article>
+      <span>🔁</span>
+      <h3>Revocatoria del mandato</h3>
+      <p>
+        Mecanismo mediante el cual la ciudadanía puede solicitar la terminación del
+        mandato de un gobernante elegido popularmente, bajo requisitos legales.
+      </p>
+      <small>Herramienta de control político ciudadano.</small>
+    </article>
+  </div>
+</section>
+</section>
+      <section class="participacion-entities">
+        <div class="participacion-section-header">
+          <span class="participacion-kicker">Articulación institucional</span>
+          <h2>Entidades que lideran o apoyan la participación</h2>
+          <p>
+            La participación ciudadana se fortalece cuando comunidad, instituciones,
+            academia y cooperación trabajan de manera articulada.
+          </p>
+        </div>
+
+        <div class="participacion-entities-grid">
+          <article>
+            <strong>Alcaldía Municipal de Ocaña</strong>
+            <p>
+              Lidera procesos de planeación participativa, articula JAC y convoca
+              espacios de diálogo comunitario.
+            </p>
+          </article>
+
+          <article>
+            <strong>Concejo Municipal</strong>
+            <p>
+              Aprueba acuerdos, realiza control político y puede abrir espacios
+              como cabildos abiertos.
+            </p>
+          </article>
+
+          <article>
+            <strong>JAL</strong>
+            <p>
+              Instancias de representación local en comunas urbanas, vinculadas a
+              necesidades territoriales.
+            </p>
+          </article>
+
+          <article>
+            <strong>UFPS Ocaña</strong>
+            <p>
+              Aporta investigación, formación, proyección social y conocimiento
+              sobre participación comunitaria.
+            </p>
+          </article>
+
+          <article>
+            <strong>MAPP/OEA</strong>
+            <p>
+              Acompaña procesos de paz comunitaria y fortalecimiento de organizaciones
+              sociales en la región.
+            </p>
+          </article>
+
+          <article>
+            <strong>CORPONOR</strong>
+            <p>
+              Promueve participación comunitaria en gestión ambiental, territorio
+              y recursos naturales.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="participacion-diagnostico" id="participacion-diagnostico">
+        <div class="participacion-section-header">
+          <span class="participacion-kicker">Diagnóstico</span>
+          <h2>Fortalezas y retos de la participación en Ocaña</h2>
+          <p>
+            Ocaña cuenta con una tradición organizativa sólida, pero también enfrenta
+            desafíos relacionados con comunicación, brecha digital, renovación
+            generacional y contexto territorial.
+          </p>
+        </div>
+
+        <div class="participacion-diagnostico-grid">
+          <article class="positive">
+            <h3>Fortalezas</h3>
+            <ul>
+              <li>Tradición organizativa a través de Juntas de Acción Comunal.</li>
+              <li>Existencia de espacios institucionales de participación.</li>
+              <li>Plan de Desarrollo construido con participación ciudadana.</li>
+              <li>Presencia de academia y cooperación internacional.</li>
+              <li>Intercambio de experiencias entre líderes comunales.</li>
+            </ul>
+          </article>
+
+          <article class="warning">
+            <h3>Retos</h3>
+            <ul>
+              <li>Dificultades de comunicación entre JAC rurales y administración.</li>
+              <li>Baja apropiación de herramientas digitales en zonas rurales.</li>
+              <li>Necesidad de renovar liderazgos juveniles.</li>
+              <li>Déficit de infraestructura comunitaria en algunas veredas.</li>
+              <li>Contexto de conflicto armado en la región del Catatumbo.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="participacion-final-banner">
+        <div>
+          <h2>Participación para transformar el territorio</h2>
+          <p>
+            Fortalecer la participación ciudadana en Ocaña significa mejorar la
+            comunicación entre comunidad e instituciones, promover nuevos liderazgos,
+            cuidar los espacios colectivos y construir soluciones desde el territorio.
+          </p>
+        </div>
+
+        <div class="participacion-final-tags">
+          <span>Comunidad</span>
+          <span>Planeación</span>
+          <span>JAC</span>
+          <span>Juventud</span>
+          <span>Control social</span>
+          <span>Gestión territorial</span>
+        </div>
+      </section>
+    </main>
   </div>
 </section>
 
@@ -1162,271 +1687,1760 @@
     </aside>
 
     <div class="pomca-main">
-      <section class="pomca-subview active" id="pomca-subview-inicio" data-subview="inicio">
-        <section class="pomca-hero">
-          <div class="pomca-hero-card">
-            <h1>Módulo POMCA</h1>
-            <h2>Cuencas Hidrográficas y Manejo del Territorio</h2>
-            <p>
-              Explora la información ambiental y de planificación sobre la cuenca hidrográfica
-              del río Algodonal. Integra conceptos, documentos, normativas y cartografía
-              para apoyar la gestión sostenible del territorio.
-            </p>
+    <section class="pomca-subview active" id="pomca-subview-inicio" data-subview="inicio">
+  <section class="pomca-home-shell">
+    <div class="pomca-home-hero">
+      <div class="pomca-home-copy">
+        <span class="pomca-section-kicker">POMCA Río Algodonal</span>
+        <h1>Cuenca Hidrográfica del Río Algodonal</h1>
+        <h2>Plan de Ordenación y Manejo de la Cuenca Hidrográfica</h2>
+        <p>
+          El POMCA del Río Algodonal, código IDEAM 1605, es el instrumento de
+          planificación ambiental que orienta la gestión del agua, los suelos,
+          los bosques, los riesgos y las actividades productivas de la cuenca.
+          Su actualización fue adoptada mediante la Resolución 623 del 18 de junio
+          de 2019.
+        </p>
 
-            <div class="pomca-search">
-              <input
-                type="text"
-                id="pomcaSearchInput"
-                placeholder="Buscar cuencas, estudios, mapas, normativas..."
-              />
-              <button type="button" id="pomcaSearchBtn">🔍</button>
-            </div>
-
-            <div class="pomca-stats">
-              <article class="pomca-stat-card">
-                <span class="pomca-stat-label">Cuencas hidrográficas</span>
-                <strong>Río Algodonal</strong>
-                <small>Unidad principal de análisis</small>
-              </article>
-              <article class="pomca-stat-card">
-                <span class="pomca-stat-label">Documentos y estudios</span>
-                <strong>14</strong>
-                <small>Referencias técnicas disponibles</small>
-              </article>
-              <article class="pomca-stat-card">
-                <span class="pomca-stat-label">Mapas y capas</span>
-                <strong>3 capas</strong>
-                <small>Visor temático interactivo</small>
-              </article>
-              <article class="pomca-stat-card">
-                <span class="pomca-stat-label">Normativas aplicables</span>
-                <strong>23</strong>
-                <small>Instrumentos asociados</small>
-              </article>
-            </div>
-          </div>
-
-          <div class="pomca-info-card">
-            <h3>¿Qué es el POMCA?</h3>
-            <p>
-              El Plan de Ordenación y Manejo de Cuencas Hidrográficas es un instrumento de
-              planificación que orienta el uso sostenible de los recursos naturales y la gestión
-              integral del territorio.
-            </p>
-            <h4>Conceptos clave</h4>
-            <div class="pomca-concepts">
-              <div class="pomca-concept-item"><strong>Cuenca hidrográfica</strong><span>Unidad natural de gestión del recurso hídrico.</span></div>
-              <div class="pomca-concept-item"><strong>Ordenación territorial</strong><span>Proceso de organización del uso del suelo.</span></div>
-              <div class="pomca-concept-item"><strong>Manejo sostenible</strong><span>Uso responsable de los recursos naturales.</span></div>
-              <div class="pomca-concept-item"><strong>Gestión integral</strong><span>Articulación de acciones para el desarrollo sostenible.</span></div>
-            </div>
-            <h4>Accesos rápidos</h4>
-            <div class="pomca-doc-actions">
-              <button class="pomca-link-btn" type="button" data-subview-target="cartografia">Ir a cartografía</button>
-              <button class="pomca-link-btn secondary" type="button" data-subview-target="documentos">Ver documentos</button>
-            </div>
-          </div>
-        </section>
-
-        <section class="pomca-docs-section">
-          <div class="pomca-section-header">
-            <div>
-              <h3>Cuencas hidrográficas</h3>
-              <p>Panorama visual y territorial de los componentes principales del POMCA.</p>
-            </div>
-          </div>
-          <div class="pomca-doc-grid">
-            <article class="pomca-doc-card"><h4>Cuenca principal</h4><p>Río Algodonal como eje de planificación ambiental.</p></article>
-            <article class="pomca-doc-card"><h4>Recurso hídrico</h4><p>Conectividad de drenajes, quebradas y afluentes estratégicos.</p></article>
-            <article class="pomca-doc-card"><h4>Ecosistemas</h4><p>Áreas de valor ecosistémico y soporte de biodiversidad.</p></article>
-          </div>
-        </section>
-      </section>
-
-      <section class="pomca-subview" id="pomca-subview-ambiental" data-subview="ambiental" hidden>
-        <div class="pomca-info-card">
-          <h3>Información ambiental</h3>
-          <p>Esta sección presenta la relación entre cuenca hidrográfica, recurso hídrico, ecosistemas y medidas de protección ambiental.</p>
+        <div class="pomca-home-tags">
+          <span>Río Algodonal</span>
+          <span>Código 1605</span>
+          <span>CORPONOR</span>
+          <span>CORPOCESAR</span>
+          <span>Fondo Adaptación</span>
         </div>
-      </section>
 
+        <div class="pomca-doc-actions">
+          <button class="pomca-link-btn" type="button" data-subview-target="cartografia">
+            Ir a cartografía
+          </button>
+          <button class="pomca-link-btn secondary" type="button" data-subview-target="documentos">
+            Ver documentos
+          </button>
+        </div>
+      </div>
+
+      <aside class="pomca-home-alert">
+        <strong>Instrumento adoptado</strong>
+        <p>
+          El POMCA Río Algodonal fue aprobado y adoptado oficialmente mediante
+          Resolución 623 del 18 de junio de 2019, como determinante ambiental para
+          los municipios de la cuenca.
+        </p>
+      </aside>
+    </div>
+
+    <div class="pomca-home-stats">
+      <article>
+        <span>Área total</span>
+        <strong>74.639,8 ha</strong>
+        <small>Extensión de la cuenca hidrográfica</small>
+      </article>
+
+      <article>
+        <span>Longitud del río</span>
+        <strong>62,7 km</strong>
+        <small>Desde el páramo hasta la confluencia</small>
+      </article>
+
+      <article>
+        <span>Altitud</span>
+        <strong>950 - 3.680 m</strong>
+        <small>Desde la parte baja hasta el Páramo de Jurisdicciones</small>
+      </article>
+
+      <article>
+        <span>Veredas</span>
+        <strong>168</strong>
+        <small>101 totalmente y 67 parcialmente incluidas</small>
+      </article>
+    </div>
+
+    <section class="pomca-home-grid">
+      <article class="pomca-home-card">
+        <div class="pomca-card-icon">💧</div>
+        <h3>Agua</h3>
+        <p>
+          El Río Algodonal nace en el Páramo de Jurisdicciones y es una fuente clave
+          para el abastecimiento de agua de Ocaña, Ábrego y múltiples comunidades
+          rurales de la cuenca.
+        </p>
+
+        <div class="pomca-mini-list">
+          <span>Río Algodonal</span>
+          <span>Río Oroque</span>
+          <span>Quebrada El Tabaco</span>
+          <span>Acueductos veredales</span>
+        </div>
+      </article>
+
+      <article class="pomca-home-card">
+        <div class="pomca-card-icon">🌱</div>
+        <h3>Suelos</h3>
+        <p>
+          La cuenca presenta procesos de erosión, pérdida de suelos fértiles y
+          presión por usos agropecuarios en laderas. El manejo sostenible del suelo
+          es clave para proteger la productividad rural y reducir la sedimentación.
+        </p>
+
+        <div class="pomca-home-note">
+          <strong>Idea clave:</strong> recuperar los suelos ayuda a proteger el río,
+          mejorar la producción campesina y reducir riesgos en zonas de pendiente.
+        </div>
+      </article>
+
+      <article class="pomca-home-card">
+        <div class="pomca-card-icon">🌳</div>
+        <h3>Bosques</h3>
+        <p>
+          Solo el 25,35% de la cuenca conserva bosque secundario. La protección de
+          nacimientos, rondas hídricas, bosques estratégicos y el Páramo de Jurisdicciones
+          es fundamental para mantener el agua durante todo el año.
+        </p>
+
+        <div class="pomca-home-note success">
+          <strong>Prioridad:</strong> conservar y restaurar zonas de recarga hídrica,
+          nacimientos y corredores ambientales.
+        </div>
+      </article>
+
+      <article class="pomca-home-card">
+        <div class="pomca-card-icon">⚠️</div>
+        <h3>Riesgos y amenazas</h3>
+        <p>
+          El POMCA incorpora la gestión del riesgo como determinante ambiental,
+          considerando deslizamientos, erosión, avenidas torrenciales, pérdida de
+          cobertura vegetal y afectaciones sobre vías y comunidades.
+        </p>
+
+        <ul class="pomca-home-list">
+          <li>Deslizamientos en vías veredales.</li>
+          <li>Erosión laminar y cárcavas.</li>
+          <li>Quebradas sin bosque que se secan en verano.</li>
+          <li>Zonas de amenaza que deben orientar el ordenamiento territorial.</li>
+        </ul>
+      </article>
+
+      <article class="pomca-home-card">
+        <div class="pomca-card-icon">🏘️</div>
+        <h3>Comunidades</h3>
+        <p>
+          La cuenca incluye 168 veredas de Ocaña, Ábrego, La Playa de Belén y Teorama.
+          Las comunidades rurales dependen directamente del agua, los bosques, los
+          suelos y las actividades productivas asociadas al territorio.
+        </p>
+
+        <div class="pomca-mini-list">
+          <span>Ocaña</span>
+          <span>Ábrego</span>
+          <span>La Playa de Belén</span>
+          <span>Teorama</span>
+        </div>
+      </article>
+
+      <article class="pomca-home-card">
+        <div class="pomca-card-icon">🚜</div>
+        <h3>Economía y actividades productivas</h3>
+        <p>
+          La agricultura, la ganadería, la minería artesanal, la extracción de material
+          de arrastre y los chircales generan impactos sobre el agua, los suelos,
+          los taludes y la estabilidad ambiental de la cuenca.
+        </p>
+
+        <div class="pomca-home-note">
+          <strong>Enfoque:</strong> ordenar las actividades productivas para que no
+          destruyan los recursos naturales de los que dependen.
+        </div>
+      </article>
+    </section>
+
+    <section class="pomca-indicator-preview">
+      <div class="pomca-section-header">
+        <div>
+          <h3>Datos técnicos destacados</h3>
+          <p>
+            Estos datos resumen elementos clave del POMCA Río Algodonal y ayudan a
+            interpretar la importancia ambiental de la cuenca.
+          </p>
+        </div>
+      </div>
+
+      <div class="pomca-indicator-grid">
+        <article>
+          <span>Código IDEAM</span>
+          <strong>1605</strong>
+          <small>Subzona hidrográfica Río Algodonal</small>
+        </article>
+
+        <article>
+          <span>Cobertura boscosa</span>
+          <strong>25,35%</strong>
+          <small>Bosque secundario remanente</small>
+        </article>
+
+        <article>
+          <span>Especies vegetales</span>
+          <strong>293</strong>
+          <small>Registradas en la caracterización biótica</small>
+        </article>
+
+        <article class="critical">
+          <span>Vertimientos urbanos</span>
+          <strong>75,15%</strong>
+          <small>Sin tratamiento previo</small>
+        </article>
+      </div>
+    </section>
+<section class="module-video-card pomca-video-card">
+  <div class="module-video-copy">
+    <span class="module-video-kicker">Video de apoyo</span>
+    <h3>Conoce el módulo POMCA Río Algodonal</h3>
+    <p>
+      Este video explica la finalidad del módulo POMCA, la importancia de la cuenca
+      hidrográfica del Río Algodonal y cómo consultar sus secciones ambientales,
+      cartográficas, normativas y ciudadanas.
+    </p>
+  </div>
+
+  <div class="module-video-frame">
+    <iframe
+      src="https://drive.google.com/file/d/1KUfIWC6mxqaq05tmkmBqwDpJ03mQLbe7/preview"
+      allow="autoplay"
+      allowfullscreen>
+    </iframe>
+  </div>
+</section>
+    <section class="pomca-home-ods">
+      <div>
+        <h3>Categorías del geovisor</h3>
+        <p>
+          La información ciudadana del módulo se organiza en categorías sencillas
+          para facilitar la lectura ambiental de la cuenca.
+        </p>
+      </div>
+
+      <div class="pomca-ods-tags">
+        <span>Agua</span>
+        <span>Suelos</span>
+        <span>Bosques</span>
+        <span>Riesgos y amenazas</span>
+        <span>Comunidades</span>
+        <span>Economía</span>
+      </div>
+    </section>
+  </section>
+</section>
+     <section class="pomca-subview" id="pomca-subview-ambiental" data-subview="ambiental" hidden>
+  <section class="pomca-env-shell">
+    <div class="pomca-env-header">
+      <div>
+        <span class="pomca-section-kicker">Información ambiental</span>
+        <h2>Estado ambiental de la Cuenca del Río Algodonal</h2>
+        <p>
+          Esta sección resume los principales componentes ambientales de la cuenca:
+          agua, suelos, bosques, biodiversidad, riesgos y presiones sobre los recursos
+          naturales. La información se presenta en lenguaje ciudadano para facilitar
+          la comprensión del territorio hídrico.
+        </p>
+      </div>
+
+      <aside class="pomca-env-highlight">
+        <strong>Dato clave</strong>
+        <p>
+          La cuenca del Río Algodonal tiene una extensión de 74.639,8 hectáreas,
+          una longitud aproximada de 62,7 km y nace en el Páramo de Jurisdicciones,
+          a 3.680 m.s.n.m.
+        </p>
+      </aside>
+    </div>
+
+    <div class="pomca-env-grid">
+      <article class="pomca-env-card water">
+        <div class="pomca-card-icon">💧</div>
+        <h3>Agua y recurso hídrico</h3>
+        <p>
+          El Río Algodonal es una fuente estratégica para el abastecimiento de Ocaña,
+          Ábrego y comunidades rurales. También se relaciona con afluentes como el
+          Río Oroque, la Quebrada El Tabaco y otros cauces menores.
+        </p>
+
+        <div class="pomca-env-list-box">
+          <ul>
+            <li>Abastece acueductos municipales y veredales.</li>
+            <li>Presenta presiones por captaciones ilegales para riego.</li>
+            <li>Recibe impactos por vertimientos domésticos y actividades productivas.</li>
+          </ul>
+        </div>
+
+        <div class="pomca-home-note">
+          <strong>Mensaje ciudadano:</strong> proteger el río es proteger el agua que
+          llega a las viviendas, cultivos y comunidades de la cuenca.
+        </div>
+      </article>
+
+      <article class="pomca-env-card soil">
+        <div class="pomca-card-icon">🌱</div>
+        <h3>Suelos y erosión</h3>
+        <p>
+          La pérdida de cobertura vegetal y el uso intensivo del suelo en zonas de
+          pendiente generan erosión, pérdida de fertilidad y arrastre de sedimentos
+          hacia los cuerpos de agua.
+        </p>
+
+        <div class="pomca-env-list-box">
+          <ul>
+            <li>Se identifican procesos de erosión laminar y cárcavas.</li>
+            <li>Hay afectaciones en laderas y vías veredales.</li>
+            <li>El uso agropecuario en zonas no aptas aumenta la degradación.</li>
+          </ul>
+        </div>
+
+        <div class="pomca-home-note">
+          <strong>Mensaje ciudadano:</strong> un suelo protegido produce mejor,
+          se conserva por más tiempo y reduce el riesgo de deslizamientos.
+        </div>
+      </article>
+
+      <article class="pomca-env-card forest">
+        <div class="pomca-card-icon">🌳</div>
+        <h3>Bosques y cobertura vegetal</h3>
+        <p>
+          La cuenca conserva aproximadamente el 25,35% de cobertura boscosa secundaria.
+          Los bosques son fundamentales para proteger nacimientos de agua, regular caudales
+          y conservar biodiversidad.
+        </p>
+
+        <div class="pomca-env-list-box">
+          <ul>
+            <li>Los nacimientos con bosque mantienen mejor el agua en época seca.</li>
+            <li>La deforestación reduce la capacidad de regulación hídrica.</li>
+            <li>El Páramo de Jurisdicciones funciona como zona estratégica de recarga.</li>
+          </ul>
+        </div>
+
+        <div class="pomca-home-note success">
+          <strong>Prioridad:</strong> conservar bosques, rondas hídricas y zonas de
+          nacimiento para sostener el agua de la cuenca.
+        </div>
+      </article>
+
+      <article class="pomca-env-card biodiversity">
+        <div class="pomca-card-icon">🦜</div>
+        <h3>Biodiversidad</h3>
+        <p>
+          La caracterización biótica del POMCA identificó especies de flora y fauna
+          asociadas a los ecosistemas de montaña, bosques, rondas hídricas y zonas
+          de transición de la cuenca.
+        </p>
+
+        <div class="pomca-env-list-box">
+          <ul>
+            <li>Se registraron 293 especies vegetales.</li>
+            <li>Se identificaron 21 especies de anfibios.</li>
+            <li>Se registraron 10 especies de reptiles.</li>
+            <li>Algunas especies vegetales presentan categoría de amenaza.</li>
+          </ul>
+        </div>
+
+        <div class="pomca-home-note">
+          <strong>Mensaje ciudadano:</strong> cuidar los ecosistemas también protege
+          especies, paisajes y servicios ambientales.
+        </div>
+      </article>
+
+      <article class="pomca-env-card risk">
+        <div class="pomca-card-icon">⚠️</div>
+        <h3>Riesgos y amenazas</h3>
+        <p>
+          El POMCA incorpora la gestión del riesgo como determinante ambiental,
+          especialmente en zonas con deslizamientos, inundaciones, avenidas torrenciales
+          y pérdida de estabilidad del suelo.
+        </p>
+
+        <div class="pomca-env-list-box">
+          <ul>
+            <li>Deslizamientos en vías veredales y taludes.</li>
+            <li>Erosión activa en zonas deforestadas.</li>
+            <li>Quebradas sin bosque que pueden secarse en temporada seca.</li>
+            <li>Zonas de amenaza que deben orientar los POT municipales.</li>
+          </ul>
+        </div>
+
+        <div class="pomca-home-note warning">
+          <strong>Importante:</strong> las zonas con amenaza deben considerarse en el
+          ordenamiento territorial y en las decisiones comunitarias.
+        </div>
+      </article>
+
+      <article class="pomca-env-card pressure">
+        <div class="pomca-card-icon">🚜</div>
+        <h3>Presiones ambientales</h3>
+        <p>
+          Las principales presiones sobre la cuenca están asociadas a actividades
+          agropecuarias, deforestación, vertimientos, extracción de material de arrastre
+          y ocupación de áreas sensibles.
+        </p>
+
+        <div class="pomca-env-list-box">
+          <ul>
+            <li>Agricultura y ganadería en zonas de ladera.</li>
+            <li>Vertimientos sin tratamiento previo.</li>
+            <li>Minería artesanal y chircales.</li>
+            <li>Extracción de arena, grava y piedra en cauces.</li>
+          </ul>
+        </div>
+
+        <div class="pomca-home-note">
+          <strong>Enfoque:</strong> ordenar las actividades productivas permite reducir
+          impactos sin desconocer la economía local.
+        </div>
+      </article>
+    </div>
+
+    <section class="pomca-env-citizen-panel">
+      <div>
+        <h3>Lectura ciudadana del ambiente</h3>
+        <p>
+          La información ambiental del POMCA permite entender cómo se relacionan el agua,
+          el suelo, los bosques, las comunidades y las actividades productivas. Cada decisión
+          sobre el territorio puede mejorar o deteriorar la salud de la cuenca.
+        </p>
+      </div>
+
+      <div class="pomca-env-actions">
+        <article>
+          <strong>Agua limpia</strong>
+          <span>Depende de nacimientos protegidos, rondas hídricas conservadas y control de vertimientos.</span>
+        </article>
+
+        <article>
+          <strong>Suelos estables</strong>
+          <span>Dependen de cobertura vegetal, buenas prácticas agropecuarias y manejo de pendientes.</span>
+        </article>
+
+        <article>
+          <strong>Comunidades seguras</strong>
+          <span>Dependen de conocer amenazas, evitar zonas de riesgo y participar en la gestión ambiental.</span>
+        </article>
+      </div>
+    </section>
+  </section>
+</section>
       <section class="pomca-subview" id="pomca-subview-gestion" data-subview="gestion" hidden>
-        <div class="pomca-info-card">
-          <h3>Planificación y gestión</h3>
-          <p>Incluye lineamientos sobre manejo sostenible, ordenación territorial y gestión integral del territorio de cuenca.</p>
+  <section class="pomca-management-shell">
+    <div class="pomca-management-header">
+      <div>
+        <span class="pomca-section-kicker">Planificación y gestión</span>
+        <h2>Fases del POMCA Río Algodonal</h2>
+        <p>
+          El POMCA Río Algodonal fue estructurado como un proceso técnico, ambiental
+          y participativo. Su ajuste y actualización se desarrolló por fases, integrando
+          información de la cuenca, diagnóstico ambiental, participación ciudadana,
+          zonificación y formulación de medidas de gestión.
+        </p>
+      </div>
+
+      <aside class="pomca-management-highlight">
+        <strong>Proceso adoptado</strong>
+        <p>
+          El POMCA Río Algodonal fue adoptado mediante Resolución 623 del 18 de junio
+          de 2019 y funciona como determinante ambiental para los municipios de la cuenca.
+        </p>
+      </aside>
+    </div>
+
+    <section class="pomca-phase-timeline">
+      <article class="pomca-phase-card">
+        <div class="pomca-phase-number">1</div>
+        <div class="pomca-phase-content">
+          <h3>Aprestamiento</h3>
+          <p>
+            Fase inicial orientada a identificar actores, caracterizar preliminarmente
+            el territorio, organizar la información base y definir la estrategia de
+            participación del proceso POMCA.
+          </p>
+
+          <div class="pomca-phase-list">
+            <span>Identificación de actores</span>
+            <span>Caracterización preliminar</span>
+            <span>Plan operativo</span>
+            <span>Auditoría visible</span>
+          </div>
         </div>
-      </section>
+      </article>
+
+      <article class="pomca-phase-card">
+        <div class="pomca-phase-number">2</div>
+        <div class="pomca-phase-content">
+          <h3>Diagnóstico</h3>
+          <p>
+            En esta fase se levantó y organizó información física, biótica,
+            socioeconómica, cultural y funcional de la cuenca, incluyendo análisis
+            de agua, suelos, cobertura vegetal, biodiversidad y gestión del riesgo.
+          </p>
+
+          <div class="pomca-phase-list">
+            <span>Caracterización físico-biótica</span>
+            <span>Componente socioeconómico</span>
+            <span>Gestión del riesgo</span>
+            <span>Información cartográfica</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="pomca-phase-card">
+        <div class="pomca-phase-number">3</div>
+        <div class="pomca-phase-content">
+          <h3>Prospectiva y zonificación ambiental</h3>
+          <p>
+            Esta fase permitió construir escenarios de futuro y definir la zonificación
+            ambiental de la cuenca, identificando áreas de conservación, uso sostenible,
+            producción regulada, rehabilitación y gestión del riesgo.
+          </p>
+
+          <div class="pomca-phase-list">
+            <span>Escenario tendencial</span>
+            <span>Escenario deseado</span>
+            <span>Zonificación ambiental</span>
+            <span>Estructura ecológica principal</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="pomca-phase-card">
+        <div class="pomca-phase-number">4</div>
+        <div class="pomca-phase-content">
+          <h3>Formulación</h3>
+          <p>
+            En la formulación se definieron programas, proyectos, metas, indicadores,
+            responsables y acciones de manejo para orientar la gestión ambiental de la
+            cuenca y su articulación con los municipios.
+          </p>
+
+          <div class="pomca-phase-list">
+            <span>Programas y proyectos</span>
+            <span>Plan de inversiones</span>
+            <span>Medidas de manejo</span>
+            <span>Validación final</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="pomca-phase-card">
+        <div class="pomca-phase-number">5</div>
+        <div class="pomca-phase-content">
+          <h3>Ejecución, seguimiento y evaluación</h3>
+          <p>
+            Corresponde a la implementación de las medidas formuladas, el seguimiento
+            de indicadores, la evaluación del cumplimiento y la participación de la
+            ciudadanía en el control social del POMCA.
+          </p>
+
+          <div class="pomca-phase-list">
+            <span>Veedurías ciudadanas</span>
+            <span>Rendición de cuentas</span>
+            <span>Seguimiento ambiental</span>
+            <span>Reporte de afectaciones</span>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="pomca-management-grid">
+      <article class="pomca-management-card">
+        <div class="pomca-card-icon">🗺️</div>
+        <h3>Zonificación ambiental</h3>
+        <p>
+          La zonificación ambiental clasifica el territorio según sus condiciones
+          ecológicas, productivas y de riesgo. Sirve para orientar qué áreas deben
+          conservarse, restaurarse, usarse de forma sostenible o manejarse con restricciones.
+        </p>
+
+        <div class="pomca-env-list-box">
+          <ul>
+            <li>Conservación y protección ambiental.</li>
+            <li>Uso múltiple sostenible.</li>
+            <li>Producción agropecuaria regulada.</li>
+            <li>Zonas de rehabilitación por degradación o erosión.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="pomca-management-card">
+        <div class="pomca-card-icon">⚠️</div>
+        <h3>Gestión del riesgo</h3>
+        <p>
+          El componente de riesgo se integra como determinante ambiental del
+          ordenamiento territorial. Las zonas de alta amenaza identificadas en el
+          POMCA deben ser consideradas por los municipios en sus POT, PBOT o EOT.
+        </p>
+
+        <div class="pomca-home-note warning">
+          <strong>Importante:</strong> las amenazas por deslizamientos, inundaciones
+          o avenidas torrenciales deben orientar las decisiones de uso del suelo.
+        </div>
+      </article>
+
+      <article class="pomca-management-card">
+        <div class="pomca-card-icon">🤝</div>
+        <h3>Participación y Consejo de Cuenca</h3>
+        <p>
+          La participación ciudadana es parte central del POMCA. El Consejo de Cuenca
+          funciona como instancia consultiva y representativa de los actores que viven,
+          trabajan o desarrollan actividades en la cuenca del Río Algodonal.
+        </p>
+
+        <div class="pomca-env-list-box">
+          <ul>
+            <li>Aporta información sobre la cuenca.</li>
+            <li>Participa en las fases del plan.</li>
+            <li>Canaliza recomendaciones y conflictos ambientales.</li>
+            <li>Apoya el seguimiento ciudadano del POMCA.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="pomca-management-card">
+        <div class="pomca-card-icon">🏛️</div>
+        <h3>Articulación con el ordenamiento territorial</h3>
+        <p>
+          El POMCA es una determinante ambiental para los instrumentos de ordenamiento
+          territorial. Por eso, los municipios de la cuenca deben incorporar su
+          zonificación, programas, proyectos y componente de gestión del riesgo.
+        </p>
+
+        <div class="pomca-home-note">
+          <strong>Idea clave:</strong> el POMCA orienta decisiones del POT, especialmente
+          en suelo rural, áreas de protección y zonas de amenaza.
+        </div>
+      </article>
+    </section>
+
+    <section class="pomca-management-banner">
+      <div>
+        <h3>¿Para qué sirve esta planificación?</h3>
+        <p>
+          Sirve para tomar decisiones ambientales mejor sustentadas: proteger fuentes
+          de agua, conservar bosques, reducir riesgos, ordenar actividades productivas
+          y orientar la inversión pública en la cuenca.
+        </p>
+      </div>
+
+      <div class="pomca-management-actions">
+        <span>Agua</span>
+        <span>Suelos</span>
+        <span>Bosques</span>
+        <span>Riesgo</span>
+        <span>Comunidades</span>
+        <span>Producción sostenible</span>
+      </div>
+    </section>
+  </section>
+</section>
 
       <section class="pomca-subview" id="pomca-subview-documentos" data-subview="documentos" hidden>
-        <section class="pomca-docs-section">
-          <div class="pomca-section-header">
-            <div>
-              <h3>Documentos y normativa</h3>
-              <p>Consulta mapas para descarga, GeoJSON disponibles y estudios/documentos técnicos del POMCA.</p>
-            </div>
-          </div>
+  <section class="pomca-docs-clean-shell">
+    <div class="pomca-docs-clean-header">
+      <div>
+        <span class="pomca-section-kicker">Documentos y normativa</span>
+        <h2>Documentación del POMCA Río Algodonal</h2>
+        <p>
+          Consulta los documentos técnicos, actos administrativos y cartografía de apoyo
+          del POMCA Río Algodonal. Los mapas se organizan por prioridad para facilitar
+          su lectura y descarga.
+        </p>
+      </div>
 
-          <div class="pomca-doc-grid">
-          <article class="pomca-doc-card">
-            <h4>1. Mapa Base</h4>
-            <p>Mapa base general del POMCA Río Algodonal.</p>
-            <div class="pomca-doc-actions">
-              <a href="docs/1.%20Mapa%20Base.pdf" target="_blank" rel="noopener" class="pomca-link-btn">Ver PDF</a>
-              <a href="docs/1.%20Mapa%20Base.pdf" download class="pomca-link-btn secondary">Descargar</a>
-            </div>
-          </article>
+      <aside class="pomca-docs-clean-note">
+        <strong>Fuente base</strong>
+        <p>
+          Información organizada a partir del POMCA Río Algodonal, Código IDEAM 1605,
+          adoptado mediante Resolución 623 del 18 de junio de 2019.
+        </p>
+      </aside>
+    </div>
 
-          <article class="pomca-doc-card">
-            <h4>2. División Político-Administrativa</h4>
-            <p>Organización territorial del área de estudio.</p>
-            <div class="pomca-doc-actions">
-              <a href="docs/2.%20Mapa%20de%20Division%20Politico-Administrativa.pdf" target="_blank" rel="noopener" class="pomca-link-btn">Ver PDF</a>
-              <a href="docs/2.%20Mapa%20de%20Division%20Politico-Administrativa.pdf" download class="pomca-link-btn secondary">Descargar</a>
-            </div>
-          </article>
+    <div class="pomca-docs-layout">
+      <div class="pomca-docs-main">
+        <section class="pomca-docs-block">
+          <h3>Documentos principales</h3>
+          <p>
+            Estos documentos explican el proceso técnico, la adopción del POMCA y su
+            importancia como determinante ambiental para los municipios de la cuenca.
+          </p>
 
-          <article class="pomca-doc-card">
-            <h4>4A. Red Hidrográfica</h4>
-            <p>Red hídrica principal y secundaria de la cuenca.</p>
-            <div class="pomca-doc-actions">
-              <a href="docs/4A.%20Mapa%20Red%20Hidrografica.pdf" target="_blank" rel="noopener" class="pomca-link-btn">Ver PDF</a>
-              <a href="docs/4A.%20Mapa%20Red%20Hidrografica.pdf" download class="pomca-link-btn secondary">Descargar</a>
-            </div>
-          </article>
+          <div class="pomca-docs-feature-grid">
+            <article class="pomca-doc-feature-card">
+              <span class="pomca-doc-icon">📘</span>
+              <h4>Documento General POMCA Río Algodonal</h4>
+              <p>
+                Documento técnico general del POMCA, con información ambiental,
+                cartográfica, social, normativa y programática de la cuenca.
+              </p>
+              <small>Referencia técnica principal</small>
+            </article>
 
-          <article class="pomca-doc-card">
-            <h4>4B. Cuencas Algodonal</h4>
-            <p>Representación de cuencas y subcuencas del sistema.</p>
-            <div class="pomca-doc-actions">
-              <a href="docs/4B.%20Mapa%20Cuencas%20Algodonal.pdf" target="_blank" rel="noopener" class="pomca-link-btn">Ver PDF</a>
-              <a href="docs/4B.%20Mapa%20Cuencas%20Algodonal.pdf" download class="pomca-link-btn secondary">Descargar</a>
-            </div>
-          </article>
+            <article class="pomca-doc-feature-card">
+              <span class="pomca-doc-icon">📄</span>
+              <h4>Resolución 623 de 2019</h4>
+              <p>
+                Acto administrativo mediante el cual se aprueba y adopta oficialmente
+                el POMCA Río Algodonal.
+              </p>
+              <small>Adopción oficial del instrumento</small>
+            </article>
 
-          <article class="pomca-doc-card">
-            <h4>8. Suelos Cuenca Algodonal</h4>
-            <p>Caracterización de suelos en la cuenca del río Algodonal.</p>
-            <div class="pomca-doc-actions">
-              <a href="docs/8.%20Suelos%20Cuenca%20Algodonal.pdf" target="_blank" rel="noopener" class="pomca-link-btn">Ver PDF</a>
-              <a href="docs/8.%20Suelos%20Cuenca%20Algodonal.pdf" download class="pomca-link-btn secondary">Descargar</a>
-            </div>
-          </article>
-
-          <article class="pomca-doc-card">
-            <h4>23. Zonas de Vida</h4>
-            <p>Clasificación ecológica de zonas de vida presentes.</p>
-            <div class="pomca-doc-actions">
-              <a href="docs/23.%20Mapa%20de%20Zonas%20de%20Vida.pdf" target="_blank" rel="noopener" class="pomca-link-btn">Ver PDF</a>
-              <a href="docs/23.%20Mapa%20de%20Zonas%20de%20Vida.pdf" download class="pomca-link-btn secondary">Descargar</a>
-            </div>
-          </article>
-
-          <article class="pomca-doc-card">
-            <h4>25. Ecosistemas</h4>
-            <p>Mapa temático de ecosistemas presentes en la cuenca.</p>
-            <div class="pomca-doc-actions">
-              <a href="docs/25.%20Mapa%20de%20Ecosistemas.pdf" target="_blank" rel="noopener" class="pomca-link-btn">Ver PDF</a>
-              <a href="docs/25.%20Mapa%20de%20Ecosistemas.pdf" download class="pomca-link-btn secondary">Descargar</a>
-            </div>
-          </article>
-
-          <article class="pomca-doc-card">
-            <h4>26. Ecosistemas Estratégicos</h4>
-            <p>Áreas ecosistémicas de especial importancia ambiental.</p>
-            <div class="pomca-doc-actions">
-              <a href="docs/26.%20Mapa%20de%20Ecosistemas%20Estrategicos.pdf" target="_blank" rel="noopener" class="pomca-link-btn">Ver PDF</a>
-              <a href="docs/26.%20Mapa%20de%20Ecosistemas%20Estrategicos.pdf" download class="pomca-link-btn secondary">Descargar</a>
-            </div>
-          </article>
-
-          <article class="pomca-doc-card">
-            <h4>28. Uso Productivo</h4>
-            <p>Actividades productivas identificadas en el territorio.</p>
-            <div class="pomca-doc-actions">
-              <a href="docs/28.%20Mapa%20de%20Uso%20Productivo.pdf" target="_blank" rel="noopener" class="pomca-link-btn">Ver PDF</a>
-              <a href="docs/28.%20Mapa%20de%20Uso%20Productivo.pdf" download class="pomca-link-btn secondary">Descargar</a>
-            </div>
-          </article>
-
-          <article class="pomca-doc-card">
-            <h4>29. Uso y Cobertura 2002</h4>
-            <p>Distribución de coberturas y usos del suelo para el año 2002.</p>
-            <div class="pomca-doc-actions">
-              <a href="docs/29.%20Mapa%20de%20Uso%20y%20Cobertura%202002.pdf" target="_blank" rel="noopener" class="pomca-link-btn">Ver PDF</a>
-              <a href="docs/29.%20Mapa%20de%20Uso%20y%20Cobertura%202002.pdf" download class="pomca-link-btn secondary">Descargar</a>
-            </div>
-          </article>
-
-          <article class="pomca-doc-card">
-            <h4>30. Cambios</h4>
-            <p>Transformaciones territoriales y variaciones de cobertura.</p>
-            <div class="pomca-doc-actions">
-              <a href="docs/30.%20Mapa%20de%20Cambios.pdf" target="_blank" rel="noopener" class="pomca-link-btn">Ver PDF</a>
-              <a href="docs/30.%20Mapa%20de%20Cambios.pdf" download class="pomca-link-btn secondary">Descargar</a>
-            </div>
-          </article>
-
-          <article class="pomca-doc-card">
-            <h4>33. Puntos de Monitoreo</h4>
-            <p>Ubicación de los puntos de monitoreo definidos en el POMCA.</p>
-            <div class="pomca-doc-actions">
-              <a href="docs/33.%20Mapa%20de%20Puntos%20de%20Monitoreo.pdf" target="_blank" rel="noopener" class="pomca-link-btn">Ver PDF</a>
-              <a href="docs/33.%20Mapa%20de%20Puntos%20de%20Monitoreo.pdf" download class="pomca-link-btn secondary">Descargar</a>
-            </div>
-          </article>
-
-          <article class="pomca-doc-card">
-            <h4>37. Índice de Escasez Modal</h4>
-            <p>Mapa del índice de escasez hídrica en condición modal.</p>
-            <div class="pomca-doc-actions">
-              <a href="docs/37.%20Indice%20de%20Escasez%20Modal.pdf" target="_blank" rel="noopener" class="pomca-link-btn">Ver PDF</a>
-              <a href="docs/37.%20Indice%20de%20Escasez%20Modal.pdf" download class="pomca-link-btn secondary">Descargar</a>
-            </div>
-          </article>
-
-          <article class="pomca-doc-card">
-            <h4>38. Índice de Escasez Año Seco</h4>
-            <p>Mapa del índice de escasez hídrica para año seco.</p>
-            <div class="pomca-doc-actions">
-              <a href="docs/38.%20Indice%20de%20Escasez%20A%C3%B1o%20Seco.pdf" target="_blank" rel="noopener" class="pomca-link-btn">Ver PDF</a>
-              <a href="docs/38.%20Indice%20de%20Escasez%20A%C3%B1o%20Seco.pdf" download class="pomca-link-btn secondary">Descargar</a>
-            </div>
-          </article>
+            <article class="pomca-doc-feature-card">
+              <span class="pomca-doc-icon">🏛️</span>
+              <h4>Normativa aplicada</h4>
+              <p>
+                Marco normativo asociado: Ley 99 de 1993, Ley 388 de 1997, Ley 1523
+                de 2012, Decreto 1640 de 2012 y Decreto 1076 de 2015.
+              </p>
+              <small>Base legal y determinante ambiental</small>
+            </article>
           </div>
         </section>
-      </section>
+
+        <section class="pomca-docs-block">
+          <h3>Mapas por categorías</h3>
+          <p>
+            Para no saturar la vista, los mapas se agrupan por tema. Abre cada grupo
+            solo cuando necesites consultar o descargar cartografía específica.
+          </p>
+
+          <div class="pomca-map-accordion">
+            <details>
+              <summary>Prioridad 1 — Contexto territorial</summary>
+              <div class="pomca-map-link-list">
+                <a href="docs/1.%20Mapa%20Base.pdf" target="_blank" rel="noopener">1. Mapa Base</a>
+                <a href="docs/2.%20Mapa%20de%20Division%20Politico-Administrativa.pdf" target="_blank" rel="noopener">2. División Político-Administrativa</a>
+                <a href="docs/4A.%20Mapa%20Red%20Hidrografica.pdf" target="_blank" rel="noopener">4A. Red Hidrográfica</a>
+                <a href="docs/4B.%20Mapa%20Cuencas%20Algodonal.pdf" target="_blank" rel="noopener">4B. Cuencas Algodonal</a>
+              </div>
+            </details>
+
+            <details>
+              <summary>Prioridad 2 — Estado ambiental de la cuenca</summary>
+              <div class="pomca-map-link-list">
+                <a href="docs/23.%20Mapa%20de%20Zonas%20de%20Vida.pdf" target="_blank" rel="noopener">23. Zonas de Vida</a>
+                <a href="docs/25.%20Mapa%20de%20Ecosistemas.pdf" target="_blank" rel="noopener">25. Ecosistemas</a>
+                <a href="docs/26.%20Mapa%20de%20Ecosistemas%20Estrategicos.pdf" target="_blank" rel="noopener">26. Ecosistemas Estratégicos</a>
+                <a href="docs/29.%20Mapa%20de%20Uso%20y%20Cobertura%202002.pdf" target="_blank" rel="noopener">29. Uso y Cobertura 2002</a>
+                <a href="docs/30.%20Mapa%20de%20Cambios.pdf" target="_blank" rel="noopener">30. Cambios</a>
+              </div>
+            </details>
+
+            <details>
+              <summary>Prioridad 3 — Riesgo hídrico y monitoreo</summary>
+              <div class="pomca-map-link-list">
+                <a href="docs/33.%20Mapa%20de%20Puntos%20de%20Monitoreo.pdf" target="_blank" rel="noopener">33. Puntos de Monitoreo</a>
+                <a href="docs/37.%20Indice%20de%20Escasez%20Modal.pdf" target="_blank" rel="noopener">37. Índice de Escasez Modal</a>
+                <a href="docs/38.%20Indice%20de%20Escasez%20A%C3%B1o%20Seco.pdf" target="_blank" rel="noopener">38. Índice de Escasez Año Seco</a>
+              </div>
+            </details>
+
+            <details>
+              <summary>Prioridad 4 — Suelos y producción</summary>
+              <div class="pomca-map-link-list">
+                <a href="docs/8.%20Suelos%20Cuenca%20Algodonal.pdf" target="_blank" rel="noopener">8. Suelos Cuenca Algodonal</a>
+                <a href="docs/28.%20Mapa%20de%20Uso%20Productivo.pdf" target="_blank" rel="noopener">28. Uso Productivo</a>
+              </div>
+            </details>
+          </div>
+        </section>
+      </div>
+
+      <aside class="pomca-map-side-panel">
+        <div class="pomca-map-side-card">
+          <span class="pomca-doc-icon">🗺️</span>
+          <h3>Mapas destacados</h3>
+          <p>
+            Accesos rápidos a los mapas más útiles para entender la cuenca del Río Algodonal.
+          </p>
+
+          <div class="pomca-featured-map">
+            <strong>Mapa Base</strong>
+            <span>Contexto general de la cuenca.</span>
+            <div>
+              <a href="docs/1.%20Mapa%20Base.pdf" target="_blank" rel="noopener">Ver PDF</a>
+              <a href="docs/1.%20Mapa%20Base.pdf" download>Descargar</a>
+            </div>
+          </div>
+
+          <div class="pomca-featured-map">
+            <strong>Red Hidrográfica</strong>
+            <span>Cauces, drenajes y estructura hídrica.</span>
+            <div>
+              <a href="docs/4A.%20Mapa%20Red%20Hidrografica.pdf" target="_blank" rel="noopener">Ver PDF</a>
+              <a href="docs/4A.%20Mapa%20Red%20Hidrografica.pdf" download>Descargar</a>
+            </div>
+          </div>
+
+          <div class="pomca-featured-map">
+            <strong>Cuencas Algodonal</strong>
+            <span>Delimitación de la cuenca y subcuencas.</span>
+            <div>
+              <a href="docs/4B.%20Mapa%20Cuencas%20Algodonal.pdf" target="_blank" rel="noopener">Ver PDF</a>
+              <a href="docs/4B.%20Mapa%20Cuencas%20Algodonal.pdf" download>Descargar</a>
+            </div>
+          </div>
+
+          <div class="pomca-featured-map">
+            <strong>Ecosistemas Estratégicos</strong>
+            <span>Áreas ambientales prioritarias.</span>
+            <div>
+              <a href="docs/26.%20Mapa%20de%20Ecosistemas%20Estrategicos.pdf" target="_blank" rel="noopener">Ver PDF</a>
+              <a href="docs/26.%20Mapa%20de%20Ecosistemas%20Estrategicos.pdf" download>Descargar</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pomca-map-side-card soft">
+          <h3>Lectura recomendada</h3>
+          <p>
+            Empieza por el mapa base, luego revisa red hidrográfica, cuencas,
+            ecosistemas estratégicos y finalmente indicadores de escasez hídrica.
+          </p>
+        </div>
+      </aside>
+    </div>
+  </section>
+</section>
 
       <section class="pomca-subview" id="pomca-subview-cartografia" data-subview="cartografia" hidden>
-        <section class="pomca-stats">
-          <div class="risk-card">
-            <h3>Cartografía POMCA</h3>
-            <label class="control-item"><input type="radio" name="pomcaLayer" value="pomca_protegidas" /> Áreas protegidas</label>
-            <label class="control-item"><input type="radio" name="pomcaLayer" value="pomca_forestales" /> Áreas forestales protectoras</label>
-            <label class="control-item"><input type="radio" name="pomcaLayer" value="pomca_ecosistemicas" /> Áreas de especial importancia ecosistémica</label>
-            <button id="clearPomcaLayer" class="clear-btn" type="button">Quitar capa activa</button>
-            <div id="pomcaLegendContent"></div>
-          </div>
-          <div class="risk-map-panel">
-            <div id="pomcaMap"></div>
-          </div>
-          <div class="pomca-info-card">
-            <h3>Información de capa</h3>
-            <div id="pomcaInfoContent"><p>Selecciona una capa del POMCA.</p></div>
-          </div>
-        </section>
-      </section>
+  <section class="pomca-map-shell">
+    <div class="pomca-map-header">
+      <div>
+        <span class="pomca-section-kicker">Cartografía y mapas</span>
+        <h2>Visor cartográfico del POMCA Río Algodonal</h2>
+        <p>
+          Consulta capas temáticas relacionadas con la cuenca hidrográfica del Río Algodonal.
+          Esta sección permite visualizar áreas ambientales, coberturas, ecosistemas y elementos
+          estratégicos para la gestión del territorio hídrico.
+        </p>
+      </div>
 
-      <section class="pomca-subview" id="pomca-subview-indicadores" data-subview="indicadores" hidden>
-        <div class="pomca-info-card"><h3>Indicadores y reportes</h3><p>Espacio preparado para indicadores futuros y reportes periódicos del estado de la cuenca.</p></div>
-      </section>
+      <aside class="pomca-map-highlight">
+        <strong>Lectura recomendada</strong>
+        <p>
+          Selecciona una capa temática, revisa la leyenda y consulta la información asociada
+          para interpretar mejor el estado ambiental de la cuenca.
+        </p>
+      </aside>
+    </div>
 
-      <section class="pomca-subview" id="pomca-subview-participacion" data-subview="participacion" hidden>
-        <div class="pomca-info-card"><h3>Participación ciudadana</h3><p>Encuentra información para vincularte a procesos comunitarios de seguimiento y gestión del POMCA.</p></div>
-      </section>
+    <div class="pomca-map-layout">
+      <aside class="pomca-map-controls-panel">
+        <div class="pomca-map-control-card">
+          <h3>Capas disponibles</h3>
+          <p>
+            Activa una capa para visualizar información temática del POMCA.
+          </p>
 
-      <section class="pomca-subview" id="pomca-subview-glosario" data-subview="glosario" hidden>
-        <div class="pomca-info-card"><h3>Glosario de conceptos</h3><p>Definiciones sencillas de términos clave para facilitar la lectura e interpretación del módulo POMCA.</p></div>
-      </section>
+          <label class="pomca-layer-option">
+            <input type="radio" name="pomcaLayer" value="pomca_protegidas" />
+            <span>
+              <strong>Áreas protegidas</strong>
+              <small>Zonas ambientales con algún nivel de protección o restricción.</small>
+            </span>
+          </label>
+
+          <label class="pomca-layer-option">
+            <input type="radio" name="pomcaLayer" value="pomca_forestales" />
+            <span>
+              <strong>Áreas forestales protectoras</strong>
+              <small>Áreas clave para conservar cobertura vegetal y regulación hídrica.</small>
+            </span>
+          </label>
+
+          <label class="pomca-layer-option">
+            <input type="radio" name="pomcaLayer" value="pomca_ecosistemicas" />
+            <span>
+              <strong>Áreas de especial importancia ecosistémica</strong>
+              <small>Ecosistemas estratégicos para biodiversidad, agua y conectividad ambiental.</small>
+            </span>
+          </label>
+
+          <button id="clearPomcaLayer" class="clear-btn" type="button">
+            Quitar capa activa
+          </button>
+        </div>
+
+        <div class="pomca-map-control-card">
+          <h3>Leyenda</h3>
+          <div id="pomcaLegendContent">
+            <p>Selecciona una capa para ver su leyenda.</p>
+          </div>
+        </div>
+      </aside>
+
+      <div class="pomca-map-viewer">
+        <div id="pomcaMap"></div>
+      </div>
+
+      <aside class="pomca-map-info-card">
+        <h3>Información de capa</h3>
+        <div id="pomcaInfoContent">
+          <p>
+            Selecciona una capa del POMCA para ver su descripción, utilidad e interpretación
+            ambiental.
+          </p>
+        </div>
+
+        <div class="pomca-map-tip">
+          <strong>Tip de uso</strong>
+          <p>
+            Si el mapa no carga al primer intento, cambia de subvista y vuelve a Cartografía.
+            También puedes recargar la página después del ajuste de Leaflet.
+          </p>
+        </div>
+      </aside>
+    </div>
+
+    <section class="pomca-map-support">
+      <article>
+        <span>🗺️</span>
+        <div>
+          <h3>Contexto territorial</h3>
+          <p>
+            Usa la cartografía para ubicar áreas de protección, ecosistemas estratégicos
+            y zonas clave dentro de la cuenca.
+          </p>
+        </div>
+      </article>
+
+      <article>
+        <span>💧</span>
+        <div>
+          <h3>Gestión del agua</h3>
+          <p>
+            Las capas ambientales ayudan a interpretar la relación entre bosque,
+            cobertura vegetal, nacimientos y regulación hídrica.
+          </p>
+        </div>
+      </article>
+
+      <article>
+        <span>⚠️</span>
+        <div>
+          <h3>Planeación ambiental</h3>
+          <p>
+            La información cartográfica sirve como apoyo para decisiones de conservación,
+            restauración, control y ordenamiento territorial.
+          </p>
+        </div>
+      </article>
+    </section>
+  </section>
+</section>
+
+     <section class="pomca-subview" id="pomca-subview-indicadores" data-subview="indicadores" hidden>
+  <section class="pomca-reports-shell">
+    <div class="pomca-reports-header">
+      <div>
+        <span class="pomca-section-kicker">Indicadores y reportes</span>
+        <h2>Seguimiento ambiental de la Cuenca del Río Algodonal</h2>
+        <p>
+          Los indicadores permiten leer el estado de la cuenca, identificar presiones
+          ambientales y reconocer acciones de respuesta institucional y comunitaria.
+          Esta vista resume datos clave del POMCA Río Algodonal en lenguaje ciudadano.
+        </p>
+      </div>
+
+      <aside class="pomca-reports-highlight">
+        <strong>¿Para qué sirven?</strong>
+        <p>
+          Sirven para priorizar acciones de restauración, control, educación ambiental,
+          monitoreo hídrico y seguimiento al cumplimiento del POMCA.
+        </p>
+      </aside>
+    </div>
+
+    <section class="pomca-reports-kpi-grid">
+      <article class="pomca-report-kpi">
+        <span>Código IDEAM</span>
+        <strong>1605</strong>
+        <small>Subzona hidrográfica Río Algodonal</small>
+      </article>
+
+      <article class="pomca-report-kpi">
+        <span>Área total</span>
+        <strong>74.639,8 ha</strong>
+        <small>Extensión de la cuenca</small>
+      </article>
+
+      <article class="pomca-report-kpi warning">
+        <span>Cobertura boscosa</span>
+        <strong>25,35%</strong>
+        <small>Bosque secundario remanente</small>
+      </article>
+
+      <article class="pomca-report-kpi danger">
+        <span>Vertimientos urbanos</span>
+        <strong>75,15%</strong>
+        <small>Sin tratamiento previo</small>
+      </article>
+    </section>
+
+    <section class="pomca-report-grid">
+      <article class="pomca-report-panel">
+        <div class="pomca-report-panel-header">
+          <div>
+            <span>Estado</span>
+            <h3>Indicadores de estado ambiental</h3>
+          </div>
+          <strong>Cuenca</strong>
+        </div>
+
+        <div class="pomca-report-list">
+          <div class="pomca-report-row">
+            <div>
+              <strong>Oferta hídrica en bocatoma Ocaña</strong>
+              <span>Aforos CORPONOR — monitoreo permanente</span>
+            </div>
+            <em>1.200 - 1.500 L/s</em>
+          </div>
+
+          <div class="pomca-report-row">
+            <div>
+              <strong>Oferta hídrica en bocatoma Ábrego</strong>
+              <span>Aforos CORPONOR — monitoreo permanente</span>
+            </div>
+            <em>1.700 - 1.800 L/s</em>
+          </div>
+
+          <div class="pomca-report-row warning">
+            <div>
+              <strong>Cobertura boscosa remanente</strong>
+              <span>Mapa de uso y cobertura / mapa de cambios</span>
+            </div>
+            <em>25,35%</em>
+          </div>
+
+          <div class="pomca-report-row">
+            <div>
+              <strong>Riqueza de especies vegetales</strong>
+              <span>Caracterización biótica Consorcio Algodonal</span>
+            </div>
+            <em>293 especies</em>
+          </div>
+
+          <div class="pomca-report-row warning">
+            <div>
+              <strong>Especies vegetales amenazadas</strong>
+              <span>Resolución 192 de 2014 — diagnóstico biótico</span>
+            </div>
+            <em>3 especies</em>
+          </div>
+        </div>
+      </article>
+
+      <article class="pomca-report-panel">
+        <div class="pomca-report-panel-header">
+          <div>
+            <span>Presión</span>
+            <h3>Problemáticas ambientales identificadas</h3>
+          </div>
+          <strong>Prioridad</strong>
+        </div>
+
+        <div class="pomca-pressure-cards">
+          <article class="danger">
+            <strong>Vertimientos sin tratamiento</strong>
+            <p>
+              El 75,15% de las aguas residuales urbanas se vierte sin tratamiento previo.
+            </p>
+            <span>Zona urbana de municipios de la cuenca</span>
+          </article>
+
+          <article class="warning">
+            <strong>Captaciones ilegales de agua</strong>
+            <p>
+              Identificadas en el Río Algodonal y la Quebrada El Tabaco, asociadas a zonas de riego agropecuario.
+            </p>
+            <span>Presión sobre el caudal disponible</span>
+          </article>
+
+          <article class="warning">
+            <strong>Deforestación y fragmentación</strong>
+            <p>
+              La cuenca conserva solo el 25,35% de cobertura boscosa remanente.
+            </p>
+            <span>Mayor presión en zonas medias</span>
+          </article>
+
+          <article>
+            <strong>Erosión activa</strong>
+            <p>
+              Se identifican deslizamientos, erosión laminar y cárcavas en vías veredales y laderas.
+            </p>
+            <span>Zonas de pendiente fuerte</span>
+          </article>
+        </div>
+      </article>
+    </section>
+
+    <section class="pomca-report-grid">
+      <article class="pomca-report-panel">
+        <div class="pomca-report-panel-header">
+          <div>
+            <span>Respuesta</span>
+            <h3>Acciones de gestión y seguimiento</h3>
+          </div>
+          <strong>CORPONOR</strong>
+        </div>
+
+        <div class="pomca-response-timeline">
+          <article>
+            <span>01</span>
+            <div>
+              <h4>Aforos periódicos de caudal</h4>
+              <p>
+                Monitoreo hidrometeorológico permanente en la cuenca para evaluar oferta hídrica.
+              </p>
+            </div>
+          </article>
+
+          <article>
+            <span>02</span>
+            <div>
+              <h4>Control de captaciones ilegales</h4>
+              <p>
+                Operativos de control y vigilancia en campo sobre usos no autorizados del recurso hídrico.
+              </p>
+            </div>
+          </article>
+
+          <article>
+            <span>03</span>
+            <div>
+              <h4>Campañas de ahorro y uso eficiente</h4>
+              <p>
+                Socialización comunitaria en la Provincia de Ocaña para reducir presiones sobre el agua.
+              </p>
+            </div>
+          </article>
+
+          <article>
+            <span>04</span>
+            <div>
+              <h4>Auditoría visible del POMCA</h4>
+              <p>
+                Foro público en Ocaña con actores identificados en la fase de aprestamiento.
+              </p>
+            </div>
+          </article>
+
+          <article>
+            <span>05</span>
+            <div>
+              <h4>Adopción oficial del POMCA</h4>
+              <p>
+                Resolución 623 del 18 de junio de 2019, acto administrativo conjunto CORPONOR/CORPOCESAR.
+              </p>
+            </div>
+          </article>
+        </div>
+      </article>
+
+      <article class="pomca-report-panel">
+        <div class="pomca-report-panel-header">
+          <div>
+            <span>Reporte ciudadano</span>
+            <h3>¿Qué puede reportar la comunidad?</h3>
+          </div>
+          <strong>Participación</strong>
+        </div>
+
+        <div class="pomca-citizen-report-grid">
+          <article>
+            <span>💧</span>
+            <strong>Captaciones ilegales</strong>
+            <p>Uso no autorizado de agua en ríos, quebradas o nacimientos.</p>
+          </article>
+
+          <article>
+            <span>🧪</span>
+            <strong>Vertimientos</strong>
+            <p>Descargas contaminantes hacia cuerpos de agua o canales.</p>
+          </article>
+
+          <article>
+            <span>🌳</span>
+            <strong>Deforestación</strong>
+            <p>Tala, quema o pérdida de cobertura vegetal en zonas sensibles.</p>
+          </article>
+
+          <article>
+            <span>⚠️</span>
+            <strong>Erosión y riesgo</strong>
+            <p>Deslizamientos, cárcavas, taludes inestables o afectaciones en vías.</p>
+          </article>
+        </div>
+
+        <div class="pomca-report-note">
+          <strong>Canal institucional:</strong>
+          las afectaciones pueden reportarse ante CORPONOR para activar seguimiento,
+          control o verificación técnica.
+        </div>
+      </article>
+    </section>
+
+    <section class="pomca-report-summary">
+      <div>
+        <h3>Lectura general del estado de la cuenca</h3>
+        <p>
+          Los indicadores muestran una cuenca estratégica para el abastecimiento de agua,
+          pero con presiones importantes por pérdida de bosque, vertimientos, captaciones
+          no autorizadas, erosión y actividades productivas en zonas sensibles.
+        </p>
+      </div>
+
+      <div class="pomca-report-summary-tags">
+        <span>Monitoreo hídrico</span>
+        <span>Control ambiental</span>
+        <span>Restauración</span>
+        <span>Uso eficiente del agua</span>
+        <span>Participación ciudadana</span>
+      </div>
+    </section>
+  </section>
+</section>
+
+     <section class="pomca-subview" id="pomca-subview-participacion" data-subview="participacion" hidden>
+  <section class="pomca-participation-shell">
+    <div class="pomca-participation-header">
+      <div>
+        <span class="pomca-section-kicker">Participación ciudadana</span>
+        <h2>Comunidad y gestión ambiental del Río Algodonal</h2>
+        <p>
+          La participación ciudadana es un componente central del POMCA Río Algodonal.
+          Permite que comunidades, instituciones, sectores productivos, academia y
+          organizaciones sociales aporten información, validen decisiones y hagan
+          seguimiento a la gestión ambiental de la cuenca.
+        </p>
+      </div>
+
+      <aside class="pomca-participation-highlight">
+        <strong>Dato clave</strong>
+        <p>
+          En la fase de aprestamiento se identificaron, caracterizaron, priorizaron
+          y mapearon 999 actores de la cuenca.
+        </p>
+      </aside>
+    </div>
+
+    <section class="pomca-participation-main-grid">
+      <article class="pomca-participation-card featured">
+        <div class="pomca-card-icon">🤝</div>
+        <h3>Consejo de Cuenca del Río Algodonal</h3>
+        <p>
+          Es la instancia consultiva y representativa de los actores que viven,
+          trabajan o desarrollan actividades en la cuenca. Su función es aportar
+          información, participar en las fases del plan, canalizar recomendaciones
+          y contribuir a la solución de conflictos ambientales.
+        </p>
+
+        <div class="pomca-env-list-box">
+          <ul>
+            <li>Representa a actores comunitarios, institucionales, productivos y académicos.</li>
+            <li>Participa en diagnóstico, prospectiva, zonificación y formulación.</li>
+            <li>Apoya la consulta y validación de decisiones ambientales.</li>
+            <li>Sirve como canal de comunicación entre comunidad y autoridades ambientales.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="pomca-participation-card">
+        <div class="pomca-card-icon">👥</div>
+        <h3>Actores de la cuenca</h3>
+        <p>
+          El proceso reconoce la diversidad de actores del territorio: comunidades
+          rurales, usuarios del agua, productores, instituciones públicas, academia,
+          organizaciones sociales y autoridades ambientales.
+        </p>
+
+        <div class="pomca-participation-stats">
+          <article>
+            <strong>999</strong>
+            <span>Actores identificados</span>
+          </article>
+          <article>
+            <strong>44%</strong>
+            <span>Contacto por celular y correo</span>
+          </article>
+          <article>
+            <strong>34%</strong>
+            <span>Contacto solo por teléfono</span>
+          </article>
+        </div>
+      </article>
+    </section>
+
+    <section class="pomca-participation-timeline">
+      <div class="pomca-section-header">
+        <div>
+          <h3>Participación por fases del POMCA</h3>
+          <p>
+            La participación no se limita a una reunión. Acompaña diferentes momentos
+            del proceso técnico y social del POMCA.
+          </p>
+        </div>
+      </div>
+
+      <article class="pomca-participation-step">
+        <span>1</span>
+        <div>
+          <h4>Aprestamiento</h4>
+          <p>
+            Identificación, caracterización, priorización y mapeo de actores de la cuenca.
+            También se realizó el primer Foro de Auditoría Visible en Ocaña como mecanismo
+            de transparencia y seguimiento ciudadano.
+          </p>
+        </div>
+      </article>
+
+      <article class="pomca-participation-step">
+        <span>2</span>
+        <div>
+          <h4>Diagnóstico</h4>
+          <p>
+            Reuniones veredales, conversatorios temáticos, entrevistas a actores
+            institucionales y comunitarios, y levantamiento de información primaria
+            sobre las condiciones ambientales, sociales y productivas de la cuenca.
+          </p>
+        </div>
+      </article>
+
+      <article class="pomca-participation-step">
+        <span>3</span>
+        <div>
+          <h4>Prospectiva y zonificación</h4>
+          <p>
+            Construcción colectiva de escenarios futuros, consulta de la zonificación
+            ambiental, validación de la estructura ecológica principal y socialización
+            de amenazas y gestión del riesgo.
+          </p>
+        </div>
+      </article>
+
+      <article class="pomca-participation-step">
+        <span>4</span>
+        <div>
+          <h4>Formulación</h4>
+          <p>
+            Priorización participativa de programas y proyectos, revisión del borrador
+            del POMCA y validación final antes de su adopción oficial mediante acto
+            administrativo.
+          </p>
+        </div>
+      </article>
+
+      <article class="pomca-participation-step">
+        <span>5</span>
+        <div>
+          <h4>Ejecución y seguimiento</h4>
+          <p>
+            La comunidad puede participar mediante veedurías ciudadanas, rendición de
+            cuentas, solicitudes de información y reportes de afectaciones ambientales
+            como captaciones ilegales, vertimientos o deterioro de la cuenca.
+          </p>
+        </div>
+      </article>
+    </section>
+
+    <section class="pomca-participation-actions-grid">
+      <article class="pomca-participation-action">
+        <span>🔎</span>
+        <h3>Veeduría ciudadana</h3>
+        <p>
+          Permite hacer seguimiento al cumplimiento de programas, proyectos, inversiones
+          y compromisos ambientales del POMCA.
+        </p>
+      </article>
+
+      <article class="pomca-participation-action">
+        <span>📣</span>
+        <h3>Rendición de cuentas</h3>
+        <p>
+          La ciudadanía puede participar en espacios donde las autoridades ambientales
+          informan avances, resultados y dificultades del proceso.
+        </p>
+      </article>
+
+      <article class="pomca-participation-action">
+        <span>💧</span>
+        <h3>Reporte ambiental</h3>
+        <p>
+          La comunidad puede reportar captaciones ilegales, vertimientos, tala,
+          erosión, afectaciones a nacimientos o daños en rondas hídricas.
+        </p>
+      </article>
+
+      <article class="pomca-participation-action">
+        <span>📄</span>
+        <h3>Solicitud de información</h3>
+        <p>
+          Los ciudadanos pueden solicitar información sobre el estado de ejecución del
+          POMCA, sus programas, mapas, proyectos o indicadores ambientales.
+        </p>
+      </article>
+    </section>
+
+    <section class="pomca-participation-banner">
+      <div>
+        <h3>Participar también es cuidar la cuenca</h3>
+        <p>
+          La protección del Río Algodonal no depende solo de documentos técnicos.
+          También requiere comunidades informadas, vigilancia ciudadana, educación
+          ambiental y corresponsabilidad en el uso del agua, el suelo y los bosques.
+        </p>
+      </div>
+
+      <div class="pomca-participation-tags">
+        <span>Consejo de Cuenca</span>
+        <span>Veedurías</span>
+        <span>Auditoría visible</span>
+        <span>Reportes ambientales</span>
+        <span>Educación ambiental</span>
+      </div>
+    </section>
+  </section>
+</section>
+
+    <section class="pomca-subview" id="pomca-subview-glosario" data-subview="glosario" hidden>
+  <section class="pomca-glossary-shell">
+    <div class="pomca-glossary-header">
+      <div>
+        <span class="pomca-section-kicker">Glosario POMCA</span>
+        <h2>Conceptos clave del Río Algodonal</h2>
+        <p>
+          Este glosario explica términos técnicos del POMCA Río Algodonal en lenguaje
+          ciudadano, para facilitar la lectura de mapas, indicadores, documentos y
+          decisiones ambientales sobre la cuenca.
+        </p>
+      </div>
+
+      <aside class="pomca-glossary-highlight">
+        <strong>¿Cómo usarlo?</strong>
+        <p>
+          Abre cada concepto para entender su significado y su relación con el agua,
+          los bosques, los suelos, el riesgo y la planificación ambiental.
+        </p>
+      </aside>
+    </div>
+
+    <section class="pomca-glossary-grid">
+      <article class="pomca-glossary-card">
+        <div class="pomca-card-icon">💧</div>
+        <h3>Cuenca hidrográfica</h3>
+        <p>
+          Es el territorio donde las aguas lluvias, quebradas y ríos drenan hacia un
+          mismo cauce principal.
+        </p>
+
+        <details>
+          <summary>Ver explicación</summary>
+          <div>
+            <p>
+              En este caso, la cuenca del Río Algodonal es la unidad territorial que
+              permite planificar el agua, el suelo, los bosques, las actividades
+              productivas y los riesgos asociados al territorio hídrico.
+            </p>
+            <div class="pomca-home-note">
+              <strong>En el geovisor:</strong> ayuda a entender por qué varios municipios,
+              veredas y ecosistemas están conectados por el mismo sistema de agua.
+            </div>
+          </div>
+        </details>
+      </article>
+
+      <article class="pomca-glossary-card">
+        <div class="pomca-card-icon">🗺️</div>
+        <h3>POMCA</h3>
+        <p>
+          Es el Plan de Ordenación y Manejo de una Cuenca Hidrográfica.
+        </p>
+
+        <details>
+          <summary>Ver explicación</summary>
+          <div>
+            <p>
+              El POMCA define lineamientos para conservar, restaurar, usar de manera
+              sostenible y manejar los recursos naturales de la cuenca. Para el Río
+              Algodonal, funciona como instrumento ambiental de planificación y como
+              determinante para los planes de ordenamiento territorial.
+            </p>
+            <div class="pomca-home-note success">
+              <strong>Idea clave:</strong> el POMCA orienta decisiones sobre agua,
+              suelo, bosque, riesgo y actividades productivas.
+            </div>
+          </div>
+        </details>
+      </article>
+
+      <article class="pomca-glossary-card">
+        <div class="pomca-card-icon">🏔️</div>
+        <h3>Páramo de Jurisdicciones</h3>
+        <p>
+          Ecosistema de alta montaña donde nace el Río Algodonal.
+        </p>
+
+        <details>
+          <summary>Ver explicación</summary>
+          <div>
+            <p>
+              El páramo actúa como una esponja natural: almacena agua lluvia y la
+              libera lentamente hacia ríos y quebradas. Su protección es fundamental
+              para mantener el agua de la cuenca durante el año.
+            </p>
+            <div class="pomca-home-note success">
+              <strong>Importancia:</strong> sin páramo conservado, disminuye la
+              capacidad de regulación hídrica de la cuenca.
+            </div>
+          </div>
+        </details>
+      </article>
+
+      <article class="pomca-glossary-card">
+        <div class="pomca-card-icon">🌳</div>
+        <h3>Cobertura boscosa</h3>
+        <p>
+          Es la superficie de la cuenca cubierta por bosques o vegetación arbórea.
+        </p>
+
+        <details>
+          <summary>Ver explicación</summary>
+          <div>
+            <p>
+              Los bosques protegen nacimientos de agua, reducen erosión, regulan
+              caudales, conservan biodiversidad y ayudan a mantener la calidad del
+              agua. En la cuenca del Algodonal, la cobertura boscosa remanente es un
+              indicador clave del estado ambiental.
+            </p>
+            <div class="pomca-home-note">
+              <strong>Lectura ciudadana:</strong> más bosque significa más protección
+              para el agua, el suelo y la vida.
+            </div>
+          </div>
+        </details>
+      </article>
+
+      <article class="pomca-glossary-card">
+        <div class="pomca-card-icon">🌱</div>
+        <h3>Erosión</h3>
+        <p>
+          Es la pérdida o desgaste del suelo por acción del agua, el viento o malas
+          prácticas de uso del territorio.
+        </p>
+
+        <details>
+          <summary>Ver explicación</summary>
+          <div>
+            <p>
+              La deforestación, el uso intensivo de laderas y la falta de cobertura
+              vegetal hacen que el suelo pierda fertilidad y que los sedimentos lleguen
+              a ríos y quebradas.
+            </p>
+            <div class="pomca-home-note warning">
+              <strong>Importante:</strong> la erosión reduce la productividad rural
+              y aumenta el riesgo de deslizamientos.
+            </div>
+          </div>
+        </details>
+      </article>
+
+      <article class="pomca-glossary-card">
+        <div class="pomca-card-icon">⚠️</div>
+        <h3>Gestión del riesgo</h3>
+        <p>
+          Es el conjunto de acciones para conocer, reducir y manejar amenazas que
+          pueden afectar a comunidades y ecosistemas.
+        </p>
+
+        <details>
+          <summary>Ver explicación</summary>
+          <div>
+            <p>
+              En el POMCA Río Algodonal, la gestión del riesgo se relaciona con
+              deslizamientos, inundaciones, avenidas torrenciales, erosión y pérdida
+              de estabilidad en laderas y vías veredales.
+            </p>
+            <div class="pomca-home-note warning">
+              <strong>Uso práctico:</strong> ayuda a orientar decisiones sobre dónde
+              conservar, restaurar, restringir o intervenir el territorio.
+            </div>
+          </div>
+        </details>
+      </article>
+
+      <article class="pomca-glossary-card">
+        <div class="pomca-card-icon">🌿</div>
+        <h3>Estructura Ecológica Principal</h3>
+        <p>
+          Es la red de áreas naturales que sostiene la biodiversidad, el agua y los
+          servicios ecosistémicos.
+        </p>
+
+        <details>
+          <summary>Ver explicación</summary>
+          <div>
+            <p>
+              Incluye zonas como páramos, rondas hídricas, bosques estratégicos,
+              nacimientos, corredores ambientales y áreas que permiten la conectividad
+              ecológica de la cuenca.
+            </p>
+            <div class="pomca-home-note success">
+              <strong>Idea clave:</strong> conecta los espacios que mantienen viva
+              la cuenca.
+            </div>
+          </div>
+        </details>
+      </article>
+
+      <article class="pomca-glossary-card">
+        <div class="pomca-card-icon">🏞️</div>
+        <h3>Ronda hídrica</h3>
+        <p>
+          Es la franja de protección ubicada alrededor de ríos, quebradas y cuerpos
+          de agua.
+        </p>
+
+        <details>
+          <summary>Ver explicación</summary>
+          <div>
+            <p>
+              Las rondas hídricas ayudan a proteger los cauces, evitar ocupaciones
+              inseguras, conservar vegetación ribereña y reducir impactos por
+              inundaciones o erosión.
+            </p>
+            <div class="pomca-home-note">
+              <strong>En la cuenca:</strong> respetar las rondas es clave para cuidar
+              el Río Algodonal y sus afluentes.
+            </div>
+          </div>
+        </details>
+      </article>
+
+      <article class="pomca-glossary-card">
+        <div class="pomca-card-icon">🧪</div>
+        <h3>Vertimiento</h3>
+        <p>
+          Es la descarga de aguas residuales o sustancias contaminantes hacia un cuerpo
+          de agua.
+        </p>
+
+        <details>
+          <summary>Ver explicación</summary>
+          <div>
+            <p>
+              Los vertimientos domésticos, agrícolas, pecuarios o industriales pueden
+              afectar la calidad del agua y generar riesgos para la salud, los cultivos
+              y los ecosistemas acuáticos.
+            </p>
+            <div class="pomca-home-note warning">
+              <strong>Mensaje ciudadano:</strong> controlar vertimientos es proteger
+              el agua que usan las comunidades.
+            </div>
+          </div>
+        </details>
+      </article>
+
+      <article class="pomca-glossary-card">
+        <div class="pomca-card-icon">🤝</div>
+        <h3>Consejo de Cuenca</h3>
+        <p>
+          Es una instancia consultiva y representativa de los actores que viven o
+          desarrollan actividades en la cuenca.
+        </p>
+
+        <details>
+          <summary>Ver explicación</summary>
+          <div>
+            <p>
+              El Consejo de Cuenca participa en el proceso del POMCA, aporta información,
+              formula recomendaciones, acompaña la validación de decisiones y contribuye
+              al seguimiento ciudadano.
+            </p>
+            <div class="pomca-home-note">
+              <strong>Participación:</strong> conecta a comunidades, instituciones,
+              academia y sectores productivos.
+            </div>
+          </div>
+        </details>
+      </article>
+
+      <article class="pomca-glossary-card">
+        <div class="pomca-card-icon">🏛️</div>
+        <h3>Determinante ambiental</h3>
+        <p>
+          Es una regla ambiental de superior jerarquía que debe ser incorporada en
+          los instrumentos de ordenamiento territorial.
+        </p>
+
+        <details>
+          <summary>Ver explicación</summary>
+          <div>
+            <p>
+              El POMCA Río Algodonal define determinantes ambientales que los municipios
+              de la cuenca deben tener en cuenta en sus POT, PBOT o EOT, especialmente
+              en zonificación ambiental, gestión del riesgo y protección de recursos
+              naturales.
+            </p>
+            <div class="pomca-home-note success">
+              <strong>Idea clave:</strong> el ordenamiento territorial debe respetar
+              las decisiones ambientales de la cuenca.
+            </div>
+          </div>
+        </details>
+      </article>
+
+      <article class="pomca-glossary-card">
+        <div class="pomca-card-icon">🚜</div>
+        <h3>Uso productivo sostenible</h3>
+        <p>
+          Es el aprovechamiento del suelo y los recursos naturales sin destruir la
+          capacidad de recuperación de la cuenca.
+        </p>
+
+        <details>
+          <summary>Ver explicación</summary>
+          <div>
+            <p>
+              Implica desarrollar agricultura, ganadería u otras actividades productivas
+              con prácticas que reduzcan erosión, protejan el agua, mantengan cobertura
+              vegetal y eviten contaminación.
+            </p>
+            <div class="pomca-home-note">
+              <strong>Enfoque:</strong> producir sin agotar los recursos naturales
+              que sostienen la economía local.
+            </div>
+          </div>
+        </details>
+      </article>
+    </section>
+
+    <section class="pomca-glossary-banner">
+      <div>
+        <h3>Glosario para leer el territorio</h3>
+        <p>
+          Estos conceptos ayudan a interpretar mejor el mapa, los documentos, los
+          indicadores y las acciones de manejo ambiental del POMCA Río Algodonal.
+        </p>
+      </div>
+
+      <div class="pomca-glossary-tags">
+        <span>Agua</span>
+        <span>Bosques</span>
+        <span>Suelos</span>
+        <span>Riesgo</span>
+        <span>Participación</span>
+        <span>Ordenamiento</span>
+            </div>
+    </section>
+  </section>
+</section>
     </div>
   </div>
 </section>
@@ -1438,209 +3452,299 @@
         <img src="assets/Codigo_Transito.png" alt="Accidentabilidad" />
         <div>
           <h3>ACCIDENTABILIDAD</h3>
-          <p>Información y análisis para la seguridad vial</p>
+          <p>Información vial para prevenir siniestros</p>
         </div>
       </div>
 
       <nav class="module-menu">
-        <button class="module-menu-item active" type="button">Inicio Accidentabilidad</button>
-        <button class="module-menu-item" type="button">Consulta información vial</button>
-        <button class="module-menu-item" type="button">Siniestros</button>
-        <button class="module-menu-item" type="button">Seguridad vial</button>
-        <button class="module-menu-item" type="button">Análisis temático</button>
-        <button class="module-menu-item" type="button">Indicadores</button>
-        <button class="module-menu-item" type="button">Reportes</button>
-        <button class="module-menu-item" type="button">Participación ciudadana</button>
-        <button class="module-menu-item" type="button">Glosario</button>
+        <button class="module-menu-item active" type="button">Resumen general</button>
+        <button class="module-menu-item" type="button">Horas críticas</button>
+        <button class="module-menu-item" type="button">Días críticos</button>
+        <button class="module-menu-item" type="button">Actores viales</button>
+        <button class="module-menu-item" type="button">Parque automotor</button>
+        <button class="module-menu-item" type="button">Infracciones</button>
       </nav>
 
-      <button class="module-back-btn" type="button" data-view-target="inicio">← Volver al inicio</button>
+      <button class="module-back-btn" type="button" data-view-target="inicio">
+        ← Volver al inicio
+      </button>
     </aside>
 
     <div class="module-main">
-      <section class="module-hero accident-hero">
-        <div class="module-hero-card">
-          <h1>Accidentabilidad</h1>
-          <h2>Seguridad vial para salvar vidas</h2>
+      <section class="accident-hero-panel">
+        <div>
+          <span class="accident-kicker">Módulo de análisis vial</span>
+          <h1>Accidentabilidad en Ocaña</h1>
           <p>
-            Consulta, analiza y comprende la información sobre siniestros viales,
-            seguridad vial y factores asociados para la toma de decisiones y la
-            planificación territorial.
+            Este módulo organiza la información de siniestros, víctimas, horarios críticos,
+            días de mayor ocurrencia, actores viales vulnerables, parque automotor e
+            infracciones recurrentes para apoyar la prevención y la toma de decisiones.
           </p>
 
-          <div class="module-search">
-            <input type="text" placeholder="Buscar vías, siniestros, indicadores, reportes..." />
-            <button type="button">🔍</button>
+          <div class="accident-hero-tags">
+            <span>Seguridad vial</span>
+            <span>Prevención</span>
+            <span>Siniestros</span>
+            <span>Movilidad</span>
           </div>
         </div>
 
-        <div class="module-info-card">
-          <h3>Accidentabilidad</h3>
+        <aside class="accident-alert-card">
+          <strong>Alerta principal</strong>
           <p>
-            Aquí podrás integrar información de accidentabilidad, mapas viales,
-            reportes y análisis para comprender los siniestros viales y mejorar
-            la seguridad en las vías del territorio.
+            Entre enero y mayo de 2026 se registran 14 muertes. El primer trimestre
+            de 2026 presenta un aumento frente al primer trimestre de 2025.
           </p>
-
-          <ul class="module-checklist">
-            <li>Información integrada y actualizada</li>
-            <li>Mapas interactivos y análisis espacial</li>
-            <li>Reportes y estadísticas confiables</li>
-            <li>Apoyo a la toma de decisiones</li>
-            <li>Planeación y prevención vial</li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="stats-row accident-stats">
-        <article class="stat-card">
-          <span class="stat-label">Siniestros registrados</span>
-          <strong>1.245</strong>
-          <small>En el territorio</small>
-        </article>
-        <article class="stat-card">
-          <span class="stat-label">Víctimas</span>
-          <strong>1.876</strong>
-          <small>Totales</small>
-        </article>
-        <article class="stat-card">
-          <span class="stat-label">Lesionados</span>
-          <strong>1.432</strong>
-          <small>Total</small>
-        </article>
-        <article class="stat-card">
-          <span class="stat-label">Fallecidos</span>
-          <strong>224</strong>
-          <small>Total</small>
-        </article>
-        <article class="stat-card">
-          <span class="stat-label">Año de referencia</span>
-          <strong>2024</strong>
-          <small>Actualizado</small>
-        </article>
-      </section>
-
-      <section class="content-and-side">
-        <div class="content-panel">
-          <div class="section-title">
-            <h3>Explora la información</h3>
-          </div>
-
-          <div class="feature-grid">
-            <article class="feature-card">
-              <div class="feature-icon">🛣️</div>
-              <h4>Consulta información vial</h4>
-              <p>Explora la red vial, inventario de vías, condiciones y atributos.</p>
-              <button type="button">Consultar</button>
-            </article>
-
-            <article class="feature-card">
-              <div class="feature-icon">🚗</div>
-              <h4>Siniestros</h4>
-              <p>Consulta y analiza los siniestros viales registrados en el territorio.</p>
-              <button type="button">Explorar</button>
-            </article>
-
-            <article class="feature-card">
-              <div class="feature-icon">🛡️</div>
-              <h4>Seguridad vial</h4>
-              <p>Conoce las acciones, programas y estrategias de seguridad vial.</p>
-              <button type="button">Ver más</button>
-            </article>
-
-            <article class="feature-card">
-              <div class="feature-icon">📊</div>
-              <h4>Análisis temático</h4>
-              <p>Análisis espaciales y temporales sobre la accidentabilidad.</p>
-              <button type="button">Analizar</button>
-            </article>
-
-            <article class="feature-card">
-              <div class="feature-icon">📈</div>
-              <h4>Indicadores</h4>
-              <p>Consulta indicadores clave de accidentabilidad y seguridad vial.</p>
-              <button type="button">Ver indicadores</button>
-            </article>
-          </div>
-
-          <div class="map-preview-card">
-            <div class="map-preview-header">
-              <div>
-                <h4>Mapa de siniestros</h4>
-                <p>Visualiza la distribución espacial de los siniestros viales en el territorio.</p>
-              </div>
-              <button type="button">Ver mapa completo</button>
-            </div>
-            <div id="accidentMap" class="accident-map" role="img" aria-label="Mapa de accidentabilidad"></div>
-          </div>
-
-          <div class="module-bottom-banner">
-            <div>
-              <strong>Conocimiento para la acción</strong>
-              <p>
-                La información de accidentabilidad es clave para salvar vidas y construir
-                vías más seguras para todos.
-              </p>
-            </div>
-            <button type="button">Explorar todo el módulo →</button>
-          </div>
-        </div>
-
-        <aside class="right-panel">
-          <div class="right-panel-card">
-            <h4>Accesos rápidos</h4>
-            <button type="button" class="quick-link">Visor de mapas de siniestros</button>
-            <button type="button" class="quick-link">Reportes de accidentabilidad</button>
-            <button type="button" class="quick-link">Indicadores de seguridad vial</button>
-            <button type="button" class="quick-link">Participa y reporta</button>
-          </div>
-
-          <div class="right-panel-card soft-green">
-            <h4>Información importante</h4>
-            <p>
-              Los datos de accidentabilidad son actualizados periódicamente.
-              Verifica la fecha de actualización de los indicadores y reportes.
-            </p>
-            <small>Última actualización: 12/05/2024</small>
-          </div>
         </aside>
+      </section>
+
+      <section class="accident-kpi-grid">
+        <article class="accident-kpi-card">
+          <span class="kpi-label">Primer trimestre 2025</span>
+          <strong>3</strong>
+          <small>Muertos registrados</small>
+        </article>
+
+        <article class="accident-kpi-card danger">
+          <span class="kpi-label">Primer trimestre 2026</span>
+          <strong>11</strong>
+          <small>Muertos registrados</small>
+        </article>
+
+        <article class="accident-kpi-card danger">
+          <span class="kpi-label">Enero - mayo 2026</span>
+          <strong>14</strong>
+          <small>Muertos registrados</small>
+        </article>
+
+        <article class="accident-kpi-card">
+          <span class="kpi-label">Accidentes por hora</span>
+          <strong>804</strong>
+          <small>Registros analizados</small>
+        </article>
+
+        <article class="accident-kpi-card">
+          <span class="kpi-label">Accidentes por día</span>
+          <strong>815</strong>
+          <small>Registros analizados</small>
+        </article>
+      </section>
+
+      <section class="accident-dashboard-grid">
+        <article class="accident-panel">
+          <div class="accident-panel-header">
+            <div>
+              <span>Horario</span>
+              <h2>Horas críticas de accidentalidad</h2>
+            </div>
+            <strong>Mayor riesgo</strong>
+          </div>
+
+          <div class="accident-bars">
+            <div class="accident-bar-row">
+              <span>17:00 - 18:59</span>
+              <div class="accident-bar-track">
+                <div class="accident-bar-fill" style="width:100%"></div>
+              </div>
+              <strong>109</strong>
+            </div>
+
+            <div class="accident-bar-row">
+              <span>19:00 - 20:59</span>
+              <div class="accident-bar-track">
+                <div class="accident-bar-fill" style="width:96%"></div>
+              </div>
+              <strong>105</strong>
+            </div>
+
+            <div class="accident-bar-row">
+              <span>08:00 - 09:59</span>
+              <div class="accident-bar-track">
+                <div class="accident-bar-fill" style="width:87%"></div>
+              </div>
+              <strong>95</strong>
+            </div>
+
+            <div class="accident-bar-row">
+              <span>12:00 - 12:59</span>
+              <div class="accident-bar-track">
+                <div class="accident-bar-fill" style="width:81%"></div>
+              </div>
+              <strong>88</strong>
+            </div>
+          </div>
+
+          <p class="accident-note">
+            Los picos más altos se concentran al final de la tarde y en la noche temprana.
+          </p>
+        </article>
+
+        <article class="accident-panel">
+          <div class="accident-panel-header">
+            <div>
+              <span>Días</span>
+              <h2>Días con mayor accidentalidad</h2>
+            </div>
+            <strong>Fin de semana</strong>
+          </div>
+
+          <div class="accident-bars">
+            <div class="accident-bar-row">
+              <span>Sábado</span>
+              <div class="accident-bar-track">
+                <div class="accident-bar-fill" style="width:100%"></div>
+              </div>
+              <strong>150</strong>
+            </div>
+
+            <div class="accident-bar-row">
+              <span>Viernes</span>
+              <div class="accident-bar-track">
+                <div class="accident-bar-fill" style="width:97%"></div>
+              </div>
+              <strong>145</strong>
+            </div>
+
+            <div class="accident-bar-row">
+              <span>Domingo</span>
+              <div class="accident-bar-track">
+                <div class="accident-bar-fill" style="width:87%"></div>
+              </div>
+              <strong>130</strong>
+            </div>
+
+            <div class="accident-bar-row">
+              <span>Jueves</span>
+              <div class="accident-bar-track">
+                <div class="accident-bar-fill" style="width:73%"></div>
+              </div>
+              <strong>110</strong>
+            </div>
+          </div>
+
+          <p class="accident-note">
+            Viernes, sábado y domingo concentran aproximadamente el 53.2% de los accidentes.
+          </p>
+        </article>
+      </section>
+
+      <section class="accident-dashboard-grid three">
+        <article class="accident-panel">
+          <div class="accident-panel-header">
+            <div>
+              <span>Víctimas</span>
+              <h2>Actores viales vulnerables</h2>
+            </div>
+          </div>
+
+          <div class="accident-victim-list">
+            <div class="victim-item very-high">
+              <strong>Motociclista</strong>
+              <span>44.28% muertes / 50.62% heridos</span>
+            </div>
+
+            <div class="victim-item high">
+              <strong>Peatón</strong>
+              <span>29.27% muertes / 22.67% heridos</span>
+            </div>
+
+            <div class="victim-item high">
+              <strong>Ciclista</strong>
+              <span>8.5% muertes / 10% heridos</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="accident-panel">
+          <div class="accident-panel-header">
+            <div>
+              <span>Vehículos</span>
+              <h2>Parque automotor</h2>
+            </div>
+          </div>
+
+          <div class="accident-mini-stats">
+            <article>
+              <strong>66.461</strong>
+              <span>Motocicletas</span>
+            </article>
+
+            <article>
+              <strong>5.146</strong>
+              <span>Automóviles</span>
+            </article>
+
+            <article>
+              <strong>3.229</strong>
+              <span>Camionetas</span>
+            </article>
+
+            <article>
+              <strong>1.016</strong>
+              <span>Camiones</span>
+            </article>
+          </div>
+
+          <p class="accident-note">
+            La motocicleta aparece como vehículo dominante y actor principal en siniestros.
+          </p>
+        </article>
+
+        <article class="accident-panel">
+          <div class="accident-panel-header">
+            <div>
+              <span>Control vial</span>
+              <h2>Infracciones recurrentes</h2>
+            </div>
+          </div>
+
+          <div class="accident-infraction-list">
+            <div>
+              <strong>C02</strong>
+              <span>Estacionar en sitios no permitidos</span>
+              <em>131</em>
+            </div>
+
+            <div>
+              <strong>C24</strong>
+              <span>No portar elementos de protección personal</span>
+              <em>87</em>
+            </div>
+
+            <div>
+              <strong>D12</strong>
+              <span>Documentación vencida o inexistente</span>
+              <em>45</em>
+            </div>
+
+            <div>
+              <strong>C35</strong>
+              <span>Incumplimiento revisión técnico-mecánica</span>
+              <em>32</em>
+            </div>
+          </div>
+
+          <p class="accident-note">
+            Total de comparendos analizados: 355.
+          </p>
+        </article>
+      </section>
+
+      <section class="accident-bottom-banner">
+        <div>
+          <strong>Conocimiento para la prevención</strong>
+          <p>
+            La lectura integrada de horarios, días críticos, actores vulnerables e infracciones
+            permite orientar acciones de control, pedagogía y seguridad vial.
+          </p>
+        </div>
       </section>
     </div>
   </div>
 </section>
-    </section>
-  </main>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
- <script src="main.js?v=62"></script>
+<script src="main.js?v=64"></script>
 <script src="chatbot.js?v=61"></script>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const pomcaView = document.getElementById("view-pomca");
-  if (!pomcaView) return;
-
-  const menuButtons = pomcaView.querySelectorAll("[data-subview-target]");
-  const subviews = pomcaView.querySelectorAll(".pomca-subview[data-subview]");
-
-  const activateSubview = (target) => {
-    subviews.forEach((section) => {
-      const isActive = section.dataset.subview === target;
-      section.hidden = !isActive;
-      section.classList.toggle("active", isActive);
-    });
-
-    menuButtons.forEach((button) => {
-      button.classList.toggle("active", button.dataset.subviewTarget === target);
-    });
-  };
-
-  menuButtons.forEach((button) => {
-    button.addEventListener("click", () => activateSubview(button.dataset.subviewTarget));
-  });
-
-  activateSubview("inicio");
-});
-</script>
-
 </body>
 </html>

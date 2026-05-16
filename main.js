@@ -292,7 +292,7 @@ function setActiveAccidentMenu(hash) {
     if (block) block.hidden = true;
   });
 
-  if (section === "inicio") {
+ if (section === "inicio") {
   const inicio = document.getElementById("accident-inicio");
   const video = accidentView.querySelector(".accident-video-card");
   const kpis = accidentView.querySelector(".accident-kpi-grid");

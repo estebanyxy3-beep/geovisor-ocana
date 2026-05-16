@@ -21,9 +21,13 @@
       </div>
     </div>
 
-    <div class="topbar-actions">
-      <button class="nav-toggle" id="navToggle" type="button">☰</button>
-    </div>
+   <div class="topbar-actions">
+  <button class="top-home-btn" type="button" data-view-target="inicio">
+    ← Inicio
+  </button>
+
+  <button class="nav-toggle" id="navToggle" type="button">☰</button>
+</div>
   </header>
 
   <main class="layout">
@@ -37,7 +41,7 @@
         <button class="nav-item" data-view="mecanismos">Mecanismos de Participación</button>
           <button class="nav-item" data-view="pot">POT</button>
           <button class="nav-item" data-view="pomca">POMCA</button>
-          <button class="nav-item" data-view="accidentabilidad">Accidentabilidad</button>
+          <button class="nav-item" data-view="accidentabilidad">Accidentalidad</button>
         </nav>
 
         <div class="sidebar-ally-card">
@@ -147,7 +151,26 @@
                 </div>
               </div>
             </section>
+<section class="module-video-card home-video-card">
+  <div class="module-video-copy">
+    <span class="module-video-kicker">Guía de la plataforma</span>
+    <h3>Conoce cómo funciona VAOI</h3>
+    <p>
+      Este video presenta la plataforma VAOI - Visión Ambiental, Ocaña Interactiva.
+      Explica sus módulos principales, su finalidad y cómo navegar por sus herramientas
+      para consultar información ambiental, territorial, normativa y ciudadana de Ocaña.
+    </p>
+  </div>
 
+  <div class="module-video-frame">
+    <iframe
+  src="https://www.youtube.com/embed/nHrKRaSPofc"
+  title="Guía de la plataforma VAOI"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen>
+</iframe>
+  </div>
+</section>
             <section class="home-cards">
               <article class="topic-card green-card">
                 <img src="assets/UNGRD.png" alt="UNGRD" class="topic-image" />
@@ -187,7 +210,7 @@
 
               <article class="topic-card yellow-card">
                 <img src="assets/Codigo_Transito.png" alt="Código Nacional de Tránsito" class="topic-image" />
-                <h3>Accidentabilidad</h3>
+                <h3>Accidentalidad</h3>
                 <p>Integra información vial, indicadores, reportes y análisis temáticos sobre tránsito y seguridad vial.</p>
                 <button class="topic-btn yellow-btn" type="button" data-view-target="accidentabilidad">
                   Explorar módulo
@@ -237,10 +260,11 @@
 
   <div class="module-video-frame">
     <iframe
-      src="https://drive.google.com/file/d/1AputDzPjd9_bVN-oQfYbiORberJceyhM/preview"
-      allow="autoplay"
-      allowfullscreen>
-    </iframe>
+  src="https://www.youtube.com/embed/JKFffWJZok4"
+  title="Video Mapas de Riesgo"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen>
+</iframe>
   </div>
 </section>
         <div class="risk-full-map-layout">
@@ -521,11 +545,12 @@
   </div>
 
   <div class="module-video-frame">
-    <iframe
-      src="https://drive.google.com/file/d/1FXFrBDUnFoQSl62EBFb2vmjpviiPhZof/preview"
-      allow="autoplay"
-      allowfullscreen>
-    </iframe>
+   <iframe
+  src="https://www.youtube.com/embed/w8-oqaWfBkI"
+  title="Video Mecanismos de Participación Ciudadana"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen>
+</iframe>
   </div>
 </section>
       <section class="participacion-stats-grid">
@@ -1584,15 +1609,26 @@
                   Consulta qué usos están permitidos, condicionados o prohibidos según el
                   tratamiento urbanístico o rural aplicable.
                 </p>
-<div class="pot-fichas-drive-link">
-  <a
-    href="https://drive.google.com/file/d/1dOiHDRHs8G6cg1Ijytj350huayWOgTl1/view?usp=sharing"
-    target="_blank"
-    rel="noopener"
-  >
-    🎥 Ver video de apoyo sobre fichas normativas
-  </a>
-</div>
+<section class="module-video-card pot-video-card">
+  <div class="module-video-copy">
+    <span class="module-video-kicker">Video de apoyo</span>
+    <h3>Fichas normativas del POT</h3>
+    <p>
+      Este video explica cómo consultar las fichas normativas del POT,
+      interpretar los usos del suelo, tratamientos urbanísticos y condiciones
+      aplicables en el municipio de Ocaña.
+    </p>
+  </div>
+
+  <div class="module-video-frame">
+    <iframe
+      src="https://www.youtube.com/embed/-uoOsZ5btoo"
+      title="Video Fichas Normativas POT"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen>
+    </iframe>
+  </div>
+</section>
                 <label for="potFichasSearch">Buscar por ficha, tratamiento, uso o palabra clave</label>
                 <input
                   id="potFichasSearch"
@@ -1904,10 +1940,11 @@
 
   <div class="module-video-frame">
     <iframe
-      src="https://drive.google.com/file/d/1KUfIWC6mxqaq05tmkmBqwDpJ03mQLbe7/preview"
-      allow="autoplay"
-      allowfullscreen>
-    </iframe>
+  src="https://www.youtube.com/embed/1DVLq-8bFNs"
+  title="Video POMCA Río Algodonal"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen>
+</iframe>
   </div>
 </section>
     <section class="pomca-home-ods">
@@ -3449,297 +3486,490 @@
   <div class="module-shell accident-shell">
     <aside class="module-sidebar accident-sidebar">
       <div class="module-brand accident-brand">
-        <img src="assets/Codigo_Transito.png" alt="Accidentabilidad" />
+        <img src="assets/Codigo_Transito.png" alt="Accidentabilidad y Seguridad Vial" />
         <div>
           <h3>ACCIDENTABILIDAD</h3>
-          <p>Información vial para prevenir siniestros</p>
+          <p>Seguridad vial, movilidad y prevención</p>
         </div>
       </div>
 
+      <div class="mini-label">MÓDULO</div>
+
       <nav class="module-menu">
-        <button class="module-menu-item active" type="button">Resumen general</button>
-        <button class="module-menu-item" type="button">Horas críticas</button>
-        <button class="module-menu-item" type="button">Días críticos</button>
-        <button class="module-menu-item" type="button">Actores viales</button>
-        <button class="module-menu-item" type="button">Parque automotor</button>
-        <button class="module-menu-item" type="button">Infracciones</button>
+        <a class="module-menu-item active" href="#accident-inicio">Inicio</a>
+        <a class="module-menu-item" href="#accident-plsv">PLSV</a>
+        <a class="module-menu-item" href="#accident-acciones">Acciones</a>
+        <a class="module-menu-item" href="#accident-siniestralidad">Siniestralidad</a>
+        <a class="module-menu-item" href="#accident-parque">Parque automotor</a>
+        <a class="module-menu-item" href="#accident-ciudadania">Ciudadanía</a>
       </nav>
 
-      <button class="module-back-btn" type="button" data-view-target="inicio">
-        ← Volver al inicio
-      </button>
+      <div class="accident-sidebar-note">
+        <strong>Movilidad segura</strong>
+        <p>
+          La seguridad vial depende del comportamiento ciudadano, el control,
+          la infraestructura, la educación y la gestión institucional.
+        </p>
+      </div>
     </aside>
 
-    <div class="module-main">
-      <section class="accident-hero-panel">
+    <main class="module-main accident-main">
+      <section class="accident-hero" id="accident-inicio">
         <div>
-          <span class="accident-kicker">Módulo de análisis vial</span>
-          <h1>Accidentabilidad en Ocaña</h1>
+          <span class="accident-kicker">Plan Local de Seguridad Vial</span>
+          <h1>Accidentabilidad y Seguridad Vial en Ocaña</h1>
           <p>
-            Este módulo organiza la información de siniestros, víctimas, horarios críticos,
-            días de mayor ocurrencia, actores viales vulnerables, parque automotor e
-            infracciones recurrentes para apoyar la prevención y la toma de decisiones.
+            Este módulo presenta información del Plan Local de Seguridad Vial 2024-2033,
+            con énfasis en acciones de prevención, control, pedagogía, infraestructura,
+            análisis de siniestralidad y comportamiento del parque automotor del municipio.
           </p>
 
           <div class="accident-hero-tags">
-            <span>Seguridad vial</span>
-            <span>Prevención</span>
-            <span>Siniestros</span>
-            <span>Movilidad</span>
+            <span>Prevención vial</span>
+            <span>Control operativo</span>
+            <span>Educación vial</span>
+            <span>Motociclistas</span>
+            <span>Movilidad segura</span>
           </div>
         </div>
 
-        <aside class="accident-alert-card">
-          <strong>Alerta principal</strong>
+        <aside class="accident-hero-card">
+          <strong>Objetivo ciudadano</strong>
           <p>
-            Entre enero y mayo de 2026 se registran 14 muertes. El primer trimestre
-            de 2026 presenta un aumento frente al primer trimestre de 2025.
+            Ayudar a comprender los principales factores de riesgo vial y promover
+            decisiones responsables entre peatones, motociclistas, conductores,
+            estudiantes, instituciones y comunidad en general.
           </p>
         </aside>
       </section>
+<section class="module-video-card accident-video-card">
+  <div class="module-video-copy">
+    <span class="module-video-kicker">Video de apoyo</span>
+    <h3>Accidentalidad y Seguridad Vial en Ocaña</h3>
+    <p>
+      Este video explica el módulo de Accidentalidad y Seguridad Vial de VAOI,
+      sus indicadores principales, las acciones del Plan Local de Seguridad Vial,
+      los puestos de control, la siniestralidad y las recomendaciones ciudadanas
+      para una movilidad más segura.
+    </p>
+  </div>
 
+  <div class="module-video-frame">
+    <iframe
+      src="https://www.youtube.com/embed/rw9iJwzhO1c"
+      title="Video Accidentalidad y Seguridad Vial"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen>
+    </iframe>
+  </div>
+</section>
       <section class="accident-kpi-grid">
-        <article class="accident-kpi-card">
-          <span class="kpi-label">Primer trimestre 2025</span>
-          <strong>3</strong>
-          <small>Muertos registrados</small>
+        <article>
+          <span>Personas sensibilizadas</span>
+          <strong>3354</strong>
+          <small>Intervenciones pedagógicas</small>
         </article>
 
-        <article class="accident-kpi-card danger">
-          <span class="kpi-label">Primer trimestre 2026</span>
-          <strong>11</strong>
-          <small>Muertos registrados</small>
+        <article>
+          <span>Estudiantes intervenidos</span>
+          <strong>751</strong>
+          <small>Grados décimo y undécimo</small>
         </article>
 
-        <article class="accident-kpi-card danger">
-          <span class="kpi-label">Enero - mayo 2026</span>
-          <strong>14</strong>
-          <small>Muertos registrados</small>
+        <article>
+          <span>Puestos de control</span>
+          <strong>222</strong>
+          <small>Primer trimestre</small>
         </article>
 
-        <article class="accident-kpi-card">
-          <span class="kpi-label">Accidentes por hora</span>
-          <strong>804</strong>
-          <small>Registros analizados</small>
-        </article>
-
-        <article class="accident-kpi-card">
-          <span class="kpi-label">Accidentes por día</span>
-          <strong>815</strong>
-          <small>Registros analizados</small>
+        <article>
+          <span>Alcoholimetría</span>
+          <strong>48</strong>
+          <small>Puestos de control</small>
         </article>
       </section>
 
-      <section class="accident-dashboard-grid">
-        <article class="accident-panel">
-          <div class="accident-panel-header">
-            <div>
-              <span>Horario</span>
-              <h2>Horas críticas de accidentalidad</h2>
-            </div>
-            <strong>Mayor riesgo</strong>
-          </div>
-
-          <div class="accident-bars">
-            <div class="accident-bar-row">
-              <span>17:00 - 18:59</span>
-              <div class="accident-bar-track">
-                <div class="accident-bar-fill" style="width:100%"></div>
-              </div>
-              <strong>109</strong>
-            </div>
-
-            <div class="accident-bar-row">
-              <span>19:00 - 20:59</span>
-              <div class="accident-bar-track">
-                <div class="accident-bar-fill" style="width:96%"></div>
-              </div>
-              <strong>105</strong>
-            </div>
-
-            <div class="accident-bar-row">
-              <span>08:00 - 09:59</span>
-              <div class="accident-bar-track">
-                <div class="accident-bar-fill" style="width:87%"></div>
-              </div>
-              <strong>95</strong>
-            </div>
-
-            <div class="accident-bar-row">
-              <span>12:00 - 12:59</span>
-              <div class="accident-bar-track">
-                <div class="accident-bar-fill" style="width:81%"></div>
-              </div>
-              <strong>88</strong>
-            </div>
-          </div>
-
-          <p class="accident-note">
-            Los picos más altos se concentran al final de la tarde y en la noche temprana.
-          </p>
-        </article>
-
-        <article class="accident-panel">
-          <div class="accident-panel-header">
-            <div>
-              <span>Días</span>
-              <h2>Días con mayor accidentalidad</h2>
-            </div>
-            <strong>Fin de semana</strong>
-          </div>
-
-          <div class="accident-bars">
-            <div class="accident-bar-row">
-              <span>Sábado</span>
-              <div class="accident-bar-track">
-                <div class="accident-bar-fill" style="width:100%"></div>
-              </div>
-              <strong>150</strong>
-            </div>
-
-            <div class="accident-bar-row">
-              <span>Viernes</span>
-              <div class="accident-bar-track">
-                <div class="accident-bar-fill" style="width:97%"></div>
-              </div>
-              <strong>145</strong>
-            </div>
-
-            <div class="accident-bar-row">
-              <span>Domingo</span>
-              <div class="accident-bar-track">
-                <div class="accident-bar-fill" style="width:87%"></div>
-              </div>
-              <strong>130</strong>
-            </div>
-
-            <div class="accident-bar-row">
-              <span>Jueves</span>
-              <div class="accident-bar-track">
-                <div class="accident-bar-fill" style="width:73%"></div>
-              </div>
-              <strong>110</strong>
-            </div>
-          </div>
-
-          <p class="accident-note">
-            Viernes, sábado y domingo concentran aproximadamente el 53.2% de los accidentes.
-          </p>
-        </article>
-      </section>
-
-      <section class="accident-dashboard-grid three">
-        <article class="accident-panel">
-          <div class="accident-panel-header">
-            <div>
-              <span>Víctimas</span>
-              <h2>Actores viales vulnerables</h2>
-            </div>
-          </div>
-
-          <div class="accident-victim-list">
-            <div class="victim-item very-high">
-              <strong>Motociclista</strong>
-              <span>44.28% muertes / 50.62% heridos</span>
-            </div>
-
-            <div class="victim-item high">
-              <strong>Peatón</strong>
-              <span>29.27% muertes / 22.67% heridos</span>
-            </div>
-
-            <div class="victim-item high">
-              <strong>Ciclista</strong>
-              <span>8.5% muertes / 10% heridos</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="accident-panel">
-          <div class="accident-panel-header">
-            <div>
-              <span>Vehículos</span>
-              <h2>Parque automotor</h2>
-            </div>
-          </div>
-
-          <div class="accident-mini-stats">
-            <article>
-              <strong>66.461</strong>
-              <span>Motocicletas</span>
-            </article>
-
-            <article>
-              <strong>5.146</strong>
-              <span>Automóviles</span>
-            </article>
-
-            <article>
-              <strong>3.229</strong>
-              <span>Camionetas</span>
-            </article>
-
-            <article>
-              <strong>1.016</strong>
-              <span>Camiones</span>
-            </article>
-          </div>
-
-          <p class="accident-note">
-            La motocicleta aparece como vehículo dominante y actor principal en siniestros.
-          </p>
-        </article>
-
-        <article class="accident-panel">
-          <div class="accident-panel-header">
-            <div>
-              <span>Control vial</span>
-              <h2>Infracciones recurrentes</h2>
-            </div>
-          </div>
-
-          <div class="accident-infraction-list">
-            <div>
-              <strong>C02</strong>
-              <span>Estacionar en sitios no permitidos</span>
-              <em>131</em>
-            </div>
-
-            <div>
-              <strong>C24</strong>
-              <span>No portar elementos de protección personal</span>
-              <em>87</em>
-            </div>
-
-            <div>
-              <strong>D12</strong>
-              <span>Documentación vencida o inexistente</span>
-              <em>45</em>
-            </div>
-
-            <div>
-              <strong>C35</strong>
-              <span>Incumplimiento revisión técnico-mecánica</span>
-              <em>32</em>
-            </div>
-          </div>
-
-          <p class="accident-note">
-            Total de comparendos analizados: 355.
-          </p>
-        </article>
-      </section>
-
-      <section class="accident-bottom-banner">
-        <div>
-          <strong>Conocimiento para la prevención</strong>
+      <section class="accident-section-card" id="accident-plsv">
+        <div class="accident-section-header">
+          <span class="accident-kicker">PLSV 2024-2033</span>
+          <h2>Plan Local de Seguridad Vial</h2>
           <p>
-            La lectura integrada de horarios, días críticos, actores vulnerables e infracciones
-            permite orientar acciones de control, pedagogía y seguridad vial.
+            El Plan Local de Seguridad Vial organiza la gestión municipal en torno a
+            ejes estratégicos que buscan reducir siniestros, mejorar comportamientos
+            en la vía y fortalecer la capacidad institucional.
           </p>
         </div>
+
+        <div class="accident-pillars-grid">
+          <article>
+            <span>01</span>
+            <h3>Gestionar</h3>
+            <p>Fortalecer la coordinación institucional, la gobernanza y el seguimiento del plan.</p>
+          </article>
+
+          <article>
+            <span>02</span>
+            <h3>Regular</h3>
+            <p>Aplicar normas, controles y acciones para mejorar el comportamiento vial.</p>
+          </article>
+
+          <article>
+            <span>03</span>
+            <h3>Planear</h3>
+            <p>Priorizar sectores críticos, educación vial, infraestructura y acciones preventivas.</p>
+          </article>
+
+          <article>
+            <span>04</span>
+            <h3>Ejecutar</h3>
+            <p>Desarrollar operativos, campañas, intervenciones pedagógicas y mantenimiento vial.</p>
+          </article>
+        </div>
+
+        <div class="accident-axis-grid">
+          <article>
+            <strong>Velocidades seguras</strong>
+            <p>Gestión de sectores críticos, señalización e infraestructura para controlar velocidades.</p>
+          </article>
+
+          <article>
+            <strong>Vehículos seguros</strong>
+            <p>Operativos a transporte público, control documental, elementos de protección y transporte informal.</p>
+          </article>
+
+          <article>
+            <strong>Infraestructura vial segura</strong>
+            <p>Mantenimientos viales, red semafórica, intervención de vías urbanas y rurales.</p>
+          </article>
+
+          <article>
+            <strong>Comportamiento seguro</strong>
+            <p>Educación vial en instituciones educativas, autocuidado, normas de tránsito y velocidad.</p>
+          </article>
+
+          <article>
+            <strong>Cumplimiento de normas</strong>
+            <p>Vigilancia a peatones, motociclistas, transporte escolar y condiciones físicas de conductores.</p>
+          </article>
+
+          <article>
+            <strong>Gestión del conocimiento</strong>
+            <p>Actualización de datos, parque automotor, formación técnica y análisis de siniestralidad.</p>
+          </article>
+        </div>
       </section>
-    </div>
+
+      <section class="accident-section-card" id="accident-acciones">
+        <div class="accident-section-header">
+          <span class="accident-kicker">Acciones realizadas</span>
+          <h2>Control, pedagogía e infraestructura</h2>
+          <p>
+            Durante el periodo reportado se desarrollaron actividades de control,
+            sensibilización, vigilancia, mantenimiento vial y fortalecimiento institucional.
+          </p>
+        </div>
+
+        <div class="accident-actions-layout">
+          <article class="accident-action-card blue">
+            <div class="accident-action-icon">🚧</div>
+            <h3>Velocidades seguras</h3>
+            <p>
+              Intervención de sectores críticos e instalación de elementos físicos
+              como reductores de velocidad para mejorar la seguridad vial.
+            </p>
+            <small>Ejemplo: reductor tipo resalto portátil en Escuela Normal Superior.</small>
+          </article>
+
+          <article class="accident-action-card green">
+            <div class="accident-action-icon">🚌</div>
+            <h3>Transporte público</h3>
+            <p>
+              Controles al transporte público y verificación documental, incluyendo
+              revisión técnico-mecánica y condiciones de operación.
+            </p>
+            <small>39 controles en enero, 95 en febrero y 88 en marzo.</small>
+          </article>
+
+          <article class="accident-action-card yellow">
+            <div class="accident-action-icon">🪖</div>
+            <h3>Elementos de protección</h3>
+            <p>
+              Operativos dirigidos al cumplimiento del uso de elementos de seguridad,
+              especialmente en motociclistas.
+            </p>
+            <small>C24: 87 comparendos por no portar elementos de protección.</small>
+          </article>
+
+          <article class="accident-action-card red">
+  <div class="accident-action-icon">🛡️</div>
+  <h3>Transporte con condiciones seguras</h3>
+  <p>
+    Se realizan controles en puntos estratégicos para verificar que los vehículos
+    y conductores cumplan condiciones mínimas de seguridad vial.
+  </p>
+  <small>
+    Prioridad: uso de casco, documentación vigente, condiciones del vehículo
+    y cumplimiento de normas de tránsito.
+  </small>
+</article>
+
+          <article class="accident-action-card teal">
+            <div class="accident-action-icon">🛣️</div>
+            <h3>Mantenimiento vial</h3>
+            <p>
+              Intervenciones en vías urbanas y rurales para mejorar condiciones de
+              movilidad y reducir riesgos en la infraestructura.
+            </p>
+            <small>280 metros intervenidos y 160 km de vías rurales.</small>
+          </article>
+
+          <article class="accident-action-card purple">
+            <div class="accident-action-icon">🚦</div>
+            <h3>Optimización semafórica</h3>
+            <p>
+              Mantenimiento de la red semafórica para mejorar la movilidad y mitigar
+              riesgos de siniestros viales.
+            </p>
+            <small>Mantenimiento reportado en febrero.</small>
+          </article>
+        </div>
+
+        <section class="accident-education-panel">
+          <div>
+            <span class="accident-kicker">Educación vial</span>
+            <h3>Intervenciones pedagógicas</h3>
+            <p>
+              Las acciones pedagógicas buscan fortalecer competencias en seguridad vial,
+              sensibilizar sobre exceso de velocidad, autocuidado, normas de tránsito
+              y decisiones responsables en la movilidad.
+            </p>
+          </div>
+
+          <div class="accident-education-stats">
+            <article>
+              <strong>2461</strong>
+              <span>Estudiantes</span>
+            </article>
+
+            <article>
+              <strong>727</strong>
+              <span>Comunidad general</span>
+            </article>
+
+            <article>
+              <strong>166</strong>
+              <span>Funcionarios públicos</span>
+            </article>
+          </div>
+        </section>
+      </section>
+
+      <section class="accident-section-card" id="accident-siniestralidad">
+        <div class="accident-section-header">
+          <span class="accident-kicker">Análisis de siniestralidad</span>
+          <h2>Lesionados y fallecidos 2016-2025</h2>
+          <p>
+            Los reportes históricos permiten identificar tendencias y orientar acciones
+            preventivas. El informe registra 703 lesionados entre 2016 y 2025 y 87
+            fallecidos entre 2016 y marzo de 2025.
+          </p>
+        </div>
+
+        <div class="accident-siniestralidad-summary">
+          <article class="injured">
+            <span>Lesionados</span>
+            <strong>703</strong>
+            <small>Periodo 2016-2025</small>
+          </article>
+
+          <article class="fatal">
+            <span>Fallecidos</span>
+            <strong>87</strong>
+            <small>Periodo 2016-marzo 2025</small>
+          </article>
+        </div>
+
+        <div class="accident-chart-grid">
+          <article class="accident-chart-card">
+            <h3>Lesionados por año</h3>
+            <div class="accident-bars">
+              <div style="--value:109"><span>2016</span><strong>109</strong></div>
+              <div style="--value:69"><span>2017</span><strong>69</strong></div>
+              <div style="--value:95"><span>2018</span><strong>95</strong></div>
+              <div style="--value:89"><span>2019</span><strong>89</strong></div>
+              <div style="--value:54"><span>2020</span><strong>54</strong></div>
+              <div style="--value:47"><span>2021</span><strong>47</strong></div>
+              <div style="--value:61"><span>2022</span><strong>61</strong></div>
+              <div style="--value:41"><span>2023</span><strong>41</strong></div>
+              <div style="--value:54"><span>2024</span><strong>54</strong></div>
+              <div style="--value:84"><span>2025</span><strong>84</strong></div>
+            </div>
+          </article>
+
+          <article class="accident-chart-card">
+            <h3>Fallecidos por año</h3>
+            <div class="accident-bars fatal-bars">
+              <div style="--value:12"><span>2016</span><strong>12</strong></div>
+              <div style="--value:6"><span>2017</span><strong>6</strong></div>
+              <div style="--value:8"><span>2018</span><strong>8</strong></div>
+              <div style="--value:11"><span>2019</span><strong>11</strong></div>
+              <div style="--value:6"><span>2020</span><strong>6</strong></div>
+              <div style="--value:5"><span>2021</span><strong>5</strong></div>
+              <div style="--value:13"><span>2022</span><strong>13</strong></div>
+              <div style="--value:5"><span>2023</span><strong>5</strong></div>
+              <div style="--value:7"><span>2024</span><strong>7</strong></div>
+              <div style="--value:14"><span>2025</span><strong>14</strong></div>
+            </div>
+          </article>
+        </div>
+
+        <div class="accident-note warning">
+          <strong>Lectura ciudadana:</strong>
+          estos datos muestran la necesidad de fortalecer educación vial, control,
+          infraestructura segura, reducción de velocidades y protección de actores
+          vulnerables como peatones, motociclistas y estudiantes.
+        </div>
+      </section>
+
+      <section class="accident-section-card" id="accident-parque">
+        <div class="accident-section-header">
+          <span class="accident-kicker">Gestión del conocimiento</span>
+          <h2>Parque automotor de Ocaña</h2>
+          <p>
+            El municipio cuenta con 78.434 vehículos registrados. La distribución se
+            concentra principalmente en motocicletas, lo que orienta la prioridad de
+            las campañas y controles de seguridad vial.
+          </p>
+        </div>
+
+        <div class="accident-vehicle-layout">
+          <article class="accident-moto-card">
+            <span>Actor vial predominante</span>
+            <strong>66.461</strong>
+            <h3>Motocicletas</h3>
+            <p>
+              Representan el 84,73% del parque automotor registrado en Ocaña.
+            </p>
+          </article>
+
+          <div class="accident-vehicle-list">
+            <article>
+              <strong>Automóviles</strong>
+              <span>5.146</span>
+              <small>6,56%</small>
+            </article>
+
+            <article>
+              <strong>Camionetas</strong>
+              <span>3.229</span>
+              <small>4,12%</small>
+            </article>
+
+            <article>
+              <strong>Camperos</strong>
+              <span>1.332</span>
+              <small>1,70%</small>
+            </article>
+
+            <article>
+              <strong>Camiones</strong>
+              <span>1.016</span>
+              <small>1,30%</small>
+            </article>
+
+            <article>
+              <strong>Motocarros</strong>
+              <span>627</span>
+              <small>0,80%</small>
+            </article>
+
+            <article>
+              <strong>Otros vehículos</strong>
+              <span>623</span>
+              <small>Menor participación</small>
+            </article>
+          </div>
+        </div>
+
+        <div class="accident-note">
+          <strong>Dato clave:</strong>
+          la alta participación de motocicletas exige acciones permanentes de pedagogía,
+          control de elementos de protección, revisión documental, velocidad segura y
+          autocuidado.
+        </div>
+      </section>
+
+      <section class="accident-section-card" id="accident-ciudadania">
+        <div class="accident-section-header">
+          <span class="accident-kicker">Recomendaciones</span>
+          <h2>¿Cómo puede aportar la ciudadanía?</h2>
+          <p>
+            La seguridad vial requiere corresponsabilidad. Cada actor vial puede aportar
+            desde sus decisiones cotidianas en la vía.
+          </p>
+        </div>
+
+        <div class="accident-citizen-grid">
+          <article>
+            <span>🪖</span>
+            <h3>Usar elementos de protección</h3>
+            <p>Casco certificado, chaleco, luces y elementos visibles reducen la gravedad de los siniestros.</p>
+          </article>
+
+          <article>
+            <span>🚦</span>
+            <h3>Respetar normas de tránsito</h3>
+            <p>No estacionar en sitios prohibidos, respetar semáforos, señales y cruces peatonales.</p>
+          </article>
+
+          <article>
+            <span>🚶</span>
+            <h3>Cuidar al peatón</h3>
+            <p>Mantener despejado el espacio público peatonal y conducir con precaución en zonas de alta circulación.</p>
+          </article>
+
+          <article>
+  <span>🛡️</span>
+  <h3>Exigir condiciones mínimas de seguridad</h3>
+  <p>
+    Antes de movilizarse, verificar uso de casco, buen estado del vehículo,
+    documentación vigente y respeto por las normas de tránsito.
+  </p>
+</article>
+
+          <article>
+            <span>🍺</span>
+            <h3>No conducir bajo efectos del alcohol</h3>
+            <p>La conducción responsable protege la vida propia y la de otros usuarios de la vía.</p>
+          </article>
+
+          <article>
+            <span>🏫</span>
+            <h3>Educar desde casa y colegio</h3>
+            <p>La cultura vial se fortalece con formación en estudiantes, familias y comunidad.</p>
+          </article>
+        </div>
+
+        <section class="accident-final-banner">
+          <div>
+            <h2>Una movilidad más segura se construye entre todos</h2>
+            <p>
+              El control institucional, la educación vial y la responsabilidad ciudadana
+              permiten reducir siniestros, proteger vidas y mejorar la convivencia en las vías.
+            </p>
+          </div>
+
+          <div class="accident-final-tags">
+            <span>Prevención</span>
+            <span>Autocuidado</span>
+            <span>Motociclistas</span>
+            <span>Peatones</span>
+            <span>Educación vial</span>
+            <span>Control social</span>
+          </div>
+        </section>
+      </section>
+    </main>
   </div>
 </section>
 

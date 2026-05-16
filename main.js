@@ -40,8 +40,26 @@ document.addEventListener("DOMContentLoaded", function () {
       sidebarOverlay.classList.add("active");
     }
   }
+function pauseModuleVideos() {
+  document.querySelectorAll(".module-video-frame iframe").forEach((iframe) => {
+    const currentSrc = iframe.getAttribute("src");
 
+    if (!iframe.dataset.originalSrc && currentSrc) {
+      iframe.dataset.originalSrc = currentSrc;
+    }
+
+    iframe.setAttribute("src", "");
+
+    setTimeout(() => {
+      if (iframe.dataset.originalSrc) {
+        iframe.setAttribute("src", iframe.dataset.originalSrc);
+      }
+    }, 80);
+  });
+}
   function showView(viewName) {
+     pauseModuleVideos();
+
     views.forEach((view) => view.classList.remove("active"));
 
     const targetView = document.getElementById(`view-${viewName}`);
@@ -178,8 +196,87 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  if (navToggle && sidebar) {
-    navToggle.addEventListener("click", function () {
+const participacionView = document.getElementById("view-mecanismos");
+const participacionMenuLinks = document.querySelectorAll("#view-mecanismos .module-menu-item");
+
+function getParticipacionSectionFromHash(hash) {
+  const sections = {
+    "#view-mecanismos": "inicio",
+    "#participacion-inicio": "inicio",
+    "#participacion-espacios": "espacios",
+    "#participacion-rutas": "rutas",
+    "#participacion-materiales": "materiales",
+    "#participacion-procesos": "procesos",
+    "#participacion-jac": "jac",
+    "#participacion-diagnostico": "diagnostico"
+  };
+
+  return sections[hash] || "inicio";
+}
+
+function setActiveParticipacionMenu(hash) {
+  const section = getParticipacionSectionFromHash(hash);
+if (section !== "inicio") {
+  pauseModuleVideos();
+}
+  if (participacionView) {
+    participacionView.dataset.participacionSection = section;
+  }
+
+  participacionMenuLinks.forEach((link) => {
+    const linkSection = getParticipacionSectionFromHash(link.getAttribute("href"));
+    link.classList.toggle("active", linkSection === section);
+  });
+}
+
+participacionMenuLinks.forEach((link) => {
+  link.addEventListener("click", function () {
+    const hash = this.getAttribute("href");
+    setActiveParticipacionMenu(hash);
+  });
+});
+
+window.addEventListener("hashchange", () => {
+  setActiveParticipacionMenu(window.location.hash);
+});
+
+setActiveParticipacionMenu(window.location.hash || "#view-mecanismos");
+
+document.querySelectorAll("#view-pomca [data-subview-target]").forEach((button) => {
+  button.addEventListener("click", function () {
+    const target = this.dataset.subviewTarget;
+
+    if (target !== "inicio") {
+      pauseModuleVideos();
+    }
+
+    // Ocultar todas las subvistas
+    document.querySelectorAll("#view-pomca .pomca-subview").forEach((sv) => {
+      sv.hidden = true;
+      sv.classList.remove("active");
+    });
+
+    // Mostrar la subvista seleccionada
+    const targetSection = document.getElementById(`pomca-subview-${target}`);
+    if (targetSection) {
+      targetSection.hidden = false;
+      targetSection.classList.add("active");
+    }
+
+    // Actualizar botón activo del menú
+    document.querySelectorAll("#view-pomca .pomca-menu-item").forEach((btn) => {
+      btn.classList.remove("active");
+    });
+    this.classList.add("active");
+
+    if (target === "cartografia" && pomcaMap) {
+      setTimeout(() => pomcaMap.invalidateSize(true), 300);
+    }
+  });
+});
+if (navToggle && sidebar) {
+  navToggle.addEventListener("click", function () {
+  
       const isCollapsed = sidebar.classList.contains("collapsed");
       if (isCollapsed) {
         openSidebar();
@@ -323,12 +420,70 @@ document.addEventListener("DOMContentLoaded", function () {
       info: `<h4>Usos del suelo</h4><p><strong>¿Qué significa?</strong> El uso del suelo indica la actividad principal permitida o predominante en cada zona del municipio (por ejemplo: residencial, comercial, institucional o protección).</p><p><strong>¿Cómo leer esta capa?</strong> Cada color corresponde a un tipo de uso y su nombre aparece en la leyenda. Puedes comparar sectores para identificar dónde se concentra cada uso.</p><p><strong>¿Para qué sirve?</strong> Permite entender qué actividades son compatibles con cada área, apoyar trámites y orientar decisiones de planificación urbana y convivencia territorial.</p>`
     }
   };
-  const pomcaLayersConfig = {
-    pomca_protegidas: { label: "Áreas protegidas", url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/pomca/Areas_Protegidas.json", kind: "pomca" },
-    pomca_forestales: { label: "Áreas forestales protectoras", url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/pomca/%C3%81reas_Forestales_Protectoras.json", kind: "pomca" },
-    pomca_ecosistemicas: { label: "Áreas de especial importancia ecosistémica", url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/pomca/Areas_Especial_Importancia_E.json", kind: "pomca" }
-  };
+const pomcaLayersConfig = {
+  pomca_protegidas: {
+    label: "Áreas protegidas",
+    url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/pomca/Areas_Protegidas.json",
+    kind: "pomca",
+    preferredFields: ["NOMBRE", "nombre", "Nombre", "categoria", "Categoria", "tipo", "Tipo"],
+    info: `
+      <h4>Áreas protegidas</h4>
+      <p>
+        Representan zonas ambientales con algún nivel de protección, restricción o manejo
+        especial dentro del territorio de la cuenca del Río Algodonal.
+      </p>
+      <div class="pomca-map-tip">
+        <strong>¿Cómo interpretarlo?</strong>
+        <p>
+          Estas áreas ayudan a identificar sectores donde la conservación ambiental debe
+          orientar las decisiones de uso del suelo, restauración y control de actividades.
+        </p>
+      </div>
+    `
+  },
 
+  pomca_forestales: {
+    label: "Áreas forestales protectoras",
+    url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/pomca/%C3%81reas_Forestales_Protectoras.json",
+    kind: "pomca",
+    preferredFields: ["NOMBRE", "nombre", "Nombre", "categoria", "Categoria", "tipo", "Tipo"],
+    info: `
+      <h4>Áreas forestales protectoras</h4>
+      <p>
+        Son áreas clave para conservar cobertura vegetal, proteger nacimientos de agua,
+        estabilizar suelos y mantener la regulación hídrica de la cuenca.
+      </p>
+      <div class="pomca-map-tip">
+        <strong>Importancia ambiental</strong>
+        <p>
+          La protección de estas áreas contribuye a reducir erosión, conservar biodiversidad
+          y mejorar la disponibilidad de agua en época seca.
+        </p>
+      </div>
+    `
+  },
+
+  pomca_ecosistemicas: {
+    label: "Áreas de especial importancia ecosistémica",
+    url: "https://raw.githubusercontent.com/estebanyxy3-beep/geovisor-ocana/main/data/pomca/Areas_Especial_Importancia_E.json",
+    kind: "pomca",
+    preferredFields: ["NOMBRE", "nombre", "Nombre", "categoria", "Categoria", "tipo", "Tipo"],
+    info: `
+      <h4>Áreas de especial importancia ecosistémica</h4>
+      <p>
+        Corresponden a ecosistemas estratégicos para la biodiversidad, la conectividad
+        ambiental, la recarga hídrica y la protección de servicios ecosistémicos.
+      </p>
+      <div class="pomca-map-tip">
+        <strong>Lectura recomendada</strong>
+        <p>
+          Revisa estas zonas junto con la red hídrica, los bosques y las áreas de amenaza
+          para entender mejor la estructura ambiental de la cuenca.
+        </p>
+      </div>
+    `
+  }
+};
   function getClassificationField(features, preferredFields = []) {
     if (!features || !features.length) return null;
     const defaultFields = ["uso", "Uso", "USO", "uso_suelo", "Uso_Suelo", "USO_SUELO", "categoria", "Categoria", "CATEGORIA", "clase", "Clase", "CLASE", "comuna", "Comuna", "COMUNA", "nombre", "Nombre", "NOMBRE", "tipo", "Tipo", "TIPO", "amenaza", "Amenaza", "AMENAZA", "riesgo", "Riesgo", "RIESGO", "nivel", "Nivel", "NIVEL"];
@@ -1189,18 +1344,78 @@ if (clearPot) clearPot.addEventListener("click", () => {
     });
 
     const pomcaMapElement = document.getElementById("pomcaMap");
-    if (pomcaMapElement && window.L) {
-      pomcaMap = L.map("pomcaMap", { preferCanvas: true }).setView(ocanaCoords, 12);
-      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 19, attribution: "&copy; OpenStreetMap contributors" }).addTo(pomcaMap);
-      document.querySelectorAll('input[name="pomcaLayer"]').forEach((radio) => {
-        radio.addEventListener("change", (e) => loadGenericLayer(pomcaMap, e.target.value, pomcaLayersConfig, "currentPomcaLayer", document.getElementById("pomcaLegendContent"), document.getElementById("pomcaInfoContent")));
-      });
-      const clearPomca = document.getElementById("clearPomcaLayer");
-      if (clearPomca) clearPomca.addEventListener("click", () => {
-        if (currentPomcaLayer && pomcaMap.hasLayer(currentPomcaLayer)) pomcaMap.removeLayer(currentPomcaLayer);
-      });
-    }
+if (pomcaMapElement && window.L) {
+  pomcaMap = L.map("pomcaMap", { preferCanvas: true }).setView(ocanaCoords, 12);
 
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    maxZoom: 19,
+    attribution: "&copy; OpenStreetMap contributors"
+  }).addTo(pomcaMap);
+
+  const refreshPomcaMapSize = () => {
+    if (!pomcaMap) return;
+
+    setTimeout(() => pomcaMap.invalidateSize(true), 100);
+    setTimeout(() => pomcaMap.invalidateSize(true), 350);
+    setTimeout(() => pomcaMap.invalidateSize(true), 700);
+  };
+
+  document.querySelectorAll('input[name="pomcaLayer"]').forEach((radio) => {
+    radio.addEventListener("change", (e) => {
+      loadGenericLayer(
+        pomcaMap,
+        e.target.value,
+        pomcaLayersConfig,
+        "currentPomcaLayer",
+        document.getElementById("pomcaLegendContent"),
+        document.getElementById("pomcaInfoContent")
+      );
+
+      refreshPomcaMapSize();
+    });
+  });
+
+  const clearPomca = document.getElementById("clearPomcaLayer");
+  if (clearPomca) {
+    clearPomca.addEventListener("click", () => {
+      const activePomcaLayer = window.currentPomcaLayer || currentPomcaLayer;
+
+      if (activePomcaLayer && pomcaMap.hasLayer(activePomcaLayer)) {
+        pomcaMap.removeLayer(activePomcaLayer);
+      }
+
+      window.currentPomcaLayer = null;
+      currentPomcaLayer = null;
+
+      document.querySelectorAll('input[name="pomcaLayer"]').forEach((radio) => {
+        radio.checked = false;
+      });
+
+      const pomcaLegendContent = document.getElementById("pomcaLegendContent");
+      if (pomcaLegendContent) {
+        pomcaLegendContent.innerHTML = "<p>Selecciona una capa para ver su leyenda.</p>";
+      }
+
+      const pomcaInfoContent = document.getElementById("pomcaInfoContent");
+      if (pomcaInfoContent) {
+        pomcaInfoContent.innerHTML = `
+          <p>
+            Selecciona una capa del POMCA para ver su descripción, utilidad e interpretación
+            ambiental.
+          </p>
+        `;
+      }
+
+      refreshPomcaMapSize();
+    });
+  }
+
+  document.querySelectorAll('[data-subview-target="cartografia"]').forEach((button) => {
+    button.addEventListener("click", refreshPomcaMapSize);
+  });
+
+  refreshPomcaMapSize();
+}
     const accidentMapElement = document.getElementById("accidentMap");
     if (accidentMapElement && window.L) {
       accidentMap = L.map("accidentMap", { preferCanvas: true, zoomControl: true }).setView(ocanaCoords, 13);

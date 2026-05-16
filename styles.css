@@ -7463,3 +7463,16 @@ body {
     radial-gradient(circle at bottom right, rgba(23, 74, 139, 0.12), transparent 30%),
     #ffffff;
 }
+/* ─────────────────────────────────────────────
+   Accidentalidad - Mostrar video solo en Inicio
+───────────────────────────────────────────── */
+
+/* Oculta el video por defecto dentro del módulo */
+#view-accidentabilidad .accident-video-card {
+  display: none !important;
+}
+
+/* Solo lo muestra cuando el inicio de accidentalidad está visible */
+#view-accidentabilidad #accident-inicio:not([hidden]) ~ .accident-video-card {
+  display: grid !important;
+}
